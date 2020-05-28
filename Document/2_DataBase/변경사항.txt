@@ -1,0 +1,19 @@
+--------------------------------------------------
+data예상도 -> data예상도2
+1. buycartlist, rentcartlist 추가
+2. person_id를 제외한 id값들 varchar2 -> number
+3. 이름 늘림
+4. varchar2(40) -> varchar2(30), number(40) -> number(30)
+	ㄴ number 범위가 0-38 사이 넘어가면 에러 발생해서 다 30으로 줄여서 만듬
+	ㄴ 리뷰 작성 content부분은 varchar2(40) -> varchar2(2048)
+--------------------------------------------------
+data예상도2 -> data예상도3
+1. 컬럼 삭제 : bookrent -> bookrent_state
+2. 컬럼 변경 : buycartlist -> (booksale_id -> book_id) 
+3. 컬럼 변경: rentcartlist -> (bookrent_id -> book_id)
+4. 다른 테이블로 컬럼 이동 : (booksale -> booksale_price) -> (book -> book_saleprice) 
+5. 다른 테이블로 컬럼 이동 : (bookrent -> bookrent_price) -> (book -> book_rentprice)
+6. 컬럼 삭제(참조 관게 사라짐) : buyreview -> buy_id 
+7. 컬럼 삭제(참조 관게 사라짐) : rentreview -> rent_id
+8. 컬럼 추가(참조 관계 생김) : buyreview -> book_id
+9. 컬럼 추가(참조 관계 생김) : rentreview -> book_id
