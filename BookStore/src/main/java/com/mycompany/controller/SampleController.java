@@ -1,4 +1,5 @@
-package com.mycompany.myapp;
+/*
+package com.mycompany.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -11,17 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
+
+	//Handles requests for the application home page.
+ 
 @Controller
-public class HomeController {
+public class SampleController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	
+	//Simply selects the home view to render by returning its name.
+	 
 	@RequestMapping(value = "/start.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -32,9 +33,12 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		
-		return "blog";
+
+		return "/sample_directory/blog";
+//		return "/sample_directory/home";
+//		return "blog";
 //		return "home";
 	}
 	
 }
+*/

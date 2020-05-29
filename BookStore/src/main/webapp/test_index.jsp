@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="start.do">start.jsp 호출</a>
+<a href="test.do">start.jsp 호출</a>
 </body>
 </html>
