@@ -276,13 +276,7 @@ select SUM(BOOK_SALEPRICE) from book where book_id in ( select book_id from buyc
 select SUM(BOOK_SALEPRICE) from book where book_id in ( select book_id from buycartlist WHERE customer_id='aaa' );
 select book_id from buycartlist WHERE customer_id='aaa';
 
-SELECT b.BOOK_ID AS BOOK_ID, b.BOOK_PRICE AS BOOK_PRICE, 
-      b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY, 
-      b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE, b.BOOK_CNT AS BOOK_CNT, b.BOOK_SCORE AS BOOK_SCORE,
-      w.WRITER_ID AS WRITER_ID, w.WRITER_NAME AS WRITER_NAME
-      FROM BOOK b JOIN WRITER w 
-      ON b.WRITER_ID = w.WRITER_ID
-      WHERE BOOK_ID = '5';
+
 ------------------------------3.DB 초기화 ------------------------------
 ----- 테이블1 및 관련 시퀀스 삭제 -----
 DROP TABLE CUSTOMER;
