@@ -1,4 +1,4 @@
---------------------------------------------------
+﻿--------------------------------------------------
 data예상도 -> data예상도2
 1. buycartlist, rentcartlist 추가
 2. person_id를 제외한 id값들 varchar2 -> number
@@ -17,3 +17,7 @@ data예상도2 -> data예상도3
 7. 컬럼 삭제(참조 관게 사라짐) : rentreview -> rent_id
 8. 컬럼 추가(참조 관계 생김) : buyreview -> book_id
 9. 컬럼 추가(참조 관계 생김) : rentreview -> book_id
+--------------------------------------------------
+data예상도3 -> data예상도4
+1. 대여 관련 테이블 5개 삭제
+2. bookstore.sql -> bookstore2.sql

@@ -3,5 +3,7 @@ package com.mycompany.service;
 import com.mycompany.domain.CustomerVO;
 
 public interface CustomerService {
-	CustomerVO selectCustomer(CustomerVO vo);
+	public CustomerVO selectCustomer(CustomerVO vo);
+	public int getCartListNumber(String customerId);
+	public int getCartListTotalPrice(String customerId);
 }

@@ -16,4 +16,14 @@ public class CustomerDAOImpl implements CustomerDAO{
 		CustomerVO result = mybatis.selectOne("CustomerDAO.selectCustomer", vo);
 		return result;
 	}
+
+	@Override
+	public int getCartListNumber(String customerId) {
+		return mybatis.selectOne("CustomerDAO.getCartListNumber", customerId);
+	}
+
+	@Override
+	public int getCartListTotalPrice(String customerId) {
+		return mybatis.selectOne("CustomerDAO.getCartListTotalPrice", customerId);
+	}
 }

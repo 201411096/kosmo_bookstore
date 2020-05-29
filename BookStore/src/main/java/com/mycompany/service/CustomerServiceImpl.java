@@ -14,5 +14,13 @@ public class CustomerServiceImpl implements CustomerService{
 	public CustomerVO selectCustomer(CustomerVO vo) {
 		return customerDAO.selectCustomer(vo);
 	}
+	@Override
+	public int getCartListNumber(String customerId) {
+		return customerDAO.getCartListNumber(customerId);
+	}
+	@Override
+	public int getCartListTotalPrice(String customerId) {
+		return customerDAO.getCartListTotalPrice(customerId);
+	}
 
 }

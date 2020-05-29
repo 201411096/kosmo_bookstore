@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-로그인 확인 화면입니다.
-${sessionScope.customer.customerName}님 환영합니다.
 
+로그아웃 확인 화면입니다.
 </body>
 </html>
