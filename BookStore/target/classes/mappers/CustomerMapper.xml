@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CustomerDAO">
+	<!-- mybatis 자료형 : int / hashmap / string -->
+	<select id="selectCustomer" resultType="customer" parameterType="customer">
+		select * from CUSTOMER where CUSTOMER_ID = #{customerId} 
+		<if test="customerPassword!=null">
+			and customer_password = #{customerPassword}
+		</if>
+	</select>
+</mapper>

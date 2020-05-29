@@ -355,7 +355,8 @@ MAXVALUE 10000
 CYCLE;
 
 ------------------------------2.데이터 입력 ------------------------------
-
+--------------------2_1.CUSTOMER TABLE--------------------
+INSERT INTO CUSTOMER(CUSTOMER_ID, CUSTOMER_PASSWORD, CUSTOMER_NAME, CUSTOMER_TEL, CUSTOMER_POINT, CUSTOMER_FLAG) VALUES('aaa', '1234', 'aaaname', '010-1111-2222', 0, 1);
 
 
 
