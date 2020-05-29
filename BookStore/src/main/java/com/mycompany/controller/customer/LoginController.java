@@ -25,9 +25,11 @@ public class LoginController {
 	CustomerServiceImpl customerService;
 	
 	@RequestMapping("/moveToLogin.do")
-	public ModelAndView moveToLogin() {
+	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/login");
+		if(session.getAttribute("customer")!=null)
+			mv.setViewName("/test_already_login_check");
 		return mv;
 	}
 	

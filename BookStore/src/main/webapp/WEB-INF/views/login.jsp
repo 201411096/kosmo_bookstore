@@ -31,9 +31,11 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
+    
+    <!-- Header Section Begin -->
 	<jsp:include page="/header.do"></jsp:include>
-
+    <!-- Header End -->
+    
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">

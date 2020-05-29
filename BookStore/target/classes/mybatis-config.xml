@@ -4,15 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<settings>
-		<!-- 언더바(snakeCase)를 낙타표기법(camelCase)으로 변경 -->
-		<setting name="mapUnderscoreToCamelCase" value="true"></setting>
-	</settings>
-	<!-- Alias 설정 -->
-	<typeAliases>
-		<typeAlias alias="customer" type="com.mycompany.domain.CustomerVO" ></typeAlias>
-	</typeAliases>
+   <settings>
+      <!-- 언더바(snakeCase)를 낙타표기법(camelCase)으로 변경 -->
+      <setting name="mapUnderscoreToCamelCase" value="true"></setting>
+   </settings>
+   <!-- Alias 설정 -->
+   <typeAliases>
+      <typeAlias alias="book" type="com.mycompany.domain.BookVO" ></typeAlias>
+      <typeAlias alias="customer" type="com.mycompany.domain.CustomerVO" ></typeAlias>
+   </typeAliases>
 
 
 </configuration>
-

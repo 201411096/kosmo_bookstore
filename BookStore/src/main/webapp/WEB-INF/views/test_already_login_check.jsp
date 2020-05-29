@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="index.do">index.jsp 호출</a>
-<a href="productView.do">구매 대상.jsp 호출</a>
+이미 로그인 되어 있습니다.
+
 </body>
 </html>
