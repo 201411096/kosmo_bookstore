@@ -27,4 +27,10 @@ public class MainController {
 		return mv;
 	}
 	
+	@RequestMapping("/footer.do")
+	public ModelAndView loadFooter() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/footer");
+		return mv;
+	}
 }
