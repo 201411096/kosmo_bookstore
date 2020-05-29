@@ -28,8 +28,8 @@ public class LoginController {
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/login");
-		if(session.getAttribute("customer")!=null)
-			mv.setViewName("/test_already_login_check");
+//		if(session.getAttribute("customer")!=null)
+//			mv.setViewName("blog");
 		return mv;
 	}
 	
@@ -46,13 +46,14 @@ public class LoginController {
 			System.out.println("LoginController에서 확인 ==> 회원정보가 존재하지 않습니다.");
 		else {
 			System.out.println("LoginController에서 확인 ==> 로그인에 성공했습니다.");
-			session.setAttribute("customer", result);
+			
 			//장바구니 개수를 가져와서 세팅			
 			int cartListNumber = customerService.getCartListNumber(result.getCustomerId());
 			session.setAttribute("cartListNumber", cartListNumber);
 			//장바구니 안 물품의 가격 합을 가져와서 세팅
 			int cartListTotalPrice = customerService.getCartListTotalPrice(result.getCustomerId());
 			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
+			session.setAttribute("customer", result);
 		}
 		
 		return mv;

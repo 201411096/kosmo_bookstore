@@ -94,7 +94,7 @@
                         <div class="col-lg-8">
                             <div class="product-details">
                                 <div class="pd-title">
-                                    <h3>${info.bookName }</h3>
+                                    <h3>${info.bookName }</h3><hr/>
                                  <h6>${info.writerName } 지음 | ${info.bookPdate } 출간</h6>
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
@@ -108,43 +108,8 @@
                                 </div>
                                 <div class="pd-desc">
                                      <p>${info.bookStory }</p>
-                                    <h4> ${info.bookSaleprice }원 <span>${priceBeforeDiscount }원</span></h4>
-                                </div>
-                                <div class="pd-color">
-                                    <h6>Color</h6>
-                                    <div class="pd-color-choose">
-                                        <div class="cc-item">
-                                            <input type="radio" id="cc-black">
-                                            <label for="cc-black"></label>
-                                        </div>
-                                        <div class="cc-item">
-                                            <input type="radio" id="cc-yellow">
-                                            <label for="cc-yellow" class="cc-yellow"></label>
-                                        </div>
-                                        <div class="cc-item">
-                                            <input type="radio" id="cc-violet">
-                                            <label for="cc-violet" class="cc-violet"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pd-size-choose">
-                                    <div class="sc-item">
-                                        <input type="radio" id="sm-size">
-                                        <label for="sm-size">s</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="md-size">
-                                        <label for="md-size">m</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="lg-size">
-                                        <label for="lg-size">l</label>
-                                    </div>
-                                    <div class="sc-item">
-                                        <input type="radio" id="xl-size">
-                                        <label for="xl-size">xs</label>
-                                    </div>
-                                </div>
+                                    <h4> ${info.bookSaleprice }원 <span>${priceBeforeDiscount }원</span></h4><hr/>
+                                </div>                              
                                 <div class="quantity">
                                     <div class="pro-qty">
                                         <input type="text" value="1">
