@@ -102,10 +102,12 @@
 														<td class="si-pic"><img src="img/select-product-1.jpg"
 															alt=""></td>
 														<td class="si-text">
+														
 															<div class="product-selected">
 																<p>${book.bookPrice} x ${book.bookCnt}</p>
-																<h6>${book.bookName}</h6>
+																<h6><a href="/BookStore/productView.do?bookId=${book.bookId}">${book.bookName}</a></h6>
 															</div>
+														
 														</td>
 														<td class="si-close"><i class="ti-close"></i></td>
 													</tr>

@@ -10,17 +10,19 @@ import com.mycompany.service.BookServiceImpl;
 
 @Controller
 public class ProductController {
-   
-   @Autowired
-   BookServiceImpl BookService;
-   @RequestMapping("/productView.do")
-   public ModelAndView product(BookVO vo) {
-      vo.setBookId(5);
-      ModelAndView mv = new ModelAndView();
-      BookVO info = BookService.selectBook(vo);
-      mv.addObject("priceBeforeDiscount", info.getBookSaleprice()+3000);
-      mv.addObject("info", info);
-      mv.setViewName("/productView");
-      return mv;
-   }
+
+	@Autowired
+	BookServiceImpl BookService;
+
+	@RequestMapping("/productView.do")
+	public ModelAndView product(BookVO vo) {
+		//제품번호 세팅
+		//vo.setBookId(3);
+		ModelAndView mv = new ModelAndView();
+		BookVO info = BookService.selectBook(vo);
+		mv.addObject("priceBeforeDiscount", info.getBookSaleprice() + 3000);
+		mv.addObject("info", info);
+		mv.setViewName("/productView");
+		return mv;
+	}
 }
