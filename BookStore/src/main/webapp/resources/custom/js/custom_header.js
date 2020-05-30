@@ -13,7 +13,16 @@ function listSearchKeyUpEvent() {
 		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
 		data : {"searchWord" : $('#listSearch').val()},
 		success : function(resultData){
+			var list = new Array();
+			list = resultData.searchResult;
+			console.log(list[0].bookName);
+			var check = resultData.checkAjax;
+			console.log(check);
 			$('#searchList').empty(); //resultBox?를 초기화하고 새로 구성
-		}
+		},
+	   error:function(request,status,error){
+		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	   }
+
 	});
 }

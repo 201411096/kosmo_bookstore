@@ -32,16 +32,15 @@ public class ProductController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/searchList.do", produces="application/text; charset=utf-8")
+	@RequestMapping(value="/searchList.do", produces="application/json; charset=utf-8")
 	@ResponseBody
-	public List<BookVO> searchList(@RequestParam(value="searchWord") String searchWord){
-		System.out.println("productController의 searchList()에서 searchWord 확인 ==>" + searchWord);
-		
+	public Map searchList(@RequestParam(value="searchWord") String searchWord){		
 		Map<String, String> search = new HashMap<String, String>();
 		search.put("searchWord", searchWord);
-		List<BookVO> list = BookService.searchListBook(search);
-		
-		System.out.println("productController의 searchList()에서 list 사이즈 확인 ==>" + list.size());
-		return list;
+		List<BookVO> searchList = BookService.searchListBook(search);
+		Map<String, Object> searchResult = new HashMap<String, Object>();
+		searchResult.put("checkAjax", "checkAjax11");
+		searchResult.put("searchResult", searchList);
+		return searchResult;
 	}
 }
