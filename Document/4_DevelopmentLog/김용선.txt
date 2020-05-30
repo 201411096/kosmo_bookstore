@@ -9,6 +9,7 @@
 https://mdbootstrap.com/docs/jquery/forms/search/
 https://codepen.io/FunkeM/pen/NBEjJg
 https://colorlib.com/etc/searchf/colorlib-search-23/
+https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
 
 --------------------------------------------------------
 200529_금요일

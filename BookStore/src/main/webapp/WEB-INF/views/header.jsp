@@ -77,9 +77,9 @@
 					<!--search section start -->
 					<form class="col-lg-7 col-md-7">
 					<div>
-					  <input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
+						<input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
 					  <br>
-					  <ul class="list-group" id="myList">
+					  <ul class="list-group" id="searchList">
 					    <li class="list-group-item">First item</li>
 					    <li class="list-group-item">Second item</li>
 					    <li class="list-group-item">Third item</li>
@@ -112,28 +112,6 @@
 														<td class="si-close"><i class="ti-close"></i></td>
 													</tr>
 												</c:forEach>
-												<tr>
-													<td class="si-pic"><img src="img/select-product-1.jpg"
-														alt=""></td>
-													<td class="si-text">
-														<div class="product-selected">
-															<p>$60.00 x 1</p>
-															<h6>Kabino Bedside Table</h6>
-														</div>
-													</td>
-													<td class="si-close"><i class="ti-close"></i></td>
-												</tr>
-												<tr>
-													<td class="si-pic"><img src="img/select-product-2.jpg"
-														alt=""></td>
-													<td class="si-text">
-														<div class="product-selected">
-															<p>$60.00 x 1</p>
-															<h6>Kabino Bedside Table</h6>
-														</div>
-													</td>
-													<td class="si-close"><i class="ti-close"></i></td>
-												</tr>
 											</tbody>
 										</table>
 									</div>
