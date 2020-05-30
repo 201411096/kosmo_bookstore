@@ -9,7 +9,7 @@ function listSearchKeyUpEvent() {
 	$.ajax({
 		type:'post', // get을 하나 post를 하나 url에 보이진 않음, 용량이 많으면 post
 		async:true, // default : true
-		url: '',
+		url: 'searchList.do',
 		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
 		data : {"searchWord" : $('#listSearch').val()},
 		success : function(resultData){
