@@ -1,4 +1,4 @@
-package com.mycompany.controller.book;
+package com.mycompany.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

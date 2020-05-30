@@ -1,5 +1,5 @@
 
-package com.mycompany.controller.customer;
+package com.mycompany.controller;
 
 import javax.servlet.http.HttpSession;
 
