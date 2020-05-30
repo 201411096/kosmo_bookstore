@@ -18,9 +18,9 @@ import com.mycompany.service.CustomerServiceImpl;
 	//Handles requests for the application home page.
  
 @Controller
-public class LoginController {
+public class CustomerController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	@Autowired
 	CustomerServiceImpl customerService;
 	
@@ -28,8 +28,9 @@ public class LoginController {
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/login");
-//		if(session.getAttribute("customer")!=null)
-//			mv.setViewName("blog");
+		System.out.println("LoginController moveToLogin에서 확인 ==>" + session.getAttribute("cartListNumber"));
+		System.out.println("LoginController moveToLogin에서 확인 ==>" + session.getAttribute("cartListTotalPrice"));
+		System.out.println("LoginController moveToLogin에서 확인 ==>" + session.getAttribute("customer"));
 		return mv;
 	}
 	
