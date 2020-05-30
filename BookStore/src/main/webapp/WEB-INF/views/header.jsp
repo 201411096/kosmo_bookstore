@@ -80,6 +80,19 @@
 									<div class="select-items">
 										<table>
 											<tbody>
+												<c:forEach var="book" items="${sessionScope.cartList}">
+													<tr>
+														<td class="si-pic"><img src="img/select-product-1.jpg"
+															alt=""></td>
+														<td class="si-text">
+															<div class="product-selected">
+																<p>${book.bookPrice} x ${book.bookCnt}</p>
+																<h6>${book.bookName}</h6>
+															</div>
+														</td>
+														<td class="si-close"><i class="ti-close"></i></td>
+													</tr>
+												</c:forEach>
 												<tr>
 													<td class="si-pic"><img src="img/select-product-1.jpg"
 														alt=""></td>

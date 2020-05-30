@@ -1,9 +1,12 @@
 package com.mycompany.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.dao.CustomerDAOImpl;
+import com.mycompany.domain.BookCartVO;
 import com.mycompany.domain.CustomerVO;
 
 @Service("customerService")
@@ -22,5 +25,8 @@ public class CustomerServiceImpl implements CustomerService{
 	public int getCartListTotalPrice(String customerId) {
 		return customerDAO.getCartListTotalPrice(customerId);
 	}
-
+	@Override
+	public List<BookCartVO> getCartList(String customerId) {
+		return customerDAO.getCartList(customerId);
+	}
 }

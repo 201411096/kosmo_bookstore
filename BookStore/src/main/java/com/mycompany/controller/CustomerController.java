@@ -1,16 +1,19 @@
 
 package com.mycompany.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mycompany.domain.BookCartVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.CustomerServiceImpl;
 
@@ -54,6 +57,9 @@ public class CustomerController {
 			//장바구니 안 물품의 가격 합을 가져와서 세팅
 			int cartListTotalPrice = customerService.getCartListTotalPrice(result.getCustomerId());
 			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
+			//장바구니 목록을 가져옴
+			List<BookCartVO> cartList = customerService.getCartList(result.getCustomerId());
+			session.setAttribute("cartList", cartList);			
 			session.setAttribute("customer", result);
 		}
 		
