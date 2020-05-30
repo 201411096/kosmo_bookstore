@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="resources/css/slicknav.min.css"
 	type="text/css">
 <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="resources/custom/css/custom_header.css" type="text/css">
 </head>
 <body>
 	<!-- Header Section Begin -->
@@ -62,15 +63,31 @@
 							</a>
 						</div>
 					</div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
-                            <form action="#" class="input-group">
-                                <input type="text" placeholder="What do you need?">
-                                <button type="button"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
+					<!--search section start -->
+<!--                     <div class="col-lg-7 col-md-7"> -->
+<!--                         <div class="advanced-search"> -->
+<!--                             <button type="button" class="category-btn">All Categories</button> -->
+<!--                             <form action="#" class="input-group"> -->
+<!--                                 <input type="text" placeholder="What do you need?"> -->
+<!--                                 <button type="button"><i class="ti-search"></i></button> -->
+<!--                             </form> -->
+<!--                         </div> -->
+<!--                     </div> -->
+					<!--search section end -->
+					<!--search section start -->
+					<form class="col-lg-7 col-md-7">
+					<div>
+					  <input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
+					  <br>
+					  <ul class="list-group" id="myList">
+					    <li class="list-group-item">First item</li>
+					    <li class="list-group-item">Second item</li>
+					    <li class="list-group-item">Third item</li>
+					    <li class="list-group-item">Fourth item</li>
+					  </ul>
+					</div>
+					</form>
+					<!--search section end -->
 					<div class="col-lg-3 text-right col-md-3">
 						<ul class="nav-right">
 							<li class="cart-icon"><a href="#"> <i
@@ -188,5 +205,6 @@
 	<script src="resources/js/jquery.slicknav.js"></script>
 	<script src="resources/js/owl.carousel.min.js"></script>
 	<script src="resources/js/main.js"></script>
+	<script src="resources/custom/js/custom_header.js"></script>
 </body>
 </html>

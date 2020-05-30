@@ -10,7 +10,8 @@
 <a href="/BookStore/test.do">start.jsp 호출</a>
 <a href="/BookStore/header.do">header.jsp 호출</a>
 <a href="/BookStore/moveToLogin.do">로그인 페이지 호출</a>
-
+<a href="/BookStore/register.do">회원가입 페이지 호출</a>
+<a href="/BookStore/registerCon.do">회원가입 페이지 완료 호출</a>
 
 <a href="login.do">로그인.do확인</a>
 </body>
