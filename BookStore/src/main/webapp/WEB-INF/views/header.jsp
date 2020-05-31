@@ -80,10 +80,7 @@
 						<input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
 					  <br>
 					  <ul class="list-group" id="searchList">
-					    <li class="list-group-item">First item</li>
-					    <li class="list-group-item">Second item</li>
-					    <li class="list-group-item">Third item</li>
-					    <li class="list-group-item">Fourth item</li>
+<!-- 					  	검색 결과를 이곳에 채움 -->
 					  </ul>
 					</div>
 					</form>
