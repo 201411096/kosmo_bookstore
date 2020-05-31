@@ -63,7 +63,7 @@
 							</a>
 						</div>
 					</div>
-					<!--search section start -->
+					<!-- -------------------- search section start 검색 부분 시작 -------------------- -->
 					<form class="col-lg-7 col-md-7">
 					<div>
 						<input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
@@ -73,7 +73,7 @@
 					  </ul>
 					</div>
 					</form>
-					<!--search section end -->
+					<!-- -------------------- search section end 검색 부분 끝 -------------------- -->
 					<div class="col-lg-3 text-right col-md-3">
 						<ul class="nav-right">
 							<li class="cart-icon"><a href="#"> <i
