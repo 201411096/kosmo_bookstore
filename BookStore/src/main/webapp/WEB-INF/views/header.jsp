@@ -64,23 +64,12 @@
 						</div>
 					</div>
 					<!--search section start -->
-<!--                     <div class="col-lg-7 col-md-7"> -->
-<!--                         <div class="advanced-search"> -->
-<!--                             <button type="button" class="category-btn">All Categories</button> -->
-<!--                             <form action="#" class="input-group"> -->
-<!--                                 <input type="text" placeholder="What do you need?"> -->
-<!--                                 <button type="button"><i class="ti-search"></i></button> -->
-<!--                             </form> -->
-<!--                         </div> -->
-<!--                     </div> -->
-					<!--search section end -->
-					<!--search section start -->
 					<form class="col-lg-7 col-md-7">
 					<div>
 						<input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
 					  <br>
 					  <ul class="list-group" id="searchList">
-<!-- 					  	검색 결과를 이곳에 채움 -->
+						<!--검색 결과를 이곳에 채움 -->
 					  </ul>
 					</div>
 					</form>

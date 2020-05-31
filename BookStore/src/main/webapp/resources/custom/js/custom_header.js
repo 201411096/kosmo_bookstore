@@ -2,6 +2,7 @@ $(function(){
 	console.log("resources/custom/js/custom_header.js js파일 연결 확인");
 	
 	$('#listSearch').on('keyup', listSearchKeyUpEvent);
+	
 });
 
 function listSearchKeyUpEvent() {
