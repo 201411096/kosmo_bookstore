@@ -32,6 +32,12 @@ public class ProductController {
 		return mv;
 	}
 	
+	@RequestMapping("/productList.do")
+	public ModelAndView bookList(BookVO vo) {
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
+	
 	@RequestMapping(value="/searchList.do", produces="application/json; charset=utf-8")
 	@ResponseBody
 	public Map searchList(@RequestParam(value="searchWord") String searchWord){

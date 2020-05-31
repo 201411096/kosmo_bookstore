@@ -33,7 +33,8 @@ function makeSearhResultBox(list){
 	var spanSuffix = '</span>';
 	var divPrefix = '<div>';
 	var divSuffix = '</div>';
-	for(var i=0; i<list.length; i++){
+	//순서대로 5개까지만 가져옴
+	for(var i=0; i<5; i++){
 		var bookLinkPrefix = '<a href="/BookStore/productView.do?bookId='+ list[i].bookId+'">';
 		var bookLinkSuffix = '</a>'		
 		var listContent = listPrefix + 
