@@ -83,7 +83,7 @@ CREATE TABLE BOOK(
     BOOK_ID NUMBER(30),
     WRITER_ID NUMBER(30),
     BOOK_PRICE NUMBER(30),
-    BOOK_NAME VARCHAR2(30),
+    BOOK_NAME VARCHAR2(256),
     BOOK_GENRE VARCHAR2(30),
     BOOK_STORY varchar2(2048),
     BOOK_PDATE VARCHAR2(30),
@@ -259,13 +259,19 @@ select * from customer;
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '이서윤');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '정채진');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '김수현');
+INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '박근호');
 --------------------2_6.BOOK--------------------
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 2, 3000, '더 해빙', 'ECONOMIC', '부와 행운을 만나는 출발점, 마법의 감정 Having! 국내 최초로 미국에서 선(先)출간되어 세계가 먼저 찾아 읽은 『더 해빙(The Having)』.', '2020-03-01', '12000', 100, 0);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 2, 4000, '오래된 비밀', 'ECONOMIC', '대한민국 상위 1%의 멘토가 말하는 운의 원리『오래된 비밀』. 이 책은 ‘운명학은 과학이다’라는 전제를 바탕으로 운의 세계를 풀어가고, 우리의 운명을 가르는 행운과 불운의 실체가 무엇인지 들여다본다.', '2013-02-28', '14000', 100, 0);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
-VALUES(BOOK_ID_SEQ.NEXTVAL, 3, 5000, '애쓰지 않고 편안하게', 'LITERATURE', '“어떤 순간에도 만만하지 않은 평화주의자가 될 것!”《나는 나로 살기로 했다》 김수현 작가 4년 만의 신작', '2020-05-14', '16000', 100, 0);
+VALUES(BOOK_ID_SEQ.NEXTVAL, 3, 5000, '애쓰지 않고 편안하게', 'LITERATURE', '“어떤 순간에도 만만하지 않은 평화주의자가 될 것!”《나는 나로 살기로 했다》 김수현 작가 4년 만의 신작', '2020-06-05', '16000', 100, 0);
+INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
+VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다', 'LITERATURE', '베스트 셀러 《비밀편지》 저자 박근호의 첫 번째 문집《전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다》) 출간!', '2020-05-14', '13000', 100, 0);
+INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
+VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지
+감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', '17000', 100, 0);
 
 SELECT b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE, 
 b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY, 

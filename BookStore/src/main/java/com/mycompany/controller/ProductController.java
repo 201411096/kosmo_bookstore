@@ -34,7 +34,10 @@ public class ProductController {
 	
 	@RequestMapping(value="/searchList.do", produces="application/json; charset=utf-8")
 	@ResponseBody
-	public Map searchList(@RequestParam(value="searchWord") String searchWord){		
+	public Map searchList(@RequestParam(value="searchWord") String searchWord){
+		//검색어가 없다면 null값을 반환 -> 아래줄을 처리하지 않으면 모든 리스트를 다 가져오게됨
+		if(searchWord == null || searchWord.equals(""))
+			return null;
 		Map<String, String> search = new HashMap<String, String>();
 		search.put("searchWord", searchWord);
 		List<BookVO> searchList = BookService.searchListBook(search);
