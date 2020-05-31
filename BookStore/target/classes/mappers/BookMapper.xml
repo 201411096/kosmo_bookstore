@@ -22,5 +22,6 @@
 	FROM BOOK b JOIN WRITER w 
 	ON b.WRITER_ID = w.WRITER_ID
 	WHERE REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)')
+	order by book_score desc
    </select>
 </mapper>

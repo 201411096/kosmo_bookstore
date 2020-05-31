@@ -89,10 +89,11 @@ CREATE TABLE BOOK(
     BOOK_PDATE VARCHAR2(30),
     BOOK_SALEPRICE NUMBER(30),
     BOOK_CNT NUMBER(30),
-    BOOK_SCORE NUMBER(30),
+    BOOK_SCORE NUMBER(30, 2),
     CONSTRAINT BOOK_PK PRIMARY KEY(BOOK_ID),
     CONSTRAINT WRITER_FK_1 FOREIGN KEY(WRITER_ID) REFERENCES WRITER(WRITER_ID)
 );
+alter table book modify(book_score number(30, 2));
 --테이블번호 : 7
 --테이블명 : BOOKSALE
 --사용하는 시퀀스 : BOOKSALE_ID_SEQ
@@ -270,12 +271,11 @@ VALUES(BOOK_ID_SEQ.NEXTVAL, 3, 5000, '애쓰지 않고 편안하게', 'LITERATURE', '“어
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다', 'LITERATURE', '베스트 셀러 《비밀편지》 저자 박근호의 첫 번째 문집《전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다》) 출간!', '2020-05-14', '13000', 100, 0);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
-VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지
-감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', '17000', 100, 0);
-
+VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지 감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', '17000', 100, 1.1);
+select * from book;
 SELECT b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE, 
 b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY, 
-b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE, b.BOOK_CNT AS BOOK_CNT, b.BOOK_SCORE AS BOOK_SCORE,
+b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE, b.BOOK_CNT AS BOOK_CNT, TO_CHAR(b.BOOK_SCORE, '999.00' ) AS BOOK_SCORE,
 w.WRITER_ID AS WRITER_ID, w.WRITER_NAME AS WRITER_NAME
 FROM BOOK b JOIN WRITER w 
 ON b.WRITER_ID = w.WRITER_ID

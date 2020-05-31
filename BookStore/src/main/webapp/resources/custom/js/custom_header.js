@@ -32,15 +32,14 @@ function makeSearhResultBox(list){
 	var spanSuffix = '</span>';
 	var divPrefix = '<div>';
 	var divSuffix = '</div>';
-//	var bookLinkPrefix = '<a href="/BookStore/productView.do?bookId=';
-//	var bookLinkSuffix = '</a>'
 	for(var i=0; i<list.length; i++){
 		var bookLinkPrefix = '<a href="/BookStore/productView.do?bookId='+ list[i].bookId+'">';
 		var bookLinkSuffix = '</a>'		
 		var listContent = listPrefix + 
 							divPrefix + "도서명 : " + bookLinkPrefix + list[i].bookName + bookLinkSuffix + divSuffix +
 							divPrefix + "저자명 : " + list[i].writerName + divSuffix +
-							divPrefix + "가격 : " + list[i].bookSaleprice + divSuffix +
+							divPrefix + "가격 : " + list[i].bookSaleprice + "원" + divSuffix +
+							divPrefix + "평점 : " + list[i].bookScore + divSuffix +
 						  listSuffix;
 		$('#searchList').append(listContent);
 	}

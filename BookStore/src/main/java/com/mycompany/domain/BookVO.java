@@ -10,7 +10,7 @@ public class BookVO {
 	private String bookPdate;
 	private int bookSaleprice;
 	private int bookCnt;
-	private int bookScore;
+	private double bookScore;
 	private String writerName;
 
 	public String getWriterName() {
@@ -93,11 +93,11 @@ public class BookVO {
 		this.bookCnt = bookCnt;
 	}
 
-	public int getBookScore() {
+	public double getBookScore() {
 		return bookScore;
 	}
 
-	public void setBookScore(int bookScore) {
+	public void setBookScore(double bookScore) {
 		this.bookScore = bookScore;
 	}
 
