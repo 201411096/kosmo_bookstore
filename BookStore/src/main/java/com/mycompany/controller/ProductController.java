@@ -33,8 +33,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/productList.do")
-	public ModelAndView bookList(BookVO vo) {
+	public ModelAndView bookList(@RequestParam(value="searchWord") String searchWord) {
 		ModelAndView mv = new ModelAndView();
+		Map<String, String> search = new HashMap<String, String>();
+		search.put("searchWord", searchWord);
+		List<BookVO> searchList = BookService.searchListBook(search);
+		mv.addObject("searchList", searchList);
+		mv.setViewName("/productList");
 		return mv;
 	}
 	
