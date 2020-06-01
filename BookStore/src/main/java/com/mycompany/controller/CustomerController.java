@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.CustomerServiceImpl;
+import com.mycompany.service.TendencyServiceImpl;
 
 
 	//Handles requests for the application home page.
@@ -26,6 +27,8 @@ public class CustomerController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	@Autowired
 	CustomerServiceImpl customerService;
+	@Autowired
+	TendencyServiceImpl tendencyService;
 	
 	@RequestMapping("/moveToLogin.do")
 	public ModelAndView moveToLogin(HttpSession session) {
@@ -70,24 +73,27 @@ public class CustomerController {
 		
 		return mv;
 	}
+	//회원가입 페이지로 이동
 	@RequestMapping("/moveToRegister.do")
 	public ModelAndView moveToRegister(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/register");
 		return mv;
 	}
-	//가입
+	// 회원가입
 	@RequestMapping("/register.do")
-	public String getjoin(CustomerVO vo, HttpSession session) {
+	public String register(CustomerVO vo, HttpSession session) {
 		int result = customerService.insertCustomer(vo);
-		//회원가입 성공 시 로그인을 바로 해줌
+		//회원가입 성공 시 로그인을 바로 해줌 + 성향 데이터 생성
 		if(result==1) {
 			session.setAttribute("customer", vo);
+			System.out.println("customerController register에서 확인" + vo.getCustomerId());
+			tendencyService.insertTendency(vo);
 		}
 		return "redirect:/registerCon.do";
 	}
 	
-	//가입 확인(정보 불러오기)
+	// 회원가입 확인 페이지로 이동(정보 불러오기)
 	@RequestMapping("/registerCon.do")
 	public String joinCon(CustomerVO vo, Model model) {
 		return "registerCon";

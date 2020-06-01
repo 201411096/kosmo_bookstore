@@ -7,6 +7,7 @@ public class BuyCartListVO {
 	private int buycartlistCnt;
 	private String bookName;	
 	private int bookPrice;
+	private int bookSalePrice;
 	private int bookTotalPrice;
 	
 	public int getBuycartlistId() {
@@ -50,5 +51,11 @@ public class BuyCartListVO {
 	}
 	public void setBookTotalPrice(int bookTotalPrice) {
 		this.bookTotalPrice = bookTotalPrice;
+	}
+	public int getBookSalePrice() {
+		return bookSalePrice;
+	}
+	public void setBookSalePrice(int bookSalePrice) {
+		this.bookSalePrice = bookSalePrice;
 	}
 }
