@@ -38,7 +38,6 @@ public class ProductController {
 		Map<String, String> search = new HashMap<String, String>();
 		search.put("searchWord", searchWord);
 		List<BookVO> searchList = BookService.searchListBook(search);
-		System.out.println("ProductController에서 bookList() searchList 사이즈 확인 " + searchList.size());
 		mv.addObject("searchList", searchList);
 		mv.setViewName("/productList");
 		return mv;

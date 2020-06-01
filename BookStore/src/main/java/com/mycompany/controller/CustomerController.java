@@ -30,18 +30,13 @@ public class CustomerController {
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/login");
-		System.out.println("LoginController moveToLogin에서 확인 ==>" + session.getAttribute("cartListNumber"));
-		System.out.println("LoginController moveToLogin에서 확인 ==>" + session.getAttribute("cartListTotalPrice"));
-		System.out.println("LoginController moveToLogin에서 확인 ==>" + session.getAttribute("customer"));
 		return mv;
 	}
 	
 	@RequestMapping("/login.do")
 	public ModelAndView login(CustomerVO vo, HttpSession session) {
-		System.out.println("LoginController에서 login.do 실행 확인");
 		//로그인 입력값으로 확인
 		CustomerVO result = customerService.selectCustomer(vo);
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/test_login_check");
 		

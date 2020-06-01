@@ -25,3 +25,8 @@ https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
 200531_일요일
 1. 헤더 모듈 글자 입력 시 컨트롤러단에서 해당 단어에 해당하는 제품리스트를 json으로 반환하는 것까지 구현
 2. ajax로 받아온 리스트값 출력 및 검색어가 비었을 경우 처리
+--------------------------------------------------------
+200601_월요일
+1. productlist : 검색해온 리스트 표시
+2. productlist 에서 productview 화면 연결
+3. buycartlistvo 수정

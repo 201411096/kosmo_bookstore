@@ -214,9 +214,7 @@
 										</div>
 										<div class="pi-text">
 											<div class="catagory-name">${book.bookGenre }</div>
-											<a href="#">
-												<h5>${book.bookName }</h5>
-											</a>
+												<a href="/BookStore/productView.do?bookId=${book.bookId}"><h5>${book.bookName }</h5></a>
 											<div class="product-price">
 												${book.bookSaleprice}
 											</div>
