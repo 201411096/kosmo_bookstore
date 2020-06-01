@@ -13,7 +13,7 @@
       <typeAlias alias="book" type="com.mycompany.domain.BookVO" ></typeAlias>
       <typeAlias alias="bookcart" type="com.mycompany.domain.BuyCartListVO" ></typeAlias>
       <typeAlias alias="customer" type="com.mycompany.domain.CustomerVO" ></typeAlias>
-      
+      <typeAlias alias="buycartlist" type="com.mycompany.domain.BuyCartListVO" ></typeAlias>
    </typeAliases>
 
 
