@@ -53,10 +53,17 @@ public class CustomerController {
 			int cartListNumber = customerService.getCartListNumber(result.getCustomerId());
 			session.setAttribute("cartListNumber", cartListNumber);
 			//장바구니 안 물품의 가격 합을 가져와서 세팅
-			int cartListTotalPrice = customerService.getCartListTotalPrice(result.getCustomerId());
-			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
+//			int cartListTotalPrice = customerService.getCartListTotalPrice(result.getCustomerId());
+//			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
 			//장바구니 목록을 가져옴
 			List<BuyCartListVO> cartList = customerService.getCartList(result.getCustomerId());
+			//장바구니 안 물품의 가격 합을 가져와서 세팅2
+			int cartListTotalPrice = 0;
+			for(int i=0; i<cartList.size(); i++) {
+				cartListTotalPrice += cartList.get(i).getBookTotalPrice();
+			}
+			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
+			//장바구니 목록과 고객 정보를 세팅
 			session.setAttribute("cartList", cartList);			
 			session.setAttribute("customer", result);
 		}
@@ -87,7 +94,6 @@ public class CustomerController {
 		//회원가입 성공 시 로그인을 바로 해줌 + 성향 데이터 생성
 		if(result==1) {
 			session.setAttribute("customer", vo);
-			System.out.println("customerController register에서 확인" + vo.getCustomerId());
 			tendencyService.insertTendency(vo);
 		}
 		return "redirect:/registerCon.do";

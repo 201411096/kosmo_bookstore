@@ -341,5 +341,8 @@ DROP SEQUENCE BUYCARTLIST_ID_SEQ;
 DROP TABLE BUYREVIEW;
 DROP SEQUENCE BUYREVIEW_ID_SEQ;
 
-insert into CUSTOMER (customer_id, customer_password, customer_name, customer_tel, customer_point, customer_flag) 
-		values('dffdd','eee','dddname','111-2222', 0, 1);
+		select l.buycartlist_id AS buycartlist_id, b.book_id as book_id, b.book_name as book_name, l.buycartlist_cnt as buycartlist_cnt, b.book_price as book_price, b.book_saleprice as book_saleprice, (b.book_saleprice*l.buycartlist_cnt) as book_totalprice
+		from book b 
+		inner join buycartlist l
+		on b.book_id = l.book_id
+		where customer_id='aaa';

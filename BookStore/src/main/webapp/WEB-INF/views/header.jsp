@@ -90,7 +90,7 @@
 														<td class="si-text">
 														
 															<div class="product-selected">
-																<p>${book.bookPrice} x ${book.buycartlistCnt}</p>
+																<p>${book.bookSaleprice} x ${book.buycartlistCnt}</p>
 																<h6><a href="/BookStore/productView.do?bookId=${book.bookId}">${book.bookName}</a></h6>
 															</div>
 														

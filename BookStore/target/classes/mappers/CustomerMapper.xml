@@ -24,7 +24,7 @@
 		select SUM(BOOK_SALEPRICE) from book where book_id in ( select book_id from buycartlist WHERE customer_id=#{customerId} )
 	</select>
 	<select id="getCartList" resultType="bookcart" parameterType="string">
-		select l.buycartlist_id AS buycartlist_id, b.book_id as book_id, b.book_name as book_name, l.buycartlist_cnt as buycartlist_cnt, b.book_price as book_price, (b.book_price*l.buycartlist_cnt) as book_totalprice
+		select l.buycartlist_id AS buycartlist_id, b.book_id as book_id, b.book_name as book_name, l.buycartlist_cnt as buycartlist_cnt, b.book_price as book_price, b.book_saleprice as book_saleprice, (b.book_saleprice*l.buycartlist_cnt) as book_totalprice
 		from book b 
 		inner join buycartlist l
 		on b.book_id = l.book_id

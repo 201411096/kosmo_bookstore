@@ -12,7 +12,7 @@
 		ㄴ https://codepen.io/FunkeM/pen/NBEjJg
 		ㄴ https://colorlib.com/etc/searchf/colorlib-search-23/
 		ㄴ https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
-2. -> 회원가입시 tendency 생성해줘야됨
+
 --------------------------------------------------------
 200529_금요일
 1. 로그인 기능 구현
@@ -34,4 +34,4 @@
 3. buycartlistvo 수정
 4. 회원가입부분 일부 수정
 5. book_scorecount 추가함 -> 기존의 평점을 총점처럼 사용하고 총점을 점수을 준 횟수로 나눠서 평점을 구함
-6. 회원가입시 tendency 부분 추가
+6. 회원가입시 tendency 레코드 생성
