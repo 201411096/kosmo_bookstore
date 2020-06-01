@@ -1,12 +1,26 @@
 package com.mycompany.domain;
 
-public class BookCartVO {
+public class BuyCartListVO {
+	private int buycartlistId;
+	private String customerId;
 	private int bookId;
-	private String bookName;
-	private int bookCnt;
+	private int buycartlistCnt;
+	private String bookName;	
 	private int bookPrice;
 	private int bookTotalPrice;
 	
+	public int getBuycartlistId() {
+		return buycartlistId;
+	}
+	public void setBuycartlistId(int buycartlistId) {
+		this.buycartlistId = buycartlistId;
+	}
+	public String getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
 	public int getBookId() {
 		return bookId;
 	}
@@ -19,11 +33,11 @@ public class BookCartVO {
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
 	}
-	public int getBookCnt() {
-		return bookCnt;
+	public int getBuycartlistCnt() {
+		return buycartlistCnt;
 	}
-	public void setBookCnt(int bookCnt) {
-		this.bookCnt = bookCnt;
+	public void setBuycartlistCnt(int buycartlistCnt) {
+		this.buycartlistCnt = buycartlistCnt;
 	}
 	public int getBookPrice() {
 		return bookPrice;

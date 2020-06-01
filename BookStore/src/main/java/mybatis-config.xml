@@ -11,7 +11,7 @@
    <!-- Alias 설정 -->
    <typeAliases>
       <typeAlias alias="book" type="com.mycompany.domain.BookVO" ></typeAlias>
-      <typeAlias alias="bookcart" type="com.mycompany.domain.BookCartVO" ></typeAlias>
+      <typeAlias alias="bookcart" type="com.mycompany.domain.BuyCartListVO" ></typeAlias>
       <typeAlias alias="customer" type="com.mycompany.domain.CustomerVO" ></typeAlias>
       
    </typeAliases>

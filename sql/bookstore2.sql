@@ -3,7 +3,8 @@
 ----1_1. 테이블
 ----1_2. 시퀀스
 --2. 데이터 입력
---3. DB 초기화
+--3. SQL문 확인
+--4. DB 삭제
 ------------------------------1.DB 생성 ------------------------------
 --------------------1_1.테이블--------------------
 --테이블번호 : 1
@@ -255,7 +256,6 @@ CYCLE;
 INSERT INTO CUSTOMER(CUSTOMER_ID, CUSTOMER_PASSWORD, CUSTOMER_NAME, CUSTOMER_TEL, CUSTOMER_POINT, CUSTOMER_FLAG) VALUES('aaa', '1234', 'aaaname', '010-1111-2222', 0, 1);
 INSERT INTO CUSTOMER(CUSTOMER_ID, CUSTOMER_PASSWORD, CUSTOMER_NAME, CUSTOMER_TEL, CUSTOMER_POINT, CUSTOMER_FLAG) VALUES('bbb', '1234', 'bbbname', '010-2222-3333', 0, 1);
 INSERT INTO CUSTOMER(CUSTOMER_ID, CUSTOMER_PASSWORD, CUSTOMER_NAME, CUSTOMER_TEL, CUSTOMER_POINT, CUSTOMER_FLAG) VALUES('ccc', '1234', 'cccname', '010-3333-4444', 0, 1);
-select * from customer;
 --------------------2_4.WRITER--------------------
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '이서윤');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '정채진');
@@ -272,6 +272,15 @@ INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STO
 VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다', 'LITERATURE', '베스트 셀러 《비밀편지》 저자 박근호의 첫 번째 문집《전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다》) 출간!', '2020-05-14', '13000', 100, 0);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 6000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지 감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', '17000', 100, 1.1);
+--------------------2_13.BUYCARTLIST--------------------
+INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 2, 3);
+INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 3, 2);
+INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 1, 1);
+INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'bbb', 2, 2);
+------------------------------3.SQL문 확인 ------------------------------
+--------------------2_1.CUSTOMER--------------------
+select * from customer;
+--------------------2_6.BOOK--------------------
 select * from book;
 SELECT b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE, 
 b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY, 
@@ -282,11 +291,6 @@ ON b.WRITER_ID = w.WRITER_ID
 WHERE REGEXP_LIKE (BOOK_NAME, '(*)오(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)김(*)');
 --WHERE BOOK_NAME = '오래된 비밀';
 --------------------2_13.BUYCARTLIST--------------------
-INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 2, 3);
-INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 3, 2);
-INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 1, 1);
-INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'bbb', 2, 2);
-
 ALTER TABLE BUYCARTLIST ADD (BUYCARTLIST_CNT NUMBER(30));
 select SUM(BOOK_SALEPRICE) from book where book_id in ( select book_id from buycartlist WHERE customer_id='aaa' );
 select SUM(BOOK_SALEPRICE) from book where book_id in ( select book_id from buycartlist WHERE customer_id='aaa' );
@@ -296,8 +300,7 @@ from book b
 inner join buycartlist l
 on b.book_id = l.book_id
 where customer_id='aaa';
-
-------------------------------3.DB 초기화 ------------------------------
+------------------------------4.DB 삭제 ------------------------------
 ----- 테이블1 및 관련 시퀀스 삭제 -----
 DROP TABLE CUSTOMER;
 ----- 테이블2 및 관련 시퀀스 삭제 -----

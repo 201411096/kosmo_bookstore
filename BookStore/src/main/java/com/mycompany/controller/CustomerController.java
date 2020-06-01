@@ -1,7 +1,6 @@
 
 package com.mycompany.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.domain.BookCartVO;
+import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.CustomerServiceImpl;
 
@@ -58,7 +57,7 @@ public class CustomerController {
 			int cartListTotalPrice = customerService.getCartListTotalPrice(result.getCustomerId());
 			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
 			//장바구니 목록을 가져옴
-			List<BookCartVO> cartList = customerService.getCartList(result.getCustomerId());
+			List<BuyCartListVO> cartList = customerService.getCartList(result.getCustomerId());
 			session.setAttribute("cartList", cartList);			
 			session.setAttribute("customer", result);
 		}

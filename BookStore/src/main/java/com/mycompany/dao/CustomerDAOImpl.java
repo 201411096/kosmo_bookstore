@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.domain.BookCartVO;
+import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.CustomerVO;
 
 @Repository("customerDAO")
@@ -31,8 +31,8 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<BookCartVO> getCartList(String customerId) {
-		List<BookCartVO> result = mybatis.selectList("CustomerDAO.getCartList", customerId);
+	public List<BuyCartListVO> getCartList(String customerId) {
+		List<BuyCartListVO> result = mybatis.selectList("CustomerDAO.getCartList", customerId);
 		return result;
 	}
 	
