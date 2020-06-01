@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <a href="/BookStore/test.do">start.jsp 호출</a>
 <br>
 <a href="/BookStore/header.do">header.jsp 호출</a>
