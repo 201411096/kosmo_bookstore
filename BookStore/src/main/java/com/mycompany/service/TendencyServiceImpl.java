@@ -1,5 +1,7 @@
 package com.mycompany.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,9 @@ public class TendencyServiceImpl implements TendencyService{
 		int result = tendencyDAO.insertTendency(vo);
 		return result;
 	}
-	
+	@Override
+	public int increaseTendency(Map<String, String> tendencyMap) {
+		int result = tendencyDAO.increaseTendency(tendencyMap);
+		return result;
+	}
 }

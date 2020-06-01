@@ -18,24 +18,36 @@ import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.BuyCartListServiceImpl;
+import com.mycompany.service.TendencyServiceImpl;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	BookServiceImpl bookService;
-	
 	@Autowired
 	BuyCartListServiceImpl buyCartListService;
+	@Autowired
+	TendencyServiceImpl tendencyService;
 
 	@RequestMapping("/productView.do")
-	public ModelAndView product(BookVO vo) {
+	public ModelAndView product(BookVO vo, HttpSession session) {
 		//제품번호 세팅
-		//vo.setBookId(3);
 		ModelAndView mv = new ModelAndView();
-		BookVO info = bookService.selectBook(vo);
-		mv.addObject("priceBeforeDiscount", info.getBookSaleprice() + 3000);
-		mv.addObject("info", info);
+		BookVO book = bookService.selectBook(vo);
+		mv.addObject("priceBeforeDiscount", book.getBookSaleprice() + 3000);
+		mv.addObject("info", book);
+		
+		//로그인 상태라면
+		if(session.getAttribute("customer")!= null) {
+			CustomerVO customer = (CustomerVO)session.getAttribute("customer");
+			Map<String, String> tendencyMap = new HashMap<String, String>();
+			tendencyMap.put("customerId", customer.getCustomerId());
+			tendencyMap.put("genre", book.getBookGenre());
+			tendencyService.increaseTendency(tendencyMap);
+		}
+		
+		
 		mv.setViewName("/productView");
 		return mv;
 	}

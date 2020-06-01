@@ -12,7 +12,9 @@
 		ㄴ https://codepen.io/FunkeM/pen/NBEjJg
 		ㄴ https://colorlib.com/etc/searchf/colorlib-search-23/
 		ㄴ https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
-
+--------------------------------------------------------
+사소한 부분
+1. 사용하지않는 bookprice를 세일하지 않은 가격으로 사용하면 될듯
 --------------------------------------------------------
 200529_금요일
 1. 로그인 기능 구현
