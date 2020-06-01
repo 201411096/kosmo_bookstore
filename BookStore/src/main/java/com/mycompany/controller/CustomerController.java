@@ -44,14 +44,8 @@ public class CustomerController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/test_login_check");
 		
-		if(result==null)
-			System.out.println("LoginController에서 확인 ==> 회원정보가 존재하지 않습니다.");
+		if(result==null) {}
 		else {
-			System.out.println("LoginController에서 확인 ==> 로그인에 성공했습니다.");
-			
-			//장바구니 개수를 가져와서 세팅			
-//			int cartListNumber = customerService.getCartListNumber(result.getCustomerId());
-//			session.setAttribute("cartListNumber", cartListNumber);
 			//장바구니 목록을 가져옴
 			List<BuyCartListVO> cartList = customerService.getCartList(result.getCustomerId());
 			//장바구니 안 물품의 가격 합을 가져와서 세팅
@@ -68,7 +62,6 @@ public class CustomerController {
 			//고객 정보를 세팅
 			session.setAttribute("customer", result);
 		}
-		
 		return mv;
 	}
 	@RequestMapping("logout.do")
@@ -98,12 +91,10 @@ public class CustomerController {
 			tendencyService.insertTendency(vo);
 		}
 		return "redirect:/registerCon.do";
-	}
-	
+	}	
 	// 회원가입 확인 페이지로 이동(정보 불러오기)
 	@RequestMapping("/registerCon.do")
 	public String joinCon(CustomerVO vo, Model model) {
 		return "registerCon";
 	}
-	
 }
