@@ -50,21 +50,22 @@ public class CustomerController {
 			System.out.println("LoginController에서 확인 ==> 로그인에 성공했습니다.");
 			
 			//장바구니 개수를 가져와서 세팅			
-			int cartListNumber = customerService.getCartListNumber(result.getCustomerId());
-			session.setAttribute("cartListNumber", cartListNumber);
-			//장바구니 안 물품의 가격 합을 가져와서 세팅
-//			int cartListTotalPrice = customerService.getCartListTotalPrice(result.getCustomerId());
-//			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
+//			int cartListNumber = customerService.getCartListNumber(result.getCustomerId());
+//			session.setAttribute("cartListNumber", cartListNumber);
 			//장바구니 목록을 가져옴
 			List<BuyCartListVO> cartList = customerService.getCartList(result.getCustomerId());
-			//장바구니 안 물품의 가격 합을 가져와서 세팅2
+			//장바구니 안 물품의 가격 합을 가져와서 세팅
 			int cartListTotalPrice = 0;
 			for(int i=0; i<cartList.size(); i++) {
 				cartListTotalPrice += cartList.get(i).getBookTotalPrice();
 			}
+			//장바구니의 총합을 세팅
 			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
-			//장바구니 목록과 고객 정보를 세팅
-			session.setAttribute("cartList", cartList);			
+			//장바구니 개수를 가져와서 세팅						
+			session.setAttribute("cartListNumber", cartList.size());
+			//장바구니 목록 세팅
+			session.setAttribute("cartList", cartList);
+			//고객 정보를 세팅
 			session.setAttribute("customer", result);
 		}
 		

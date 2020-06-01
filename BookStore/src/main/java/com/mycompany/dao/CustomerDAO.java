@@ -7,8 +7,8 @@ import com.mycompany.domain.CustomerVO;
 
 public interface CustomerDAO {
 	public CustomerVO selectCustomer(CustomerVO vo);
-	public int getCartListNumber(String customerId);
-	public int getCartListTotalPrice(String customerId);
+//	public int getCartListNumber(String customerId);
+//	public int getCartListTotalPrice(String customerId);
 	public List<BuyCartListVO> getCartList(String customerId);
 	public int insertCustomer(CustomerVO vo);
 }

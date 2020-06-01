@@ -76,8 +76,8 @@
 					<!-- -------------------- search section end 검색 부분 끝 -------------------- -->
 					<div class="col-lg-3 text-right col-md-3">
 						<ul class="nav-right">
-							<li class="cart-icon"><a href="#"> <i
-									class="icon_bag_alt"></i> <span>${sessionScope.cartListNumber }</span>
+							<li class="cart-icon"><a href="#"> <i class="icon_bag_alt"></i>
+							 <span>${sessionScope.cartListNumber }</span>
 							</a>
 								<div class="cart-hover">
 									<div class="select-items">

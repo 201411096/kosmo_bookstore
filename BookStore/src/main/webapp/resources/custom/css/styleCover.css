@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-#right-btn {
+div.row div#rbtn button.right-btn {
 	color: #f1e0b2;
 	border: 1.5px solid #f1e0b2;
 	background-color:#3b3e5f;
