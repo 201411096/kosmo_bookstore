@@ -70,8 +70,14 @@ public class CustomerController {
 		
 		return mv;
 	}
+	@RequestMapping("/moveToRegister.do")
+	public ModelAndView moveToRegister(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/register");
+		return mv;
+	}
 	//가입
-	@RequestMapping("/customerRegister.do")
+	@RequestMapping("/register.do")
 	public String getjoin(CustomerVO vo, HttpSession session) {
 		int result = customerService.insertCustomer(vo);
 		//회원가입 성공 시 로그인을 바로 해줌
@@ -84,7 +90,6 @@ public class CustomerController {
 	//가입 확인(정보 불러오기)
 	@RequestMapping("/registerCon.do")
 	public String joinCon(CustomerVO vo, Model model) {
-//		model.addAttribute("customer", customerService.selectCustomer(vo));
 		return "registerCon";
 	}
 	

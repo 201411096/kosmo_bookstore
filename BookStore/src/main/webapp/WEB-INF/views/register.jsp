@@ -58,7 +58,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class=register-form>
                         <h2>회원가입</h2>
-                        <form id='join' name='join' action="/BookStore/customerRegister.do" method='get'>
+                        <form id='join' name='join' action="/BookStore/register.do" method='get'>
                             <div class="group-input">
                                 <label for="username">아이디</label>
                                 <input name="customerId" type="text" id="customer_id" required >
@@ -94,7 +94,6 @@
     <!-- Footer Section Begin -->
     <jsp:include page="/footer.do"></jsp:include>
     <!-- Footer Section End -->
-
     <!-- Js Plugins -->
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>

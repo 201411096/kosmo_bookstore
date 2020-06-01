@@ -2,15 +2,16 @@
 문제점
 1. login정보는 세션에서 사라졌는데 cartlist 물품 개수와 가격 총합이 남아있는 상황이 가끔 생김
 	ㄴ 다시 로그인하면 정상적으로 작동되기는 함
+	ㄴ ***** 서버 끊어지는 경우에 발생하는 문제라 신경 안써도 되는 듯 *****
 --------------------------------------------------------
-진행중인 부분 -> header - searchbox
-
-ㄴ references
-https://mdbootstrap.com/docs/jquery/forms/search/
-https://codepen.io/FunkeM/pen/NBEjJg
-https://colorlib.com/etc/searchf/colorlib-search-23/
-https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
-
+진행중인 부분
+1.  -> header - searchbox
+	ㄴ references
+		ㄴ https://mdbootstrap.com/docs/jquery/forms/search/
+		ㄴ https://codepen.io/FunkeM/pen/NBEjJg
+		ㄴ https://colorlib.com/etc/searchf/colorlib-search-23/
+		ㄴ https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
+2. -> 회원가입시 tendency 생성해줘야됨
 --------------------------------------------------------
 200529_금요일
 1. 로그인 기능 구현
@@ -30,3 +31,5 @@ https://www.codeply.com/go/cyzbIAVA3B/bootstrap-4-search-bar-input-icon
 1. productlist : 검색해온 리스트 표시
 2. productlist 에서 productview 화면 연결
 3. buycartlistvo 수정
+4. 회원가입부분 일부 수정
+5. book_scorecount 추가함 -> 평점 계산 시 

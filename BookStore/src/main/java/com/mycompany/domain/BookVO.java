@@ -11,7 +11,26 @@ public class BookVO {
 	private int bookSaleprice;
 	private int bookCnt;
 	private double bookScore;
+	private int bookScorecount;
+	private double bookScoreDivideByCount;
+
+	public double getBookScoreDivideByCount() {
+		return bookScoreDivideByCount;
+	}
+
+	public void setBookScoreDivideByCount(double bookScoreDivideByCount) {
+		this.bookScoreDivideByCount = bookScoreDivideByCount;
+	}
+
 	private String writerName;
+
+	public int getBookScorecount() {
+		return bookScorecount;
+	}
+
+	public void setBookScorecount(int bookScorecount) {
+		this.bookScorecount = bookScorecount;
+	}
 
 	public String getWriterName() {
 		return writerName;

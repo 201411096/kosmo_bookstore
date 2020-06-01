@@ -13,8 +13,11 @@ function listSearchKeyUpEvent() {
 		url: 'searchList.do',
 		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
 		data : {"searchWord" : $('#listSearch').val()},
+		dataType : 'json',
 		success : function(resultData){
-			var list = resultData.searchResult;
+//			var list = resultData.searchResult;
+			var list = new Array();
+			list = resultData.searchResult;
 			makeSearhResultBox(list); // 검색 결과 컴포넌트를 구현
 		},
 	   error:function(request,status,error){
@@ -27,6 +30,8 @@ function listSearchKeyUpEvent() {
 function makeSearhResultBox(list){
 	$('#searchList').empty(); //resultBox?를 초기화하고 새로 구성
 //	console.log(list[0].bookName);
+	console.log("custom_header.js makeSearchResultBox에서 확인  : " + list[0].bookName);
+	console.log("custom_header.js makeSearchResultBox에서 확인  : " + list[0].bookId);
 	var listPrefix = '<li class="list-group-item">';
 	var listSuffix = '</li>';
 	var spanPrefix = '<span>';
@@ -41,8 +46,9 @@ function makeSearhResultBox(list){
 							divPrefix + "도서명 : " + bookLinkPrefix + list[i].bookName + bookLinkSuffix + divSuffix +
 							divPrefix + "저자명 : " + list[i].writerName + divSuffix +
 							divPrefix + "가격 : " + list[i].bookSaleprice + "원" + divSuffix +
-							divPrefix + "평점 : " + list[i].bookScore + divSuffix +
+							divPrefix + "평점 : " + list[i].bookScoreDivideByCount + divSuffix +
 						  listSuffix;
+		
 		$('#searchList').append(listContent);
 	}
 	
