@@ -64,9 +64,9 @@
 						</div>
 					</div>
 					<!-- -------------------- search section start 검색 부분 시작 -------------------- -->
-					<form class="col-lg-7 col-md-7">
+					<form class="col-lg-7 col-md-7" action="/BookStore/productList.do">
 					<div>
-						<input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
+						<input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="Type something to search list items">
 					  <br>
 					  <ul class="list-group" id="searchList">
 						<!--검색 결과를 이곳에 채움 -->
