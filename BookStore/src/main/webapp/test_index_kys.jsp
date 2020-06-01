@@ -18,12 +18,9 @@
 <br>
 <a href="/BookStore/registerCon.do">회원가입 페이지 완료 호출</a>
 <br>
-<a href="/BookStore/getJoin.do">회원가입 페이지 2 호출</a>
-<br>
-<a href="/BookStore/joinCon.do">회원가입 페이지 완료 2 호출</a>
+<a href="/BookStore/question.do">문의사항 호출</a>
 <br>
 <a href="/BookStore/cover.do">커버 페이지 호출</a>
-<br>
-<a href="login.do">로그인.do확인</a>
+
 </body>
 </html>

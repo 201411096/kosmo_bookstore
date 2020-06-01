@@ -16,15 +16,15 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
      <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!--     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/style.css" type="text/css"> -->
 </head>
 
 <body>
@@ -70,14 +70,14 @@
                                     <th><i class="ti-close"></i></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="shoppingCartTbody">
                                	<c:forEach items="${cartList }" var="cartList">
                                 <tr>
-                                    <td class="cart-pic first-row"><img src="img/cart-page/product-${cartList.bookId}.jpg" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="resources/img/cart-page/product-${cartList.bookId}.jpg" alt=""></td>
                                     <td class="cart-title first-row">
                                         <h5>${cartList.bookName}</h5>
                                     </td>
-                                    <td class="p-price first-row">${cartList.bookSaleprice}원</td>
+                                    <td class="p-price first-row">${cartList.bookSaleprice}</td>
                                     <td class="qua-col first-row">
                                         <div class="quantity">
                                             <div class="pro-qty">
@@ -128,27 +128,27 @@
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-1.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-1.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-2.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-2.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-3.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-3.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-4.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-4.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-5.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -161,16 +161,17 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+<!--     <script src="resources/js/jquery-3.3.1.min.js"></script> -->
+<!--     <script src="resources/js/bootstrap.min.js"></script> -->
+<!--     <script src="resources/js/jquery-ui.min.js"></script> -->
+<!--     <script src="resources/js/jquery.countdown.min.js"></script> -->
+<!--     <script src="resources/js/jquery.nice-select.min.js"></script> -->
+<!--     <script src="resources/js/jquery.zoom.min.js"></script> -->
+<!--     <script src="resources/js/jquery.dd.min.js"></script> -->
+<!--     <script src="resources/js/jquery.slicknav.js"></script> -->
+<!--     <script src="resources/js/owl.carousel.min.js"></script> -->
+<!--     <script src="resources/js/main.js"></script> -->
+    <script src="resources/custom/js/custom_shoppingCart.js"></script>
 </body>
 
 </html>
