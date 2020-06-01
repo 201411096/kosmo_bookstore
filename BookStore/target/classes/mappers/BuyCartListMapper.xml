@@ -17,4 +17,14 @@
    	BUYCARTLIST_CNT = #{buycartlistCnt}
    	where BUYCARTLIST_ID = #{buycartlistId}
    </update>
+   
+   	<select id="getCartList" parameterType="buycartlist" resultType="buycartlist">
+   	select c.BUYCARTLIST_ID AS BUYCARTLIST_ID, c.CUSTOMER_ID AS CUSTOMER_ID, c.BOOK_ID AS BOOK_ID, c.BUYCARTLIST_CNT AS BUYCARTLIST_CNT, 
+   	b.BOOK_ID AS BOOK_ID, b.WRITER_ID As WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE, b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, 
+   	b.BOOK_STORY AS BOOK_STORY, b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE, b.BOOK_CNT AS BOOK_CNT, 
+   	b.BOOK_SCORE AS BOOK_SCORE, b.BOOK_SCORECOUNT AS BOOK_SCORECOUNT
+   	from BUYCARTLIST c JOIN BOOK b
+    ON c.BOOK_ID = b.BOOK_ID
+   	where c.CUSTOMER_ID = #{customerId} 
+   </select>
 </mapper>

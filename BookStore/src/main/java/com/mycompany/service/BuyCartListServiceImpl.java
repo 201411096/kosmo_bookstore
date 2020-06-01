@@ -1,5 +1,7 @@
 package com.mycompany.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,8 @@ public class BuyCartListServiceImpl implements BuyCartListService{
 	public int cartListChangeCnt(BuyCartListVO vo) {
 		return buycartlistDAO.cartListChangeCnt(vo);
 	}
-	
+	@Override
+	public List<BuyCartListVO> getCartList(BuyCartListVO vo) {
+		return buycartlistDAO.getCartList(vo);
+	}
 }

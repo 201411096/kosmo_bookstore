@@ -1,10 +1,11 @@
 package com.mycompany.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.domain.BookVO;
 import com.mycompany.domain.BuyCartListVO;
 @Repository("buyCartListDAO")
 public class BuyCartListDAOImpl implements BuyCartListDAO{
@@ -23,5 +24,8 @@ public class BuyCartListDAOImpl implements BuyCartListDAO{
 	public int cartListChangeCnt(BuyCartListVO vo) {
 		return mybatis.update("BuyCartListDAO.cartListChangeCnt", vo);
 	}
-
+	@Override
+	public List<BuyCartListVO> getCartList(BuyCartListVO vo) {
+		return mybatis.selectList("BuyCartListDAO.getCartList", vo);
+	}
 }
