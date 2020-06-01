@@ -65,34 +65,6 @@ public class ProductController {
 		searchResult.put("searchResult", searchList);
 		return searchResult;
 	}
-	//장바구니에 추가
-//	   @RequestMapping("/addCartList.do")
-//	   public ModelAndView addCartList(BuyCartListVO vo, HttpSession session) {
-//		   ModelAndView mv = new ModelAndView();
-//		   CustomerVO logInState = (CustomerVO)session.getAttribute("customer");
-//		   // 로그인 여부 판단
-//		   if(logInState==null) {
-//			   mv.setViewName("/login"); 
-//		   }else {
-//			   String customerId = logInState.getCustomerId();
-//			   vo.setCustomerId(customerId);
-//			   // 장바구니 추가 시 기존 장바구니에 있다면 개수를 변경하도록 하는 기능
-//			   BuyCartListVO result = buyCartListService.checkDuplicateCartList(vo);
-//			   
-//			   if(result==null) {
-//				   // 장바구니에 새로 추가
-//				   int result2 = buyCartListService.addCartList(vo);
-//				   mv.setViewName("/shopping-cart");
-//			   }else {
-//				   // 장바구니 안 기존 상품의 개수 변경
-//				   int buycartlistId = result.getBuycartlistId();
-//				   vo.setBuycartlistId(buycartlistId);
-//				   int result3 = buyCartListService.cartListChangeCnt(vo);
-//				   mv.setViewName("/shopping-cart");
-//			   }
-//		   }
-//		   return mv;
-//	   }
 	   @RequestMapping("/addCartList.do")
 	   public ModelAndView addCartList(BuyCartListVO vo, HttpSession session) {
 		   ModelAndView mv = new ModelAndView();
