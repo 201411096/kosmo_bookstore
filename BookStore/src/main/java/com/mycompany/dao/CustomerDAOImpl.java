@@ -22,12 +22,19 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	@Override
 	public int getCartListNumber(String customerId) {
-		return mybatis.selectOne("CustomerDAO.getCartListNumber", customerId);
+		if(mybatis.selectOne("CustomerDAO.getCartListNumber", customerId)==null)
+			return 0;
+		else
+			return mybatis.selectOne("CustomerDAO.getCartListNumber", customerId); 
+		
 	}
 
 	@Override
 	public int getCartListTotalPrice(String customerId) {
-		return mybatis.selectOne("CustomerDAO.getCartListTotalPrice", customerId);
+		if(mybatis.selectOne("CustomerDAO.getCartListTotalPrice", customerId)==null)
+			return 0;
+		else
+			return mybatis.selectOne("CustomerDAO.getCartListTotalPrice", customerId);
 	}
 
 	@Override
