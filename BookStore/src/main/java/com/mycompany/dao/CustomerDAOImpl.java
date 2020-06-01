@@ -42,6 +42,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		List<BuyCartListVO> result = mybatis.selectList("CustomerDAO.getCartList", customerId);
 		return result;
 	}
+	
 	@Override
 	public int insertCustomer(CustomerVO vo) {
 		int result =  mybatis.insert("CustomerDAO.insertCustomer", vo);
