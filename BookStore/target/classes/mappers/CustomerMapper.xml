@@ -10,6 +10,11 @@
 			and customer_password = #{customerPassword}
 		</if>
 	</select>
+<!-- 	회원가입 부분 -->
+	<insert id="insertCustomer" parameterType="customer">
+		insert into CUSTOMER (customer_id, customer_password, customer_name, customer_tel, customer_point, customer_flag) 
+		values(#{customerId},#{customerPassword},#{customerName},#{customerTel}, 0, 1)
+	</insert>
 <!-- 	장바구니 갯수를 확인하는 부분 -->
 	<select id="getCartListNumber" resultType="int" parameterType="string">
 		select count(*) from BUYCARTLIST where customer_id=#{customerId}

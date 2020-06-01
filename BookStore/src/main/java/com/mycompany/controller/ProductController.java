@@ -18,14 +18,14 @@ import com.mycompany.service.BookServiceImpl;
 public class ProductController {
 
 	@Autowired
-	BookServiceImpl BookService;
+	BookServiceImpl bookService;
 
 	@RequestMapping("/productView.do")
 	public ModelAndView product(BookVO vo) {
 		//제품번호 세팅
 		//vo.setBookId(3);
 		ModelAndView mv = new ModelAndView();
-		BookVO info = BookService.selectBook(vo);
+		BookVO info = bookService.selectBook(vo);
 		mv.addObject("priceBeforeDiscount", info.getBookSaleprice() + 3000);
 		mv.addObject("info", info);
 		mv.setViewName("/productView");
@@ -37,7 +37,7 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView();
 		Map<String, String> search = new HashMap<String, String>();
 		search.put("searchWord", searchWord);
-		List<BookVO> searchList = BookService.searchListBook(search);
+		List<BookVO> searchList = bookService.searchListBook(search);
 		mv.addObject("searchList", searchList);
 		mv.setViewName("/productList");
 		return mv;
@@ -51,7 +51,7 @@ public class ProductController {
 			return null;
 		Map<String, String> search = new HashMap<String, String>();
 		search.put("searchWord", searchWord);
-		List<BookVO> searchList = BookService.searchListBook(search);
+		List<BookVO> searchList = bookService.searchListBook(search);
 		Map<String, Object> searchResult = new HashMap<String, Object>();
 		searchResult.put("checkAjax", "checkAjax11");
 		searchResult.put("searchResult", searchList);

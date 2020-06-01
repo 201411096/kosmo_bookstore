@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+#right-btn {
+	color: #f1e0b2;
+	border: 1.5px solid #f1e0b2;
+	background-color:#3b3e5f;
+	font-size: 18px;
+	font-weight: 700
+	
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
+	cursor: pointer;
+	
+	position: relative;
+	left: 80%;
+	top: 10px;
+	margin-top: -30%;
+}
+
+body{ 
+background: #3b3e5f;
+background-percentage:100%;
+width:95%;
+}
+
+.col-lg-3{
+	position: relative;
+	left: 100px;
+	top: 300px;
+}
+
+#slogo{
+	margin-top: 50px;
+	margin-left: -300px;
+}
+
+#best {
+	
+	margin-top:100px;
+}
+
+/*---------------------
+  Partner Logo
+-----------------------*/
+
+.partner-best {
+	background: #3b3e5f;
+	padding: 38px 0;
+}
+
+.best-carousel .best-item {
+	display: table;
+}
+
+.best-carousel .best-item .cell-inner {
+	display: table-cell;
+	height: 45px;
+	vertical-align: middle;
+}
+.book-banner{
+	margin-top:-10%;
+}
+.book-carousel .best-item img {
+	display: block;
+	width: auto;
+}
+#best li{
+	display: inline-block;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    color:#f1e0b2;
+}
+#best .filter-control .active{
+	border-bottom : 2px solid #f1e0b2;
+}
+
+

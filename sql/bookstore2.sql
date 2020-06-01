@@ -335,3 +335,5 @@ DROP SEQUENCE BUYCARTLIST_ID_SEQ;
 DROP TABLE BUYREVIEW;
 DROP SEQUENCE BUYREVIEW_ID_SEQ;
 
+insert into CUSTOMER (customer_id, customer_password, customer_name, customer_tel, customer_point, customer_flag) 
+		values('dffdd','eee','dddname','111-2222', 0, 1);

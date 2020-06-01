@@ -10,4 +10,5 @@ public interface CustomerService {
 	public int getCartListNumber(String customerId);
 	public int getCartListTotalPrice(String customerId);
 	public List<BuyCartListVO> getCartList(String customerId);
+	int insertCustomer(CustomerVO vo);
 }

@@ -10,4 +10,5 @@ public interface CustomerDAO {
 	public int getCartListNumber(String customerId);
 	public int getCartListTotalPrice(String customerId);
 	public List<BuyCartListVO> getCartList(String customerId);
+	public int insertCustomer(CustomerVO vo);
 }

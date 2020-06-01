@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/custom/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -56,17 +57,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                <form id='form1' action="login.do">
+                <form id='form1' action="resister">
                     <div id='box1' class=register-form>
-                        <h3><strong>${sessionScope.customer.customerName}님, 회원가입이 완료되었습니다.</strong></h3>
+                        <h3><strong>회원가입이 완료되었습니다.</strong></h3>
                     </div>
-                    <hr/>
-			                    아이디 :${sessionScope.customer.customerId}  <br/>
-			                    이름 : ${sessionScope.customer.customerName}<br/>
-			                    연락처 :${sessionScope.customer.customerTel} <br/>
-                    <div id='box1'> 
-                   		<button class="primary-btn">메인화면</button>   
-<!--                         <button class="primary-btn">로그인</button>    -->
+                    <div id='box1'>
+                        <button class="filter-btn">로그인</button>   
                     </div>                    
                  </form>    
                  </div>
@@ -77,7 +73,39 @@
     
     <!-- Register Form Section End -->
     
-  
+    <!-- Partner Logo Section Begin -->
+    <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="resister1">
+                    <div class="resister-inner1">
+                        <img src="img/logo-carousel/logo-1.png" alt="">
+                    </div>
+                </div>
+                <div class="resister2">
+                    <div class="resister-inner2">
+                        <img src="img/logo-carousel/logo-2.png" alt="">
+                    </div>
+                </div>
+                <div class="resister3">
+                    <div class="resister-inner3">
+                        <img src="img/logo-carousel/logo-3.png" alt="">
+                    </div>
+                </div>
+                <div class="resister4">
+                    <div class="resister-inner4">
+                        <img src="img/logo-carousel/logo-4.png" alt="">
+                    </div>
+                </div>
+                <div class="resister5">
+                    <div class="resister-inner5">
+                        <img src="img/logo-carousel/logo-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
 <jsp:include page="/footer.do"></jsp:include>

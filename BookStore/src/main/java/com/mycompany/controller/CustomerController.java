@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -68,6 +69,23 @@ public class CustomerController {
 		mv.setViewName("/test_logout_check");
 		
 		return mv;
+	}
+	//가입
+	@RequestMapping("/customerRegister.do")
+	public String getjoin(CustomerVO vo, HttpSession session) {
+		int result = customerService.insertCustomer(vo);
+		//회원가입 성공 시 로그인을 바로 해줌
+		if(result==1) {
+			session.setAttribute("customer", vo);
+		}
+		return "redirect:/registerCon.do";
+	}
+	
+	//가입 확인(정보 불러오기)
+	@RequestMapping("/registerCon.do")
+	public String joinCon(CustomerVO vo, Model model) {
+//		model.addAttribute("customer", customerService.selectCustomer(vo));
+		return "registerCon";
 	}
 	
 }
