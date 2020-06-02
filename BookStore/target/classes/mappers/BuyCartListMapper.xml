@@ -27,4 +27,8 @@
     ON c.BOOK_ID = b.BOOK_ID
    	where c.CUSTOMER_ID = #{customerId} 
    </select>
+   
+   <delete id="deleteCartList" parameterType="buycartlist">
+   	delete from BUYCARTLIST where customer_id =  #{customerId} and book_id = #{bookId} 
+   </delete>
 </mapper>

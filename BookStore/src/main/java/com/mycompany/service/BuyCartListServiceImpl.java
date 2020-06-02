@@ -25,9 +25,14 @@ public class BuyCartListServiceImpl implements BuyCartListService{
 	@Override
 	public int cartListChangeCnt(BuyCartListVO vo) {
 		return buycartlistDAO.cartListChangeCnt(vo);
-	}
+	} 
+	
 	@Override
 	public List<BuyCartListVO> getCartList(BuyCartListVO vo) {
 		return buycartlistDAO.getCartList(vo);
+	}
+	@Override
+	public int deleteCartList(BuyCartListVO vo) {
+		return buycartlistDAO.deleteCartList(vo);
 	}
 }

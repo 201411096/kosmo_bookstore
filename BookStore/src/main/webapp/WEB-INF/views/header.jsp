@@ -106,7 +106,7 @@
 										<h5><span>${sessionScope.cartListTotalPrice }</span></h5>
 									</div>
 									<div class="select-button">
-										<a href="#" class="primary-btn view-card">VIEW CARD</a> <a
+										<a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a> <a
 											href="#" class="primary-btn checkout-btn">CHECK OUT</a>
 									</div>
 								</div></li>

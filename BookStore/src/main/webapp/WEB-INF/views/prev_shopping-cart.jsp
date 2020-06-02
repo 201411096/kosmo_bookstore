@@ -60,7 +60,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="cart-table">
-						<form id="shoppingCart" action="" method="post">
+						<form id="shoppingCart" action="">
 							<table>
 								<thead>
 									<tr>
@@ -87,10 +87,10 @@
 											<td class="qua-col first-row">
 												<div class="quantity">
 													<div class="pro-qty">
-														<input type="text" name="${cartList.bookId}_buycartlistCnt" value="${cartList.buycartlistCnt}">
+														<input type="text" name="buycartlistCnt" value="${cartList.buycartlistCnt}">
 													</div>
 <!-- 													bookId를 보낼..? -->
-<%-- 													<input type="hidden" name="${cartList.bookId}_bookId" value="${cartList.bookId } "> --%>
+													<input type="hidden" name="bookId" value="${cartList.bookId } ">
 												</div>
 											</td>
 											<td class="total-price first-row">${cartList.bookTotalPrice}</td>

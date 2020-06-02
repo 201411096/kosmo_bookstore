@@ -9,4 +9,5 @@ public interface BuyCartListDAO {
 	public BuyCartListVO checkDuplicateCartList(BuyCartListVO vo);
 	public int cartListChangeCnt(BuyCartListVO vo);
 	public List<BuyCartListVO> getCartList(BuyCartListVO vo);
+	public int deleteCartList(BuyCartListVO vo);
 }
