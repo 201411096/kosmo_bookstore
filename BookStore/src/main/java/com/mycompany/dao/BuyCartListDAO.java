@@ -10,4 +10,5 @@ public interface BuyCartListDAO {
 	public int cartListChangeCnt(BuyCartListVO vo);
 	public List<BuyCartListVO> getCartList(BuyCartListVO vo);
 	public int deleteCartList(BuyCartListVO vo);
+	public int updateCartList(BuyCartListVO vo);
 }

@@ -32,5 +32,9 @@ public class BuyCartListDAOImpl implements BuyCartListDAO{
 	public int deleteCartList(BuyCartListVO vo) {
 		return mybatis.delete("BuyCartListDAO.deleteCartList", vo);
 	}
+	@Override
+	public int updateCartList(BuyCartListVO vo) {
+		return mybatis.delete("BuyCartListDAO.updateCartList", vo);
+	}
 	
 }

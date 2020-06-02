@@ -173,7 +173,12 @@ public class ProductController {
 				vo.setBookId(list.get(i).getBookId()); // 개수가 0이거나 db에는 있으나 사라진 bookId값
 				buyCartListService.deleteCartList(vo);
 			}else {
-				
+				CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
+				BuyCartListVO vo = new BuyCartListVO();
+				vo.setCustomerId(logInState.getCustomerId());
+				vo.setBookId(list.get(i).getBookId());
+				vo.setBuycartlistCnt(Integer.parseInt(map.get(Integer.toString(vo.getBookId()))));
+				buyCartListService.updateCartList(vo);
 			}
 		}
 		

@@ -35,4 +35,9 @@ public class BuyCartListServiceImpl implements BuyCartListService{
 	public int deleteCartList(BuyCartListVO vo) {
 		return buycartlistDAO.deleteCartList(vo);
 	}
+	@Override
+	public int updateCartList(BuyCartListVO vo) {
+		return buycartlistDAO.updateCartList(vo);
+	}
+	
 }
