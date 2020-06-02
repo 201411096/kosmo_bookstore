@@ -8,19 +8,13 @@
 </head>
 <body>
 
-<a href="/BookStore/test.do">start.jsp 호출</a>
-<br>
-<a href="/BookStore/header.do">header.jsp 호출</a>
-<br>
-<a href="/BookStore/moveToLogin.do">로그인 페이지 호출</a>
-<br>
-<a href="/BookStore/moveToRegister.do">회원가입 페이지 호출</a>
-<br>
-<a href="/BookStore/registerCon.do">회원가입 페이지 완료 호출</a>
-<br>
-<a href="/BookStore/question.do">문의사항 호출</a>
-<br>
-<a href="/BookStore/cover.do">커버 페이지 호출</a>
+<a href="/BookStore/test.do">start.jsp 호출</a><br>
+<a href="/BookStore/header.do">header.jsp 호출</a><br>
+<a href="/BookStore/moveToLogin.do">로그인 페이지 호출</a><br>
+<a href="/BookStore/moveToRegister.do">회원가입 페이지 호출</a><br>
+<a href="/BookStore/registerCon.do">회원가입 페이지 완료 호출</a><br>
+<a href="/BookStore/question.do">문의사항 호출</a><br>
+<a href="/BookStore/cover.do">커버 페이지 호출</a><br>
 
 </body>
 </html>
