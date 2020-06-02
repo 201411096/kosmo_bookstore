@@ -213,9 +213,9 @@ public class ProductController {
 		   CustomerVO logInState = (CustomerVO)session.getAttribute("customer");
 		   BuyCartListVO vo = new BuyCartListVO();
 		   vo.setCustomerId(logInState.getCustomerId());
-		   if(logInState==null) {
+		   if(logInState==null) 
 			   mv.setViewName("/login"); 
-		   }else {
+		   else {
 			   List<BuyCartListVO> list = buyCartListService.getCartList(vo); 
 			   int subTotal = 0;
 			   for(int i=0; i<list.size(); i++) {
@@ -242,7 +242,6 @@ public class ProductController {
 		   buyListService.addBuyList(buyListVO);
 		   // BuyVO의 BuylistId에 초기화
 		   BuyVO buyVO = new BuyVO();
-//		   buyVO.setBuylistId(buyListVO.getBuylistId());
 		   buyVO.setBuylistId(buyListService.getBuyListId(buyListVO));
 		   // BuyList의 각각의 리스트를 BuyVO 파라미터에 넣기
 		   BuyCartListVO buyCartListVo = new BuyCartListVO();
@@ -257,10 +256,6 @@ public class ProductController {
 		   ModelAndView mv = new ModelAndView();
 		   mv.addObject("customerInfo", logInState);
 		   mv.addObject("cartList", list);
-//		   System.out.println(vo.getBuylistShippingadderess());
-//		   System.out.println(cusVO.getCustomerTel());
-//		   System.out.println(cusVO.getCustomerId());
-//		   System.out.println(cusVO.getCustomerName());
 		   mv.setViewName("/test_buy_check");
 		   return mv;
 	   }
