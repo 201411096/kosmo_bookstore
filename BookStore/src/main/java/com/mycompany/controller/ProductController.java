@@ -18,7 +18,9 @@ import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.BuyCartListServiceImpl;
+import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
+import com.mycompany.util.CartList;
 
 @Controller
 public class ProductController {
@@ -29,6 +31,8 @@ public class ProductController {
 	BuyCartListServiceImpl buyCartListService;
 	@Autowired
 	TendencyServiceImpl tendencyService;
+	@Autowired
+	CustomerServiceImpl customerService;
 
 	@RequestMapping("/productView.do")
 	public ModelAndView product(BookVO vo, HttpSession session) {
@@ -105,6 +109,9 @@ public class ProductController {
 			}
 			mv.addObject("cartList", list);
 			mv.setViewName("/shopping-cart");
+
+			// 세션에 저장되어 있는 장바구니 정보를 갱신함
+			CartList.getInstance().setCartList(session, customerService);
 		}
 		return mv;
 	}

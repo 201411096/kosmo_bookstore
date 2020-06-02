@@ -1,8 +1,6 @@
 
 package com.mycompany.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,10 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
+import com.mycompany.util.CartList;
 
 
 	//Handles requests for the application home page.
@@ -46,21 +44,10 @@ public class CustomerController {
 		
 		if(result==null) {}
 		else {
-			//장바구니 목록을 가져옴
-			List<BuyCartListVO> cartList = customerService.getCartList(result.getCustomerId());
-			//장바구니 안 물품의 가격 합을 가져와서 세팅
-			int cartListTotalPrice = 0;
-			for(int i=0; i<cartList.size(); i++) {
-				cartListTotalPrice += cartList.get(i).getBookTotalPrice();
-			}
-			//장바구니의 총합을 세팅
-			session.setAttribute("cartListTotalPrice", cartListTotalPrice);
-			//장바구니 개수를 가져와서 세팅						
-			session.setAttribute("cartListNumber", cartList.size());
-			//장바구니 목록 세팅
-			session.setAttribute("cartList", cartList);
 			//고객 정보를 세팅
 			session.setAttribute("customer", result);
+			//장바구니 목록 갱신
+			CartList.getInstance().setCartList(session, customerService);
 		}
 		return mv;
 	}
