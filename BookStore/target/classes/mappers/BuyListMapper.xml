@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BuyListDAO">
+	<!-- mybatis 자료형 : int / hashmap / string -->
+	<insert id="addBuyList" parameterType="buylist">
+		INSERT INTO BUYLIST(BUYLIST_ID, CUSTOMER_ID, BUY_DATE, BUYLIST_SHIPPINGADDRESS) 
+		VALUES(BUYLIST_ID_SEQ.NEXTVAL, #{customerId}, sysdate, #{buylistShippingadderess})
+	</insert>
+	<select id="getBuyListId" parameterType="buylist" resultType="int">
+		SELECT BUYLIST_ID 
+		FROM 
+		(
+			SELECT BUYLIST_ID
+			FROM BUYLIST
+			WHERE CUSTOMER_ID=#{customerId}
+			ORDER BY BUYLIST_ID DESC
+		) 
+		WHERE ROWNUM = 1
+	</select>
+</mapper>

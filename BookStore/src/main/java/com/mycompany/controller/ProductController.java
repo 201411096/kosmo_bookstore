@@ -18,9 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.BuyCartListVO;
+import com.mycompany.domain.BuyListVO;
+import com.mycompany.domain.BuyVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.BuyCartListServiceImpl;
+import com.mycompany.service.BuyListServiceImpl;
+import com.mycompany.service.BuyServiceImpl;
 import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
@@ -36,6 +40,12 @@ public class ProductController {
 	TendencyServiceImpl tendencyService;
 	@Autowired
 	CustomerServiceImpl customerService;
+	
+	@Autowired
+	BuyListServiceImpl buyListService;
+
+	@Autowired
+	BuyServiceImpl buyService;
 
 	@RequestMapping("/productView.do")
 	public ModelAndView product(BookVO vo, HttpSession session) {
@@ -193,5 +203,65 @@ public class ProductController {
 		mv.addObject("cartListTotalPrice", cartListTotalPrice);
 		mv.setViewName("/shopping-cart");
 		return mv;
-	}	
+	}
+	
+	   // 장바구니에 있는 상품을 addList로 추가함
+	   @RequestMapping("/sendList.do")
+	   public ModelAndView sendList(HttpSession session) {
+		   ModelAndView mv = new ModelAndView();
+		   // session에서 customerId 추출 및 로그인 상태 확인
+		   CustomerVO logInState = (CustomerVO)session.getAttribute("customer");
+		   BuyCartListVO vo = new BuyCartListVO();
+		   vo.setCustomerId(logInState.getCustomerId());
+		   if(logInState==null) {
+			   mv.setViewName("/login"); 
+		   }else {
+			   List<BuyCartListVO> list = buyCartListService.getCartList(vo); 
+			   int subTotal = 0;
+			   for(int i=0; i<list.size(); i++) {
+				   int bookTotalPrice = list.get(i).getBuycartlistCnt()*list.get(i).getBookSaleprice();
+				   list.get(i).setBookTotalPrice(bookTotalPrice);
+				   subTotal = subTotal+list.get(i).getBookTotalPrice();
+			   }
+			   mv.addObject("customerInfo", logInState);
+			   mv.addObject("subTotal", subTotal);
+			   mv.addObject("cartList", list);
+			   mv.setViewName("/buy");
+		   }
+		   return mv;
+	   }
+	    //구매하여 buylist에 추가
+	   @RequestMapping("/addBuyList.do")
+	   public ModelAndView addBuyList(BuyListVO buyListVO, HttpSession session) {
+		   // BuyListVO의 buylistShippingadderess: 배송지(주소+상세주소)에 초기화
+		   buyListVO.setBuylistShippingadderess(buyListVO.getAddr()+buyListVO.getDetailAddr());
+		   // BuyListVO의 CustomerId에 초기화
+		   CustomerVO logInState = (CustomerVO)session.getAttribute("customer");
+		   buyListVO.setCustomerId(logInState.getCustomerId());
+		   // DB에 buyList 추가
+		   buyListService.addBuyList(buyListVO);
+		   // BuyVO의 BuylistId에 초기화
+		   BuyVO buyVO = new BuyVO();
+//		   buyVO.setBuylistId(buyListVO.getBuylistId());
+		   buyVO.setBuylistId(buyListService.getBuyListId(buyListVO));
+		   // BuyList의 각각의 리스트를 BuyVO 파라미터에 넣기
+		   BuyCartListVO buyCartListVo = new BuyCartListVO();
+		   buyCartListVo.setCustomerId(logInState.getCustomerId());
+		   List<BuyCartListVO> list = buyCartListService.getCartList(buyCartListVo); 
+		   for(int i=0; i<list.size(); i++) {			   
+			   buyVO.setBuyCnt(list.get(i).getBuycartlistCnt());
+			   buyVO.setBookId(list.get(i).getBookId());
+			   // DB에 각각의 buy 추가
+			   buyService.addBuy(buyVO);
+		   }
+		   ModelAndView mv = new ModelAndView();
+		   mv.addObject("customerInfo", logInState);
+		   mv.addObject("cartList", list);
+//		   System.out.println(vo.getBuylistShippingadderess());
+//		   System.out.println(cusVO.getCustomerTel());
+//		   System.out.println(cusVO.getCustomerId());
+//		   System.out.println(cusVO.getCustomerName());
+		   mv.setViewName("/test_buy_check");
+		   return mv;
+	   }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BuyDAO">
+   <!-- mybatis 자료형 : int / hashmap / string -->
+   <insert id="addBuy" parameterType="buy">
+	INSERT INTO BUY(BUY_ID, BUYLIST_ID, BOOK_ID, BUY_CNT) 
+		VALUES(BUY_ID_SEQ.NEXTVAL, #{buylistId}, #{bookId}, #{buyCnt})
+   </insert>
+
+</mapper>
