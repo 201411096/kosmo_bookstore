@@ -86,6 +86,7 @@ public class ProductController {
 	public ModelAndView addCartList(BuyCartListVO vo, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
+		int cartListTotalPrice = 0;
 		// 로그인 여부 판단
 		if (logInState == null) {
 			mv.setViewName("/login");
@@ -105,9 +106,11 @@ public class ProductController {
 			List<BuyCartListVO> list = buyCartListService.getCartList(vo);
 			for (int i = 0; i < list.size(); i++) {
 				int bookTotalPrice = list.get(i).getBuycartlistCnt() * list.get(i).getBookSaleprice();
+				cartListTotalPrice+=bookTotalPrice;
 				list.get(i).setBookTotalPrice(bookTotalPrice);
 			}
 			mv.addObject("cartList", list);
+			mv.addObject("cartListTotalPrice", cartListTotalPrice);
 			mv.setViewName("/shopping-cart");
 
 			// 세션에 저장되어 있는 장바구니 정보를 갱신함

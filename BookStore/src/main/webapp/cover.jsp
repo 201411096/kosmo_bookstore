@@ -53,6 +53,7 @@
 					class="site-btn register-btn">로그인</button>
 				<button id='right-btn' onclick="location.href=''"
 					class="site-btn register-btn">메인화면</button>
+					
 			</div>
 		</div>
 	</div>
