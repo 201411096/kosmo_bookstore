@@ -59,6 +59,5 @@ function updateCart(){
 	$('#shoppingCart').submit();
 }
 function tiCloseFunc(){
-	console.log('ticlosefunc 클릭 이벤트');
 	$(this).parent().parent().remove();
 }

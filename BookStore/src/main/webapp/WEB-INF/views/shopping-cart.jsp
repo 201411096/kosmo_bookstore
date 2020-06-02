@@ -89,18 +89,13 @@
 													<div class="pro-qty">
 														<input type="text" name="${cartList.bookId}_buycartlistCnt" value="${cartList.buycartlistCnt}">
 													</div>
-<!-- 													bookId를 보낼..? -->
-<%-- 													<input type="hidden" name="${cartList.bookId}_bookId" value="${cartList.bookId } "> --%>
 												</div>
 											</td>
 											<td class="total-price first-row">${cartList.bookTotalPrice}</td>
 											<td class="close-td first-row"><i class="ti-close"></i></td>
 										</tr>
 									</c:forEach>
-
-
 								</tbody>
-
 							</table>
 						</form>
 					</div>
@@ -108,8 +103,7 @@
 						<div class="col-lg-4">
 							<div class="cart-buttons">
 								<a href="#" class="primary-btn continue-shop">Continue shopping</a>
-<!-- 									 <a href="updateCartList.do" class="primary-btn up-cart">Update cart</a> -->
-										<a id="updateCartTag" href="#" class="primary-btn up-cart">Update cart</a>
+								<a id="updateCartTag" href="#" class="primary-btn up-cart">Update cart</a>
 							</div>
 							<div class="discount-coupon">
 								<h6>Discount Codes</h6>
