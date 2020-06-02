@@ -7,6 +7,8 @@ $(function(){
 	$('#shoppingCartTbody .pro-qty').find('input').on('keyup', qtyKeyupFunc);
 	//장바구니 업데이트
 	$('#updateCartTag').on('click', updateCart);
+	
+	$('#shoppingCartTbody .ti-close').on('click', tiCloseFunc);
 });
 function qtyKeyupFunc(){
 	var productPrice = $(this).parent().parent().parent().prev().text();
@@ -51,8 +53,12 @@ function calculationTotalPrice(){
 	
 	$('#subTotal').find('span').text(subTotalPrice);
 	$('#cartTotal').find('span').text(cartTotalPrice);
-}
+} 
 function updateCart(){
 	$('#shoppingCart').attr("action", "updateCartList.do");
 	$('#shoppingCart').submit();
+}
+function tiCloseFunc(){
+	console.log('ticlosefunc 클릭 이벤트');
+	$(this).parent().parent().remove();
 }

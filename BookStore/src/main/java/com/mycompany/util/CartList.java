@@ -33,7 +33,7 @@ public class CartList {
 		//장바구니 목록 세팅
 		session.setAttribute("cartList", cartList);
 	}
-	//리스트를 db에서 끌어오는 함수
+	//리스트를 db에서 끌어오는 함수(세션에 들어가있는 customer정보를 가져옴)
 	public List<BuyCartListVO> getBuyCartList(HttpSession session, BuyCartListServiceImpl buyCartListService){
 		CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
 		BuyCartListVO vo = new BuyCartListVO();
