@@ -157,17 +157,12 @@ public class ProductController {
 		Enumeration<String> e = request.getParameterNames();
 		HashMap<String, String> map = new HashMap<String, String>(); //id와 bookcnt를 담을 hashmap
 		int cartListTotalPrice = 0;
-//		ArrayList<Integer> bookIdArray = new ArrayList<Integer>();
+		
 		while(e.hasMoreElements()) {
 			String name = (String)e.nextElement();
 			String values = request.getParameter(name);
 			StringTokenizer st = new StringTokenizer(name, "_");
 			map.put(st.nextToken(), values); //bookId와 cnt를 map에 넣음
-//			for(int i=0; i<list.size(); i++)
-//				bookIdArray.add(list.get(i).getBookId());
-//			System.out.println("map 있는지 확인" + map.containsKey("2"));
-//			System.out.println("productController updateCartList.do에서 확인" + name);
-//			System.out.println("productController updateCartList.do에서 확인" + values); //가져오는 것 확인완료
 		}
 		for(int i=0; i<list.size(); i++) {
 			map.containsKey(Integer.toString(list.get(i).getBookId()));
@@ -194,20 +189,5 @@ public class ProductController {
 		mv.addObject("cartListTotalPrice", cartListTotalPrice);
 		mv.setViewName("/shopping-cart");
 		return mv;
-	}
-	
-	
-	//backup updateCartList
-//	@RequestMapping("/updateCartList.do")
-//	public ModelAndView updateCartList(List<BuyCartListVO> list, HttpSession session, HashMap<String, String> map) {
-//		ModelAndView mv = new ModelAndView();
-//		System.out.println("updateCartList.do 확인");
-//		for(int i=0; i<list.size(); i++) {
-//			System.out.println(list.get(i).getBookId());
-//			System.out.println(list.get(i).getBuycartlistCnt());
-//		}
-//		mv.setViewName("/shopping-cart");
-//		return mv;
-//	}
-	
+	}	
 }
