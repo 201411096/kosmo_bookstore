@@ -158,57 +158,69 @@ public class ProductController {
 		}
 		return mv;
 	}
+	//backup
+//	@RequestMapping("/updateCartList.do")
+//	public ModelAndView updateCartList(HttpServletRequest request, HttpSession session) {
+//		ModelAndView mv = new ModelAndView();
+//		//db에 있는 customer의 리스트값을 가져옴
+//		List<BuyCartListVO> list = CartList.getInstance().getBuyCartList(session, buyCartListService);
+//		Enumeration<String> e = request.getParameterNames();
+//		HashMap<String, String> map = new HashMap<String, String>(); //id와 bookcnt를 담을 hashmap
+//		int cartListTotalPrice = 0;
+//		
+//		while(e.hasMoreElements()) {
+//			String name = (String)e.nextElement();
+//			String values = request.getParameter(name);
+//			StringTokenizer st = new StringTokenizer(name, "_");
+//			map.put(st.nextToken(), values); //bookId와 cnt를 map에 넣음
+//		}
+//		for(int i=0; i<list.size(); i++) {
+//			map.containsKey(Integer.toString(list.get(i).getBookId()));
+//			if(map.containsKey(Integer.toString(list.get(i).getBookId()))==false || map.get(Integer.toString(list.get(i).getBookId())).equals("0")) { //해당 bookId가 없거나 개수가 0개라면 삭제된 것 혹은 삭제해야할 것임
+//				CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
+//				BuyCartListVO vo = new BuyCartListVO();
+//				vo.setCustomerId(logInState.getCustomerId());
+//				vo.setBookId(list.get(i).getBookId()); // 개수가 0이거나 db에는 있으나 사라진 bookId값
+//				buyCartListService.deleteCartList(vo);
+//			}else {
+//				CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
+//				BuyCartListVO vo = new BuyCartListVO();
+//				vo.setCustomerId(logInState.getCustomerId());
+//				vo.setBookId(list.get(i).getBookId());
+//				vo.setBuycartlistCnt(Integer.parseInt(map.get(Integer.toString(vo.getBookId()))));
+//				buyCartListService.updateCartList(vo);
+//			}
+//		}
+//		
+//		list = CartList.getInstance().getBuyCartList(session, buyCartListService); //수정된 리스트를 다시 가져옴
+//		for (int i = 0; i < list.size(); i++) {
+//			int bookTotalPrice = list.get(i).getBuycartlistCnt() * list.get(i).getBookSaleprice();
+//			cartListTotalPrice+=bookTotalPrice;
+//			list.get(i).setBookTotalPrice(bookTotalPrice);
+//		}
+//		//헤더의 장바구니 세션 갱신
+//		CartList.getInstance().setCartList(session, customerService);
+//		mv.addObject("cartList", list);
+//		mv.addObject("cartListTotalPrice", cartListTotalPrice);
+//		mv.setViewName("/shopping-cart");
+//		return mv;
+//	}
+
 	@RequestMapping("/updateCartList.do")
 	public ModelAndView updateCartList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		//db에 있는 customer의 리스트값
-		List<BuyCartListVO> list = CartList.getInstance().getBuyCartList(session, buyCartListService);
-		Enumeration<String> e = request.getParameterNames();
-		HashMap<String, String> map = new HashMap<String, String>(); //id와 bookcnt를 담을 hashmap
-		int cartListTotalPrice = 0;
-		
-		while(e.hasMoreElements()) {
-			String name = (String)e.nextElement();
-			String values = request.getParameter(name);
-			StringTokenizer st = new StringTokenizer(name, "_");
-			map.put(st.nextToken(), values); //bookId와 cnt를 map에 넣음
-		}
-		for(int i=0; i<list.size(); i++) {
-			map.containsKey(Integer.toString(list.get(i).getBookId()));
-			if(map.containsKey(Integer.toString(list.get(i).getBookId()))==false || map.get(Integer.toString(list.get(i).getBookId())).equals("0")) { //해당 bookId가 없거나 개수가 0개라면 삭제된 것 혹은 삭제해야할 것임
-				CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
-				BuyCartListVO vo = new BuyCartListVO();
-				vo.setCustomerId(logInState.getCustomerId());
-				vo.setBookId(list.get(i).getBookId()); // 개수가 0이거나 db에는 있으나 사라진 bookId값
-				buyCartListService.deleteCartList(vo);
-			}else {
-				CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
-				BuyCartListVO vo = new BuyCartListVO();
-				vo.setCustomerId(logInState.getCustomerId());
-				vo.setBookId(list.get(i).getBookId());
-				vo.setBuycartlistCnt(Integer.parseInt(map.get(Integer.toString(vo.getBookId()))));
-				buyCartListService.updateCartList(vo);
-			}
-		}
-		
-		list = CartList.getInstance().getBuyCartList(session, buyCartListService); //수정된 리스트를 다시 가져옴
-		for (int i = 0; i < list.size(); i++) {
-			int bookTotalPrice = list.get(i).getBuycartlistCnt() * list.get(i).getBookSaleprice();
-			cartListTotalPrice+=bookTotalPrice;
-			list.get(i).setBookTotalPrice(bookTotalPrice);
-		}
-		//헤더의 장바구니 세션 갱신
-		CartList.getInstance().setCartList(session, customerService);
-		mv.addObject("cartList", list);
-		mv.addObject("cartListTotalPrice", cartListTotalPrice);
+		//뷰에서 수정한대로 장바구니를 수정
+		CartList.getInstance().updateCartList(request, session, buyCartListService, customerService, mv);
 		mv.setViewName("/shopping-cart");
 		return mv;
 	}
 	
 	   // 장바구니에 있는 상품을 addList로 추가함
 	   @RequestMapping("/sendList.do")
-	   public ModelAndView sendList(HttpSession session) {
+	   public ModelAndView sendList(HttpServletRequest request, HttpSession session) {
 		   ModelAndView mv = new ModelAndView();
+		   //뷰에서 수정한대로 장바구니를 수정
+		   CartList.getInstance().updateCartList(request, session, buyCartListService, customerService, mv);
 		   // session에서 customerId 추출 및 로그인 상태 확인
 		   CustomerVO logInState = (CustomerVO)session.getAttribute("customer");
 		   BuyCartListVO vo = new BuyCartListVO();

@@ -5,10 +5,12 @@ $(function(){
 	$('#shoppingCartTbody .dec').on('click', qtyDecClickFunc);
 	//개수 텍스트 연결
 	$('#shoppingCartTbody .pro-qty').find('input').on('keyup', qtyKeyupFunc);
+	//x버튼 연결
+	$('#shoppingCartTbody .ti-close').on('click', tiCloseFunc);
 	//장바구니 업데이트
 	$('#updateCartTag').on('click', updateCart);
-	
-	$('#shoppingCartTbody .ti-close').on('click', tiCloseFunc);
+	//결제화면으로 이동
+	$('#proceedBtn').on('click', proceedToCheckOut);
 });
 function qtyKeyupFunc(){
 	var productPrice = $(this).parent().parent().parent().prev().text();
@@ -53,11 +55,15 @@ function calculationTotalPrice(){
 	
 	$('#subTotal').find('span').text(subTotalPrice);
 	$('#cartTotal').find('span').text(cartTotalPrice);
-} 
+}
+function tiCloseFunc(){
+	$(this).parent().parent().remove();
+}
 function updateCart(){
 	$('#shoppingCart').attr("action", "updateCartList.do");
 	$('#shoppingCart').submit();
 }
-function tiCloseFunc(){
-	$(this).parent().parent().remove();
+function proceedToCheckOut(){
+	$('#shoppingCart').attr("action", "sendList.do");
+	$('#shoppingCart').submit();
 }

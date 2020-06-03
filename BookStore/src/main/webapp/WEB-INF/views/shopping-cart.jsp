@@ -119,7 +119,8 @@
 									<li class="subtotal" id="subTotal">Subtotal <span>${cartListTotalPrice}</span></li>
 									<li class="cart-total" id="cartTotal">Total <span>${cartListTotalPrice}</span></li>
 								</ul>
-								<a href="/BookStore/sendList.do" class="proceed-btn">PROCEED TO CHECK OUT</a>
+<!-- 								<a href="/BookStore/sendList.do" class="proceed-btn">PROCEED TO CHECK OUT</a> -->
+									<a id="proceedBtn" href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
 							</div>
 						</div>
 					</div>
