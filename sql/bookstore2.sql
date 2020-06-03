@@ -5,6 +5,7 @@
 --2. 데이터 입력
 --3. SQL문 확인
 --4. DB 삭제
+--5. 시퀀스 초기화
 ------------------------------1.DB 생성 ------------------------------
 --------------------1_1.테이블--------------------
 --테이블번호 : 1
@@ -71,7 +72,8 @@ CREATE TABLE WRITER(
 CREATE TABLE STORE(
     STORE_ID NUMBER(30),
     STORE_NAME VARCHAR2(30),
-    STORE_ADDR VARCHAR2(30),
+    STORE_ADDR VARCHAR2(256),
+    STORE_POINT VARCHAR2(256),
     STORE_TEL VARCHAR2(30),
     CONSTRAINT STORE_PK PRIMARY KEY(STORE_ID)
 );
@@ -269,17 +271,20 @@ INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '이서윤
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '정채진');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '김수현');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '박근호');
+INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '칼 세이건');
 --------------------2_6.BOOK--------------------
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 2, 15000, '더 해빙', 'ECONOMIC', '부와 행운을 만나는 출발점, 마법의 감정 Having! 국내 최초로 미국에서 선(先)출간되어 세계가 먼저 찾아 읽은 『더 해빙(The Having)』.', '2020-03-01', 12000, 100, 0, 1);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 2, 16000, '오래된 비밀', 'ECONOMIC', '대한민국 상위 1%의 멘토가 말하는 운의 원리『오래된 비밀』. 이 책은 ‘운명학은 과학이다’라는 전제를 바탕으로 운의 세계를 풀어가고, 우리의 운명을 가르는 행운과 불운의 실체가 무엇인지 들여다본다.', '2013-02-28', 14000, 100, 0, 1);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
-VALUES(BOOK_ID_SEQ.NEXTVAL, 3, 18000, '애쓰지 않고 편안하게', 'LITERATURE', '“어떤 순간에도 만만하지 않은 평화주의자가 될 것!”《나는 나로 살기로 했다》 김수현 작가 4년 만의 신작', '2020-06-05', 16000, 100, 0 , 1);
+VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 18000, '애쓰지 않고 편안하게', 'LITERATURE', '“어떤 순간에도 만만하지 않은 평화주의자가 될 것!”《나는 나로 살기로 했다》 김수현 작가 4년 만의 신작', '2020-06-05', 16000, 100, 0 , 1);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
-VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 15000, '전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다', 'LITERATURE', '베스트 셀러 《비밀편지》 저자 박근호의 첫 번째 문집《전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다》) 출간!', '2020-05-14', 13000, 100, 0 ,1);
+VALUES(BOOK_ID_SEQ.NEXTVAL, 5, 15000, '전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다', 'LITERATURE', '베스트 셀러 《비밀편지》 저자 박근호의 첫 번째 문집《전부였던 사람이 떠나갔을 때 태연히 밥을 먹기도 했다》) 출간!', '2020-05-14', 13000, 100, 5 ,1);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
-VALUES(BOOK_ID_SEQ.NEXTVAL, 4, 20000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지 감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', 17000, 100, 3.3, 3);
+VALUES(BOOK_ID_SEQ.NEXTVAL, 5, 20000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지 감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', 17000, 100, 9.9, 3);
+INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
+VALUES(BOOK_ID_SEQ.NEXTVAL, 6, 20000, '코스모스', 'TECHNOLOGY', '과학 교양서의 고전『코스모스』. 이 책에서 저자는 우주의 탄생과 은하계의 진화, 태양의 삶과 죽음, 우주를 떠돌던 먼지가 의식 있는 생명이 되는 과정, 외계 생명의 존재 문제 등에 관한 내용을 수 백장의 사진과 일러스트를 곁들여 흥미롭게 설명한다. 현대 천문학을 대표하는 저명한 과학자인 저자는 이 책에서 사람들의 상상력을 사로잡고, 난해한 개념을 명쾌하게 해설하는 놀라운 능력을 마음껏 발휘한다.', '2006-01-20', 16000, 100, 15.15, 4);
 --------------------2_10.BUYCARTLIST--------------------
 INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 2, 3);
 INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 3, 2);
@@ -298,6 +303,7 @@ FROM BOOK b JOIN WRITER w
 ON b.WRITER_ID = w.WRITER_ID
 WHERE REGEXP_LIKE (BOOK_NAME, '(*)오(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)김(*)');
 --WHERE BOOK_NAME = '오래된 비밀';
+select b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE, b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY, b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE, b.BOOK_CNT AS BOOK_CNT, b.BOOK_SCORE AS BOOK_SCORE, b.BOOK_SCORECOUNT AS BOOK_SCORECOUNT from (select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc) b where rownum=1;
 --------------------2_13.BUYCARTLIST--------------------
 ALTER TABLE BUYCARTLIST ADD (BUYCARTLIST_CNT NUMBER(30));
 select SUM(BOOK_SALEPRICE) from book where book_id in ( select book_id from buycartlist WHERE customer_id='aaa' );
@@ -342,4 +348,15 @@ DROP SEQUENCE BUYCARTLIST_ID_SEQ;
 ----- 테이블11 및 관련 시퀀스 삭제 -----
 DROP TABLE BUYREVIEW;
 DROP SEQUENCE BUYREVIEW_ID_SEQ;
-
+------------------------------5. 시퀀스 초기화------------------------------
+-------------------------5_1. Template -------------------------
+SELECT SEQUENCE_NAME FROM USER_SEQUENCES WHERE SEQUENCE_NAME='SEQUENCE_NAME';
+SELECT SEQNENCE_NAME.CURRVAL FROM UDAL;
+ALTER SEQUENCE SEQUENCE_NAME INCREMENT BY NUMBER;
+-------------------------5_2. Example -------------------------
+SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
+SELECT WRITER_ID_SEQ.NEXTVAL FROM UDAL;
+ALTER SEQUENCE WRITER_ID_SEQ INCREMENT BY -15;
+------------------------------6. sample------------------------------
+select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc;
+select b.* from (select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc) b where rownum=1;

@@ -1,5 +1,7 @@
 package com.mycompany.domain;
 
+import java.util.ArrayList;
+
 public class TendencyVO {
 	private int tendencyId;
 	private String customerId;
@@ -66,5 +68,53 @@ public class TendencyVO {
 		this.literature= (int)(((double)this.literature/sum)*100);
 		this.social= (int)(((double)this.social/sum)*100);
 		this.technology= (int)(((double)this.technology/sum)*100);
+	}
+	public String getMaxPreferredGenre() {
+		int cnt [] = new int[6];
+		int max_idx=0;
+		ArrayList<String> genre = new ArrayList<String>();
+		cnt[0] = this.art;
+		cnt[1] = this.economic;
+		cnt[2] = this.history;
+		cnt[3] = this.literature;
+		cnt[4] = this.social;
+		cnt[5] = this.technology;
+		
+		genre.add("ART");
+		genre.add("ECONOMIC");
+		genre.add("HISTORY");
+		genre.add("LITERATURE");
+		genre.add("SOCIAL");
+		genre.add("TECHNOLOGY");
+
+		for(int i=0; i<cnt.length; i++) {
+			if(cnt[i]>cnt[max_idx])
+				max_idx=i;
+		}
+		return genre.get(max_idx);
+	}
+	public String getMinPreferredGenre() {
+		int cnt [] = new int[6];
+		int min_idx=0;
+		ArrayList<String> genre = new ArrayList<String>();
+		cnt[0] = this.art;
+		cnt[1] = this.economic;
+		cnt[2] = this.history;
+		cnt[3] = this.literature;
+		cnt[4] = this.social;
+		cnt[5] = this.technology;
+		
+		genre.add("ART");
+		genre.add("ECONOMIC");
+		genre.add("HISTORY");
+		genre.add("LITERATURE");
+		genre.add("SOCIAL");
+		genre.add("TECHNOLOGY");
+
+		for(int i=0; i<cnt.length; i++) {
+			if(cnt[i]<cnt[min_idx])
+				min_idx=i;
+		}
+		return genre.get(min_idx);
 	}
 }
