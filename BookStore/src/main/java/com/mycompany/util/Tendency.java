@@ -26,5 +26,7 @@ public class Tendency {
 		tendencyMap.put("genre", bookVO.getBookGenre());
 		if(option==1)
 			tendencyService.increaseTendency(tendencyMap);
+		else if(option==2)
+			tendencyService.increaseTendency2(tendencyMap);
 	}
 }

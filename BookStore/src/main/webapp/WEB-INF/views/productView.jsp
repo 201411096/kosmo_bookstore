@@ -303,7 +303,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="img/products/women-1.jpg" alt="">
+                            <img src="resources/img/products/women-1.jpg" alt="">
                             <div class="sale">Sale</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
@@ -329,7 +329,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="img/products/women-2.jpg" alt="">
+                            <img src="resources/img/products/women-2.jpg" alt="">
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
@@ -353,7 +353,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="img/products/women-3.jpg" alt="">
+                            <img src="resources/img/products/women-3.jpg" alt="">
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
@@ -377,7 +377,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="img/products/women-4.jpg" alt="">
+                            <img src="resources/img/products/women-4.jpg" alt="">
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
@@ -409,27 +409,27 @@
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-1.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-1.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-2.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-2.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-3.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-3.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-4.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-4.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-5.png" alt="">
+                        <img src="resources/img/logo-carousel/logo-5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -442,16 +442,16 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+<!--     <script src="js/jquery-3.3.1.min.js"></script> -->
+<!--     <script src="js/bootstrap.min.js"></script> -->
+<!--     <script src="js/jquery-ui.min.js"></script> -->
+<!--     <script src="js/jquery.countdown.min.js"></script> -->
+<!--     <script src="js/jquery.nice-select.min.js"></script> -->
+<!--     <script src="js/jquery.zoom.min.js"></script> -->
+<!--     <script src="js/jquery.dd.min.js"></script> -->
+<!--     <script src="js/jquery.slicknav.js"></script> -->
+<!--     <script src="js/owl.carousel.min.js"></script> -->
+<!--     <script src="js/main.js"></script> -->
 </body>
 
 </html>
