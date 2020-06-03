@@ -22,4 +22,9 @@ public class TendencyServiceImpl implements TendencyService{
 		int result = tendencyDAO.increaseTendency(tendencyMap);
 		return result;
 	}
+	@Override
+	public int increaseTendency2(Map<String, String> tendencyMap) {
+		int result = tendencyDAO.increaseTendency2(tendencyMap);
+		return result;
+	}
 }

@@ -25,4 +25,10 @@ public class TendencyDAOImpl implements TendencyDAO{
 		return result;
 	}
 	
+	@Override
+	public int increaseTendency2(Map<String, String> tendencyMap) {
+		int result = mybatis.update("TendencyDAO.increaseTendency2", tendencyMap);
+		return result;
+	}
+	
 }

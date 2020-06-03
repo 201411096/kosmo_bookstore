@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
-
+<!-- 장바구니는 됨 -->
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Fashi Template">

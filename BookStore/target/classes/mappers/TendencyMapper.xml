@@ -9,4 +9,7 @@
 	<update id="increaseTendency" parameterType="hashmap">
 		update tendency set ${genre}=${genre}+1 where customer_id=#{customerId}
 	</update>
+	<update id="increaseTendency2" parameterType="hashmap">
+		update tendency set ${genre}=${genre}+10 where customer_id=#{customerId}
+	</update>
 </mapper>

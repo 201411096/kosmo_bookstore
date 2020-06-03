@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
-<!-- 장바구니도 되고 리뷰도 작성이 되는데 작성 후에 망가짐  -->
+<!-- 장바구니는 됨 안합침 -->
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Fashi Template">
@@ -170,7 +170,7 @@
                                                     aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
                                             </div>
                                             <div class="col-lg-5">
-                                                <img src="resources/img/product-single/tab-desc.jpg" alt="">
+                                                <img src="img/product-single/tab-desc.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -236,42 +236,51 @@
                                 </div>
                                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                     <div class="customer-review-option">
-<!--                                     리뷰출력 -->
-                                        <h4>2 Comments</h4>
+                                    <!--리뷰출력 -->
+                                        <h4>Comments</h4>
                                         <div class="comment-option">
-                                        <c:forEach items="${review}" var="review" >
-                                        <div class="co-item">
-                                                <div class="avatar-pic">
-                                                    <img src="resources/img/product-single/avatar-1.png" alt="">
-                                                </div>
-                                                <div class="avatar-text">
-                                                    <div class="at-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>                                                 
-                                                    <h5>${review.customerId} <span>${review.bookId}</span></h5>
-                                                    <div class="at-reply">${review.buyreviewContent}</div>                                              
-                                                </div>
+											<c:forEach items="${review}" var="review">
+												<div class="co-item">
+													<div class="avatar-pic">
+														<img src="resources/img/product-single/avatar-1.png"
+															alt="">
+													</div>
+													<div class="avatar-text">
+														<div class="at-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star-o"></i>
+														</div>
+														<h5>${review.customerId}
+															<span>${review.bookId}</span>
+														</h5>
+														<div class="at-reply">${review.buyreviewContent}</div>
+													</div>
+												</div>
+											</c:forEach>
+                                        </div>
+                                        <div class="personal-rating">
+                                            <h6>Your Ratind</h6>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </div>
-                                       </c:forEach>
+                                        </div>
                                         <div class="leave-comment">
-<!--                                         리뷰입력 -->
                                             <h4>Leave A Comment</h4>
-                                            
-                                            <form action="productReview.do" class="comment-form">
-                                            	<input type="hidden" name="bookId" value="${info.bookId}">
-                                                <div class="row">                                             
+                                            <form action="#" class="comment-form">
+                                                <div class="row">
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="buyReviewId시퀀스" name="buyreviewId">
+                                                        <input type="text" placeholder="Name">
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="buyReviewScore" name="buyreviewScore">
+                                                        <input type="text" placeholder="Email">
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <textarea placeholder="buyReviewContent" name="buyreviewContent"></textarea>
+                                                        <textarea placeholder="Messages"></textarea>
                                                         <button type="submit" class="site-btn">Send message</button>
                                                     </div>
                                                 </div>
@@ -282,7 +291,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

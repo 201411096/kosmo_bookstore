@@ -28,6 +28,7 @@ import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.ReviewServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
+import com.mycompany.util.Tendency;
 
 @Controller
 public class ProductController {
@@ -61,13 +62,14 @@ public class ProductController {
 		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
 		mv.addObject("review", reviewList);
 		
-		// 로그인 상태라면
+		// 로그인 상태라면 도서페이지의 장르에 해당하는 성향을 증가시켜줌
 		if (session.getAttribute("customer") != null) {
 			CustomerVO customer = (CustomerVO) session.getAttribute("customer");
-			Map<String, String> tendencyMap = new HashMap<String, String>();
-			tendencyMap.put("customerId", customer.getCustomerId());
-			tendencyMap.put("genre", book.getBookGenre());
-			tendencyService.increaseTendency(tendencyMap);
+//			Map<String, String> tendencyMap = new HashMap<String, String>();
+//			tendencyMap.put("customerId", customer.getCustomerId());
+//			tendencyMap.put("genre", book.getBookGenre());
+//			tendencyService.increaseTendency(tendencyMap);
+			Tendency.getInstance().increaseTendency(session, tendencyService, customer, book, 1);
 		}
 
 		mv.setViewName("/productView");
@@ -205,16 +207,24 @@ public class ProductController {
 		BuyCartListVO buyCartListVo = new BuyCartListVO();
 		buyCartListVo.setCustomerId(logInState.getCustomerId());
 		List<BuyCartListVO> list = buyCartListService.getCartList(buyCartListVo);
+		
 		for (int i = 0; i < list.size(); i++) {
 			buyVO.setBuyCnt(list.get(i).getBuycartlistCnt());
 			buyVO.setBookId(list.get(i).getBookId());
 			// DB에 각각의 buy 추가
 			buyService.addBuy(buyVO);
+			
+			//구매 도서 장르에 대한 성향을 증가시키는 부분
+			BookVO temp = new BookVO(); // 도서 검색을 위한 임시 객체
+			temp.setBookId(list.get(i).getBookId());
+			BookVO bookVO = bookService.selectBook(temp);
+			Tendency.getInstance().increaseTendency(session, tendencyService, logInState, bookVO, 2);
 		}
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("customerInfo", logInState);
 		mv.addObject("cartList", list);
 		mv.setViewName("/test_buy_check");
+			
 		//현재 사용자의 장바구니를 비워주고 내부적으로 세션에 적용
 		CartList.getInstance().clearCurrentCustomerCartList(session, buyCartListService, customerService);		
 		return mv;
