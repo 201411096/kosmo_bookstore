@@ -32,6 +32,7 @@
 <!-- <link rel="stylesheet" href="resources/css/slicknav.min.css" -->
 <!-- 	type="text/css"> -->
 <!-- <link rel="stylesheet" href="resources/css/style.css" type="text/css"> -->
+	<link rel="stylesheet" href="resources/custom/css/custom_tendencyGraph.css">
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -49,7 +50,7 @@
 	<input type="hidden" id="customerTechnology" name="customerTechnology" value="${tendency.technology}">
 	<input type="hidden" id="customerLiterature" name="customerLiterature" value="${tendency.literature}">
 	<input type="hidden" id="customerHistory" name="customerHistory" value="${tendency.history}">
-	<hr>
+	
 	<input type="hidden" id="totalId" name="totalId" value="${sessionScope.totalTendency.customerId }">
 	<input type="hidden" id="totalArt" name="totalArt" value="${totalTendency.art}">
 	<input type="hidden" id="totalSocial" name="totalSocial" value="${totalTendency.social}">
@@ -57,12 +58,12 @@
 	<input type="hidden" id="totalTechnology" name="totalTechnology" value="${totalTendency.technology}">
 	<input type="hidden" id="totalLiterature" name="totalLiterature" value="${totalTendency.literature}">
 	<input type="hidden" id="totalHistory" name="totalHistory" value="${totalTendency.history}">
-	<hr>
-	<br><br><br><br><br><br><br><br><br><br><br>
-	customerId :  ${sessionScope.customer.customerId }
-	<canvas id="myChart" width="400" height="400"></canvas>
-	<br><br><br><br><br><br><br><br><br><br><br>
 	
+<!-- 	차트 부분 시작 -->
+
+	<canvas id="myChart" width="400" height="400"></canvas>
+
+<!-- 	차트 부분 끝 -->
 	<!-- Footer Section Begin -->
 	<jsp:include page="/footer.do"></jsp:include>
 	<!-- Footer Section End -->

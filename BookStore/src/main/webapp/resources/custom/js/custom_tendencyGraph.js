@@ -42,7 +42,17 @@ function makeChart(chartData, chartOptions){
 	var myRadarChart = new Chart(ctx, {
 		type : 'radar',
 		data : chartData,
-		options : chartOptions
+//		options : chartOptions
+        options:{
+            responsive: false
+//            scales: {
+//                xAxes: [{
+//                    ticks: {
+//                        min: 0
+//                    }
+//                }]
+//            }
+        }
 	});
 }
 function makeCustomerArray(){
@@ -67,7 +77,9 @@ function makeTotalArray(){
 	
 	return totalArray;
 }
-
+function makeChartOptions(){
+	
+}
 
 
 
