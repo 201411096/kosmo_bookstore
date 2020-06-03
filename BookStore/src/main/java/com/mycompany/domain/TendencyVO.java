@@ -58,4 +58,13 @@ public class TendencyVO {
 	public void setHistory(int history) {
 		this.history = history;
 	}
+	public void setElementToPercent() {
+		int sum= this.art+this.economic+this.history+this.literature+this.social+this.technology;
+		this.art= (int)(((double)this.art/sum)*100);
+		this.economic= (int)(((double)this.economic/sum)*100);
+		this.history= (int)(((double)this.history/sum)*100);
+		this.literature= (int)(((double)this.literature/sum)*100);
+		this.social= (int)(((double)this.social/sum)*100);
+		this.technology= (int)(((double)this.technology/sum)*100);
+	}
 }

@@ -13,10 +13,7 @@
 <title>Fashi | Template</title>
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
-	rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 <!-- Css Styles -->
 <!-- <link rel="stylesheet" href="resources/css/bootstrap.min.css" -->
 <!-- 	type="text/css"> -->
@@ -36,7 +33,6 @@
 <!-- 	type="text/css"> -->
 <!-- <link rel="stylesheet" href="resources/css/style.css" type="text/css"> -->
 </head>
-
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -62,12 +58,6 @@
 	<input type="hidden" id="totalLiterature" name="totalLiterature" value="${totalTendency.literature}">
 	<input type="hidden" id="totalHistory" name="totalHistory" value="${totalTendency.history}">
 	<hr>
-<%-- 	<input type="text" name="art" value="${tendency.art}"> --%>
-<%-- 	<input type="text" name="social" value="${tendency.social}"> --%>
-<%-- 	<input type="text" name="economic" value="${tendency.economic}"> --%>
-<%-- 	<input type="text" name="technology" value="${tendency.technology}"> --%>
-<%-- 	<input type="text" name="literature" value="${tendency.literature}"> --%>
-<%-- 	<input type="text" name="history" value="${tendency.history}"> --%>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	customerId :  ${sessionScope.customer.customerId }
 	<canvas id="myChart" width="400" height="400"></canvas>

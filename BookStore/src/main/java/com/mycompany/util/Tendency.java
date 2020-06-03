@@ -32,12 +32,14 @@ public class Tendency {
 	}
 	public void getCustomerTendency(HttpSession session, TendencyServiceImpl tendencyService, ModelAndView mv) {
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
-		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);		
+		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
+		tendencyVO.setElementToPercent();
 		mv.addObject("tendency", tendencyVO);
 	}
 	public void getTotalTendency(TendencyServiceImpl tendencyService, ModelAndView mv) {
 		TendencyVO tendencyVO = tendencyService.selectAllTendency();
 		tendencyVO.setCustomerId("AllCustomer");
+		tendencyVO.setElementToPercent();
 		mv.addObject("totalTendency", tendencyVO);
 	}
 }
