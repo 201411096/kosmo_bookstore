@@ -1,6 +1,8 @@
 
 package com.mycompany.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.TendencyVO;
 import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
@@ -83,5 +86,24 @@ public class CustomerController {
 	@RequestMapping("/registerCon.do")
 	public String joinCon(CustomerVO vo, Model model) {
 		return "registerCon";
+	}
+	
+	@RequestMapping("/moveToTendencyGraph.do")
+	public ModelAndView moveToTendencyGraph(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
+		System.out.println("CustomerController moveToTendencyGraph 에서 ART점수 확인 : " + tendencyVO.getArt());
+		System.out.println("CustomerController moveToTendencyGraph 에서 SOCIAL점수 확인 : " + tendencyVO.getSocial());
+		System.out.println("CustomerController moveToTendencyGraph 에서 ECONOMIC점수 확인 : " + tendencyVO.getEconomic());
+		System.out.println("CustomerController moveToTendencyGraph 에서 TECHNOLOGY점수 확인 : " + tendencyVO.getTechnology());
+		System.out.println("CustomerController moveToTendencyGraph 에서 LITERATURE점수 확인 : " + tendencyVO.getLiterature());
+		System.out.println("CustomerController moveToTendencyGraph 에서 HISTORY점수 확인 : " + tendencyVO.getHistory());
+		
+//		HashMap<String, TendencyVO> tendencyMap = new HashMap<String, TendencyVO>();
+//		tendencyMap.put("tendency", tendencyVO);
+		mv.addObject("tendency", tendencyVO);
+		mv.setViewName("tendencyGraph");
+		return mv;
 	}
 }

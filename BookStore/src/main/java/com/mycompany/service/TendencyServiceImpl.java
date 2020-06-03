@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.dao.TendencyDAOImpl;
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.TendencyVO;
 
 @Service("tendencyService")
 public class TendencyServiceImpl implements TendencyService{
@@ -27,4 +28,9 @@ public class TendencyServiceImpl implements TendencyService{
 		int result = tendencyDAO.increaseTendency2(tendencyMap);
 		return result;
 	}
+	@Override
+	public TendencyVO selectTendency(CustomerVO customerVO) {
+		return tendencyDAO.selectTendency(customerVO);
+	}
+	
 }

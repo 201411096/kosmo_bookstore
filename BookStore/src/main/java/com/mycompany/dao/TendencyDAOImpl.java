@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.TendencyVO;
 
 @Repository("tendencyDAO")
 public class TendencyDAOImpl implements TendencyDAO{
@@ -30,5 +31,11 @@ public class TendencyDAOImpl implements TendencyDAO{
 		int result = mybatis.update("TendencyDAO.increaseTendency2", tendencyMap);
 		return result;
 	}
+
+	@Override
+	public TendencyVO selectTendency(CustomerVO customerVO) {
+		return mybatis.selectOne("TendencyDAO.selectTendency", customerVO);
+	}
+	
 	
 }
