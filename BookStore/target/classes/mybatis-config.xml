@@ -16,7 +16,8 @@
       <typeAlias alias="buycartlist" type="com.mycompany.domain.BuyCartListVO" ></typeAlias>
       <typeAlias alias="tendency" type="com.mycompany.domain.TendencyVO"></typeAlias>
       <typeAlias alias="buylist" type="com.mycompany.domain.BuyListVO"></typeAlias>	
-      <typeAlias alias="buy" type="com.mycompany.domain.BuyVO"></typeAlias>	
+      <typeAlias alias="buy" type="com.mycompany.domain.BuyVO"></typeAlias>
+      <typeAlias alias="review" type="com.mycompany.domain.ReviewVO" ></typeAlias>	
    </typeAliases>
 
 

@@ -1,10 +1,8 @@
 package com.mycompany.controller;
 
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,11 +19,13 @@ import com.mycompany.domain.BuyCartListVO;
 import com.mycompany.domain.BuyListVO;
 import com.mycompany.domain.BuyVO;
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.ReviewVO;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.BuyCartListServiceImpl;
 import com.mycompany.service.BuyListServiceImpl;
 import com.mycompany.service.BuyServiceImpl;
 import com.mycompany.service.CustomerServiceImpl;
+import com.mycompany.service.ReviewServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
 
@@ -44,6 +44,8 @@ public class ProductController {
 	BuyListServiceImpl buyListService;
 	@Autowired
 	BuyServiceImpl buyService;
+	@Autowired
+	ReviewServiceImpl reviewService;
 
 	@RequestMapping("/productView.do")
 	public ModelAndView product(BookVO vo, HttpSession session) {
@@ -52,7 +54,13 @@ public class ProductController {
 		BookVO book = bookService.selectBook(vo);
 		mv.addObject("priceBeforeDiscount", book.getBookSaleprice() + 3000);
 		mv.addObject("info", book);
-
+		
+		//bookVO에 들어잇는 bookId값에 해당하는 리뷰들을 가져와서 modelandview에 입력
+		ReviewVO reviewVO = new ReviewVO();
+		reviewVO.setBookId(vo.getBookId());
+		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
+		mv.addObject("review", reviewList);
+		
 		// 로그인 상태라면
 		if (session.getAttribute("customer") != null) {
 			CustomerVO customer = (CustomerVO) session.getAttribute("customer");

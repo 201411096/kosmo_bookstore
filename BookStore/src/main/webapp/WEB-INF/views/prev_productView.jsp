@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang>
+<html lang="zxx">
 
 <head>
     <meta charset="UTF-8">
@@ -16,15 +16,15 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-<!--     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="resources/css/style.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/themify-icons.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/nice-select.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="css/style.css" type="text/css"> -->
 </head>
 
 <body>
@@ -96,7 +96,7 @@
                             <div class="product-details">
                                 <div class="pd-title">
                                     <h3>${info.bookName }</h3><hr/>
-                                 <h6>${info.writerName } 지음 | ${info.bookPdate } 출간</h6>
+                                 	<h6>${info.writerName } 지음 | ${info.bookPdate } 출간</h6>
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
                                 <div class="pd-rating">
@@ -111,15 +111,21 @@
                                      <p>${info.bookStory }</p>
                                     <h4> ${info.bookSaleprice }원 <span>${priceBeforeDiscount }원</span></h4><hr/>
                                 </div>                              
+                       	<form action="/BookStore/addCartList.do">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" value="1" name="buycartlistCnt">
                                     </div>
-                                    <a href="#" class="primary-btn pd-cart">Add To Cart</a>
+                                    	<button type="submit" class="site-btn login-btn">장바구니</button>
+                                        <!-- <a href="addList.do" class="primary-btn pd-cart">장바구니</a> -->
+                                        <input name="bookId" type="hidden" value="${info.bookId }" />
                                 </div>
+                       	</form>
+                        
+                               
                                 <ul class="pd-tags">
-                                    <li><span>CATEGORIES</span>: ${info.bookGenre }</li>
-                                    <li><span>TAGS</span>: Clothing, T-shirt, Woman</li>
+                                    <li><span>분야</span>: ${info.bookGenre }</li>
+                                    <li><span>TAGS</span>: ${info.writerName }, ${info.bookGenre }</li>
                                 </ul>
                                 <div class="pd-share">
                                     <div class="p-code">Sku : 00012</div>
@@ -164,7 +170,7 @@
                                                     aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
                                             </div>
                                             <div class="col-lg-5">
-                                                <img src="resources/img/product-single/tab-desc.jpg" alt="">
+                                                <img src="img/product-single/tab-desc.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -230,42 +236,51 @@
                                 </div>
                                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                     <div class="customer-review-option">
-<!--                                     리뷰출력 -->
-                                        <h4>2 Comments</h4>
+                                    <!--리뷰출력 -->
+                                        <h4>Comments</h4>
                                         <div class="comment-option">
-                                        <c:forEach items="${review}" var="review" >
-                                        <div class="co-item">
-                                                <div class="avatar-pic">
-                                                    <img src="resources/img/product-single/avatar-1.png" alt="">
-                                                </div>
-                                                <div class="avatar-text">
-                                                    <div class="at-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>                                                 
-                                                    <h5>${review.customerId} <span>${review.bookId}</span></h5>
-                                                    <div class="at-reply">${review.buyreviewContent}</div>                                              
-                                                </div>
+											<c:forEach items="${review}" var="review">
+												<div class="co-item">
+													<div class="avatar-pic">
+														<img src="resources/img/product-single/avatar-1.png"
+															alt="">
+													</div>
+													<div class="avatar-text">
+														<div class="at-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star-o"></i>
+														</div>
+														<h5>${review.customerId}
+															<span>${review.bookId}</span>
+														</h5>
+														<div class="at-reply">${review.buyreviewContent}</div>
+													</div>
+												</div>
+											</c:forEach>
+                                        </div>
+                                        <div class="personal-rating">
+                                            <h6>Your Ratind</h6>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </div>
-                                       </c:forEach>
+                                        </div>
                                         <div class="leave-comment">
-<!--                                         리뷰입력 -->
                                             <h4>Leave A Comment</h4>
-                                            
-                                            <form action="productReview.do" class="comment-form">
-                                            	<input type="hidden" name="bookId" value="${info.bookId}">
-                                                <div class="row">                                             
+                                            <form action="#" class="comment-form">
+                                                <div class="row">
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="buyReviewId시퀀스" name="buyreviewId">
+                                                        <input type="text" placeholder="Name">
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="buyReviewScore" name="buyreviewScore">
+                                                        <input type="text" placeholder="Email">
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <textarea placeholder="buyReviewContent" name="buyreviewContent"></textarea>
+                                                        <textarea placeholder="Messages"></textarea>
                                                         <button type="submit" class="site-btn">Send message</button>
                                                     </div>
                                                 </div>
@@ -296,7 +311,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="resources/img/products/women-1.jpg" alt="">
+                            <img src="img/products/women-1.jpg" alt="">
                             <div class="sale">Sale</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
@@ -322,7 +337,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="resources/img/products/women-2.jpg" alt="">
+                            <img src="img/products/women-2.jpg" alt="">
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
@@ -346,7 +361,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="resources/img/products/women-3.jpg" alt="">
+                            <img src="img/products/women-3.jpg" alt="">
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
@@ -370,7 +385,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="resources/img/products/women-4.jpg" alt="">
+                            <img src="img/products/women-4.jpg" alt="">
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
@@ -402,27 +417,27 @@
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-1.png" alt="">
+                        <img src="img/logo-carousel/logo-1.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-2.png" alt="">
+                        <img src="img/logo-carousel/logo-2.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-3.png" alt="">
+                        <img src="img/logo-carousel/logo-3.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-4.png" alt="">
+                        <img src="img/logo-carousel/logo-4.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-5.png" alt="">
+                        <img src="img/logo-carousel/logo-5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -435,16 +450,16 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-<!--     <script src="resources/js/jquery-3.3.1.min.js"></script> -->
-<!--     <script src="resources/js/bootstrap.min.js"></script> -->
-<!--     <script src="resources/js/jquery-ui.min.js"></script> -->
-<!--     <script src="resources/js/jquery.countdown.min.js"></script> -->
-<!--     <script src="resources/js/jquery.nice-select.min.js"></script> -->
-<!--     <script src="resources/js/jquery.zoom.min.js"></script> -->
-<!--     <script src="resources/js/jquery.dd.min.js"></script> -->
-<!--     <script src="resources/js/jquery.slicknav.js"></script> -->
-<!--     <script src="resources/js/owl.carousel.min.js"></script> -->
-<!--     <script src="resources/js/main.js"></script> -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/jquery.dd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
