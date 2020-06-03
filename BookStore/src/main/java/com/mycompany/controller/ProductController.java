@@ -65,10 +65,6 @@ public class ProductController {
 		// 로그인 상태라면 도서페이지의 장르에 해당하는 성향을 증가시켜줌
 		if (session.getAttribute("customer") != null) {
 			CustomerVO customer = (CustomerVO) session.getAttribute("customer");
-//			Map<String, String> tendencyMap = new HashMap<String, String>();
-//			tendencyMap.put("customerId", customer.getCustomerId());
-//			tendencyMap.put("genre", book.getBookGenre());
-//			tendencyService.increaseTendency(tendencyMap);
 			Tendency.getInstance().increaseTendency(session, tendencyService, customer, book, 1);
 		}
 

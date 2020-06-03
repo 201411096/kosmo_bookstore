@@ -24,9 +24,9 @@ public class Tendency {
 		Map<String, String> tendencyMap = new HashMap<String, String>();
 		tendencyMap.put("customerId", customerVO.getCustomerId());
 		tendencyMap.put("genre", bookVO.getBookGenre());
-		if(option==1)
+		if(option==1)			// 도서 조회시 1씩 증가
 			tendencyService.increaseTendency(tendencyMap);
-		else if(option==2)
+		else if(option==2)		// 도서 구매시 10씩 증가
 			tendencyService.increaseTendency2(tendencyMap);
 	}
 }

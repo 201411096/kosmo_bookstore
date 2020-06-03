@@ -18,10 +18,10 @@
 --------------------------------------------------------
 남은 부분
 	ㄴ main page
-	ㄴ review page
+	ㄴ review page -- 진행중
 	ㄴ question page
 	ㄴ mrr page
-	ㄴ store location page
+	ㄴ store location page -- 진행중
 	ㄴ 페이징 처리
 --------------------------------------------------------
 200529_금요일
