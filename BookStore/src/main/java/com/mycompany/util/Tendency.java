@@ -35,4 +35,9 @@ public class Tendency {
 		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);		
 		mv.addObject("tendency", tendencyVO);
 	}
+	public void getTotalTendency(TendencyServiceImpl tendencyService, ModelAndView mv) {
+		TendencyVO tendencyVO = tendencyService.selectAllTendency();
+		tendencyVO.setCustomerId("AllCustomer");
+		mv.addObject("totalTendency", tendencyVO);
+	}
 }

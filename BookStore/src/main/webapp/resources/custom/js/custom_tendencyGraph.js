@@ -9,19 +9,30 @@ $(function(){
 function makeChartData(){
 	var customerId = $('#customerId').val();
 	var customerArray = makeCustomerArray();
+	var totalArray = makeTotalArray();
 	var chartData ={
 		labels : ["Art", "Social", "Economic", "Technology", "Literature", "History"],
 		datasets : [
 			{
-				label : customerId+ "dataset",
+				label : customerId+ "님의 dataset",
+				backgroundColor : "rgba(255, 99, 132, 0.2)",
+				borderColor : "rgba(255, 99, 132, 1)",
+				pointBackgroundColor : "rgba(255, 99, 132, 1)",
+				pointBorderColor : "#fff",
+				pointHoverBackgroundColor : "#fff",
+				pointHoverBorderColor : "rgba(255, 99, 132, 1)",
+				data : customerArray
+			},
+			{
+				label : "모든 유저의 dataset",
 				backgroundColor : "rgba(179, 181, 198, 0.2)",
 				borderColor : "rgba(179, 181, 198, 1)",
 				pointBackgroundColor : "rgba(179, 181, 198, 1)",
 				pointBorderColor : "#fff",
 				pointHoverBackgroundColor : "#fff",
 				pointHoverBorderColor : "rgba(179, 181, 198, 1)",
-				data : customerArray
-			}			
+				data : totalArray
+			},
 		]
 	};
 	return chartData;
@@ -44,6 +55,17 @@ function makeCustomerArray(){
 	customerArray.push($('#customerHistory').val());
 	
 	return customerArray;
+}
+function makeTotalArray(){
+	var totalArray = new Array();
+	totalArray.push($('#totalArt').val());
+	totalArray.push($('#totalSocial').val());
+	totalArray.push($('#totalEconomic').val());
+	totalArray.push($('#totalTechnology').val());
+	totalArray.push($('#totalLiterature').val());
+	totalArray.push($('#totalHistory').val());
+	
+	return totalArray;
 }
 
 

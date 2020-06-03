@@ -92,7 +92,8 @@ public class CustomerController {
 	@RequestMapping("/moveToTendencyGraph.do")
 	public ModelAndView moveToTendencyGraph(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		Tendency.getInstance().getCustomerTendency(session, tendencyService, mv);
+		Tendency.getInstance().getCustomerTendency(session, tendencyService, mv); // 사용자의 장르 선호도
+		Tendency.getInstance().getTotalTendency(tendencyService, mv); // 모든 유저의 장르 선호도
 		mv.setViewName("tendencyGraph");
 		return mv;
 	}

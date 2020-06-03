@@ -54,6 +54,14 @@
 	<input type="hidden" id="customerLiterature" name="customerLiterature" value="${tendency.literature}">
 	<input type="hidden" id="customerHistory" name="customerHistory" value="${tendency.history}">
 	<hr>
+	<input type="hidden" id="totalId" name="totalId" value="${sessionScope.totalTendency.customerId }">
+	<input type="hidden" id="totalArt" name="totalArt" value="${totalTendency.art}">
+	<input type="hidden" id="totalSocial" name="totalSocial" value="${totalTendency.social}">
+	<input type="hidden" id="totalEconomic" name="totalEconomic" value="${totalTendency.economic}">
+	<input type="hidden" id="totalTechnology" name="totalTechnology" value="${totalTendency.technology}">
+	<input type="hidden" id="totalLiterature" name="totalLiterature" value="${totalTendency.literature}">
+	<input type="hidden" id="totalHistory" name="totalHistory" value="${totalTendency.history}">
+	<hr>
 <%-- 	<input type="text" name="art" value="${tendency.art}"> --%>
 <%-- 	<input type="text" name="social" value="${tendency.social}"> --%>
 <%-- 	<input type="text" name="economic" value="${tendency.economic}"> --%>
