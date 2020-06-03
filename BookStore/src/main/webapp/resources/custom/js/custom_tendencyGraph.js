@@ -45,13 +45,13 @@ function makeChart(chartData, chartOptions){
 //		options : chartOptions
         options:{
             responsive: false
-//            scales: {
-//                xAxes: [{
-//                    ticks: {
-//                        min: 0
-//                    }
-//                }]
-//            }
+/*            ,scales: {
+                xAxes: [{
+                    ticks: {
+                        min: 0
+                    }
+                }]
+            }*/
         }
 	});
 }

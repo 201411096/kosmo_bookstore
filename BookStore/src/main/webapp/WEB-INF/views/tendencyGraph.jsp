@@ -60,9 +60,10 @@
 	<input type="hidden" id="totalHistory" name="totalHistory" value="${totalTendency.history}">
 	
 <!-- 	차트 부분 시작 -->
-
-	<canvas id="myChart" width="400" height="400"></canvas>
-
+	<br><br><br><br>
+	<div id="myChartContainer">
+	<canvas id="myChart" width="600" height="600"></canvas>
+	</div>
 <!-- 	차트 부분 끝 -->
 	<!-- Footer Section Begin -->
 	<jsp:include page="/footer.do"></jsp:include>
