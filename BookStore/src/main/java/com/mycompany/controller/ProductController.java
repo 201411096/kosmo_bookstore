@@ -65,7 +65,6 @@ public class ProductController {
 		mv.setViewName("/productView");
 		return mv;
 	}
-
 	// 검색 후 리스트 구성
 	@RequestMapping("/productList.do")
 	public ModelAndView bookList(@RequestParam(value = "searchWord") String searchWord) {
@@ -77,7 +76,6 @@ public class ProductController {
 		mv.setViewName("/productList");
 		return mv;
 	}
-
 	// 검색 창 리스트 구성
 	@RequestMapping(value = "/searchList.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -92,7 +90,6 @@ public class ProductController {
 		searchResult.put("searchResult", searchList);
 		return searchResult;
 	}
-
 	@RequestMapping("/moveToCartList.do")
 	public ModelAndView moveToCartList(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -120,7 +117,6 @@ public class ProductController {
 		}
 		return mv;
 	}
-
 	// 제품 메뉴창에서 장바구니를 갱신한 후에 모델로 넘김
 	@RequestMapping("/addCartList.do")
 	public ModelAndView addCartList(BuyCartListVO vo, HttpSession session) {
@@ -158,7 +154,6 @@ public class ProductController {
 		}
 		return mv;
 	}
-
 	@RequestMapping("/updateCartList.do")
 	public ModelAndView updateCartList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -166,8 +161,7 @@ public class ProductController {
 		CartList.getInstance().updateCartList(request, session, buyCartListService, customerService, mv);
 		mv.setViewName("/shopping-cart");
 		return mv;
-	}
-	
+	}	
 	// 장바구니 페이지에서 장바구니를 수정한대로 db를 수정한 후 db에 있는 장바구니값들을 그대로 가져옴 (장바구니에서 구매페이지로 이동할경우)
 	@RequestMapping("/sendList.do")
 	public ModelAndView sendList(HttpServletRequest request, HttpSession session) {
@@ -186,7 +180,6 @@ public class ProductController {
 		CartList.getInstance().goToBuyCartListWithoutUpdate(session, buyCartListService, mv);
 		return mv;
 	}
-
 	// 구매하여 buylist에 추가(최종구매)
 	@RequestMapping("/addBuyList.do")
 	public ModelAndView addBuyList(BuyListVO buyListVO, HttpSession session) {
@@ -215,8 +208,7 @@ public class ProductController {
 		mv.addObject("cartList", list);
 		mv.setViewName("/test_buy_check");
 		//현재 사용자의 장바구니를 비워주고 내부적으로 세션에 적용
-		CartList.getInstance().clearCurrentCustomerCartList(session, buyCartListService, customerService);
-		
+		CartList.getInstance().clearCurrentCustomerCartList(session, buyCartListService, customerService);		
 		return mv;
 	}
 }
