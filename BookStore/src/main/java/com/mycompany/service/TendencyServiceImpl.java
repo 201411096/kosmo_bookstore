@@ -32,5 +32,8 @@ public class TendencyServiceImpl implements TendencyService{
 	public TendencyVO selectTendency(CustomerVO customerVO) {
 		return tendencyDAO.selectTendency(customerVO);
 	}
-	
+	@Override
+	public TendencyVO selectAllTendency() {
+		return tendencyDAO.selectAllTendency();
+	}
 }

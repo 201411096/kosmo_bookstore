@@ -10,4 +10,5 @@ public interface TendencyService {
 	public int increaseTendency(Map<String, String> tendencyMap);
 	public int increaseTendency2(Map<String, String> tendencyMap);
 	public TendencyVO selectTendency(CustomerVO customerVO);
+	public TendencyVO selectAllTendency();
 }

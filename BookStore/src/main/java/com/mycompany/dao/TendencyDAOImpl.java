@@ -36,6 +36,12 @@ public class TendencyDAOImpl implements TendencyDAO{
 	public TendencyVO selectTendency(CustomerVO customerVO) {
 		return mybatis.selectOne("TendencyDAO.selectTendency", customerVO);
 	}
+
+	@Override
+	public TendencyVO selectAllTendency() {
+		return mybatis.selectOne("TendencyDAO.selectAllTendency");
+	}
+	
 	
 	
 }

@@ -1,20 +1,14 @@
 var chartData;
 var chartOptions;
 $(function(){
-	console.log("custom_tendencyGraph.js 파일 연결 확인");
+	//console.log("custom_tendencyGraph.js 파일 연결 확인");
 	//sampleChartFunc();
 	chartData= makeChartData();
 	makeChart(chartData, chartOptions);
 });
 function makeChartData(){
 	var customerId = $('#customerId').val();
-	var customerArray = new Array();
-	customerArray.push($('#customerArt').val());
-	customerArray.push($('#customerSocial').val());
-	customerArray.push($('#customerEconomic').val());
-	customerArray.push($('#customerTechnology').val());
-	customerArray.push($('#customerLiterature').val());
-	customerArray.push($('#customerHistory').val());
+	var customerArray = makeCustomerArray();
 	var chartData ={
 		labels : ["Art", "Social", "Economic", "Technology", "Literature", "History"],
 		datasets : [
@@ -40,6 +34,28 @@ function makeChart(chartData, chartOptions){
 		options : chartOptions
 	});
 }
+function makeCustomerArray(){
+	var customerArray = new Array();
+	customerArray.push($('#customerArt').val());
+	customerArray.push($('#customerSocial').val());
+	customerArray.push($('#customerEconomic').val());
+	customerArray.push($('#customerTechnology').val());
+	customerArray.push($('#customerLiterature').val());
+	customerArray.push($('#customerHistory').val());
+	
+	return customerArray;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* 막대 그래프 샘플
 function sampleChartFunc(){
 	var ctx = document.getElementById('myChart').getContext('2d');
