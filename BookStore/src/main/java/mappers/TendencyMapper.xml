@@ -19,8 +19,8 @@
 		update tendency set ${genre}=${genre}+10 where customer_id=#{customerId}
 	</update>
 <!-- 	테스트 중인 부분 -->
-	<select id="selectByGenre" parameterType="book" resultType="book">
-		select b.* from (select * from book where book_genre = #{bookGenre} order by book_score/book_scorecount desc) b where rownum=1;
+	<select id="selectOneByGenre" parameterType="book" resultType="book">
+		select b.* from (select * from book where book_genre = #{bookGenre} order by book_score/book_scorecount desc) b where rownum=1
 	</select>
 <!-- 	테스트 중인 부분 -->
 </mapper>

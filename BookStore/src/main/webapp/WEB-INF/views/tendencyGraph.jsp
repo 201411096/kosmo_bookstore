@@ -58,7 +58,11 @@
 	<input type="hidden" id="totalTechnology" name="totalTechnology" value="${totalTendency.technology}">
 	<input type="hidden" id="totalLiterature" name="totalLiterature" value="${totalTendency.literature}">
 	<input type="hidden" id="totalHistory" name="totalHistory" value="${totalTendency.history}">
-	
+	<hr>
+	가장 선호하는 장르 : ${bookInMaxPrefferedGenre.bookGenre }<br>
+	가장 선호하는 장르의 책 제목 : ${bookInMaxPrefferedGenre.bookName }<br>
+	가장 선호하지 않는 장르 : ${bookInMaxPrefferedGenre.bookGenre }<br>
+	가장 선호하지 않는 장르의 책 제목 : ${bookInMinPrefferedGenre.bookName }<br>
 <!-- 	차트 부분 시작 -->
 	<br><br><br><br>
 	<div id="myChartContainer">

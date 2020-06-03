@@ -35,6 +35,17 @@ public class Tendency {
 		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
 		tendencyVO.setElementToPercent();
 		mv.addObject("tendency", tendencyVO);
+		
+		//가장 선호하는 장르의 책과 가장 선호하지 않는 장로의 책을 고름
+		BookVO VOForSearch = new BookVO();
+		String maxPrefferedGenre = tendencyVO.getMaxPreferredGenre();
+		VOForSearch.setBookGenre(maxPrefferedGenre);
+		BookVO bookInMaxPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
+		mv.addObject("bookInMaxPrefferedGenre", bookInMaxPrefferedGenre);
+		String minPrefferedGenre = tendencyVO.getMinPreferredGenre();		
+		VOForSearch.setBookGenre(minPrefferedGenre);
+		BookVO bookInMinPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
+		mv.addObject("bookInMinPrefferedGenre", bookInMinPrefferedGenre);
 	}
 	public void getTotalTendency(TendencyServiceImpl tendencyService, ModelAndView mv) {
 		TendencyVO tendencyVO = tendencyService.selectAllTendency();

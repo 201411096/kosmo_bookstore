@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.dao.TendencyDAOImpl;
+import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.domain.TendencyVO;
 
@@ -35,5 +36,9 @@ public class TendencyServiceImpl implements TendencyService{
 	@Override
 	public TendencyVO selectAllTendency() {
 		return tendencyDAO.selectAllTendency();
+	}
+	@Override
+	public BookVO selectOneByGenre(BookVO vo) {
+		return tendencyDAO.selectOneByGenre(vo);
 	}
 }
