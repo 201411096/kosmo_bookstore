@@ -5,10 +5,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.TendencyVO;
 import com.mycompany.service.TendencyServiceImpl;
 
 public class Tendency {
@@ -28,5 +29,10 @@ public class Tendency {
 			tendencyService.increaseTendency(tendencyMap);
 		else if(option==2)		// 도서 구매시 10씩 증가
 			tendencyService.increaseTendency2(tendencyMap);
+	}
+	public void getCustomerTendency(HttpSession session, TendencyServiceImpl tendencyService, ModelAndView mv) {
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);		
+		mv.addObject("tendency", tendencyVO);
 	}
 }

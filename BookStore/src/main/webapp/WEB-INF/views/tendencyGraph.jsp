@@ -53,12 +53,12 @@
 	<input type="hidden" name="literature" value="${tendency.literature}">
 	<input type="hidden" name="history" value="${tendency.history}">
 	<hr>
-<%-- 	<input type="text" name="art" value="${tendency.art}"> --%>
-<%-- 	<input type="text" name="social" value="${tendency.social}"> --%>
-<%-- 	<input type="text" name="economic" value="${tendency.economic}"> --%>
-<%-- 	<input type="text" name="technology" value="${tendency.technology}"> --%>
-<%-- 	<input type="text" name="literature" value="${tendency.literature}"> --%>
-<%-- 	<input type="text" name="history" value="${tendency.history}"> --%>
+	<input type="text" name="art" value="${tendency.art}">
+	<input type="text" name="social" value="${tendency.social}">
+	<input type="text" name="economic" value="${tendency.economic}">
+	<input type="text" name="technology" value="${tendency.technology}">
+	<input type="text" name="literature" value="${tendency.literature}">
+	<input type="text" name="history" value="${tendency.history}">
 	<br><br><br><br><br><br><br><br><br><br><br>
 	customerId :  ${sessionScope.customer.customerId }
 	<br><br><br><br><br><br><br><br><br><br><br>
