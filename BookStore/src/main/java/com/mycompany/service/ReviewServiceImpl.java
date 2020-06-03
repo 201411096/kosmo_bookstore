@@ -11,24 +11,16 @@ import com.mycompany.domain.CustomerVO;
 import com.mycompany.domain.ReviewVO;
 
 @Service("reviewService")
-public class ReviewServiceImpl implements ReviewService{
-	
+public class ReviewServiceImpl implements ReviewService{	
 	@Autowired
 	private ReviewDAOImpl reviewDAO;
 	
 	@Override
 	public int insertReview(ReviewVO vo) {
 		return reviewDAO.insertReview(vo);		 
-	}
-	
+	}	
 	@Override
 	public List<ReviewVO> selectReview(ReviewVO vo) {
-		return reviewDAO.selectReview(vo);
-		
-	}
-
-
-
-
-	
+		return reviewDAO.selectReview(vo);	
+	}	
 }

@@ -16,13 +16,10 @@ import com.mycompany.domain.ReviewVO;
 import com.mycompany.service.ReviewServiceImpl;
 
 @Controller
-public class ReviewController {
-
-	
+public class ReviewController {	
 	@Autowired
-	ReviewServiceImpl reviewService;
+	ReviewServiceImpl reviewService;	
 	
-
 	//리뷰 입력 (***리뷰조건 필요)
 	@RequestMapping("/productReview.do")
 	public ModelAndView reviewInsert(ReviewVO vo, HttpSession session) {
@@ -30,21 +27,16 @@ public class ReviewController {
 		CustomerVO customer = (CustomerVO)session.getAttribute("customer");
 		vo.setCustomerId(customer.getCustomerId());
 		int result = reviewService.insertReview(vo);
-
 		if(result==0) {
 			mv.setViewName("/login");
 		}
-		ReviewVO vo1 = new ReviewVO();
-		int result2=vo.getBookId();
-		System.out.println(result2);
-		vo1.setBookId(result2);
-		mv.setViewName("/productView");
-		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(vo1);
+		
+		ReviewVO reviewVO = new ReviewVO();
+		reviewVO.setBookId(vo.getBookId());
+		
+		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
 		mv.addObject("review", reviewList);
+		mv.setViewName("/productView");
 		return mv;
-	}
-	
-
-	
-	
+	}	
 }
