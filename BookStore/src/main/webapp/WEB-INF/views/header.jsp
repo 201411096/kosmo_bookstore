@@ -107,7 +107,7 @@
 									</div>
 									<div class="select-button">
 										<a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a> <a
-											href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+											href="buyList.do" class="primary-btn checkout-btn">CHECK OUT</a>
 									</div>
 								</div></li>
 							<li class="cart-price"><span>${sessionScope.cartListTotalPrice }</span></li>

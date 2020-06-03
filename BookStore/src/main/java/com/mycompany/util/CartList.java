@@ -48,6 +48,26 @@ public class CartList {
 		
 		return list;
 	}
+	public void goToBuyCartListWithoutUpdate(HttpSession session, BuyCartListServiceImpl buyCartListService, ModelAndView mv) {
+		CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
+		BuyCartListVO vo = new BuyCartListVO();
+		vo.setCustomerId(logInState.getCustomerId());
+		if (logInState == null)
+			mv.setViewName("/login");
+		else {
+			List<BuyCartListVO> list = buyCartListService.getCartList(vo);
+			int subTotal = 0;
+			for (int i = 0; i < list.size(); i++) {
+				int bookTotalPrice = list.get(i).getBuycartlistCnt() * list.get(i).getBookSaleprice();
+				list.get(i).setBookTotalPrice(bookTotalPrice);
+				subTotal = subTotal + list.get(i).getBookTotalPrice();
+			}
+			mv.addObject("customerInfo", logInState);
+			mv.addObject("subTotal", subTotal);
+			mv.addObject("cartList", list);
+			mv.setViewName("/buy");
+		}
+	}
 	
 	//장바구니를 업데이트 해주는 함수 (update페이지의 updatecart와 sendlist.do 앞푸분에서 사용할 함수)
 	public void updateCartList(HttpServletRequest request, HttpSession session, BuyCartListServiceImpl buyCartListService, CustomerServiceImpl customerService, ModelAndView mv) {
