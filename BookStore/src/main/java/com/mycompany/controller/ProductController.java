@@ -40,10 +40,8 @@ public class ProductController {
 	TendencyServiceImpl tendencyService;
 	@Autowired
 	CustomerServiceImpl customerService;
-
 	@Autowired
 	BuyListServiceImpl buyListService;
-
 	@Autowired
 	BuyServiceImpl buyService;
 
@@ -170,7 +168,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	// 장바구니 페이지에서 장바구니를 수정한대로 db를 수정한 후 db에 있는 장바구니값들을 그대로 가져옴
+	// 장바구니 페이지에서 장바구니를 수정한대로 db를 수정한 후 db에 있는 장바구니값들을 그대로 가져옴 (장바구니에서 구매페이지로 이동할경우)
 	@RequestMapping("/sendList.do")
 	public ModelAndView sendList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -180,7 +178,7 @@ public class ProductController {
 		CartList.getInstance().goToBuyCartListWithoutUpdate(session, buyCartListService, mv);
 		return mv;
 	}
-	// db에 있는 장바구니값들을 그대로 가져옴(헤더모듈에서 바로 구매하러 갈 경우)
+	// db에 있는 장바구니값들을 그대로 가져옴(헤더모듈에서 구매페이지로 이동할 경우)
 	@RequestMapping("/buyList.do")
 	public ModelAndView buyList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -189,7 +187,7 @@ public class ProductController {
 		return mv;
 	}
 
-	// 구매하여 buylist에 추가
+	// 구매하여 buylist에 추가(최종구매)
 	@RequestMapping("/addBuyList.do")
 	public ModelAndView addBuyList(BuyListVO buyListVO, HttpSession session) {
 		// BuyListVO의 buylistShippingadderess: 배송지(주소+상세주소)에 초기화
@@ -216,6 +214,9 @@ public class ProductController {
 		mv.addObject("customerInfo", logInState);
 		mv.addObject("cartList", list);
 		mv.setViewName("/test_buy_check");
+		//현재 사용자의 장바구니를 비워주고 내부적으로 세션에 적용
+		CartList.getInstance().clearCurrentCustomerCartList(session, buyCartListService, customerService);
+		
 		return mv;
 	}
 }

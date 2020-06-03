@@ -11,4 +11,5 @@ public interface BuyCartListService {
 	public List<BuyCartListVO> getCartList(BuyCartListVO vo);
 	public int deleteCartList(BuyCartListVO vo);
 	public int updateCartList(BuyCartListVO vo);
+	public int clearCurrentCustomerCartList(BuyCartListVO vo);
 }

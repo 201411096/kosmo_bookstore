@@ -25,8 +25,7 @@ public class BuyCartListServiceImpl implements BuyCartListService{
 	@Override
 	public int cartListChangeCnt(BuyCartListVO vo) {
 		return buycartlistDAO.cartListChangeCnt(vo);
-	} 
-	
+	} 	
 	@Override
 	public List<BuyCartListVO> getCartList(BuyCartListVO vo) {
 		return buycartlistDAO.getCartList(vo);
@@ -39,5 +38,8 @@ public class BuyCartListServiceImpl implements BuyCartListService{
 	public int updateCartList(BuyCartListVO vo) {
 		return buycartlistDAO.updateCartList(vo);
 	}
-	
+	@Override
+	public int clearCurrentCustomerCartList(BuyCartListVO vo) {
+		return buycartlistDAO.clearCurrentCustomerCartList(vo);
+	}
 }

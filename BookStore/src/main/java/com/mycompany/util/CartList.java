@@ -48,6 +48,7 @@ public class CartList {
 		
 		return list;
 	}
+	//장바구니 변경 없이 바로 구매페이지로 이동
 	public void goToBuyCartListWithoutUpdate(HttpSession session, BuyCartListServiceImpl buyCartListService, ModelAndView mv) {
 		CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
 		BuyCartListVO vo = new BuyCartListVO();
@@ -67,8 +68,7 @@ public class CartList {
 			mv.addObject("cartList", list);
 			mv.setViewName("/buy");
 		}
-	}
-	
+	}	
 	//장바구니를 업데이트 해주는 함수 (update페이지의 updatecart와 sendlist.do 앞푸분에서 사용할 함수)
 	public void updateCartList(HttpServletRequest request, HttpSession session, BuyCartListServiceImpl buyCartListService, CustomerServiceImpl customerService, ModelAndView mv) {
 		//db에 있는 customer의 리스트값을 가져옴
@@ -111,5 +111,14 @@ public class CartList {
 		CartList.getInstance().setCartList(session, customerService);
 		mv.addObject("cartList", list);
 		mv.addObject("cartListTotalPrice", cartListTotalPrice);
+	}
+	//현재 사용자의 장바구니를 비워줌
+	public void clearCurrentCustomerCartList(HttpSession session, BuyCartListServiceImpl buyCartListService, CustomerServiceImpl customerService) {
+		CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
+		BuyCartListVO vo = new BuyCartListVO();
+		vo.setCustomerId(logInState.getCustomerId());
+		buyCartListService.clearCurrentCustomerCartList(vo);
+		//장바구니를 세션에 넣어주는 함수(초기화한 장바구니를 세션에 적용)
+		CartList.getInstance().setCartList(session, customerService);
 	}
 }

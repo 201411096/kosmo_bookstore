@@ -35,4 +35,7 @@
    <update id="updateCartList" parameterType="buycartlist">
    	update BUYCARTLIST SET BUYCARTLIST_CNT = #{buycartlistCnt} where customer_id =  #{customerId} and book_id = #{bookId}
    </update>
+   <delete id="clearCurrentCustomerCartList" parameterType="buycartlist">
+   	delete from BUYCARTLIST where customer_id =  #{customerId}
+   </delete>
 </mapper>

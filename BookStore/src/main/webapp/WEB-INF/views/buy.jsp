@@ -16,15 +16,15 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<!--     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css"> -->
+<!--     <link rel="stylesheet" href="resources/css/style.css" type="text/css"> -->
 </head>
 
 <body>
@@ -164,16 +164,16 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+<!--     <script src="js/jquery-3.3.1.min.js"></script> -->
+<!--     <script src="js/bootstrap.min.js"></script> -->
+<!--     <script src="js/jquery-ui.min.js"></script> -->
+<!--     <script src="js/jquery.countdown.min.js"></script> -->
+<!--     <script src="js/jquery.nice-select.min.js"></script> -->
+<!--     <script src="js/jquery.zoom.min.js"></script> -->
+<!--     <script src="js/jquery.dd.min.js"></script> -->
+<!--     <script src="js/jquery.slicknav.js"></script> -->
+<!--     <script src="js/owl.carousel.min.js"></script> -->
+<!--     <script src="js/main.js"></script> -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {

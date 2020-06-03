@@ -12,6 +12,7 @@ public class BuyCartListDAOImpl implements BuyCartListDAO{
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
+	
 	@Override
 	public int addCartList(BuyCartListVO vo) {
 		return mybatis.insert("BuyCartListDAO.addCartList", vo);   
@@ -34,7 +35,11 @@ public class BuyCartListDAOImpl implements BuyCartListDAO{
 	}
 	@Override
 	public int updateCartList(BuyCartListVO vo) {
-		return mybatis.delete("BuyCartListDAO.updateCartList", vo);
+		return mybatis.update("BuyCartListDAO.updateCartList", vo);
+	}
+	@Override
+	public int clearCurrentCustomerCartList(BuyCartListVO vo) {
+		return mybatis.delete("BuyCartListDAO.clearCurrentCustomerCartList", vo);
 	}
 	
 }
