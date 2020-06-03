@@ -170,34 +170,17 @@ public class ProductController {
 		return mv;
 	}
 	
-	// 장바구니에 있는 상품을 addList로 추가함
+	// 장바구니 페이지에서 장바구니를 수정한대로 db를 수정한 후 db에 있는 장바구니값들을 그대로 가져옴
 	@RequestMapping("/sendList.do")
 	public ModelAndView sendList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		// 뷰에서 수정한대로 장바구니를 수정
 		CartList.getInstance().updateCartList(request, session, buyCartListService, customerService, mv);
-		// session에서 customerId 추출 및 로그인 상태 확인
-		CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
-		BuyCartListVO vo = new BuyCartListVO();
-		vo.setCustomerId(logInState.getCustomerId());
-		if (logInState == null)
-			mv.setViewName("/login");
-		else {
-			List<BuyCartListVO> list = buyCartListService.getCartList(vo);
-			int subTotal = 0;
-			for (int i = 0; i < list.size(); i++) {
-				int bookTotalPrice = list.get(i).getBuycartlistCnt() * list.get(i).getBookSaleprice();
-				list.get(i).setBookTotalPrice(bookTotalPrice);
-				subTotal = subTotal + list.get(i).getBookTotalPrice();
-			}
-			mv.addObject("customerInfo", logInState);
-			mv.addObject("subTotal", subTotal);
-			mv.addObject("cartList", list);
-			mv.setViewName("/buy");
-		}
+		// db에 들어있는 장바구니에 있는 대로 구매 페이지로 이동함
+		CartList.getInstance().goToBuyCartListWithoutUpdate(session, buyCartListService, mv);
 		return mv;
 	}
-	//헤더모듈에서 바로 구매하러 갈 경우
+	// db에 있는 장바구니값들을 그대로 가져옴(헤더모듈에서 바로 구매하러 갈 경우)
 	@RequestMapping("/buyList.do")
 	public ModelAndView buyList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
