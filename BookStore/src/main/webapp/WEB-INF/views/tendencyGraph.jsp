@@ -46,21 +46,23 @@
 	<!-- Header Section Begin -->
 		<jsp:include page="/header.do"></jsp:include>
 	<!-- Header End -->
-	<input type="hidden" name="art" value="${tendency.art}">
-	<input type="hidden" name="social" value="${tendency.social}">
-	<input type="hidden" name="economic" value="${tendency.economic}">
-	<input type="hidden" name="technology" value="${tendency.technology}">
-	<input type="hidden" name="literature" value="${tendency.literature}">
-	<input type="hidden" name="history" value="${tendency.history}">
+	<input type="hidden" id="customerId" name="customerId" value="${sessionScope.customer.customerId }">
+	<input type="hidden" id="customerArt" name="customerArt" value="${tendency.art}">
+	<input type="hidden" id="customerSocial" name="customerSocial" value="${tendency.social}">
+	<input type="hidden" id="customerEconomic" name="customerEconomic" value="${tendency.economic}">
+	<input type="hidden" id="customerTechnology" name="customerTechnology" value="${tendency.technology}">
+	<input type="hidden" id="customerLiterature" name="customerLiterature" value="${tendency.literature}">
+	<input type="hidden" id="customerHistory" name="customerHistory" value="${tendency.history}">
 	<hr>
-	<input type="text" name="art" value="${tendency.art}">
-	<input type="text" name="social" value="${tendency.social}">
-	<input type="text" name="economic" value="${tendency.economic}">
-	<input type="text" name="technology" value="${tendency.technology}">
-	<input type="text" name="literature" value="${tendency.literature}">
-	<input type="text" name="history" value="${tendency.history}">
+<%-- 	<input type="text" name="art" value="${tendency.art}"> --%>
+<%-- 	<input type="text" name="social" value="${tendency.social}"> --%>
+<%-- 	<input type="text" name="economic" value="${tendency.economic}"> --%>
+<%-- 	<input type="text" name="technology" value="${tendency.technology}"> --%>
+<%-- 	<input type="text" name="literature" value="${tendency.literature}"> --%>
+<%-- 	<input type="text" name="history" value="${tendency.history}"> --%>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	customerId :  ${sessionScope.customer.customerId }
+	<canvas id="myChart" width="400" height="400"></canvas>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	
 	<!-- Footer Section Begin -->
@@ -78,7 +80,8 @@
 <!-- 	<script src="resources/js/jquery.slicknav.js"></script> -->
 <!-- 	<script src="resources/js/owl.carousel.min.js"></script> -->
 <!-- 	<script src="resources/js/main.js"></script> -->
-<script src=""></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="resources/custom/js/custom_tendencyGraph.js"></script>
 </body>
 
 </html>
