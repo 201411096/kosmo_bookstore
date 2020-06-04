@@ -39,27 +39,33 @@ function makeAjaxChartData(cId, cArray, tArray){
 	var customerId = cId;
 	var customerArray = cArray;
 	var totalArray = tArray;
+	var customerColor = "rgba(255, 99, 132, 1)";
+	var customerBackgroundColor = "rgba(255, 99, 132, 0.2)";
+	var totalColor = "rgba(179, 181, 198, 1)";
+	var totalBackgroundColor = "rgba(179, 181, 198, 0.2)";
+//	var prev_customerColor ="rgba(255, 99, 132, 1)";
+//	var prev_totalColor ="rgba(179, 181, 198, 1)";
 	var chartData ={
 		labels : ["Art", "Social", "Economic", "Technology", "Literature", "History"],
 		datasets : [
 			{
 				label : customerId+ "님의 dataset",
-				backgroundColor : "rgba(255, 99, 132, 0.2)",
-				borderColor : "rgba(255, 99, 132, 1)",
-				pointBackgroundColor : "rgba(255, 99, 132, 1)",
+				backgroundColor : customerBackgroundColor,
+				borderColor : customerColor,
+				pointBackgroundColor : customerColor,
 				pointBorderColor : "#fff",
 				pointHoverBackgroundColor : "#fff",
-				pointHoverBorderColor : "rgba(255, 99, 132, 1)",
+				pointHoverBorderColor : customerColor,
 				data : customerArray
 			},
 			{
 				label : "모든 유저의 dataset",
-				backgroundColor : "rgba(179, 181, 198, 0.2)",
-				borderColor : "rgba(179, 181, 198, 1)",
-				pointBackgroundColor : "rgba(179, 181, 198, 1)",
+				backgroundColor : totalBackgroundColor,
+				borderColor : totalColor,
+				pointBackgroundColor : totalColor,
 				pointBorderColor : "#fff",
 				pointHoverBackgroundColor : "#fff",
-				pointHoverBorderColor : "rgba(179, 181, 198, 1)",
+				pointHoverBorderColor : totalColor,
 				data : totalArray
 			},
 		]
