@@ -17,7 +17,8 @@
       <typeAlias alias="tendency" type="com.mycompany.domain.TendencyVO"></typeAlias>
       <typeAlias alias="buylist" type="com.mycompany.domain.BuyListVO"></typeAlias>	
       <typeAlias alias="buy" type="com.mycompany.domain.BuyVO"></typeAlias>
-      <typeAlias alias="review" type="com.mycompany.domain.ReviewVO" ></typeAlias>	
+      <typeAlias alias="review" type="com.mycompany.domain.ReviewVO" ></typeAlias>
+      <typeAlias alias="store" type="com.mycompany.domain.StoreVO" ></typeAlias>		
    </typeAliases>
 
 
