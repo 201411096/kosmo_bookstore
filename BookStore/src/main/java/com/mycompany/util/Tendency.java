@@ -41,12 +41,10 @@ public class Tendency {
 		String maxPrefferedGenre = tendencyVO.getMaxPreferredGenre();
 		VOForSearch.setBookGenre(maxPrefferedGenre);
 		BookVO bookInMaxPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
-//		bookInMaxPrefferedGenre.setBookGenre(maxPrefferedGenre);	// 해당 장르의 책이 존재하지 않더라도 장르를 출력하기 위함
 		mv.addObject("bookInMaxPrefferedGenre", bookInMaxPrefferedGenre);
 		String minPrefferedGenre = tendencyVO.getMinPreferredGenre();		
 		VOForSearch.setBookGenre(minPrefferedGenre);
 		BookVO bookInMinPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
-//		bookInMinPrefferedGenre.setBookGenre(minPrefferedGenre);	// 해당 장르의 책이 존재하지 않더라도 장르를 출력하기 위함
 		mv.addObject("bookInMinPrefferedGenre", bookInMinPrefferedGenre);
 	}
 	public void getTotalTendency(TendencyServiceImpl tendencyService, ModelAndView mv) {
