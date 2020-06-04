@@ -56,11 +56,12 @@ public class ProductController {
 		mv.addObject("priceBeforeDiscount", book.getBookSaleprice() + 3000);
 		mv.addObject("info", book);
 		
-		//bookVO에 들어잇는 bookId값에 해당하는 리뷰들을 가져와서 modelandview에 입력
+		//bookVO에 들어잇는 bookId값에 해당하는 리뷰들을 가져와서 modelandview에 입력 부분 시작
 		ReviewVO reviewVO = new ReviewVO();
 		reviewVO.setBookId(vo.getBookId());
 		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
 		mv.addObject("review", reviewList);
+		//bookVO에 들어잇는 bookId값에 해당하는 리뷰들을 가져와서 modelandview에 입력 부분 끝
 		
 		// 로그인 상태라면 도서페이지의 장르에 해당하는 성향을 증가시켜줌
 		if (session.getAttribute("customer") != null) {

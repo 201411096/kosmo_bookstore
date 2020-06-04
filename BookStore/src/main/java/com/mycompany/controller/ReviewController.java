@@ -1,12 +1,16 @@
 package com.mycompany.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.BookVO;
@@ -44,5 +48,26 @@ public class ReviewController {
 		mv.addObject("info", book);
 		
 		return mv;
-	}	
+	}
+	//ajax 리뷰입력
+	@RequestMapping(value= "/insertReview.do", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map insertReview(HttpSession session, @RequestParam(value = "bookId") int bookId, @RequestParam(value="buyreviewScore") int buyreviewScore, @RequestParam(value="buyreviewContent") String buyreviewContent) {
+		Map result = new HashMap();
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		ReviewVO reviewVO = new ReviewVO();
+		reviewVO.setBookId(bookId);
+		reviewVO.setBuyreviewContent(buyreviewContent);
+		reviewVO.setBuyreviewScore(buyreviewScore);
+		reviewVO.setCustomerId(customerVO.getCustomerId());
+		
+		reviewService.insertReview(reviewVO);
+		
+		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
+		result.put("reviewList", reviewList);
+		result.put("reviewListSize", reviewList.size());
+		
+		
+		return result;
+	}
 }

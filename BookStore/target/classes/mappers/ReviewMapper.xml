@@ -14,5 +14,7 @@
 	<select id="selectReview" resultType="review" parameterType="review">
 	select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
 	from BUYREVIEW	
-	where book_id=#{bookId}</select>
+	where book_id=#{bookId}
+	order by BUYREVIEW_ID
+	</select>
 </mapper>

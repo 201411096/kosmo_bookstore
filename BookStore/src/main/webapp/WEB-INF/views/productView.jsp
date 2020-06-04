@@ -239,40 +239,43 @@
 <!--                                     리뷰출력 -->
                                         <h4>2 Comments</h4>
                                         <div class="comment-option">
+                                        <div id="review-container">
                                         <c:forEach items="${review}" var="review" >
                                         <div class="co-item">
                                                 <div class="avatar-pic">
                                                     <img src="resources/img/product-single/avatar-1.png" alt="">
                                                 </div>
                                                 <div class="avatar-text">
-                                                    <div class="at-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>                                                 
-                                                    <h5>${review.customerId} <span>${review.bookId}</span></h5>
+<!--                                                     <div class="at-rating"> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star-o"></i> -->
+<!--                                                     </div>                                                  -->
+                                                    <h5>${review.customerId} <span>${review.buyreviewScore}</span></h5>
                                                     <div class="at-reply">${review.buyreviewContent}</div>                                              
                                                 </div>
                                             </div>
                                        </c:forEach>
+                                       </div>
                                         <div class="leave-comment">
 <!--                                         리뷰입력 -->
                                             <h4>Leave A Comment</h4>
                                             
-                                            <form action="productReview.do" class="comment-form">
-                                            	<input type="hidden" name="bookId" value="${info.bookId}">
+                                            <form id="reviewForm" action="" class="comment-form">
+                                            	<input type="hidden" id="bookIdInReviewForm" name="bookId" value="${info.bookId}">
                                                 <div class="row">                                             
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="buyReviewId시퀀스" name="buyreviewId">
+<!--                                                         <input type="text" placeholder="buyReviewId시퀀스" name="buyreviewId"> -->
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="buyReviewScore" name="buyreviewScore">
+                                                        <input type="text" placeholder="리뷰 점수 입력" id="buyreviewScore" name="buyreviewScore">
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <textarea placeholder="buyReviewContent" name="buyreviewContent"></textarea>
-                                                        <button type="submit" class="site-btn">Send message</button>
+                                                        <textarea placeholder="리뷰 내용 입력" id="buyreviewContent" name="buyreviewContent"></textarea>
+                                                        <button type="button" id="review-btn" class="site-btn">리뷰 작성</button>
+                                                        <button type="button" id="update-btn" class="site-btn">리뷰 수정</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -452,6 +455,7 @@
 <!--     <script src="js/jquery.slicknav.js"></script> -->
 <!--     <script src="js/owl.carousel.min.js"></script> -->
 <!--     <script src="js/main.js"></script> -->
+	<script src="resources/custom/js/custom_productView.js"></script>
 </body>
 
 </html>
