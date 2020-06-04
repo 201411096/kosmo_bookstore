@@ -50,6 +50,9 @@
 	<div id="myChartContainer">
 	<canvas id="myChart" width="600" height="600"></canvas>
 	</div>
+	<div>
+		<button id = "consoleCheck"> 콘솔로 확인 </button> 
+	</div>
 <!-- 	차트 부분 끝 -->
 	<!-- Footer Section Begin -->
 	<jsp:include page="/footer.do"></jsp:include>

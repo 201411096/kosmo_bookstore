@@ -1,11 +1,22 @@
 var chartData;
 var chartOptions;
+var maxBook;
+var minBook;
 $(function(){
 	makeChartLoop();
 	setInterval(makeChartLoop, 5000);
+	
+	//콘솔 확인 버튼 이벤트
+	$('#consoleCheck').on('click', function(){
+		console.log(maxBook.bookId);
+		console.log(maxBook.bookName);
+		console.log(maxBook.writerName);
+		console.log(minBook.bookId);
+		console.log(minBook.bookName);
+		console.log(minBook.writerName);
+	})
 });
 function makeChartLoop(){
-	console.log("확인");
 	$.ajax({
 		type:'post',
 		async:true,
@@ -14,7 +25,9 @@ function makeChartLoop(){
 		dataType : 'json',
 		success : function(resultData){			
 			chartData= makeAjaxChartData(resultData.customerId ,makeCustomerArray(resultData), makeTotalArray(resultData));
-			makeChart(chartData, chartOptions);
+			makeChart(chartData, chartOptions);			
+			maxBook = bookInMaxPrefferedGenre(resultData);
+			minBook = bookInMinPrefferedGenre(resultData);
 		},
 		error:function(request,status,error){
 			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -91,14 +104,48 @@ function makeTotalArray(resultData){
 	totalArray.push(resultData.totalTendency.history);
 	return totalArray;
 }
-function makeChartOptions(){	
+
+
+function bookInMaxPrefferedGenre(resultData){
+	var book = {
+			bookId : resultData.bookInMaxPrefferedGenre.bookId,
+			writerId : resultData.bookInMaxPrefferedGenre.writerId,
+			writerName : resultData.bookInMaxPrefferedGenre.writerName,
+			bookPrice : resultData.bookInMaxPrefferedGenre.bookPrice,
+			bookName : resultData.bookInMaxPrefferedGenre.bookName,
+			bookGenre : resultData.bookInMaxPrefferedGenre.bookGenre,
+			bookStory : resultData.bookInMaxPrefferedGenre.bookStory,
+			bookPdate : resultData.bookInMaxPrefferedGenre.bookPdate,
+			bookSaleprice : resultData.bookInMaxPrefferedGenre.bookSaleprice,
+			bookCnt : resultData.bookInMaxPrefferedGenre.bookCnt,
+			bookScore : resultData.bookInMaxPrefferedGenre.bookScore,
+			bookScorecount : resultData.bookInMaxPrefferedGenre.bookScorecount,
+			bookScoreDivideByCount : resultData.bookInMaxPrefferedGenre.bookScoreDivideByCount
+	}
+	return book
 }
 
+function bookInMinPrefferedGenre(resultData){
+	var book = {
+			bookId : resultData.bookInMinPrefferedGenre.bookId,
+			writerId : resultData.bookInMinPrefferedGenre.writerId,
+			writerName : resultData.bookInMinPrefferedGenre.writerName,
+			bookPrice : resultData.bookInMinPrefferedGenre.bookPrice,
+			bookName : resultData.bookInMinPrefferedGenre.bookName,
+			bookGenre : resultData.bookInMinPrefferedGenre.bookGenre,
+			bookStory : resultData.bookInMinPrefferedGenre.bookStory,
+			bookPdate : resultData.bookInMinPrefferedGenre.bookPdate,
+			bookSaleprice : resultData.bookInMinPrefferedGenre.bookSaleprice,
+			bookCnt : resultData.bookInMinPrefferedGenre.bookCnt,
+			bookScore : resultData.bookInMinPrefferedGenre.bookScore,
+			bookScorecount : resultData.bookInMinPrefferedGenre.bookScorecount,
+			bookScoreDivideByCount : resultData.bookInMinPrefferedGenre.bookScoreDivideByCount
+	}
+	return book
+}
 
-
-
-
-
+function makeChartOptions(){	
+}
 
 
 
