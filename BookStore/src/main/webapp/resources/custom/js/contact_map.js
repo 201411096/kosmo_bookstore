@@ -8,11 +8,8 @@
   for(var i = 0; i<storeListLength; i++){
 	  var store = new Array();
 	  var temp = storePoint[i].value.split(',');
-	  console.log("-------------------------------------" + temp);
 	  var storePointX = parseFloat( temp[0] ); 
 	  var storePointY = parseFloat( temp[1] );
-	  console.log("-------------------------------------" + storePointX);
-	  console.log("-------------------------------------" + storePointY);
 	  store.push(storeName[i].value);
 	  store.push(storePointX);
 	  store.push(storePointY);
@@ -44,7 +41,7 @@
       
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0],locations[i][4]);
+          infowindow.setContent("<h3>" + locations[i][0] + "</h3>" + "<hr>" + "주소 : " + locations[i][3] + "<br/><br/>" + "전화번호 : " + locations[i][4]);
           infowindow.open(map, marker);
         }
       })(marker, i));
