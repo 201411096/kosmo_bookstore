@@ -44,7 +44,7 @@
 		<jsp:include page="/header.do"></jsp:include>
 	<!-- Header End -->
 	<hr>
-	aaaaaaaaaaaa
+	
 <!-- 	차트 부분 시작 -->
 	<br><br><br><br>
 	<div id="myChartContainer">
