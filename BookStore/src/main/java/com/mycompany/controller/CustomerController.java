@@ -127,4 +127,13 @@ public class CustomerController {
 		
 		return result;
 	}
+	@RequestMapping(value = "/getLoginCustomerId.do",  produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map getLoginCustomerId(HttpSession session) {
+		Map result = new HashMap();
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		result.put("customerId", customerVO.getCustomerId());
+		return result;
+	}
+	
 }

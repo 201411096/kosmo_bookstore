@@ -15,8 +15,7 @@ function reviewBtnHandler(){
 		data : {
 			"bookId" : $('#bookIdInReviewForm').val(),
 			"buyreviewScore" : $('#buyreviewScore').val(),
-			"buyreviewContent" : $('#buyreviewContent').val()
-			
+			"buyreviewContent" : $('#buyreviewContent').val()			
 			},
 		dataType : 'json',
 		success : function(resultData){
@@ -27,19 +26,14 @@ function reviewBtnHandler(){
 			}else if(resultData.insertResult === "0"){
 				alert("한명의 사용자는 하나의 책에 여러개의 리뷰를 등록할 수 없습니다.");
 			}
-			
-			console.log("review_btn ajax 성공");
 		},
 	   error:function(request,status,error){
 		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	   },
-	   complete :function(resultData){
-		   console.log("review_btn ajax 종료");
-		   
+	   complete :function(resultData){   
 	   }
 		
 	});
-	console.log("review_btn 연결 확인");
 }
 
 function updateBtnHandler(){
@@ -85,11 +79,29 @@ function makeReviewList(resultData){
 }
 
 function getContentBtnHandler(){
-	var customerId = $(this).next().val();
-	var loginCustomer = sessionStorage.getItem("customer");
-	console.log("로그인한 customer" + loginCustomer);
-	var loginCustomerId = loginCustomer.customerId;
-	console.log(customerId);
-	console.log("로그인한 customerId" + loginCustomerId);
-	console.log('a');
+	var customerId = $(this).prev().val().trim();
+	var eventObject = $(this);
+	$.ajax({
+		type:'post', // get을 하나 post를 하나 url에 보이진 않음, 용량이 많으면 post
+		async:true, // default : true
+		url: 'getLoginCustomerId.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
+		dataType : 'json',
+		success : function(resultData){
+			var loginCustomerId = resultData.customerId.trim();
+			//reviewId와 loginId가 같을 경우
+			if(customerId==loginCustomerId){
+				console.log("수정");
+				console.log( eventObject.prev().prev().val() );
+				console.log( eventObject.parent().find('h5').find('span').text() );
+				$('#buyreviewContent').text( eventObject.prev().prev().text() );
+				$('#buyreviewScore').text( eventObject.parent().find('h5').find('span').val() );
+			}else{
+				alert("본인이 작성한 리뷰만 수정할 수 있습니다.");
+			}
+		},
+	   error:function(request,status,error){
+		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	   }		
+	});
 }
