@@ -3,24 +3,50 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TendencyDAO">
 	<!-- mybatis 자료형 : int / hashmap / string -->
-	<select id="selectTendency" parameterType="customer" resultType="tendency">
-		SELECT * FROM TENDENCY WHERE CUSTOMER_ID=#{customerId}	
+	<select id="selectTendency" parameterType="customer"
+		resultType="tendency">
+		SELECT * FROM TENDENCY WHERE CUSTOMER_ID=#{customerId}
 	</select>
 	<select id="selectAllTendency" resultType="tendency">
-		SELECT SUM(ART) AS ART, SUM(SOCIAL) AS SOCIAL, SUM(ECONOMIC) AS ECONOMIC, SUM(TECHNOLOGY) AS TECHNOLOGY, SUM(LITERATURE) AS LITERATURE, SUM(HISTORY) AS HISTORY FROM TENDENCY
+		SELECT SUM(ART) AS
+		ART, SUM(SOCIAL) AS SOCIAL, SUM(ECONOMIC) AS ECONOMIC, SUM(TECHNOLOGY)
+		AS TECHNOLOGY, SUM(LITERATURE) AS LITERATURE, SUM(HISTORY) AS HISTORY
+		FROM TENDENCY
 	</select>
 	<insert id="insertTendency" parameterType="customer">
-		INSERT INTO TENDENCY(TENDENCY_ID, CUSTOMER_ID, ART, SOCIAL, ECONOMIC, TECHNOLOGY, LITERATURE, HISTORY) VALUES(TENDENCY_ID_SEQ.NEXTVAL, #{customerId}, 0, 0, 0, 0, 0, 0)
+		INSERT INTO
+		TENDENCY(TENDENCY_ID, CUSTOMER_ID, ART, SOCIAL, ECONOMIC, TECHNOLOGY,
+		LITERATURE, HISTORY) VALUES(TENDENCY_ID_SEQ.NEXTVAL, #{customerId}, 0,
+		0, 0, 0, 0, 0)
 	</insert>
 	<update id="increaseTendency" parameterType="hashmap">
-		update tendency set ${genre}=${genre}+1 where customer_id=#{customerId}
+		update tendency set
+		${genre}=${genre}+1 where customer_id=#{customerId}
 	</update>
 	<update id="increaseTendency2" parameterType="hashmap">
-		update tendency set ${genre}=${genre}+10 where customer_id=#{customerId}
+		update tendency set
+		${genre}=${genre}+10 where customer_id=#{customerId}
 	</update>
-<!-- 	테스트 중인 부분 -->
-	<select id="selectOneByGenre" parameterType="book" resultType="book">
-		select b.* from (select * from book where book_genre = #{bookGenre} order by book_score/book_scorecount desc) b where rownum=1
+	<!-- 테스트 중인 부분 -->
+	<select id="selectOneByGenre" parameterType="book"
+		resultType="book">
+		select * from ( SELECT b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS
+		WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE,
+		b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY,
+		b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE,
+		b.BOOK_CNT AS BOOK_CNT, b.BOOK_SCORE AS BOOK_SCORE, b.BOOK_SCORECOUNT
+		AS BOOK_SCORECOUNT, b.BOOK_SCORE/b.BOOK_SCORECOUNT AS
+		BOOK_SCOREDIVIDEBYCOUNT, w.WRITER_NAME AS WRITER_NAME
+		FROM BOOK b JOIN WRITER w
+		ON b.WRITER_ID = w.WRITER_ID
+		where book_genre = #{bookGenre}) 
+		where rownum=1
 	</select>
-<!-- 	테스트 중인 부분 -->
+	<!-- 테스트 중인 부분 -->
+	<!-- 테스트 중인 부분 백업 -->
+	<!-- <select id="selectOneByGenre" parameterType="book" resultType="book"> -->
+	<!-- select b.* from (select * from book where book_genre = #{bookGenre} 
+		order by book_score/book_scorecount desc) b where rownum=1 -->
+	<!-- </select> -->
+	<!-- 테스트 중인 부분 -->
 </mapper>

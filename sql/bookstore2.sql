@@ -272,6 +272,7 @@ INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '정채진
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '김수현');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '박근호');
 INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '칼 세이건');
+INSERT INTO WRITER(WRITER_ID, WRITER_NAME) VALUES(WRITER_ID_SEQ.NEXTVAL, '조원재');
 --------------------2_6.BOOK--------------------
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 2, 15000, '더 해빙', 'ECONOMIC', '부와 행운을 만나는 출발점, 마법의 감정 Having! 국내 최초로 미국에서 선(先)출간되어 세계가 먼저 찾아 읽은 『더 해빙(The Having)』.', '2020-03-01', 12000, 100, 0, 1);
@@ -285,6 +286,8 @@ INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STO
 VALUES(BOOK_ID_SEQ.NEXTVAL, 5, 20000, '비밀편지', 'LITERATURE', '누구에게나 있는 마음속 기억을 담은, 비밀편지 감정을 표현하지 못해 괴로워하다 ‘비밀편지’라는 이름의 삐뚤빼뚤 손글씨를 들고 신촌의 골목으로 무작정 나가 3년 동안 이름 모를 이들에게 5,000통의 편지를 보냈던 박근호. 13만 SNS 구독자들의 마음을 울린 그의 이야기를 담은『비밀편지』. 2017년 출간 이후 꾸준히 독자들의 마음을 위로해온 『비밀편지』가 새로운 문장과 사진들을 가득 담은 4장을 더한 개정증보판으로 독자들과 다시 만난다.', '2019-09-09', 17000, 100, 9.9, 3);
 INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
 VALUES(BOOK_ID_SEQ.NEXTVAL, 6, 20000, '코스모스', 'TECHNOLOGY', '과학 교양서의 고전『코스모스』. 이 책에서 저자는 우주의 탄생과 은하계의 진화, 태양의 삶과 죽음, 우주를 떠돌던 먼지가 의식 있는 생명이 되는 과정, 외계 생명의 존재 문제 등에 관한 내용을 수 백장의 사진과 일러스트를 곁들여 흥미롭게 설명한다. 현대 천문학을 대표하는 저명한 과학자인 저자는 이 책에서 사람들의 상상력을 사로잡고, 난해한 개념을 명쾌하게 해설하는 놀라운 능력을 마음껏 발휘한다.', '2006-01-20', 16000, 100, 15.15, 4);
+INSERT INTO BOOK(BOOK_ID, WRITER_ID, BOOK_PRICE, BOOK_NAME, BOOK_GENRE, BOOK_STORY, BOOK_PDATE, BOOK_SALEPRICE, BOOK_CNT, BOOK_SCORE, BOOK_SCORECOUNT)
+VALUES(BOOK_ID_SEQ.NEXTVAL, 7, 18000, '방구석 미술관', 'ART', '『방구석 미술관』은 2018년 출간된 이래 미술은 고상하고 우아한 사람들의 전유물이라 여겨왔던 대중들에게 큰 사랑을 받으며, 새로운 미술 교양의 지평을 열었다. 예술 분야의 베스트셀러로 꾸준히 사랑받아 온 『방구석 미술관』이 2년 만에 10만 부 판매 기록을 돌파했다. 이를 기념하기 위해 특별판으로 출간한 이번 책은 ‘프라이빗 미술관 에디션’으로, 프랑스 파리의 3대 미술관 중 하나인 오르세 미술관을 나만의 방에서 편하게 즐길 수 있도록 초대한다.', '2020-05-05', 14000, 100, 17, 5);
 --------------------2_10.BUYCARTLIST--------------------
 INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 2, 3);
 INSERT INTO BUYCARTLIST(BUYCARTLIST_ID, CUSTOMER_ID, BOOK_ID, BUYCARTLIST_CNT) VALUES(BUYCARTLIST_ID_SEQ.NEXTVAL, 'aaa', 3, 2);
@@ -351,12 +354,13 @@ DROP SEQUENCE BUYREVIEW_ID_SEQ;
 ------------------------------5. 시퀀스 초기화------------------------------
 -------------------------5_1. Template -------------------------
 SELECT SEQUENCE_NAME FROM USER_SEQUENCES WHERE SEQUENCE_NAME='SEQUENCE_NAME';
-SELECT SEQNENCE_NAME.CURRVAL FROM UDAL;
+SELECT SEQNENCE_NAME.CURRVAL FROM DUAL;
 ALTER SEQUENCE SEQUENCE_NAME INCREMENT BY NUMBER;
 -------------------------5_2. Example -------------------------
 SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
-SELECT WRITER_ID_SEQ.NEXTVAL FROM UDAL;
-ALTER SEQUENCE WRITER_ID_SEQ INCREMENT BY -15;
+SELECT WRITER_ID_SEQ.NEXTVAL FROM DUAL;
+SELECT WRITER_ID_SEQ.CURRVAL FROM DUAL;
+ALTER SEQUENCE WRITER_ID_SEQ INCREMENT BY 1;
 ------------------------------6. sample------------------------------
 select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc;
 select b.* from (select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc) b where rownum=1;
