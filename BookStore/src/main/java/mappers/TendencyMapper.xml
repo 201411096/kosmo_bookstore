@@ -42,11 +42,4 @@
 		where book_genre = #{bookGenre}) 
 		where rownum=1
 	</select>
-	<!-- 테스트 중인 부분 -->
-	<!-- 테스트 중인 부분 백업 -->
-	<!-- <select id="selectOneByGenre" parameterType="book" resultType="book"> -->
-	<!-- select b.* from (select * from book where book_genre = #{bookGenre} 
-		order by book_score/book_scorecount desc) b where rownum=1 -->
-	<!-- </select> -->
-	<!-- 테스트 중인 부분 -->
 </mapper>

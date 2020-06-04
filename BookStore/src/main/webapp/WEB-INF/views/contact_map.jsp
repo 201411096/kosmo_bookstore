@@ -12,9 +12,8 @@
 
 </head> 
 <body>
-<input class="storeListLength" type=hidden value="${storeListSize} ">
+		<input class="storeListLength" type=hidden value="${storeListSize} ">
 	<c:forEach items="${storeList}" var="storeList">
-		
 		<input class="storeName"  type=hidden name="storeName" value="${storeList.storeName }">
 		<input class="storeAddr" type=hidden name="storeAddr" value="${storeList.storeAddr }">
 		<input class="storeTel" type=hidden name="storeTel" value="${storeList.storeTel }">
