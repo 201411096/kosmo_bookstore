@@ -61,12 +61,17 @@ public class ReviewController {
 		reviewVO.setBuyreviewScore(buyreviewScore);
 		reviewVO.setCustomerId(customerVO.getCustomerId());
 		
-		reviewService.insertReview(reviewVO);
-		
-		List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
-		result.put("reviewList", reviewList);
-		result.put("reviewListSize", reviewList.size());
-		
+		// 사용자가 해당 책에 리뷰를 단 적이 없다면
+		if( reviewService.selectReviewByCustomerId(reviewVO) == null ) {			
+			reviewService.insertReview(reviewVO);
+			
+			List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
+			result.put("reviewList", reviewList);
+			result.put("reviewListSize", reviewList.size());
+			result.put("insertResult", "1"); //리뷰 삽입 성공
+		}else {
+			result.put("insertResult", "0"); //리뷰 삽입 실패
+		}
 		
 		return result;
 	}

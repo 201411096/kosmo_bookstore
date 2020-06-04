@@ -22,5 +22,9 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public List<ReviewVO> selectReview(ReviewVO vo) {
 		return reviewDAO.selectReview(vo);	
-	}	
+	}
+	@Override
+	public ReviewVO selectReviewByCustomerId(ReviewVO vo) {
+		return reviewDAO.selectReviewByCustomerId(vo);
+	}
 }

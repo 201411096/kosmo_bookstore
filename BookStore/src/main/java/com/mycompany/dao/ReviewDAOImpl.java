@@ -22,5 +22,10 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public List<ReviewVO> selectReview(ReviewVO vo) {
 		List<ReviewVO> result = mybatis.selectList("ReviewDAO.selectReview", vo);
 		return result;
-	}	
+	}
+	@Override
+	public ReviewVO selectReviewByCustomerId(ReviewVO vo) {
+		return mybatis.selectOne("ReviewDAO.selectReviewByCustomerId", vo);
+	}
+	
 }

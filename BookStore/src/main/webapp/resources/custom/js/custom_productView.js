@@ -3,6 +3,7 @@ $(function(){
 	
 	$('#review-btn').on('click', reviewBtnHandler);
 	$('#update-btn').on('click', updateBtnHandler);
+	$(document).on('click', '.site-btn', getContentBtnHandler);
 });
 
 function reviewBtnHandler(){
@@ -21,7 +22,12 @@ function reviewBtnHandler(){
 		success : function(resultData){
 			$('#buyreviewScore').val("");
 			$('#buyreviewContent').val("");
-			makeReviewList(resultData);
+			if(resultData.insertResult === "1"){
+				makeReviewList(resultData);
+			}else if(resultData.insertResult === "0"){
+				alert("한명의 사용자는 하나의 책에 여러개의 리뷰를 등록할 수 없습니다.");
+			}
+			
 			console.log("review_btn ajax 성공");
 		},
 	   error:function(request,status,error){
@@ -55,18 +61,35 @@ function makeReviewList(resultData){
 	var spanPrefix = '<span>';
 	var spanSuffix = '</span>';
 	var divAtReplyPrefix = '<div class="at-reply">';
-	
+	var modifyButton ='<input type="button" id="r-modify" class="site-btn" value="수정">';
+	var inputTypeHiddenreviewcustomerIdPrefix = '<input type="hidden" class="reviewcustomerId" value="';
+	var inputTypeHiddenreviewcustomerIdSuffix = ' ">';
 	$('#review-container').empty();
 	for(var i=0; i<resultData.reviewListSize; i++){
 		var listContent= 
 			divCoItemPrefix +
 			divAvatarPicPrefix + imgPrefix + 'avatar-1.png' + imgSuffix + divSuffix +
 			divAvatarTextPrefix +
-			h5Prefix + resultData.reviewList[i].customerId + spanPrefix + resultData.reviewList[i].buyreviewScore + spanSuffix + h5Suffix +
+			h5Prefix + 
+			resultData.reviewList[i].customerId +
+			spanPrefix + resultData.reviewList[i].buyreviewScore + spanSuffix + 
+			h5Suffix +
 			divAtReplyPrefix + resultData.reviewList[i].buyreviewContent + divSuffix +
+			modifyButton +
+			inputTypeHiddenreviewcustomerIdPrefix + resultData.reviewList[i].customerId + inputTypeHiddenreviewcustomerIdSuffix +			
 			divSuffix +
 			divSuffix;
 		
 		$('#review-container').append(listContent);
 	}
+}
+
+function getContentBtnHandler(){
+	var customerId = $(this).next().val();
+	var loginCustomer = sessionStorage.getItem("customer");
+	console.log("로그인한 customer" + loginCustomer);
+	var loginCustomerId = loginCustomer.customerId;
+	console.log(customerId);
+	console.log("로그인한 customerId" + loginCustomerId);
+	console.log('a');
 }

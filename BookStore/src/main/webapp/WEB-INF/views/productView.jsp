@@ -253,8 +253,12 @@
 <!--                                                         <i class="fa fa-star"></i> -->
 <!--                                                         <i class="fa fa-star-o"></i> -->
 <!--                                                     </div>                                                  -->
-                                                    <h5>${review.customerId} <span>${review.buyreviewScore}</span></h5>
-                                                    <div class="at-reply">${review.buyreviewContent}</div>                                              
+                                                    <h5>${review.customerId} 
+                                                    <span>${review.buyreviewScore}</span>
+                                                    </h5>
+                                                    <div class="at-reply">${review.buyreviewContent}</div>
+                                                    <input type="hidden" class="reviewcustomerId" value="${review.customerId} ">
+                                                    <input type="button" id="r-modify" class="site-btn" value="수정">                                              
                                                 </div>
                                             </div>
                                        </c:forEach>
