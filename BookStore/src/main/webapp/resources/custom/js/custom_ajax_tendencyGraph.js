@@ -103,6 +103,7 @@ function makeChartOptions(){
 
 
 
+
 /* 막대 그래프 샘플
 function sampleChartFunc(){
 	var ctx = document.getElementById('myChart').getContext('2d');
