@@ -2,6 +2,7 @@
 package com.mycompany.controller;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.domain.TendencyVO;
 import com.mycompany.service.CustomerServiceImpl;
@@ -96,5 +99,32 @@ public class CustomerController {
 		Tendency.getInstance().getTotalTendency(tendencyService, mv); // 모든 유저의 장르 선호도
 		mv.setViewName("tendencyGraph");
 		return mv;
+	}
+	@RequestMapping(value = "/ajaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map moveToAjaxTendencyGraph(HttpSession session) {
+		Map result = new HashMap();
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		result.put("customerId", customerVO.getCustomerId());
+		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
+		tendencyVO.setElementToPercent();
+		result.put("tendency", tendencyVO);
+		
+		BookVO VOForSearch = new BookVO();
+		String maxPrefferedGenre = tendencyVO.getMaxPreferredGenre();
+		VOForSearch.setBookGenre(maxPrefferedGenre);
+		BookVO bookInMaxPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
+		result.put("bookInMaxPrefferedGenre", bookInMaxPrefferedGenre);
+		String minPrefferedGenre = tendencyVO.getMinPreferredGenre();		
+		VOForSearch.setBookGenre(minPrefferedGenre);
+		BookVO bookInMinPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
+		result.put("bookInMinPrefferedGenre", bookInMinPrefferedGenre);
+		
+		tendencyVO = tendencyService.selectAllTendency();
+		tendencyVO.setCustomerId("AllCustomer");
+		tendencyVO.setElementToPercent();
+		result.put("totalTendency", tendencyVO);
+		
+		return result;
 	}
 }
