@@ -3,6 +3,7 @@ package com.mycompany.domain;
 public class BookVO {
 	private int bookId;
 	private int writerId;
+	private String writerName;
 	private int bookPrice;
 	private String bookName;
 	private String bookGenre;
@@ -21,8 +22,6 @@ public class BookVO {
 	public void setBookScoreDivideByCount(double bookScoreDivideByCount) {
 		this.bookScoreDivideByCount = bookScoreDivideByCount;
 	}
-
-	private String writerName;
 
 	public int getBookScorecount() {
 		return bookScorecount;
