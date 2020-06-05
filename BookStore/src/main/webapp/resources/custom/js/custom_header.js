@@ -20,25 +20,50 @@ function reloadCartList(){
 }
 //장바구니 목록을 받아서 html요소를 구성해줌
 function makeCartList(resultData){
-//	if(resultData===null){
-//		$('.cart-icon').find('span').text("");
-//		$('.cart-icon').parent().find('.cart-price').find('span').text('');
-//		$('.cart-icon').find('tbody').empty();
-//	}else{
-//		$('.cart-icon').find('span').text(resultData.cartListSize);
-//		$('.cart-icon').parent().find('.cart-price').find('span').text(resultData.cartListTotalPrice);
-//		$('.cart-icon').find('tbody').empty();
-//	}
 	if(resultData===null){
 		$('.cartListNumber').text("");
 		$('.cartListTotalPrice').text("");
+		$('.cart-price').find('span').text("");
 		$('.cart-icon').find('tbody').empty();
+		
 	}else{
 		$('.cartListNumber').text(resultData.cartListSize);
 		$('.cartListTotalPrice').text(resultData.cartListTotalPrice);
-		$('.cart-icon').find('tbody').empty();
-	}	
-
+		$('.cart-price').find('span').text(resultData.cartListTotalPrice);
+		makeCartListForm(resultData)
+	}		
+}
+function makeCartListForm(resultData){
+	$('.cart-icon').find('tbody').empty();
+	var trPrefix = '<tr>';
+	var trSuffix = '</tr>';
+	var tdSiPicPrefix = '<td class="si-pic">';
+	var tdSuffix = '</td>'
+	var imgPrefix = '<img src="img/select-product-1.jpg" alt="">';
+	var tdSiTextPrefix = '<td class="si-text">';
+	var divProductSelectedPrefix = '<div class="product-selected">';
+	var pCartListPriceAndCntPrefix = '<p class="cartListPriceAndCnt">';
+	var pSuffix = '</p>';
+	var h6Prefix = '<h6>';
+	var h6Suffix = '</h6>';
+	var aTagPrefix = '<a href="/BookStore/productView.do?bookId=';
+	var aTagSuffix1 = '">';
+	var aTagSuffix2 = '</a>';
+	var divSuffix = '</div>';
+	var tdAndITag = '<td class="si-close"><i class="ti-close"></i></td>';
+	var listContent = '';
+	for( var i=0; i<resultData.cartListSize; i++ ){
+		listContent = trPrefix +
+					  tdSiPicPrefix + imgPrefix + tdSuffix + 
+					  tdSiTextPrefix + divProductSelectedPrefix +
+					  pCartListPriceAndCntPrefix + resultData.cartList[i].bookSaleprice + ' x ' + resultData.cartList[i].buycartlistCnt + pSuffix +
+					  h6Prefix + aTagPrefix + resultData.cartList[i].bookId + aTagSuffix1 + resultData.cartList[i].bookName + aTagSuffix2 + h6Suffix +
+					  divSuffix +
+					  tdSuffix + 
+					  tdAndITag + 
+					  trSuffix;
+		$('.cart-icon').find('tbody').append(listContent);
+	}
 	
 }
 
@@ -73,7 +98,7 @@ function makeSearhResultBox(list){
 	//순서대로 5개까지만 가져옴
 	for(var i=0; i<5; i++){
 		var bookLinkPrefix = '<a href="/BookStore/productView.do?bookId='+ list[i].bookId+'">';
-		var bookLinkSuffix = '</a>'		
+		var bookLinkSuffix = '</a>';		
 		var listContent = listPrefix + 
 							divPrefix + "도서명 : " + bookLinkPrefix + list[i].bookName + bookLinkSuffix + divSuffix +
 							divPrefix + "저자명 : " + list[i].writerName + divSuffix +
