@@ -404,3 +404,47 @@ ALTER SEQUENCE WRITER_ID_SEQ INCREMENT BY 1;
 ------------------------------6. sample------------------------------
 select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc;
 select b.* from (select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc) b where rownum=1;
+
+
+
+select book_id, sum(buy_cnt) as buy_cnt
+from buy
+group by book_id
+order by buy_cnt desc;
+
+select book_id
+from (select book_id, sum(buy_cnt) as buy_cnt
+from buy
+group by book_id
+order by buy_cnt desc);
+
+select *
+from book
+where book_id in (
+                    select book_id
+                    from (select book_id, sum(buy_cnt) as buy_cnt
+                            from buy
+                            group by book_id
+                            order by buy_cnt desc)
+                    );
+select rownum, bu.book_id as book_id
+from(select buy.book_id as book_id, sum(buy.buy_cnt) as buy_cnt
+from buy buy
+group by book_id
+order by buy_cnt DESC)bu
+where rownum <= 5;
+
+select book_id
+from (
+    select rownum, bu.book_id as book_id
+    from(select buy.book_id as book_id, sum(buy.buy_cnt) as buy_cnt
+        from buy buy
+        group by book_id
+        order by buy_cnt DESC)bu
+        where rownum <= 5
+        )
+select *
+from book
+where book_id in (
+       
+                    );
