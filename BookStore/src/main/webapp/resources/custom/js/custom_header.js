@@ -1,6 +1,40 @@
 $(function(){
 	$('#listSearch').on('keyup', listSearchKeyUpEvent);
+	setInterval(reloadCartList, 2000);
 });
+//2초마다 불리는 함수, 장바구니 목록을 갱신
+function reloadCartList(){
+	$.ajax({
+		type:'post',
+		url:'reloadCartlist.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
+		dataType : 'json',
+		success : function(resultData){
+			makeCartList(resultData);
+		},
+		error:function(request,status,error){
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+		
+	})
+}
+//장바구니 목록을 받아서 html요소를 구성해줌
+function makeCartList(resultData){
+	if(resultData===null){
+		$('.cart-icon').find('span').text("");
+		$('.cart-icon').parent().find('.cart-price').find('span').text('');
+		$('.cart-icon').find('tbody').empty();
+	}else{
+		$('.cart-icon').find('span').text(resultData.cartListSize);
+		$('.cart-icon').parent().find('.cart-price').find('span').text(resultData.cartListTotalPrice);
+		$('.cart-icon').find('tbody').empty();
+	}
+	
+//	$('.cart-icon').find('span').text("");
+//	$('.cart-icon').parent().find('.cart-price').find('span').text('');
+	
+}
+
 
 function listSearchKeyUpEvent() {
 	$.ajax({

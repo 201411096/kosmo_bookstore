@@ -56,7 +56,7 @@ public class CustomerController {
 		
 		if(result==null) {}
 		else if(result.getCustomerFlag()==0) {
-			session.setAttribute("admin", result); // 관리자 정보 세팅
+			session.setAttribute("customer", result); // 관리자 정보 세팅
 			mv.setViewName("/test_admin_check");
 		}
 		else {
