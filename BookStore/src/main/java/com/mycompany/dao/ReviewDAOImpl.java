@@ -35,4 +35,8 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public int updateReview(ReviewVO vo) {
 		return mybatis.update("ReviewDAO.updateReview", vo);
 	}
+	@Override
+	public int deleteReview(ReviewVO vo) {
+		return mybatis.delete("ReviewDAO.deleteReview", vo);
+	}
 }

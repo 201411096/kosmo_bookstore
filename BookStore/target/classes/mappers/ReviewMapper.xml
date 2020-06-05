@@ -6,21 +6,21 @@
 	
 <!-- 	게시글 작성하기 -->
 	<insert id="insertReview" parameterType="review">
-	insert into BUYREVIEW (BUYREVIEW_ID, BOOK_ID, CUSTOMER_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE) 
-	values (buyReview_id_seq.nextval, #{bookId}, #{customerId}, #{buyreviewContent}, #{buyreviewScore})
+		insert into BUYREVIEW (BUYREVIEW_ID, BOOK_ID, CUSTOMER_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE) 
+		values (buyReview_id_seq.nextval, #{bookId}, #{customerId}, #{buyreviewContent}, #{buyreviewScore})
 	</insert>
 		
 <!-- 	게시글 출력하기 -->
 	<select id="selectReview" resultType="review" parameterType="review">
-	select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
-	from BUYREVIEW	
-	where book_id=#{bookId}
-	order by BUYREVIEW_ID
+		select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
+		from BUYREVIEW	
+		where book_id=#{bookId}
+		order by BUYREVIEW_ID
 	</select>
 	<select id="selectReviewByCustomerId" resultType="review" parameterType="review">
-	select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
-	from BUYREVIEW	
-	where book_id=#{bookId} and customer_id=#{customerId}
+		select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
+		from BUYREVIEW	
+		where book_id=#{bookId} and customer_id=#{customerId}
 	</select>
 	<select id="selectReviewByReviewId" resultType="review" parameterType="int">
 		select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
@@ -32,4 +32,8 @@
 		set BUYREVIEW_CONTENT=#{buyreviewContent}, BUYREVIEW_SCORE=#{buyreviewScore}
 		where book_id=#{bookId} and customer_id=#{customerId} 
 	</update>
+	<delete id="deleteReview" parameterType="review">
+		delete from BUYREVIEW
+		where book_id=#{bookId} and customer_id=#{customerId}
+	</delete>
 </mapper>

@@ -10,4 +10,5 @@ public interface ReviewService {
 	public ReviewVO selectReviewByCustomerId(ReviewVO vo);
 	public ReviewVO selectReviewByReviewId(int reviewId);
 	public int updateReview(ReviewVO vo);
+	public int deleteReview(ReviewVO vo);
 }

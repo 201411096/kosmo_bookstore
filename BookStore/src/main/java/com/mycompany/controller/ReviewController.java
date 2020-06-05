@@ -100,4 +100,24 @@ public class ReviewController {
 			
 			return result;
 		}
+		@RequestMapping(value = "/deleteReview.do",  produces = "application/json; charset=utf-8")
+		@ResponseBody
+		public Map deleteReview(HttpSession session, @RequestParam(value = "reviewId") String reviewId, @RequestParam(value = "customerId") String customerId) {
+			Map result = new HashMap();
+			CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+			ReviewVO reviewVO = reviewService.selectReviewByReviewId(Integer.parseInt(reviewId));
+			
+			//리뷰를 작성한 작성자와 현재 로그인한 사용자가 같을경우에 삭제
+			if(customerId.equals(customerVO.getCustomerId())) {
+				reviewService.deleteReview(reviewVO);
+				List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
+				result.put("reviewList", reviewList);
+				result.put("reviewListSize", reviewList.size());
+				result.put("deleteResult", "1"); //리뷰 수정 성공
+			}
+			else {
+				result.put("deleteResult", "0"); //리뷰 수정 성공
+			}
+			return result;
+		}
 }

@@ -3,7 +3,9 @@ $(function(){
 	
 	$('#review-btn').on('click', reviewBtnHandler);
 	$('#update-btn').on('click', updateBtnHandler);
-	$(document).on('click', '.site-btn', getContentBtnHandler);
+	//$(document).on('click', '.site-btn', getContentBtnHandler);
+	$(document).on('click', '#r-modify', getContentBtnHandler);
+	$(document).on('click', '#r-delete', deleteHandler);
 });
 
 function reviewBtnHandler(){
@@ -37,10 +39,6 @@ function reviewBtnHandler(){
 }
 
 function updateBtnHandler(){
-//	$('#reviewForm').attr('action', 'updateReview.do');
-//	$('#reviewForm').submit();
-//	console.log("update_btn 연결 확인");
-	
 	$.ajax({
 		type:'post', // get을 하나 post를 하나 url에 보이진 않음, 용량이 많으면 post
 		async:true, // default : true
@@ -57,7 +55,7 @@ function updateBtnHandler(){
 			$('#buyreviewContent').val("");
 			if(resultData.updateResult === "1"){
 				makeReviewList(resultData);
-			}else if(resultData.insertResult === "0"){
+			}else if(resultData.updateResult === "0"){
 				alert("리뷰 수정 실패");
 			}
 		},
@@ -66,7 +64,35 @@ function updateBtnHandler(){
 	   },
 	   complete :function(resultData){   
 	   }
-		
+	});
+}
+function deleteHandler(){
+	console.log('삭제 버튼 연결 확인');
+	var customerId = $(this).parent().find('.reviewcustomerId').val().trim();
+	var eventObject = $(this);
+	var reviewId = eventObject.parent().find('.buyreviewId').val().trim();
+	$.ajax({
+		type:'post', 
+		async:true, 
+		url: 'deleteReview.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', 
+		data : {"reviewId" : reviewId,
+				"customerId" : customerId
+				},
+		dataType : 'json',
+		success : function(resultData){
+			//reviewId와 loginId가 같을 경우만 삭제하고 아닐 경우에는 경고창
+			if(resultData.deleteResult==="1"){
+				makeReviewList(resultData);
+				console.log('삭제 성공');
+			}else{
+				console.log('삭제 실패');
+			}
+			
+		},
+	   error:function(request,status,error){
+		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	   }		
 	});
 }
 
