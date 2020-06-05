@@ -55,6 +55,10 @@ public class CustomerController {
 		mv.setViewName("/test_login_check");
 		
 		if(result==null) {}
+		else if(result.getCustomerFlag()==0) {
+			session.setAttribute("admin", result); // 관리자 정보 세팅
+			mv.setViewName("/test_admin_check");
+		}
 		else {
 			//고객 정보를 세팅
 			session.setAttribute("customer", result);
