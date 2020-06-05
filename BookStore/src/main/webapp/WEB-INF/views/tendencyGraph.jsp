@@ -88,6 +88,7 @@
 <!-- 	<script src="resources/js/main.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="resources/custom/js/custom_tendencyGraph.js"></script>
+
 </body>
 
 </html>

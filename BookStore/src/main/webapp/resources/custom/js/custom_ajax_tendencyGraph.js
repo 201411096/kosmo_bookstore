@@ -3,8 +3,8 @@ var chartOptions;
 var maxBook;
 var minBook;
 $(function(){
-	makeChartLoop();
-	setInterval(makeChartLoop, 5000);
+	makeChartAjax();
+	setInterval(makeChartAjax, 5000);
 	
 	//콘솔 확인 버튼 이벤트
 	$('#consoleCheck').on('click', function(){
@@ -16,7 +16,7 @@ $(function(){
 		console.log(minBook.writerName);
 	})
 });
-function makeChartLoop(){
+function makeChartAjax(){
 	$.ajax({
 		type:'post',
 		async:true,
