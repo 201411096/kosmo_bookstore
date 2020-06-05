@@ -119,20 +119,7 @@ public class CustomerController {
 		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
 		tendencyVO.setElementToPercent();
 		result.put("tendency", tendencyVO);
-		
-		//가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 부분
-		/* 맨위에꺼만 추천해주는 부분 시작
-		BookVO VOForSearch = new BookVO();
-		String maxPrefferedGenre = tendencyVO.getMaxPrefferedGenreConsiderWithSameScore();
-		VOForSearch.setBookGenre(maxPrefferedGenre);
-		BookVO bookInMaxPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch); // 하나만 그냥 가져옴
-		result.put("bookInMaxPrefferedGenre", bookInMaxPrefferedGenre);		
-		String minPrefferedGenre = tendencyVO.getMinPrefferedGenreConsiderWithSameScore();
-		VOForSearch.setBookGenre(minPrefferedGenre);
-		BookVO bookInMinPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch); // 하나만 그냥 가져옴
-		result.put("bookInMinPrefferedGenre", bookInMinPrefferedGenre);
-		맨위에꺼만 추천해주는 부분 끝 */
-		
+
 		int randomIdx=0; // 선택된 장르, 일정 점수 이상으로 가져온 도서 목록중에서 하나를 고르는데 사용할 변수
 		BookVO VOForSearch = new BookVO();	// 검색에 사용하는 객체 (장르만을 담고 검색에 사용)
 		String maxPrefferedGenre = tendencyVO.getMaxPrefferedGenreConsiderWithSameScore(); // tendencyVO객체 기반의 가장 많이 선호하는 장르를 가져옴
