@@ -117,4 +117,81 @@ public class TendencyVO {
 		}
 		return genre.get(min_idx);
 	}
+	
+	public String getMaxPrefferedGenreConsiderWithSameScore() {
+		int cnt [] = new int[6];
+		int max_idx=0;
+		ArrayList<Integer> max_idx_arrayList = new ArrayList<Integer>();
+		ArrayList<String> genre = new ArrayList<String>();
+		cnt[0] = this.art;
+		cnt[1] = this.economic;
+		cnt[2] = this.history;
+		cnt[3] = this.literature;
+		cnt[4] = this.social;
+		cnt[5] = this.technology;
+		
+		genre.add("ART");
+		genre.add("ECONOMIC");
+		genre.add("HISTORY");
+		genre.add("LITERATURE");
+		genre.add("SOCIAL");
+		genre.add("TECHNOLOGY");
+
+		for(int i=0; i<cnt.length; i++) {
+			if(cnt[i]>cnt[max_idx]) {
+				max_idx=i;
+				max_idx_arrayList.clear();	// 기존에 동점인 장르들을 모아두던 arrayList 초기화
+			}
+				
+			else if(cnt[i]==cnt[max_idx]) {
+				max_idx_arrayList.add(i); // 장르의 점수가 똑같다면 arrayList에 추가
+				if(max_idx_arrayList.size()==1  && max_idx!=i)
+					max_idx_arrayList.add(max_idx); // 장르의 점수가 똑같으며 사이즈가 하나라면 max_idx도 추가 ==> 두개 이상일 경우에는 이미 max_idx가 들어가 있는 상태임
+			}
+		}
+		if(max_idx_arrayList.size()>=2) {
+			//int random_idx = Integer.parseInt(String.valueOf(Math.random()*max_idx_arrayList.size())  );
+			int random_idx = (int)(Math.random()*max_idx_arrayList.size());
+			return genre.get(random_idx);
+		}
+		return genre.get(max_idx);
+	}
+	public String getMinPrefferedGenreConsiderWithSameScore() {
+		int cnt [] = new int[6];
+		int min_idx=0;
+		ArrayList<Integer> min_idx_arrayList = new ArrayList<Integer>();
+		ArrayList<String> genre = new ArrayList<String>();
+		cnt[0] = this.art;
+		cnt[1] = this.economic;
+		cnt[2] = this.history;
+		cnt[3] = this.literature;
+		cnt[4] = this.social;
+		cnt[5] = this.technology;
+		
+		genre.add("ART");
+		genre.add("ECONOMIC");
+		genre.add("HISTORY");
+		genre.add("LITERATURE");
+		genre.add("SOCIAL");
+		genre.add("TECHNOLOGY");
+
+		for(int i=0; i<cnt.length; i++) {
+			if(cnt[i]<cnt[min_idx]) {
+				min_idx=i;
+				min_idx_arrayList.clear();	// 기존에 동점인 장르들을 모아두던 arrayList 초기화
+			}
+				
+			else if(cnt[i]==cnt[min_idx]) {
+				min_idx_arrayList.add(i); // 장르의 점수가 똑같다면 arrayList에 추가
+				if(min_idx_arrayList.size()==1 && min_idx!=i)
+					min_idx_arrayList.add(min_idx); // 장르의 점수가 똑같으며 사이즈가 하나라면 max_idx도 추가 ==> 두개 이상일 경우에는 이미 max_idx가 들어가 있는 상태임
+			}
+		}
+		if(min_idx_arrayList.size()>=2) {
+			int random_idx = (int)(Math.random()*min_idx_arrayList.size());
+			return genre.get(random_idx);
+		}
+		return genre.get(min_idx);
+	}
+	
 }

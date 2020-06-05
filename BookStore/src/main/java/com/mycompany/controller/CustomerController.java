@@ -25,6 +25,7 @@ import com.mycompany.service.ReviewServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
 import com.mycompany.util.Tendency;
+import com.sun.xml.internal.ws.wsdl.parser.MexEntityResolver;
 
 
 	//Handles requests for the application home page.
@@ -95,7 +96,7 @@ public class CustomerController {
 	public String joinCon(CustomerVO vo, Model model) {
 		return "registerCon";
 	}
-	
+	//성향 그래프를 그리는 함수(아래 함수 나온 뒤로 사용 안함)
 	@RequestMapping("/moveToTendencyGraph.do")
 	public ModelAndView moveToTendencyGraph(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -104,6 +105,7 @@ public class CustomerController {
 		mv.setViewName("tendencyGraph");
 		return mv;
 	}
+	//성향 그래프를 그리면서 가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 함수
 	@RequestMapping(value = "/ajaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map moveToAjaxTendencyGraph(HttpSession session) {
@@ -114,12 +116,17 @@ public class CustomerController {
 		tendencyVO.setElementToPercent();
 		result.put("tendency", tendencyVO);
 		
+		//가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 부분
 		BookVO VOForSearch = new BookVO();
-		String maxPrefferedGenre = tendencyVO.getMaxPreferredGenre();
+		//String maxPrefferedGenre = tendencyVO.getMaxPreferredGenre(); // 점수가 동일한 경우는 고려하지 않음
+		String maxPrefferedGenre = tendencyVO.getMaxPrefferedGenreConsiderWithSameScore();
+		System.out.println("maxPrefferedGenre 확인" + maxPrefferedGenre);
 		VOForSearch.setBookGenre(maxPrefferedGenre);
 		BookVO bookInMaxPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
 		result.put("bookInMaxPrefferedGenre", bookInMaxPrefferedGenre);
-		String minPrefferedGenre = tendencyVO.getMinPreferredGenre();		
+		//String minPrefferedGenre = tendencyVO.getMinPreferredGenre(); // 점수가 동일한 경우는 고려하지 않음
+		String minPrefferedGenre = tendencyVO.getMinPrefferedGenreConsiderWithSameScore();
+		System.out.println("maxPrefferedGenre 확인" + minPrefferedGenre);
 		VOForSearch.setBookGenre(minPrefferedGenre);
 		BookVO bookInMinPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
 		result.put("bookInMinPrefferedGenre", bookInMinPrefferedGenre);
