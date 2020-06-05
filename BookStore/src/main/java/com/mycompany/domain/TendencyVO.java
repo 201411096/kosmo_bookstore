@@ -150,7 +150,6 @@ public class TendencyVO {
 			}
 		}
 		if(max_idx_arrayList.size()>=2) {
-			//int random_idx = Integer.parseInt(String.valueOf(Math.random()*max_idx_arrayList.size())  );
 			int random_idx = (int)(Math.random()*max_idx_arrayList.size());
 			return genre.get(random_idx);
 		}

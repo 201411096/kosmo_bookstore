@@ -118,13 +118,11 @@ public class CustomerController {
 		
 		//가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 부분
 		BookVO VOForSearch = new BookVO();
-		//String maxPrefferedGenre = tendencyVO.getMaxPreferredGenre(); // 점수가 동일한 경우는 고려하지 않음
 		String maxPrefferedGenre = tendencyVO.getMaxPrefferedGenreConsiderWithSameScore();
 		System.out.println("maxPrefferedGenre 확인" + maxPrefferedGenre);
 		VOForSearch.setBookGenre(maxPrefferedGenre);
 		BookVO bookInMaxPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
 		result.put("bookInMaxPrefferedGenre", bookInMaxPrefferedGenre);
-		//String minPrefferedGenre = tendencyVO.getMinPreferredGenre(); // 점수가 동일한 경우는 고려하지 않음
 		String minPrefferedGenre = tendencyVO.getMinPrefferedGenreConsiderWithSameScore();
 		System.out.println("maxPrefferedGenre 확인" + minPrefferedGenre);
 		VOForSearch.setBookGenre(minPrefferedGenre);
