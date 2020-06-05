@@ -77,7 +77,7 @@
 					<div class="col-lg-3 text-right col-md-3">
 						<ul class="nav-right">
 							<li class="cart-icon"><a href="#"> <i class="icon_bag_alt"></i>
-							 <span>${sessionScope.cartListNumber }</span>
+							 <span class="cartListNumber">${sessionScope.cartListNumber }</span>
 							</a>
 								<div class="cart-hover">
 									<div class="select-items">
@@ -90,7 +90,7 @@
 														<td class="si-text">
 														
 															<div class="product-selected">
-																<p>${book.bookSaleprice} x ${book.buycartlistCnt}</p>
+																<p class="cartListPriceAndCnt">${book.bookSaleprice} x ${book.buycartlistCnt}</p>
 																<h6><a href="/BookStore/productView.do?bookId=${book.bookId}">${book.bookName}</a></h6>
 															</div>
 														
@@ -103,7 +103,7 @@
 									</div>
 									<div class="select-total">
 										<span>total:</span>
-										<h5><span>${sessionScope.cartListTotalPrice }</span></h5>
+										<h5><span class="cartListTotalPrice">${sessionScope.cartListTotalPrice }</span></h5>
 									</div>
 									<div class="select-button">
 										<a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a> <a

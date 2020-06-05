@@ -20,18 +20,25 @@ function reloadCartList(){
 }
 //장바구니 목록을 받아서 html요소를 구성해줌
 function makeCartList(resultData){
+//	if(resultData===null){
+//		$('.cart-icon').find('span').text("");
+//		$('.cart-icon').parent().find('.cart-price').find('span').text('');
+//		$('.cart-icon').find('tbody').empty();
+//	}else{
+//		$('.cart-icon').find('span').text(resultData.cartListSize);
+//		$('.cart-icon').parent().find('.cart-price').find('span').text(resultData.cartListTotalPrice);
+//		$('.cart-icon').find('tbody').empty();
+//	}
 	if(resultData===null){
-		$('.cart-icon').find('span').text("");
-		$('.cart-icon').parent().find('.cart-price').find('span').text('');
+		$('.cartListNumber').text("");
+		$('.cartListTotalPrice').text("");
 		$('.cart-icon').find('tbody').empty();
 	}else{
-		$('.cart-icon').find('span').text(resultData.cartListSize);
-		$('.cart-icon').parent().find('.cart-price').find('span').text(resultData.cartListTotalPrice);
+		$('.cartListNumber').text(resultData.cartListSize);
+		$('.cartListTotalPrice').text(resultData.cartListTotalPrice);
 		$('.cart-icon').find('tbody').empty();
-	}
-	
-//	$('.cart-icon').find('span').text("");
-//	$('.cart-icon').parent().find('.cart-price').find('span').text('');
+	}	
+
 	
 }
 
