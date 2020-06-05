@@ -1,5 +1,6 @@
 package com.mycompany.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,9 @@ public class TendencyServiceImpl implements TendencyService{
 	public BookVO selectOneByGenre(BookVO vo) {
 		return tendencyDAO.selectOneByGenre(vo);
 	}
+	@Override
+	public List<BookVO> selectAllByGenreWithScore(BookVO vo) {
+		return tendencyDAO.selectAllByGenreWithScore(vo);
+	}
+	
 }

@@ -417,7 +417,7 @@ from (select book_id, sum(buy_cnt) as buy_cnt
 from buy
 group by book_id
 order by buy_cnt desc);
-
+--aa
 select *
 from book
 where book_id in (
@@ -427,24 +427,60 @@ where book_id in (
                             group by book_id
                             order by buy_cnt desc)
                     );
-select rownum, bu.book_id as book_id
-from(select buy.book_id as book_id, sum(buy.buy_cnt) as buy_cnt
-from buy buy
-group by book_id
-order by buy_cnt DESC)bu
-where rownum <= 5;
-
-select book_id
-from (
-    select rownum, bu.book_id as book_id
-    from(select buy.book_id as book_id, sum(buy.buy_cnt) as buy_cnt
-        from buy buy
-        group by book_id
-        order by buy_cnt DESC)bu
-        where rownum <= 5
-        )
+--bb
 select *
 from book
 where book_id in (
-       
+                    select book_id
+                    from (select book_id, sum(buy_cnt) as buy_cnt
+                            from buy
+                            group by book_id
+                            order by buy_cnt desc)
                     );
+--받은것
+select rownum, book_id
+from (select book_id, sum(buy_cnt)
+from buy
+group by book_id
+order by buy_cnt DESC)
+where rownum <= 5;
+
+---------------------
+select book_id, sum(buy_cnt) as buy_cnt
+                            from buy
+                            group by book_id
+                            order by buy_cnt desc;
+select rownum, book_id
+from (select book_id, sum(buy_cnt) as buy_cnt
+                            from buy
+                            group by book_id
+                            order by buy_cnt desc)
+where rownum<=5;
+
+select book_id
+from (
+select rownum, book_id
+from (select book_id, sum(buy_cnt) as buy_cnt
+                            from buy
+                            group by book_id
+                            order by buy_cnt desc)
+where rownum<=5
+);
+--베스트샐러 5가지 가져오는 sql문
+select b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS WRITER_ID, b.BOOK_PRICE AS BOOK_PRICE, 
+      b.BOOK_NAME AS BOOK_NAME, b.BOOK_GENRE AS BOOK_GENRE, b.BOOK_STORY AS BOOK_STORY, 
+      b.BOOK_PDATE AS BOOK_PDATE, b.BOOK_SALEPRICE AS BOOK_SALEPRICE, b.BOOK_CNT AS BOOK_CNT, b.BOOK_SCORE AS BOOK_SCORE,
+      w.WRITER_ID AS WRITER_ID, w.WRITER_NAME AS WRITER_NAME
+from book b
+inner join writer w
+on b.writer_id = w.writer_id
+where book_id in (select book_id
+from (
+select rownum, book_id
+from (select book_id, sum(buy_cnt) as buy_cnt
+                            from buy
+                            group by book_id
+                            order by buy_cnt desc)
+where rownum<=5
+));
+

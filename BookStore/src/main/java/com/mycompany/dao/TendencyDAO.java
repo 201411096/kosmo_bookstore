@@ -1,5 +1,6 @@
 package com.mycompany.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.mycompany.domain.BookVO;
@@ -13,4 +14,5 @@ public interface TendencyDAO {
 	public TendencyVO selectTendency(CustomerVO customerVO);
 	public TendencyVO selectAllTendency();
 	public BookVO selectOneByGenre(BookVO vo);
+	public List<BookVO> selectAllByGenreWithScore(BookVO vo);
 }

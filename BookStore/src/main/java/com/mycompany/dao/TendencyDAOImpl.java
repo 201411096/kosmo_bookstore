@@ -1,5 +1,6 @@
 package com.mycompany.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -41,5 +42,10 @@ public class TendencyDAOImpl implements TendencyDAO{
 	@Override
 	public BookVO selectOneByGenre(BookVO vo) {
 		return mybatis.selectOne("TendencyDAO.selectOneByGenre", vo);
-	}	
+	}
+	@Override
+	public List<BookVO> selectAllByGenreWithScore(BookVO vo) {
+		return mybatis.selectList("TendencyDAO.selectAllByGenreWithScore", vo);
+	}
+	
 }
