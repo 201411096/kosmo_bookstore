@@ -1,9 +1,6 @@
 $(function(){
-	console.log("custom_productView.js 확인");
-	
 	$('#review-btn').on('click', reviewBtnHandler);
 	$('#update-btn').on('click', updateBtnHandler);
-	//$(document).on('click', '.site-btn', getContentBtnHandler);
 	$(document).on('click', '#r-modify', getContentBtnHandler);
 	$(document).on('click', '#r-delete', deleteHandler);
 });
@@ -87,6 +84,7 @@ function deleteHandler(){
 				console.log('삭제 성공');
 			}else{
 				console.log('삭제 실패');
+				alert("자신이 작성한 리뷰만 삭제할 수 있습니다.");
 			}
 			
 		},
