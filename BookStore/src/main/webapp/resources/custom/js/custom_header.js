@@ -24,8 +24,7 @@ function makeCartList(resultData){
 		$('.cartListNumber').text("");
 		$('.cartListTotalPrice').text("");
 		$('.cart-price').find('span').text("");
-		$('.cart-icon').find('tbody').empty();
-		
+		$('.cart-icon').find('tbody').empty();		
 	}else{
 		$('.cartListNumber').text(resultData.cartListSize);
 		$('.cartListTotalPrice').text(resultData.cartListTotalPrice);
