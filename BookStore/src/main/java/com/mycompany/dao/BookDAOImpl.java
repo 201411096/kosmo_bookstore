@@ -24,6 +24,16 @@ public class BookDAOImpl implements BookDAO{
 		List<BookVO> list = mybatis.selectList("BookDAO.searchList", search); 
 		return list;
 	}
+
+	@Override
+	public List<BookVO> selectBannerBook() {
+		return mybatis.selectList("BookDAO.selectBannerBook");
+	}
+
+	@Override
+	public List<BookVO> selectBestSeller() {
+		return mybatis.selectList("BookDAO.selectBestSeller");
+	}
    
 
 }

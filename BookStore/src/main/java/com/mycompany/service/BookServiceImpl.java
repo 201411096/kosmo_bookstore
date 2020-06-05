@@ -21,6 +21,14 @@ public class BookServiceImpl implements BookService{
 public List<BookVO> searchListBook(Map<String, String> search) {
 	return BookDAO.searchListBook(search);
 }
+@Override
+public List<BookVO> selectBannerBook() {
+	return BookDAO.selectBannerBook();
+}
+@Override
+public List<BookVO> selectBestSeller() {
+	return BookDAO.selectBestSeller();
+}
    
 
 }

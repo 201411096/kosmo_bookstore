@@ -14,12 +14,11 @@
 <a href="/BookStore/moveToRegister.do">회원가입 페이지 호출</a><br>
 <a href="/BookStore/registerCon.do">회원가입 페이지 완료 호출</a><br>
 <a href="/BookStore/question.do">문의사항 호출</a><br>
-<a href="/BookStore/cover.do">커버 페이지 호출</a><br>
+
 <a href="/BookStore/question.do">문의 페이지 호출</a><br>
 <a href="/BookStore/contact.do">지도 호출</a><br>
 <a href="/BookStore/moveToTendencyGraph.do">그래프 페이지 호출</a><br>
 <a href="/BookStore/ajax_tendencyGraph.do">ajax 그래프 페이지 호출</a><br>
-
-
+<a href="/BookStore/cover.do">커버 페이지 호출</a><br>
 </body>
 </html>

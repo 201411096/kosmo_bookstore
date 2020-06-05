@@ -31,21 +31,21 @@
 
 <body>
 <div id='hcontainer'class="container">
-	<div id='slogo' class="row justify-content-start">
-		<img alt="" src="resources/custom/cover/img/slogo.png">
-	</div>
-	<div class="row  justify-content-end">
-		<div id='rbtn'>
-			<button type="submit" id='right-btn1' name='right-btn1' class="site-btn register-btn">회원가입</button>
-			<button type="submit" id='right-btn2' name='right-btn2' class="site-btn register-btn">로그인</button>
-			<button type="submit" id='right-btn3' class="site-btn register-btn">메인화면</button>
-		</div>
-	</div>
+   <div id='slogo' class="row justify-content-start">
+      <img alt="" src="resources/custom/cover/img/slogo.png">
+   </div>
+   <div class="row  justify-content-end">
+      <div id='rbtn'>
+         <button type="submit" id='right-btn1' name='right-btn1' class="site-btn register-btn">회원가입</button>
+         <button type="submit" id='right-btn2' name='right-btn2' class="site-btn register-btn">로그인</button>
+         <button type="submit" id='right-btn3' class="site-btn register-btn">메인화면</button>
+      </div>
+   </div>
 </div>
 <form>
     
-	
-	
+   
+   
 <section class="book-banner spad">
         <div class="container-fluid">
             <div class="row">

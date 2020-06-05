@@ -9,4 +9,6 @@ import com.mycompany.domain.CustomerVO;
 public interface BookService {
    public BookVO selectBook(BookVO vo);
    public List<BookVO> searchListBook(Map<String, String> search);
+   public List<BookVO> selectBannerBook();
+   public List<BookVO> selectBestSeller();
 }
