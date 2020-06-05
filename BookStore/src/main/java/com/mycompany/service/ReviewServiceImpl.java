@@ -27,4 +27,12 @@ public class ReviewServiceImpl implements ReviewService{
 	public ReviewVO selectReviewByCustomerId(ReviewVO vo) {
 		return reviewDAO.selectReviewByCustomerId(vo);
 	}
+	@Override
+	public ReviewVO selectReviewByReviewId(int reviewId) {
+		return reviewDAO.selectReviewByReviewId(reviewId);
+	}
+	@Override
+	public int updateReview(ReviewVO vo) {
+		return reviewDAO.updateReview(vo);
+	}
 }

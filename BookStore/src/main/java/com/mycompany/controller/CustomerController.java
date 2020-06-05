@@ -12,13 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.ReviewVO;
 import com.mycompany.domain.TendencyVO;
 import com.mycompany.service.CustomerServiceImpl;
+import com.mycompany.service.ReviewServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
 import com.mycompany.util.Tendency;
@@ -34,7 +37,8 @@ public class CustomerController {
 	CustomerServiceImpl customerService;
 	@Autowired
 	TendencyServiceImpl tendencyService;
-	
+	@Autowired
+	ReviewServiceImpl reviewService;	
 	@RequestMapping("/moveToLogin.do")
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -133,6 +137,16 @@ public class CustomerController {
 		Map result = new HashMap();
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
 		result.put("customerId", customerVO.getCustomerId());
+		return result;
+	}
+	@RequestMapping(value = "/getLoginCustomerIdAndReview.do",  produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map getLoginCustomerIdAndReview(HttpSession session, @RequestParam(value = "reviewId") String reviewId) {
+		Map result = new HashMap();
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		ReviewVO reviewVO = reviewService.selectReviewByReviewId(Integer.parseInt(reviewId));
+		result.put("customerId", customerVO.getCustomerId());
+		result.put("reviewVO", reviewVO);
 		return result;
 	}
 	

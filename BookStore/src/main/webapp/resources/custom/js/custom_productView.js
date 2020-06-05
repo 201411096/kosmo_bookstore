@@ -37,9 +37,37 @@ function reviewBtnHandler(){
 }
 
 function updateBtnHandler(){
-	$('#reviewForm').attr('action', 'insertReview.do');
-	$('#reviewForm').submit();
-	console.log("review_btn 연결 확인");
+//	$('#reviewForm').attr('action', 'updateReview.do');
+//	$('#reviewForm').submit();
+//	console.log("update_btn 연결 확인");
+	
+	$.ajax({
+		type:'post', // get을 하나 post를 하나 url에 보이진 않음, 용량이 많으면 post
+		async:true, // default : true
+		url: 'updateReview.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
+		data : {
+			"bookId" : $('#bookIdInReviewForm').val(),
+			"buyreviewScore" : $('#buyreviewScore').val(),
+			"buyreviewContent" : $('#buyreviewContent').val()			
+			},
+		dataType : 'json',
+		success : function(resultData){
+			$('#buyreviewScore').val("");
+			$('#buyreviewContent').val("");
+			if(resultData.updateResult === "1"){
+				makeReviewList(resultData);
+			}else if(resultData.insertResult === "0"){
+				alert("리뷰 수정 실패");
+			}
+		},
+	   error:function(request,status,error){
+		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	   },
+	   complete :function(resultData){   
+	   }
+		
+	});
 }
 
 function makeReviewList(resultData){
@@ -58,6 +86,9 @@ function makeReviewList(resultData){
 	var modifyButton ='<input type="button" id="r-modify" class="site-btn" value="수정">';
 	var inputTypeHiddenreviewcustomerIdPrefix = '<input type="hidden" class="reviewcustomerId" value="';
 	var inputTypeHiddenreviewcustomerIdSuffix = ' ">';
+	var inputTypeHiddenreviewIdPrefix = '<input type="hidden" class="buyreviewId" value="';
+	var inputTypeHiddenreviewIdSuffix = ' ">';
+	var inputTypeDeleteButton = '<input type="button" id="r-delete" class="site-btn" value="삭제">';
 	$('#review-container').empty();
 	for(var i=0; i<resultData.reviewListSize; i++){
 		var listContent= 
@@ -69,8 +100,11 @@ function makeReviewList(resultData){
 			spanPrefix + resultData.reviewList[i].buyreviewScore + spanSuffix + 
 			h5Suffix +
 			divAtReplyPrefix + resultData.reviewList[i].buyreviewContent + divSuffix +
+			inputTypeHiddenreviewcustomerIdPrefix + resultData.reviewList[i].customerId + inputTypeHiddenreviewcustomerIdSuffix +
+			inputTypeHiddenreviewIdPrefix + resultData.reviewList[i].buyreviewId + inputTypeHiddenreviewIdSuffix +
 			modifyButton +
-			inputTypeHiddenreviewcustomerIdPrefix + resultData.reviewList[i].customerId + inputTypeHiddenreviewcustomerIdSuffix +			
+			'&nbsp' +
+			inputTypeDeleteButton +
 			divSuffix +
 			divSuffix;
 		
@@ -79,23 +113,22 @@ function makeReviewList(resultData){
 }
 
 function getContentBtnHandler(){
-	var customerId = $(this).prev().val().trim();
+	var customerId = $(this).parent().find('.reviewcustomerId').val().trim();
 	var eventObject = $(this);
+	var reviewId = eventObject.parent().find('.buyreviewId').val().trim();
 	$.ajax({
-		type:'post', // get을 하나 post를 하나 url에 보이진 않음, 용량이 많으면 post
-		async:true, // default : true
-		url: 'getLoginCustomerId.do',
-		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
+		type:'post', 
+		async:true, 
+		url: 'getLoginCustomerIdAndReview.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', 
+		data : {"reviewId" : reviewId},
 		dataType : 'json',
 		success : function(resultData){
 			var loginCustomerId = resultData.customerId.trim();
-			//reviewId와 loginId가 같을 경우
+			//reviewId와 loginId가 같을 경우 자신이 작성한 리뷰의 정보를 가져와서 세팅해줌
 			if(customerId==loginCustomerId){
-				console.log("수정");
-				console.log( eventObject.prev().prev().val() );
-				console.log( eventObject.parent().find('h5').find('span').text() );
-				$('#buyreviewContent').text( eventObject.prev().prev().text() );
-				$('#buyreviewScore').text( eventObject.parent().find('h5').find('span').val() );
+				$('#buyreviewContent').text( resultData.reviewVO.buyreviewContent );
+				$('#buyreviewScore').val( resultData.reviewVO.buyreviewScore );
 			}else{
 				alert("본인이 작성한 리뷰만 수정할 수 있습니다.");
 			}

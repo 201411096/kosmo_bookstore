@@ -258,7 +258,10 @@
                                                     </h5>
                                                     <div class="at-reply">${review.buyreviewContent}</div>
                                                     <input type="hidden" class="reviewcustomerId" value="${review.customerId} ">
-                                                    <input type="button" id="r-modify" class="site-btn" value="수정">                                              
+                                                    <input type="hidden" class="buyreviewId" value="${review.buyreviewId} ">
+                                                    <input type="button" id="r-modify" class="site-btn" value="수정">
+                                                    &nbsp
+                                                    <input type="button" id="r-delete" class="site-btn" value="삭제">                                              
                                                 </div>
                                             </div>
                                        </c:forEach>

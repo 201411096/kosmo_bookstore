@@ -9,4 +9,6 @@ public interface ReviewDAO {
 	public int insertReview(ReviewVO vo);
 	public List<ReviewVO> selectReview(ReviewVO vo);
 	public ReviewVO selectReviewByCustomerId(ReviewVO vo);
+	public ReviewVO selectReviewByReviewId(int reviewId);
+	public int updateReview(ReviewVO vo);
 }

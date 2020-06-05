@@ -75,4 +75,29 @@ public class ReviewController {
 		
 		return result;
 	}
+	//ajax 리뷰입력
+		@RequestMapping(value= "/updateReview.do", produces = "application/json; charset=utf-8")
+		@ResponseBody
+		public Map updateReview(HttpSession session, @RequestParam(value = "bookId") int bookId, @RequestParam(value="buyreviewScore") int buyreviewScore, @RequestParam(value="buyreviewContent") String buyreviewContent) {
+			Map result = new HashMap();
+			CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+			ReviewVO reviewVO = new ReviewVO();
+			reviewVO.setBookId(bookId);
+			reviewVO.setBuyreviewContent(buyreviewContent);
+			reviewVO.setBuyreviewScore(buyreviewScore);
+			reviewVO.setCustomerId(customerVO.getCustomerId());
+			
+			int updateResult = reviewService.updateReview(reviewVO);
+			//update가 잘 됬을 경우
+			if(updateResult==1) {
+				List<ReviewVO> reviewList= (List<ReviewVO>) reviewService.selectReview(reviewVO);
+				result.put("reviewList", reviewList);
+				result.put("reviewListSize", reviewList.size());
+				result.put("updateResult", "1"); //리뷰 수정 성공
+			}else {
+				result.put("updateResult", "0"); //리뷰 수정 실패
+			}
+			
+			return result;
+		}
 }
