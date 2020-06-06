@@ -246,14 +246,6 @@ public class ProductController {
 			result.put("cartListSize", cartList.size());
 			result.put("cartListTotalPrice", cartListTotalPrice);
 		}
-//		List<BuyCartListVO> cartList = customerService.getCartList(vo.getCustomerId());
-//		int cartListTotalPrice = 0;
-//		for(int i=0; i<cartList.size(); i++) {
-//			cartListTotalPrice += cartList.get(i).getBookTotalPrice();
-//		}
-//		result.put("cartList", cartList);
-//		result.put("cartListSize", cartList.size());
-//		result.put("cartListTotalPrice", cartListTotalPrice);
 		return result;
 	}
 }

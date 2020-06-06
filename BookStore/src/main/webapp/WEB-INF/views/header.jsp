@@ -122,7 +122,7 @@
 					<div class="depart-btn">
 						<i class="ti-menu"></i> <span>All departments</span>
 						<ul class="depart-hover">
-							<li class="active"><a href="#">Women’s Clothing</a></li>
+							<li><a href="#">Women’s Clothing</a></li>
 							<li><a href="#">Men’s Clothing</a></li>
 							<li><a href="#">Underwear</a></li>
 							<li><a href="#">Kid's Clothing</a></li>
