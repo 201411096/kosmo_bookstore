@@ -131,23 +131,11 @@ public class CustomerController {
 		VOForSearch.setBookGenre(maxPrefferedGenre);										
 		List<BookVO> bookListInMaxPrefferedGenre = tendencyService.selectAllByGenreWithScore(VOForSearch);	// 가장 많이 선호하는 장르의 도서 목록을 가져옴
 		randomIdx = (int)(Math.random()*bookListInMaxPrefferedGenre.size());
-		
-		System.out.println("customerController에서  max 장르 확인 : " + maxPrefferedGenre);
-		
 		result.put("bookInMaxPrefferedGenre", bookListInMaxPrefferedGenre.get(randomIdx));
 		String minPrefferedGenre = tendencyVO.getMinPrefferedGenreConsiderWithSameScore(); // tendencyVO객체 기반의 가장 적게 선호하는 장르를 가져옴
 		VOForSearch.setBookGenre(minPrefferedGenre);
 		List<BookVO> bookListInMinPrefferedGenre = tendencyService.selectAllByGenreWithScore(VOForSearch);	// 가장 적게 선호하는 장르의 도서 목록을 가져옴
 		randomIdx = (int)(Math.random()*bookListInMinPrefferedGenre.size());
-		
-		System.out.println("customerController에서  min 장르 확인 : " + minPrefferedGenre);
-		System.out.println("customerController에서  min 장르 확인  후 성향 확인 : " + tendencyVO.getArt());
-		System.out.println("customerController에서  min 장르 확인  후 성향 확인 : " + tendencyVO.getEconomic());
-		System.out.println("customerController에서  min 장르 확인  후 성향 확인 : " + tendencyVO.getHistory());
-		System.out.println("customerController에서  min 장르 확인  후 성향 확인 : " + tendencyVO.getLiterature());
-		System.out.println("customerController에서  min 장르 확인  후 성향 확인 : " + tendencyVO.getSocial());
-		System.out.println("customerController에서  min 장르 확인  후 성향 확인 : " + tendencyVO.getTechnology());
-		
 		result.put("bookInMinPrefferedGenre", bookListInMinPrefferedGenre.get(randomIdx));
 		
 		tendencyVO = tendencyService.selectAllTendency();

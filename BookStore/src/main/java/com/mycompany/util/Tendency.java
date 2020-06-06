@@ -30,6 +30,7 @@ public class Tendency {
 		else if(option==2)		// 도서 구매시 10씩 증가
 			tendencyService.increaseTendency2(tendencyMap);
 	}
+	//로그인한 상태의 사용자 선호장르 정보를 가져옴 (ajax없는버전에서 사용했었음)
 	public void getCustomerTendency(HttpSession session, TendencyServiceImpl tendencyService, ModelAndView mv) {
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
 		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
@@ -47,6 +48,7 @@ public class Tendency {
 		BookVO bookInMinPrefferedGenre = tendencyService.selectOneByGenre(VOForSearch);
 		mv.addObject("bookInMinPrefferedGenre", bookInMinPrefferedGenre);
 	}
+	//모든 사용자 선호장르 정보를 가져옴(ajax없는버전에서 사용했었음)
 	public void getTotalTendency(TendencyServiceImpl tendencyService, ModelAndView mv) {
 		TendencyVO tendencyVO = tendencyService.selectAllTendency();
 		tendencyVO.setCustomerId("AllCustomer");

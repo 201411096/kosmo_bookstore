@@ -100,16 +100,16 @@
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
                                 <div class="pd-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(5)</span>
+<!--                                     <i class="fa fa-star"></i> -->
+<!--                                     <i class="fa fa-star"></i> -->
+<!--                                     <i class="fa fa-star"></i> -->
+<!--                                     <i class="fa fa-star"></i> -->
+<!--                                     <i class="fa fa-star-o"></i> -->
+                                    <span>평점 : ${info.bookScoreDivideByCount }</span>
                                 </div>
                                 <div class="pd-desc">
                                      <p>${info.bookStory }</p>
-                                    <h4> ${info.bookSaleprice }원 <span>${priceBeforeDiscount }원</span></h4><hr/>
+                                    <h4> ${info.bookSaleprice }원 <span>${info.bookPrice }원</span></h4><hr/>
                                 </div>                              
                        	<form action="/BookStore/addCartList.do">
                                 <div class="quantity">
