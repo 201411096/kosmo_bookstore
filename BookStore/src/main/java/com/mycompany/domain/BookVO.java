@@ -16,7 +16,7 @@ public class BookVO {
 	private double bookScoreDivideByCount;
 
 	public double getBookScoreDivideByCount() {
-		return bookScoreDivideByCount;
+		return Math.round(bookScoreDivideByCount*100)/100.0;
 	}
 
 	public void setBookScoreDivideByCount(double bookScoreDivideByCount) {
