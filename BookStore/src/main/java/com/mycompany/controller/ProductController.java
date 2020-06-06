@@ -231,14 +231,24 @@ public class ProductController {
 	public Map reloadCartlist(HttpSession session) {
 		Map result = new HashMap();
 		CustomerVO vo = (CustomerVO)session.getAttribute("customer");
-		List<BuyCartListVO> cartList = customerService.getCartList(vo.getCustomerId());
-		int cartListTotalPrice = 0;
-		for(int i=0; i<cartList.size(); i++) {
-			cartListTotalPrice += cartList.get(i).getBookTotalPrice();
+		if(vo!=null) {
+			List<BuyCartListVO> cartList = customerService.getCartList(vo.getCustomerId());
+			int cartListTotalPrice = 0;
+			for(int i=0; i<cartList.size(); i++) {
+				cartListTotalPrice += cartList.get(i).getBookTotalPrice();
+			}
+			result.put("cartList", cartList);
+			result.put("cartListSize", cartList.size());
+			result.put("cartListTotalPrice", cartListTotalPrice);
 		}
-		result.put("cartList", cartList);
-		result.put("cartListSize", cartList.size());
-		result.put("cartListTotalPrice", cartListTotalPrice);
+//		List<BuyCartListVO> cartList = customerService.getCartList(vo.getCustomerId());
+//		int cartListTotalPrice = 0;
+//		for(int i=0; i<cartList.size(); i++) {
+//			cartListTotalPrice += cartList.get(i).getBookTotalPrice();
+//		}
+//		result.put("cartList", cartList);
+//		result.put("cartListSize", cartList.size());
+//		result.put("cartListTotalPrice", cartListTotalPrice);
 		return result;
 	}
 }
