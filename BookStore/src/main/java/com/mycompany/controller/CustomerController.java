@@ -158,9 +158,11 @@ public class CustomerController {
 	public Map getLoginCustomerIdAndReview(HttpSession session, @RequestParam(value = "reviewId") String reviewId) {
 		Map result = new HashMap();
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
-		ReviewVO reviewVO = reviewService.selectReviewByReviewId(Integer.parseInt(reviewId));
-		result.put("customerId", customerVO.getCustomerId());
-		result.put("reviewVO", reviewVO);
+		if(customerVO!=null) {
+			ReviewVO reviewVO = reviewService.selectReviewByReviewId(Integer.parseInt(reviewId));
+			result.put("customerId", customerVO.getCustomerId());
+			result.put("reviewVO", reviewVO);	
+		}
 		return result;
 	}
 	
