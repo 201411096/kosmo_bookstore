@@ -70,18 +70,24 @@ public class Tendency {
 			BookVO bookVOForgetGenre = bookService.selectBook(bookVOForSearch);	//// 리뷰에 포함되어있던 bookId로 검색
 			String reviewGenre = bookVOForgetGenre.getBookGenre();
 			switch(reviewGenre) {
-			case "ART" : scoreTotal[0]+=reviewList.get(i).getBuyreviewScore()-2.5; //평점을 2.5점을 기준으로 5점을 주면 장르 성향 점수에 2.5점을 추가, 1점이면 -1.5점을 추가하는 방식
-						 break;
-			case "SOCIAL" : scoreTotal[1]+=reviewList.get(i).getBuyreviewScore()-2.5;
-			 				break;
-			case "ECONOMIC" : scoreTotal[2]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
-			case "TECHNOLOGY" : scoreTotal[3]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
-			case "LITERATURE" : scoreTotal[4]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
-			case "HISTORY" : scoreTotal[5]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
+			case "ART":
+				scoreTotal[0] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "SOCIAL":
+				scoreTotal[1] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "ECONOMIC":
+				scoreTotal[2] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "TECHNOLOGY":
+				scoreTotal[3] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "LITERATURE":
+				scoreTotal[4] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "HISTORY":
+				scoreTotal[5] += reviewList.get(i).getBuyreviewScore();
+				break;
 			}
 		}
 		tendencyVO.setArt((int)(tendencyVO.getArt()+scoreTotal[0]));
@@ -102,18 +108,24 @@ public class Tendency {
 			BookVO bookVOForgetGenre = bookService.selectBook(bookVOForSearch);	//// 리뷰에 포함되어있던 bookId로 검색
 			String reviewGenre = bookVOForgetGenre.getBookGenre();
 			switch(reviewGenre) {
-			case "ART" : scoreTotal[0]+=reviewList.get(i).getBuyreviewScore()-2.5; //평점을 2.5점을 기준으로 5점을 주면 장르 성향 점수에 2.5점을 추가, 1점이면 -1.5점을 추가하는 방식
-						 break;
-			case "SOCIAL" : scoreTotal[1]+=reviewList.get(i).getBuyreviewScore()-2.5;
-			 				break;
-			case "ECONOMIC" : scoreTotal[2]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
-			case "TECHNOLOGY" : scoreTotal[3]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
-			case "LITERATURE" : scoreTotal[4]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
-			case "HISTORY" : scoreTotal[5]+=reviewList.get(i).getBuyreviewScore()-2.5;
-							break;
+			case "ART":
+				scoreTotal[0] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "SOCIAL":
+				scoreTotal[1] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "ECONOMIC":
+				scoreTotal[2] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "TECHNOLOGY":
+				scoreTotal[3] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "LITERATURE":
+				scoreTotal[4] += reviewList.get(i).getBuyreviewScore();
+				break;
+			case "HISTORY":
+				scoreTotal[5] += reviewList.get(i).getBuyreviewScore();
+				break;
 			}
 		}
 		tendencyVO.setArt((int)(tendencyVO.getArt()+scoreTotal[0]));
