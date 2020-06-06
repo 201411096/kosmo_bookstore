@@ -151,7 +151,7 @@ public class TendencyVO {
 		}
 		if(max_idx_arrayList.size()>=2) {
 			int random_idx = (int)(Math.random()*max_idx_arrayList.size());
-			return genre.get(random_idx);
+			return genre.get(max_idx_arrayList.get(random_idx));
 		}
 		return genre.get(max_idx);
 	}
@@ -178,8 +178,7 @@ public class TendencyVO {
 			if(cnt[i]<cnt[min_idx]) {
 				min_idx=i;
 				min_idx_arrayList.clear();	// 기존에 동점인 장르들을 모아두던 arrayList 초기화
-			}
-				
+			}				
 			else if(cnt[i]==cnt[min_idx]) {
 				min_idx_arrayList.add(i); // 장르의 점수가 똑같다면 arrayList에 추가
 				if(min_idx_arrayList.size()==1 && min_idx!=i)
@@ -188,7 +187,7 @@ public class TendencyVO {
 		}
 		if(min_idx_arrayList.size()>=2) {
 			int random_idx = (int)(Math.random()*min_idx_arrayList.size());
-			return genre.get(random_idx);
+			return genre.get(min_idx_arrayList.get(random_idx));
 		}
 		return genre.get(min_idx);
 	}
