@@ -68,6 +68,7 @@ public class ReviewController {
 		// 사용자가 해당 책에 리뷰를 단 적이 없다면
 		if (reviewService.selectReviewByCustomerId(reviewVO) == null) {
 			reviewService.insertReview(reviewVO);
+			bookService.updateBookScore(reviewVO); // 책의 평점을 변경함
 
 			List<ReviewVO> reviewList = (List<ReviewVO>) reviewService.selectReview(reviewVO);
 			result.put("reviewList", reviewList);
@@ -90,11 +91,18 @@ public class ReviewController {
 		CustomerVO customerVO = (CustomerVO) session.getAttribute("customer");
 		ReviewVO reviewVO = new ReviewVO();
 		reviewVO.setBookId(bookId);
+		reviewVO.setCustomerId(customerVO.getCustomerId());
+		// 이전 평점 정보를 책에서 삭제함
+		ReviewVO reviewVOForUpdateBookScore = reviewService.selectReviewByCustomerId(reviewVO);
+		bookService.updateBookSocreByDeletePrevRecord(reviewVOForUpdateBookScore);
+		
 		reviewVO.setBuyreviewContent(buyreviewContent);
 		reviewVO.setBuyreviewScore(buyreviewScore);
-		reviewVO.setCustomerId(customerVO.getCustomerId());
+		
 
 		int updateResult = reviewService.updateReview(reviewVO);
+		//새로운 평점 정보를 책에 반영함
+		bookService.updateBookScore(reviewVO);
 		// update가 잘 됬을 경우
 		if (updateResult == 1) {
 			List<ReviewVO> reviewList = (List<ReviewVO>) reviewService.selectReview(reviewVO);
@@ -119,6 +127,7 @@ public class ReviewController {
 		// 리뷰를 작성한 작성자와 현재 로그인한 사용자가 같을경우에 삭제
 		if (customerId.equals(customerVO.getCustomerId())) {
 			reviewService.deleteReview(reviewVO);
+			bookService.updateBookSocreByDeletePrevRecord(reviewVO);
 			List<ReviewVO> reviewList = (List<ReviewVO>) reviewService.selectReview(reviewVO);
 			result.put("reviewList", reviewList);
 			result.put("reviewListSize", reviewList.size());

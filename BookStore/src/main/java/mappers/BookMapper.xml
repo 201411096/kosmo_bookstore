@@ -55,4 +55,16 @@
 			))
 		 ]]>
 	</select>
+	<update id="updateBookSocreByDeletePrevRecord" parameterType="review">
+		update book
+		set book_score = book_score - #{buyreviewScore},
+		    book_scorecount = book_scorecount - 1
+		where book_id = #{bookId}
+	</update>
+	<update id="updateBookScore" parameterType="review">
+		update book
+		set book_score = book_score + #{buyreviewScore},
+		    book_scorecount = book_scorecount + 1
+		where book_id = #{bookId}	
+	</update>
 </mapper>

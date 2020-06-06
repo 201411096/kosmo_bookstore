@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.domain.BookVO;
+import com.mycompany.domain.ReviewVO;
 @Repository("bookDAO")
 public class BookDAOImpl implements BookDAO{
    @Autowired
@@ -34,6 +35,16 @@ public class BookDAOImpl implements BookDAO{
 	public List<BookVO> selectBestSeller() {
 		return mybatis.selectList("BookDAO.selectBestSeller");
 	}
-   
 
+	@Override
+	public int updateBookSocreByDeletePrevRecord(ReviewVO reviewVO) {
+		return mybatis.update("BookDAO.updateBookSocreByDeletePrevRecord", reviewVO);
+	}
+
+	@Override
+	public int updateBookScore(ReviewVO reviewVO) {
+		return mybatis.update("BookDAO.updateBookScore", reviewVO);
+	}
+    
+	
 }
