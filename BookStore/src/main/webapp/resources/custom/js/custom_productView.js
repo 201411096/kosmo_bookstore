@@ -28,6 +28,7 @@ function reviewBtnHandler(){
 		},
 	   error:function(request,status,error){
 		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		   alert("로그인이 필요합니다.");
 	   },
 	   complete :function(resultData){   
 	   }
@@ -58,6 +59,7 @@ function updateBtnHandler(){
 		},
 	   error:function(request,status,error){
 		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		   alert("로그인이 필요합니다.");
 	   },
 	   complete :function(resultData){   
 	   }
@@ -90,6 +92,7 @@ function deleteHandler(){
 		},
 	   error:function(request,status,error){
 		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		   alert("로그인이 필요합니다.");
 	   }		
 	});
 }
@@ -159,6 +162,7 @@ function getContentBtnHandler(){
 		},
 	   error:function(request,status,error){
 		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		   alert("로그인이 필요합니다.");
 	   }		
 	});
 }

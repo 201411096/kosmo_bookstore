@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                <form id='form1' action="login.do">
+                <form id='form1' action="main.do">
                     <div id='box1' class=register-form>
                         <h3><strong>${sessionScope.customer.customerName}님, 회원가입이 완료되었습니다.</strong></h3>
                     </div>

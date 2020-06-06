@@ -104,7 +104,8 @@ public class ProductController {
 		int cartListTotalPrice = 0;
 		// 로그인 여부 판단
 		if (logInState == null) {
-			mv.setViewName("/login");
+			//mv.setViewName("/login"); //redirect 사용 안한 버전
+			mv.setViewName("redirect:/moveToLogin.do"); 
 		} else {
 			BuyCartListVO vo = new BuyCartListVO();
 			vo.setCustomerId(logInState.getCustomerId());
@@ -183,8 +184,12 @@ public class ProductController {
 	@RequestMapping("/buyList.do")
 	public ModelAndView buyList(HttpServletRequest request, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		// db에 들어있는 장바구니에 있는 대로 구매 페이지로 이동함
-		CartList.getInstance().goToBuyCartListWithoutUpdate(session, buyCartListService, mv);
+		if(session.getAttribute("customer")==null) {
+			mv.setViewName("redirect:/moveToLogin.do");
+		}else {
+			// db에 들어있는 장바구니에 있는 대로 구매 페이지로 이동함
+			CartList.getInstance().goToBuyCartListWithoutUpdate(session, buyCartListService, mv);			
+		}
 		return mv;
 	}
 	// 구매하여 buylist에 추가(최종구매)
