@@ -44,6 +44,8 @@ public class CustomerController {
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/login");
+		if(session.getAttribute("customer")!=null)
+			mv.setViewName("redirect:/main.do");
 		return mv;
 	}
 	
@@ -52,7 +54,8 @@ public class CustomerController {
 		//로그인 입력값으로 확인
 		CustomerVO result = customerService.selectCustomer(vo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/test_login_check");
+		//mv.setViewName("/test_login_check"); //테스트 화면 이동
+		mv.setViewName("redirect:/moveToLogin.do");
 		
 		if(result==null) {}
 		else if(result.getCustomerFlag()==0) {
@@ -64,6 +67,8 @@ public class CustomerController {
 			session.setAttribute("customer", result);
 			//장바구니 목록 갱신
 			CartList.getInstance().setCartList(session, customerService);
+			//로그인 성공 시 메인화면으로 이동
+			mv.setViewName("redirect:/main.do");
 		}
 		return mv;
 	}
@@ -73,8 +78,8 @@ public class CustomerController {
 		System.out.println("LoginController에서 logout.do 실행 확인");
 		session.invalidate();
 		
-		mv.setViewName("/test_logout_check");
-		
+		//mv.setViewName("/test_logout_check"); //테스트 화면 이동
+		mv.setViewName("redirect:/main.do");
 		return mv;
 	}
 	//회원가입 페이지로 이동
