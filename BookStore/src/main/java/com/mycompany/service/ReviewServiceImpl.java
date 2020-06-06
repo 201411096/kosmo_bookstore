@@ -39,4 +39,13 @@ public class ReviewServiceImpl implements ReviewService{
 	public int deleteReview(ReviewVO vo) {
 		return reviewDAO.deleteReview(vo);
 	}
+	@Override
+	public List<ReviewVO> selectReviewListByCustomerId(String customerId) {
+		return reviewDAO.selectReviewListByCustomerId(customerId);
+	}
+	@Override
+	public List<ReviewVO> selectReviewList() {
+		return reviewDAO.selectReviewList();
+	}
+	
 }

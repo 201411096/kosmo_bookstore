@@ -39,4 +39,13 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public int deleteReview(ReviewVO vo) {
 		return mybatis.delete("ReviewDAO.deleteReview", vo);
 	}
+	@Override
+	public List<ReviewVO> selectReviewListByCustomerId(String customerId) {
+		return mybatis.selectList("ReviewDAO.selectReviewListByCustomerId", customerId);
+	}
+	@Override
+	public List<ReviewVO> selectReviewList() {
+		return mybatis.selectList("ReviewDAO.selectReviewList");
+	}
+	
 }

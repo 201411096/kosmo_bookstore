@@ -21,6 +21,7 @@ import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.domain.ReviewVO;
 import com.mycompany.domain.TendencyVO;
+import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.ReviewServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
@@ -40,6 +41,8 @@ public class CustomerController {
 	TendencyServiceImpl tendencyService;
 	@Autowired
 	ReviewServiceImpl reviewService;	
+	@Autowired
+	BookServiceImpl bookService;
 	@RequestMapping("/moveToLogin.do")
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -60,6 +63,7 @@ public class CustomerController {
 		if(result==null) {}
 		else if(result.getCustomerFlag()==0) {
 			session.setAttribute("customer", result); // 관리자 정보 세팅
+			session.setAttribute("admin", "admin");
 			mv.setViewName("/test_admin_check");
 		}
 		else {
@@ -105,7 +109,7 @@ public class CustomerController {
 	public String joinCon(CustomerVO vo, Model model) {
 		return "registerCon";
 	}
-	//성향 그래프를 그리는 함수(아래 함수 나온 뒤로 사용 안함)
+	//성향 그래프를 그리는 함수(ajax 없는 부분에서 사용했었음)
 	@RequestMapping("/moveToTendencyGraph.do")
 	public ModelAndView moveToTendencyGraph(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -122,7 +126,12 @@ public class CustomerController {
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
 		result.put("customerId", customerVO.getCustomerId());
 		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
+		
+		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "리뷰 포함하기 전의 사용자__1");
+		Tendency.getInstance().addReviewPointToCustomerTendency(session, tendencyVO, reviewService, bookService); //장르 성향 그래프를 그릴 경우 사용자의 리뷰도 포함시킴 
+		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "리뷰 포함 이후 사용자__2");
 		tendencyVO.setElementToPercent();
+		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "사용자 %__3");
 		result.put("tendency", tendencyVO);
 
 		int randomIdx=0; // 선택된 장르, 일정 점수 이상으로 가져온 도서 목록중에서 하나를 고르는데 사용할 변수
@@ -140,7 +149,14 @@ public class CustomerController {
 		
 		tendencyVO = tendencyService.selectAllTendency();
 		tendencyVO.setCustomerId("AllCustomer");
+		
+		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "리뷰 포함하기 전의 모든 유저__4");
+		Tendency.getInstance().addReviewPointToAllUsersTendency(session, tendencyVO, reviewService, bookService); //장르 성향 그래프를 그릴 경우 모든 사용자의 리뷰도 포함시킴
+		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "리뷰 포함한 후의 모든 유저__5");
 		tendencyVO.setElementToPercent();
+		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "모든 유저 %__6");
+		
+		
 		result.put("totalTendency", tendencyVO);
 		
 		return result;

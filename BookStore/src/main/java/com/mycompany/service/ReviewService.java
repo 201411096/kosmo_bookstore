@@ -11,4 +11,6 @@ public interface ReviewService {
 	public ReviewVO selectReviewByReviewId(int reviewId);
 	public int updateReview(ReviewVO vo);
 	public int deleteReview(ReviewVO vo);
+	public List<ReviewVO> selectReviewListByCustomerId(String customerId);
+	public List<ReviewVO> selectReviewList();
 }

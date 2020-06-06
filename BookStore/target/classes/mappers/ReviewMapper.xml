@@ -36,4 +36,13 @@
 		delete from BUYREVIEW
 		where book_id=#{bookId} and customer_id=#{customerId}
 	</delete>
+	<select id="selectReviewList" resultType="review">
+		select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
+		from BUYREVIEW
+	</select>
+	<select id="selectReviewListByCustomerId" parameterType="string" resultType="review">
+		select BUYREVIEW_ID, CUSTOMER_ID, BOOK_ID, BUYREVIEW_CONTENT, BUYREVIEW_SCORE
+		from BUYREVIEW
+		where CUSTOMER_ID=#{customerId}
+	</select>
 </mapper>
