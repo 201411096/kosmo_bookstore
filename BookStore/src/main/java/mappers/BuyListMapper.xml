@@ -18,4 +18,9 @@
 		) 
 		WHERE ROWNUM = 1
 	</select>
+	<select id="getBuyListByCustomerId" parameterType="string" resultType="buylist">
+		SELECT *
+		FROM BUYLIST
+		WHERE CUSTOMER_ID=#{customerId}
+	</select>
 </mapper>

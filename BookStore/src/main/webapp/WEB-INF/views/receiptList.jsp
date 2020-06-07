@@ -61,31 +61,45 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th class="p-name">Product Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>구매번호</th>
+                                    <th>구매물품</th>
+                                    <th>구매날짜</th>
+                                    <th>가격총합</th>
                                     <th><i class="ti-close"></i></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td>
+                            <tbody id="receiptListTbody">
+								<tr>
                                     <td class="cart-title first-row">
-                                        <h5>Pure Pineapple</h5>
+                                        <h5>구매번호_01</h5>
                                     </td>
-                                    <td class="p-price first-row">$60.00</td>
-                                    <td class="qua-col first-row">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
+                                    <td class="cart-title first-row">
+                                        <h5>오래된 비밀 외 3종</h5>
                                     </td>
-                                    <td class="total-price first-row">$60.00</td>
-                                    <td class="close-td first-row"><i class="ti-close"></i></td>
-                                </tr>
+                                    <td class="cart-title first-row">
+                                        <h5>20-06-07</h5>
+                                    </td>
+                                    <td class="cart-title first-row">
+                                        <h5>23000</h5>
+                                    </td>
+									<td class="close-td first-row"><i class="ti-close"></i></td>
+								</tr>
+<!--                                 <tr> -->
+<!--                                     <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td> -->
+<!--                                     <td class="cart-title first-row"> -->
+<!--                                         <h5>Pure Pineapple</h5> -->
+<!--                                     </td> -->
+<!--                                     <td class="p-price first-row">$60.00</td> -->
+<!--                                     <td class="qua-col first-row"> -->
+<!--                                         <div class="quantity"> -->
+<!--                                             <div class="pro-qty"> -->
+<!--                                                 <input type="text" value="1"> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                     </td> -->
+<!--                                     <td class="total-price first-row">$60.00</td> -->
+<!--                                     <td class="close-td first-row"><i class="ti-close"></i></td> -->
+<!--                                 </tr> -->
                             </tbody>
                         </table>
                     </div>

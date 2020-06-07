@@ -7,5 +7,11 @@
 	INSERT INTO BUY(BUY_ID, BUYLIST_ID, BOOK_ID, BUY_CNT) 
 		VALUES(BUY_ID_SEQ.NEXTVAL, #{buylistId}, #{bookId}, #{buyCnt})
    </insert>
-
+	<select id="selectAllBuyByBuyListId" parameterType="int" resultType="map">
+		select bu.BUY_ID AS buyId, bu.BUYLIST_ID AS buylistId, bu.BOOK_ID AS bookId, bu.BUY_CNT AS buyCnt, bo.BOOK_SALEPRICE AS bookSaleprice, bo.BOOK_NAME AS bookName, bo.BOOK_GENRE AS bookGenre
+		from buy bu
+		inner join book bo
+		on bu.BOOK_ID=BO.BOOK_ID
+		where BUYLIST_ID=#{buylistId}
+	</select>
 </mapper>

@@ -1,5 +1,8 @@
 package com.mycompany.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +20,8 @@ public class BuyServiceImpl implements BuyService{
 		return buyDAO.addBuy(vo);
 	}
 
+	@Override
+	public List<Map> selectAllBuyByBuyListId(int buylistId) {
+		return buyDAO.selectAllBuyByBuyListId(buylistId);
+	}
 }

@@ -1,5 +1,7 @@
 package com.mycompany.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,10 +17,12 @@ public class BuyListDAOImpl implements BuyListDAO{
 	public int addBuyList(BuyListVO buyVO) {
 		return mybatis.insert("BuyListDAO.addBuyList", buyVO);
 	}
-
 	@Override
 	public int getBuyListId(BuyListVO buyVO) {
-		return mybatis.selectOne("BuyListDAO.getBuyListId", buyVO);
-		
+		return mybatis.selectOne("BuyListDAO.getBuyListId", buyVO);		
+	}
+	@Override
+	public List<BuyListVO> getBuyListByCustomerId(String customerId) {
+		return mybatis.selectList("BuyListDAO.getBuyListByCustomerId", customerId);
 	}
 }
