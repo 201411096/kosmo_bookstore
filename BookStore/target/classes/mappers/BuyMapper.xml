@@ -13,5 +13,6 @@
 		inner join book bo
 		on bu.BOOK_ID=BO.BOOK_ID
 		where BUYLIST_ID=#{buylistId}
+		order by bu.BUY_ID
 	</select>
 </mapper>

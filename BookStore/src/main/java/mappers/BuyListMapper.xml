@@ -22,5 +22,6 @@
 		SELECT *
 		FROM BUYLIST
 		WHERE CUSTOMER_ID=#{customerId}
+		order by BUYLIST_ID desc
 	</select>
 </mapper>
