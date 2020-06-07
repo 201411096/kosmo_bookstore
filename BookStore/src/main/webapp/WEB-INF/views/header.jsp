@@ -106,8 +106,12 @@
 										<h5><span class="cartListTotalPrice">${sessionScope.cartListTotalPrice }</span></h5>
 									</div>
 									<div class="select-button">
-										<a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a> <a
-											href="buyList.do" class="primary-btn checkout-btn">CHECK OUT</a>
+										<a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a>
+										<a href="buyList.do" class="primary-btn checkout-btn">CHECK OUT</a>
+										<br>
+										<a href="/BookStore/ajax_tendencyGraph.do" class="primary-btn view-card">TENDENCY GRAPH</a>
+										<a href="/BookStore/receiptList.do" class="primary-btn checkout-btn">RECEIPT</a>
+											
 									</div>
 								</div></li>
 							<li class="cart-price"><span>${sessionScope.cartListTotalPrice }</span></li>
