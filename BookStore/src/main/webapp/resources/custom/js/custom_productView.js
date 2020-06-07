@@ -151,18 +151,20 @@ function getContentBtnHandler(){
 		data : {"reviewId" : reviewId},
 		dataType : 'json',
 		success : function(resultData){
-			var loginCustomerId = resultData.customerId.trim();
+			if(resultData.customerId!=null)
+				var loginCustomerId = resultData.customerId.trim();
 			//reviewId와 loginId가 같을 경우 자신이 작성한 리뷰의 정보를 가져와서 세팅해줌
 			if(customerId==loginCustomerId){
 				$('#buyreviewContent').text( resultData.reviewVO.buyreviewContent );
 				$('#buyreviewScore').val( resultData.reviewVO.buyreviewScore );
-			}else{
+			}else if(loginCustomerId==null){
+				alert("로그인이 필요합니다.")
+			}else if(customerId!=loginCustomerId){
 				alert("본인이 작성한 리뷰만 수정할 수 있습니다.");
 			}
 		},
 	   error:function(request,status,error){
 		   console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		   alert("로그인이 필요합니다.");
 	   }		
 	});
 }
