@@ -24,13 +24,6 @@ public class BuyListController {
 	BuyListServiceImpl buyListService;
 	@Autowired
 	BuyServiceImpl buyService;
-//	@RequestMapping("/moveToReceiptList")
-//	public ModelAndView moveToReceiptList(HttpSession session) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		mv.setViewName("/receiptList");
-//		return mv;
-//	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/getReceiptList",  produces = "application/json; charset=utf-8")

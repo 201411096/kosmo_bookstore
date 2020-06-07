@@ -1,4 +1,4 @@
-var receiptListData = new Array(); // 안 씀
+//var receiptListData = new Object(); // 왜 안되는지 모름
 $(function(){
 	console.log("custom_receiptList.js 연결 확인");
 	reconstructionViewPage();
@@ -6,7 +6,7 @@ $(function(){
 
 function reconstructionViewPage(){ // 뷰 화면을 재구성
 	getReceiptList();
-//	constructReceiptPart(receiptListData); // 안 씀
+	//constructReceiptPart(receiptListData); // 왜 안되는지 모름
 }
 function getReceiptList(){
 	$.ajax({
@@ -33,9 +33,10 @@ function constructReceiptPart(receiptListData){
 	var h5Suffix = '</h5>';
 	var trPrefix = '<tr>';
 	var trSuffix = '</tr>';
-	var aPrefix1 = '<a href="/test_receipt.do?buylistId=';
+	var aPrefix1 = '<a href="test_receipt.do?buylistId=';
 	var aPrefix2 = '">';
-	var aSuffix = '</a>'
+	var aSuffix = '</a>';
+	var tiTag =  '<td class="close-td first-row"><i class="ti-close"></i></td>';
 	for(var i=0; i< parseInt(receiptListData.receiptListSize); i++){
 		var listConntent = trPrefix +
 							   tdclassPrefix +
@@ -58,6 +59,7 @@ function constructReceiptPart(receiptListData){
 							   receiptListData.totalPriceList[i] +
 							   h5Suffix +
 							   tdSuffix +
+							   tiTag +
 						   trSuffix;
 		$('#receiptListTbody').append(listConntent);
 	}

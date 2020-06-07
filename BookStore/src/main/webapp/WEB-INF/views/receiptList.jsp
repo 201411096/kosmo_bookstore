@@ -69,64 +69,9 @@
                                 </tr>
                             </thead>
                             <tbody id="receiptListTbody">
-								<tr>
-                                    <td class="cart-title first-row">
-                                        <h5><a href="/test_receipt.do?buylistId=">구매리스트번호_01</a></h5>
-                                    </td>
-                                    <td class="cart-title first-row">
-                                        <h5>오래된 비밀 외 3종</h5>
-                                    </td>
-                                    <td class="cart-title first-row">
-                                        <h5>20-06-07</h5>
-                                    </td>
-                                    <td class="cart-title first-row">
-                                        <h5>23000</h5>
-                                    </td>
-									<td class="close-td first-row"><i class="ti-close"></i></td>
-								</tr>
-<!--                                 <tr> -->
-<!--                                     <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td> -->
-<!--                                     <td class="cart-title first-row"> -->
-<!--                                         <h5>Pure Pineapple</h5> -->
-<!--                                     </td> -->
-<!--                                     <td class="p-price first-row">$60.00</td> -->
-<!--                                     <td class="qua-col first-row"> -->
-<!--                                         <div class="quantity"> -->
-<!--                                             <div class="pro-qty"> -->
-<!--                                                 <input type="text" value="1"> -->
-<!--                                             </div> -->
-<!--                                         </div> -->
-<!--                                     </td> -->
-<!--                                     <td class="total-price first-row">$60.00</td> -->
-<!--                                     <td class="close-td first-row"><i class="ti-close"></i></td> -->
-<!--                                 </tr> -->
                             </tbody>
                         </table>
                     </div>
-<!--                     <div class="row"> -->
-<!--                         <div class="col-lg-4"> -->
-<!--                             <div class="cart-buttons"> -->
-<!--                                 <a href="#" class="primary-btn continue-shop">Continue shopping</a> -->
-<!--                                 <a href="#" class="primary-btn up-cart">Update cart</a> -->
-<!--                             </div> -->
-<!--                             <div class="discount-coupon"> -->
-<!--                                 <h6>Discount Codes</h6> -->
-<!--                                 <form action="#" class="coupon-form"> -->
-<!--                                     <input type="text" placeholder="Enter your codes"> -->
-<!--                                     <button type="submit" class="site-btn coupon-btn">Apply</button> -->
-<!--                                 </form> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                         <div class="col-lg-4 offset-lg-4"> -->
-<!--                             <div class="proceed-checkout"> -->
-<!--                                 <ul> -->
-<!--                                     <li class="subtotal">Subtotal <span>$240.00</span></li> -->
-<!--                                     <li class="cart-total">Total <span>$240.00</span></li> -->
-<!--                                 </ul> -->
-<!--                                 <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
                 </div>
             </div>
         </div>
