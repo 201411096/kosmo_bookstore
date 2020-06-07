@@ -17,7 +17,7 @@ function getReceiptList(){
 		dataType : 'json',
 		success : function(resultData){
 			console.log(resultData);
-			receiptListData=resultData;
+//			receiptListData=resultData;  // 왜 안되는지 모름
 			constructReceiptPart(resultData);
 		},
 	   error:function(request,status,error){
@@ -33,7 +33,7 @@ function constructReceiptPart(receiptListData){
 	var h5Suffix = '</h5>';
 	var trPrefix = '<tr>';
 	var trSuffix = '</tr>';
-	var aPrefix1 = '<a href="test_receipt.do?buylistId=';
+	var aPrefix1 = '<a href="receipt.do?buylistId=';
 	var aPrefix2 = '">';
 	var aSuffix = '</a>';
 	var tiTag =  '<td class="close-td first-row"><i class="ti-close"></i></td>';
