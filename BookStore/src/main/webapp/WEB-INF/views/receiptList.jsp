@@ -71,7 +71,7 @@
                             <tbody id="receiptListTbody">
 								<tr>
                                     <td class="cart-title first-row">
-                                        <h5>구매번호_01</h5>
+                                        <h5><a href="/test_receipt.do?buylistId=">구매리스트번호_01</a></h5>
                                     </td>
                                     <td class="cart-title first-row">
                                         <h5>오래된 비밀 외 3종</h5>
