@@ -20,5 +20,7 @@
 <a href="/BookStore/moveToTendencyGraph.do">그래프 페이지 호출</a><br>
 <a href="/BookStore/ajax_tendencyGraph.do">ajax 그래프 페이지 호출</a><br>
 <a href="/BookStore/cover.do">커버 페이지 호출</a><br>
+<a href="/BookStore/moveToReceiptList.do">영수증 목록 리스트 이동</a><br>
+<a href="/BookStore/receiptList.do">영수증 목록 리스트 이동2</a><br>
 </body>
 </html>
