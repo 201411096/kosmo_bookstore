@@ -17,10 +17,12 @@ $(function(){
    })
 });
 function makeChartAjax(){
+	$('#myChartContainer').empty();
+	$('#myChartContainer').append('<canvas id="myChart" width="600" height="600"></canvas>');
    $.ajax({
       type:'post',
       async:true,
-      url:"drawAjaxTendencyGraph.do",
+      url:"ajaxTendencyGraph.do",
       contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
       dataType : 'json',
       success : function(resultData){         

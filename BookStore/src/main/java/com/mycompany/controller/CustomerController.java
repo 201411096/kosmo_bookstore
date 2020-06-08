@@ -129,12 +129,12 @@ public class CustomerController {
 			mv.setViewName("redirect:/moveToLogin.do");
 			return mv;
 		}
-		mv.setViewName("ajaxTendencyGraph");
+		mv.setViewName("ajax_tendencyGraph");
 		return mv;
 	}
 	
 	//성향 그래프를 그리면서 가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 함수
-	@RequestMapping(value = "/drawAjaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/ajaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map drawAjaxTendencyGraph(HttpSession session) {
 		Map result = new HashMap();
