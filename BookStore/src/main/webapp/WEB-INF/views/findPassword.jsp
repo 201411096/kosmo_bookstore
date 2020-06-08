@@ -44,7 +44,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class=register-form>
                         <h2>비밀번호 찾기</h2>
-                        <form id='join' name='join' action="/BookStore/register.do" method='get'>
+                        <form id='join' name='join' action="/BookStore/sendMailForFindPassword.do" method='get'>
                             <div class="group-input">
                                 <label for="customerEmail">이메일</label>
                                 <input name="customerEmail" type="text" id="customer_email" required >

@@ -28,6 +28,7 @@ import com.mycompany.service.CustomerServiceImpl;
 import com.mycompany.service.ReviewServiceImpl;
 import com.mycompany.service.TendencyServiceImpl;
 import com.mycompany.util.CartList;
+import com.mycompany.util.SendMail;
 import com.mycompany.util.Tendency;
 
 
@@ -212,5 +213,15 @@ public class CustomerController {
 		}
 		
 		return result;
+	}
+	
+	@RequestMapping("/sendMailForFindPassword.do")
+	public ModelAndView sendMailForFindPassword(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		
+		SendMail sendMail = new SendMail();
+		sendMail.sendMail("korea5781@naver.com", "abc");
+		
+		return mv;
 	}
 }

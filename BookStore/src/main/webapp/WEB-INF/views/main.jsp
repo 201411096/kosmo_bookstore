@@ -41,7 +41,7 @@
                             <span>여름신간</span>
                             <h2 id=mainTitle>여름에 쓰여진 책</h2>
                             <p>당신의 시원한 여름밤을 위한 추천도서</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
+                            <a href="/BookStore/productList.do?searchWord=" class="primary-btn">도서보기</a>
                         </div>
                     </div>
                     <div class="off-card">
