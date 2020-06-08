@@ -20,7 +20,7 @@ function makeChartAjax(){
    $.ajax({
       type:'post',
       async:true,
-      url:"ajaxTendencyGraph.do",
+      url:"drawAjaxTendencyGraph.do",
       contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
       dataType : 'json',
       success : function(resultData){         

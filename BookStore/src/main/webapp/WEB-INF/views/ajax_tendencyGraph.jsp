@@ -36,6 +36,10 @@
    <link rel="stylesheet" href="resources/custom/css/custom_tendencyGraph.css">
 </head>
 <body>
+<%-- <% --%>
+<!-- // 	if(request.getParameter("customer")==null) -->
+<!-- // 		response.sendRedirect("moveToLogin.do"); -->
+<%-- %> --%>
    <!-- Page Preloder -->
    <div id="preloder">
       <div class="loader"></div>

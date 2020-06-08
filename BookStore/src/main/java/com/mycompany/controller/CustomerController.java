@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -118,13 +120,27 @@ public class CustomerController {
 		mv.setViewName("tendencyGraph");
 		return mv;
 	}
+	@RequestMapping("/ajax_tendencyGraph.do")
+	public ModelAndView moveToAjaxTendencyGraph(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		if(customerVO==null) {
+			mv.setViewName("redirect:/moveToLogin.do");
+			return mv;
+		}
+		mv.setViewName("ajaxTendencyGraph");
+		return mv;
+	}
+	
 	//성향 그래프를 그리면서 가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 함수
-	@RequestMapping(value = "/ajaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/drawAjaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public Map moveToAjaxTendencyGraph(HttpSession session) {
+	public Map drawAjaxTendencyGraph(HttpSession session) {
 		Map result = new HashMap();
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
 		result.put("customerId", customerVO.getCustomerId());
+		
 		TendencyVO tendencyVO = tendencyService.selectTendency(customerVO);
 		
 		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "리뷰 포함하기 전의 사용자__1");
