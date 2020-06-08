@@ -1,7 +1,40 @@
 $(function(){
 	$('#listSearch').on('keyup', listSearchKeyUpEvent);
 	setInterval(reloadCartList, 2000);
+	getCustomerVOAndSetCustomerVO();
+	setInterval(getCustomerVOAndSetCustomerVO, 2000);
 });
+//2초마다 불리는 함수, 사용자 정보를 받아옴
+function getCustomerVOAndSetCustomerVO(){
+	$.ajax({
+		type : 'post',
+		url : 'getLoginCustomerVO.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
+		dataType : 'json',
+		success : function(resultData){
+			console.log(resultData.customerVO);
+			reConstructLoginPart(resultData);
+			
+		},
+		error:function(request,status,error){
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+}
+function reConstructLoginPart(resultData){
+	$('.header-top .container .ht-right').empty();
+	if(resultData.customerVO==null){
+		$('.header-top .container .ht-right').append('<a href="/BookStore/moveToLogin.do" class="login-panel"><i class="fa fa-user"></i>Login</a>');
+	}else if(resultData.customerVO!=null){
+		
+		$('.header-top .container .ht-right').append('<a href="/BookStore/logout.do" class="login-panel"><i class="fa fa-user"></i>Logout</a>');
+		if(resultData.customerVO.customerFlag===0){
+//			$('.header-top .container .ht-right').append('&nbsp<a href="/BookStore/admin/dashboard.do" class="login-panel">관리화면</a>');
+			$('.header-top .container .ht-right').append('&nbsp<a href="/BookStore/admin/dashboard.do" class="login-panel">관리화면</a>');
+		}	
+	}
+}
+
 //2초마다 불리는 함수, 장바구니 목록을 갱신
 function reloadCartList(){
 	$.ajax({

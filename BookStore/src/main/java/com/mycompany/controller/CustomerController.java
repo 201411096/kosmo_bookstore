@@ -63,11 +63,11 @@ public class CustomerController {
 		mv.setViewName("redirect:/moveToLogin.do");
 		
 		if(result==null) {}
-		else if(result.getCustomerFlag()==0) {
-			session.setAttribute("customer", result); // 관리자 정보 세팅
-			session.setAttribute("admin", "admin");
-			mv.setViewName("/test_admin_check");
-		}
+//		else if(result.getCustomerFlag()==0) {
+//			session.setAttribute("customer", result); // 관리자 정보 세팅
+//			session.setAttribute("admin", "admin");
+//			mv.setViewName("/test_admin_check");
+//		}
 		else {
 			//고객 정보를 세팅
 			session.setAttribute("customer", result);
@@ -198,4 +198,17 @@ public class CustomerController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/getLoginCustomerVO.do",  produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map getCustomerVO(HttpSession session) {
+		Map result = new HashMap();
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("customer");
+		if(customerVO==null)
+			return result;
+		else {
+			result.put("customerVO", customerVO);
+		}
+		
+		return result;
+	}
 }
