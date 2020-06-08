@@ -291,7 +291,11 @@ Insert into TEAMPROJECT.WRITER (WRITER_ID,WRITER_NAME) values (17,'설민석');
 Insert into TEAMPROJECT.WRITER (WRITER_ID,WRITER_NAME) values (18,'류성룡');
 Insert into TEAMPROJECT.WRITER (WRITER_ID,WRITER_NAME) values (19,'필름로그');
 Insert into TEAMPROJECT.WRITER (WRITER_ID,WRITER_NAME) values (21,'이정일');
-
+--------------------2_5.STORE--------------------
+Insert into TEAMPROJECT.STORE (STORE_ID,STORE_NAME,STORE_ADDR,STORE_TEL,STORE_POINT) values (7,'종로점','서울특별시 종로구 종로1가','02-123-4567','37.5615512, 126.9733249');
+Insert into TEAMPROJECT.STORE (STORE_ID,STORE_NAME,STORE_ADDR,STORE_TEL,STORE_POINT) values (8,'노원점','서울특별시 노원구 상계6.7동 동일로 1414','02-333-5555','37.6558348, 127.0628463');
+Insert into TEAMPROJECT.STORE (STORE_ID,STORE_NAME,STORE_ADDR,STORE_TEL,STORE_POINT) values (9,'가로수점','서울특별시 신사동 압구정로12길 46','02-777-8888','37.5190935, 127.021955');
+Insert into TEAMPROJECT.STORE (STORE_ID,STORE_NAME,STORE_ADDR,STORE_TEL,STORE_POINT) values (10,'남산점','서울특별시 용산구 용산2가동 남산공원길 105','02-233-1234','37.5511789, 126.9856882');
 --------------------2_6.BOOK--------------------
 Insert into TEAMPROJECT.BOOK (BOOK_ID,WRITER_ID,BOOK_PRICE,BOOK_NAME,BOOK_GENRE,BOOK_STORY,BOOK_PDATE,BOOK_SALEPRICE,BOOK_CNT,BOOK_SCORE,BOOK_SCORECOUNT) values (33,14,15000,'침묵의 봄','TECHNOLOGY','20세기 환경학 최고의 고전『침묵의 봄』. 50주년 기념 개정판으로 출간 된 이 책은 〈타임〉지가 20세기를 변화시킨 100인 중 한 사람으로 뽑은 레이첼 카슨이 쓴 책으로, 환경 문제의 심각성과 중요성을 독자들에게 일깨워 준 책이다. 저자는 친구로부터 받은 편지 한 통을 계기로 살충제의 사용 실태와 그 위험성을 조사하고, 생물학자로서의 전문지식과 작가로서의 능력을 발휘해 방사능 낙진으로 인해 더욱 절실해지기 시작한 환경 문제의 복잡성을 알기 쉽게 풀어냈다. 더불어 무분별한 살충제 사용으로 파괴되는 야생 생물계의 모습을 적나라하게 공개하여, 생태계의 오염이 어떻게 시작되고 생물과 자연환경에 어떤 영향을 미치지는 지 구체적으로 설명하였다. 이를 통해 정부와 살충제 제조업체의 행태를 지적하고, 환경문제에 대한 대중들의 생각을 환기시킬 수 있는 기회를 제시하였다.','2011-12-30',12000,9,4,1);
 Insert into TEAMPROJECT.BOOK (BOOK_ID,WRITER_ID,BOOK_PRICE,BOOK_NAME,BOOK_GENRE,BOOK_STORY,BOOK_PDATE,BOOK_SALEPRICE,BOOK_CNT,BOOK_SCORE,BOOK_SCORECOUNT) values (34,15,19000,'스토리텔링 BIM','TECHNOLOGY','BIM(Building Information Modeling)이란 컴퓨터 하드웨어와 소프트웨어를 십분 활용하여 다양한 분야의 참여자들 간 협업을 기반으로 공간, 에너지, 디자인 등 여러 가지 측면에서 설계안을 최적화하고 시공에 앞서 가상공간에서 리스크를 확인하고 해소함으로써 최적화된 시공 프로세스를 구현하며, 유지관리단계 동안 에너지, 비용, 관리 등 다양한 측면에서 시설물 활용을 최적화하는 것에 목적을 둔 개념이다.','2020-05-25',16000,8,4,1);
