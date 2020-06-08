@@ -69,7 +69,7 @@
                             </div>
                             <div class="group-input gi-check">
                                 <div class="gi-more">
-                                    <a href="#" class="forget-pass">Forget your Password</a>
+                                    <a href="/BookStore/findPassword.do" class="forget-pass">Forget your Password</a>
                                 </div>
                             </div>
                             <button type="submit" class="site-btn login-btn">Sign In</button>

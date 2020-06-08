@@ -36,20 +36,6 @@
     <jsp:include page="/header.do"></jsp:include>
     <!-- Header End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
-                        <span>Register</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Form Section Begin -->
 
     <!-- Register Section Begin -->
     <div class="register-login-section spad">
@@ -57,31 +43,13 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class=register-form>
-                        <h2>회원가입</h2>
+                        <h2>비밀번호 찾기</h2>
                         <form id='join' name='join' action="/BookStore/register.do" method='get'>
                             <div class="group-input">
-                                <label for="username">아이디</label>
-                                <input name="customerId" type="text" id="customer_id" required >
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">비밀번호</label>
-                                <input name="customerPassword" type="password" id="customer_password" required >
-                            </div>
-                       
-                             <div class="group-input">
-                                <label for="con-pass">이름</label>
-                                <input name="customerName" type="text" id="customer_name" required >
-                            </div>
-                             <div class="group-input">
-                                <label for="con-pass">연락처</label>
-                                <input name="customerTel" type="text" id="customer_tel" required >
-                            </div>
-							<div class="group-input">
-                                <label for="con-pass">이메일</label>
+                                <label for="customerEmail">이메일</label>
                                 <input name="customerEmail" type="text" id="customer_email" required >
-                            </div>
-                        
-                            <button type="submit" name="confirm" class="site-btn register-btn">가입하기</button>
+                            </div>                       
+                            <button type="submit" name="confirm" class="site-btn register-btn">메일 전송</button>
                         </form>
                         <div class="switch-login">
                             <a href="/BookStore/moveToLogin.do" class="or-login">로그인</a>

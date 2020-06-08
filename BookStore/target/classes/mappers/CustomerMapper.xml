@@ -12,8 +12,8 @@
 	</select>
 <!-- 	회원가입 부분 -->
 	<insert id="insertCustomer" parameterType="customer">
-		insert into CUSTOMER (customer_id, customer_password, customer_name, customer_tel, customer_point, customer_flag) 
-		values(#{customerId},#{customerPassword},#{customerName},#{customerTel}, 0, 1)
+		insert into CUSTOMER (customer_id, customer_password, customer_name, customer_tel, customer_point, customer_flag, customer_email) 
+		values(#{customerId},#{customerPassword},#{customerName},#{customerTel}, 0, 1, #{customerEmail})
 	</insert>
 	<select id="getCartList" resultType="bookcart" parameterType="string">
 		select l.buycartlist_id AS buycartlist_id, b.book_id as book_id, b.book_name as book_name, l.buycartlist_cnt as buycartlist_cnt, b.book_price as book_price, b.book_saleprice as book_saleprice, (b.book_saleprice*l.buycartlist_cnt) as book_totalprice

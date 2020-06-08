@@ -5,6 +5,13 @@ public class CustomerVO {
 	private String customerPassword;
 	private String customerName;
 	private String customerTel;
+	private String customerEmail;
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
 	private int customerPoint;
 	private int customerFlag;
 	public String getCustomerId() {
