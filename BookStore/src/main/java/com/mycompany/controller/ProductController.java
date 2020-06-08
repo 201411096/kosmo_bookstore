@@ -248,4 +248,14 @@ public class ProductController {
 		}
 		return result;
 	}
+	
+	// 베스트셀러 더 보기 클릭 후 리스트 구성
+    @RequestMapping("/bestSellerProductList.do")
+    public ModelAndView showBestSellerProductList() {
+       ModelAndView mv = new ModelAndView();
+       List<BookVO> bestSellerList = bookService.selectBestSeller();
+       mv.addObject("searchList", bestSellerList);
+       mv.setViewName("/productList");
+       return mv;
+    }
 }
