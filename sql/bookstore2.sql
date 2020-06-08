@@ -419,3 +419,25 @@ set book_score = book_score + 5,
     book_scorecount = book_scorecount + 1
 where book_id = 23;
 
+
+select *
+from buy bu
+inner join book bo
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id;
+
+select bu.buy_id, bu.buy_cnt as buy_cnt, bo.book_saleprice as book_saleprice, bu.buy_cnt*bo.book_saleprice as buyprice, bl.buy_date
+from buy bu
+inner join book bo
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id;
+
+select sum(bu.buy_cnt*bo.book_saleprice) as buyprice, bl.buy_date as buy_date
+from buy bu
+inner join book bo
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id
+group by char_to(buy_date, 'yyyymmdd');
