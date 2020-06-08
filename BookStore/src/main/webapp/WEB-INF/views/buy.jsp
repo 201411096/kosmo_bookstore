@@ -94,7 +94,7 @@
                                     <li class="fw-normal">${cartList.bookName} x ${cartList.buycartlistCnt } <span>${cartList.bookTotalPrice}</span></li>
                                     </c:forEach>                                  
                                     <li class="fw-normal">Subtotal <span>${subTotal }</span></li>
-                                    <li class="total-price">Total <span></span></li>
+                                    <li class="total-price">Total <span>${subTotal }</span></li>
                                 </ul>
                                 <div class="payment-check">
                                     <div class="pc-item">
