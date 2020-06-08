@@ -299,9 +299,9 @@
                         <div class="pi-pic">
                             <img src="resources/custom/img/banner/${relatedBookList.bookId }.jpg" alt="">
                             <ul>
-                                <li class="w-icon active"><a href="/BookStore/productView.do?bookId=${relatedBookList.bookId }"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="BookStore/productView.do?bookId=${relatedBookList.bookId }">+ Quick View</a></li>
-                                <li class="w-icon"><a href="/BookStore/productView.do?bookId=${relatedBookList.bookId }"><i class="fa fa-random"></i></a></li>
+                                <li class="w-icon active"><a href="./productView.do?bookId=${relatedBookList.bookId }"><i class="icon_bag_alt"></i></a></li>
+                                <li class="quick-view"><a href="./productView.do?bookId=${relatedBookList.bookId }">+ Quick View</a></li>
+                                <li class="w-icon"><a href="./productView.do?bookId=${relatedBookList.bookId }"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
