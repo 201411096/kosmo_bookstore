@@ -18,23 +18,7 @@
    rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="resources/css/bootstrap.min.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/font-awesome.min.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/themify-icons.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/elegant-icons.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/owl.carousel.min.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/nice-select.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/jquery-ui.min.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/slicknav.min.css"
-   type="text/css">
-<link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="resources/custom/css/main.css" type="text/css">
 </head>
 
 <body>
@@ -66,14 +50,14 @@
       <div class="container">
             <div class="col-lg-12">
             <div class="col-lg-9 order-1 order-lg-2 offset-lg-1">
-               <div class="product-list">
+               <div class="product-list2">
                   <div class="row">
                      <!-- test부분 시작 -->
                      <c:forEach var="book" items="${searchList}">
                         <div class="col-lg-4 col-sm-6">
                            <div class="product-item">
                               <div class="pi-pic">
-                                 <img src="resources/img/products/product-1.jpg" alt="">
+                                 <img src="resources/custom/img/banner/${book.bookId }.jpg" alt="">
                                  <div class="icon">
                                     <i class="icon_heart_alt"></i>
                                  </div>

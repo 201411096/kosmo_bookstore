@@ -51,7 +51,7 @@
 			                            from buy
 			                            group by book_id
 			                            order by buy_cnt desc)
-			where rownum<=5
+			where rownum<=6
 			))
 		 ]]>
 	</select>

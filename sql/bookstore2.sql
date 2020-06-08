@@ -434,10 +434,28 @@ on bo.book_id = bu.book_id
 inner join buylist bl
 on bu.buylist_id = bl.buylist_id;
 
-select sum(bu.buy_cnt*bo.book_saleprice) as buyprice, bl.buy_date as buy_date
+select sum(bu.buy_cnt*bo.book_saleprice) as buyprice, to_char(bl.buy_date, 'YYMMDD') as buy_date
 from buy bu
 inner join book bo
 on bo.book_id = bu.book_id
 inner join buylist bl
 on bu.buylist_id = bl.buylist_id
-group by char_to(buy_date, 'yyyymmdd');
+group by buy_date;
+
+select bu.buy_cnt*bo.book_saleprice as buyprice, to_char(bl.buy_date, 'YYMMDD') as buy_date
+from buy bu
+inner join book bo
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id;
+
+select sum(buyprice), buy_date
+from (
+select bu.buy_cnt*bo.book_saleprice as buyprice, to_char(bl.buy_date, 'YYMMDD') as buy_date
+from buy bu
+inner join book bo
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id
+        )
+group by buy_date;
