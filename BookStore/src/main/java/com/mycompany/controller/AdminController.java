@@ -18,4 +18,16 @@ public class AdminController {
 		mv.setViewName("/admin/dashboard");
 		return mv;
 	}
+	@RequestMapping("/admin/leftSidebar.do")
+	public ModelAndView loadLeftSidebar() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/leftSidebar");
+		return mv;
+	}
+	@RequestMapping("/admin/topbar.do")
+	public ModelAndView loadTopbar() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/topbar");
+		return mv;
+	}
 }
