@@ -37,8 +37,8 @@
 </head>
 <body>
 <%-- <% --%>
-<!-- // 	if(request.getParameter("customer")==null) -->
-<!-- // 		response.sendRedirect("moveToLogin.do"); -->
+<!-- //    if(request.getParameter("customer")==null) -->
+<!-- //       response.sendRedirect("moveToLogin.do"); -->
 <%-- %> --%>
    <!-- Page Preloder -->
    <div id="preloder">
@@ -48,12 +48,27 @@
    <!-- Header Section Begin -->
       <jsp:include page="/header.do"></jsp:include>
    <!-- Header End -->
-   <hr>
-   
-   <div class="col-lg-11">
+   <!-- Breadcrumb Section Begin -->
+   <div class="breacrumb-section">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="breadcrumb-text">
+                  <a href="#"><i class="fa fa-home"></i> Home</a> <span>Contact</span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Breadcrumb Section Begin -->
+   <br/>
+   <br/>
+   <br/>
+   <div class="col-lg-12">
+   <div class="col-lg-9 order-1 order-lg-2 offset-lg-1">
       <div class="row">
          <!-- 차트  -->
-         <div class="col-lg-5">
+         <div class="col-lg-4 offset-lg-1">
             <!--    차트 부분 시작 -->
             <div id="myChartContainer">
                <canvas id="myChart" width="600" height="600"></canvas>
@@ -64,7 +79,7 @@
             <!--    차트 부분 끝 -->
          </div>
          
-         <div class="col-lg-3">
+         <div class="col-lg-3 offset-lg-1">
          <div id='recommendMaxTitle'></div>
             <div class="product-item">
                <div id="recommendMaxBookContent"></div>
@@ -83,7 +98,7 @@
 
 
 
-
+      </div>
       </div>
    </div>
 

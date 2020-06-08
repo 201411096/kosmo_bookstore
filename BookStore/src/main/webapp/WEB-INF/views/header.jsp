@@ -66,7 +66,7 @@
                <!-- -------------------- search section start 검색 부분 시작 -------------------- -->
                <form class="col-lg-7 col-md-7" action="/BookStore/productList.do">
                <div>
-                  <input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="Type something to search list items">
+                  <input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="검색어를 입력하세요">
                  <br>
                  <ul class="list-group" id="searchList">
                   <!--검색 결과를 이곳에 채움 -->
@@ -137,15 +137,15 @@
             </div>
             <nav class="nav-menu mobile-menu">
                <ul>
-                  <li><a href="/BookStore/main.do">Home</a></li>
-                  <li><a href="/BookStore/productList.do?searchWord=">Shop</a></li>
+                  <li><a href="/BookStore/main.do">홈</a></li>
+                  <li><a href="/BookStore/productList.do?searchWord=">도서보기</a></li>
                   <li><a href="/BookStore/ajax_tendencyGraph.do">My Reading Rhythm</a>
-                  <li><a href="/BookStore/contact.do">Contact</a></li>
-                  <li><a href="#">Pages</a>
+                  <li><a href="/BookStore/contact.do">오시는 길</a></li>
+                  <li><a href="#">페이지</a>
                      <ul class="dropdown">
-                        <li><a href="/BookStore/shopping-cart.do">Shopping Cart</a></li>
-                        <li><a href="/BookStore/moveToRegister.do">Register</a></li>
-                        <li><a href="/BookStore/moveToLogin.do">Login</a></li>
+                        <li><a href="/BookStore/shopping-cart.do">장바구니</a></li>
+                        <li><a href="/BookStore/moveToRegister.do">회원가입</a></li>
+                        <li><a href="/BookStore/moveToLogin.do">로그인</a></li>
                      </ul></li>
                </ul>
             </nav>
