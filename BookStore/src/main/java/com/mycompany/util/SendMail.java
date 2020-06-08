@@ -50,7 +50,7 @@ public class SendMail {
 			message.setFrom(new InternetAddress(user));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			// Subject
-			message.setSubject("subway.. Java Mail Test");
+			message.setSubject("임시 비밀번호 발급 메일입니다.");
 			// Text
 			message.setText(mainContent);
 			// send the message

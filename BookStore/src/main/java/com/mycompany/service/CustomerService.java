@@ -9,4 +9,5 @@ public interface CustomerService {
 	public CustomerVO selectCustomer(CustomerVO vo);
 	public List<BuyCartListVO> getCartList(String customerId);
 	public int insertCustomer(CustomerVO vo);
+	public int makeTemporaryPassword(CustomerVO vo);
 }

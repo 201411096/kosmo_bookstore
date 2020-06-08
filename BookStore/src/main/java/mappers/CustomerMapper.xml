@@ -22,5 +22,11 @@
 		on b.book_id = l.book_id
 		where customer_id=#{customerId}
 	</select>
+	<update id="makeTemporaryPassword" parameterType="customer">
+		update CUSTOMER
+		SET CUSTOMER_PASSWORD = #{customerPassword}
+		WHERE CUSTOMER_EMAIL = #{customerEmail} and
+			  CUSTOMER_ID = #{customerId}
+	</update>
 	
 </mapper>

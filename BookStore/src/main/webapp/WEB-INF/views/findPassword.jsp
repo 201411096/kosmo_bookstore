@@ -46,6 +46,10 @@
                         <h2>비밀번호 찾기</h2>
                         <form id='join' name='join' action="/BookStore/sendMailForFindPassword.do" method='get'>
                             <div class="group-input">
+                                <label for="username">아이디</label>
+                                <input name="customerId" type="text" id="customer_id" required >
+                            </div>
+                            <div class="group-input">
                                 <label for="customerEmail">이메일</label>
                                 <input name="customerEmail" type="text" id="customer_email" required >
                             </div>                       

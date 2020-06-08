@@ -31,4 +31,11 @@ public class CustomerDAOImpl implements CustomerDAO{
 		int result =  mybatis.insert("CustomerDAO.insertCustomer", vo);
 		return result;
 	}
+
+	@Override
+	public int makeTemporaryPassword(CustomerVO vo) {
+		return mybatis.update("CustomerDAO.makeTemporaryPassword", vo);
+	}
+	
+	
 }

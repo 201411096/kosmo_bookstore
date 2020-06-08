@@ -504,3 +504,8 @@ inner join buylist bl
 on bu.buylist_id = bl.buylist_id
         )
 group by buy_date;
+
+		update CUSTOMER
+		SET CUSTOMER_PASSWORD = '2345'
+		WHERE CUSTOMER_EMAIL = 'korea5781@naver.com' and
+			  CUSTOMER_ID = 'bbb'

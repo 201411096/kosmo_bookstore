@@ -216,12 +216,29 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("/sendMailForFindPassword.do")
-	public ModelAndView sendMailForFindPassword(HttpSession session) {
+	public ModelAndView sendMailForFindPassword(HttpSession session, CustomerVO customerVO) {
 		ModelAndView mv = new ModelAndView();
 		
 		SendMail sendMail = new SendMail();
-		sendMail.sendMail("korea5781@naver.com", "abc");
-		
+
+		String [] alphabetAndNumber = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"
+										,"P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", 
+										"3", "4", "5", "6", "7", "8", "9", "0"};
+		String tempPassword="";
+		for(int i=0; i<10; i++) {
+			int tempIdx = (int)(Math.random()*36);
+			tempPassword+=alphabetAndNumber[tempIdx];
+		}
+
+		customerVO.setCustomerPassword(tempPassword);
+		System.out.println(customerVO.getCustomerId());
+		System.out.println(customerVO.getCustomerEmail());
+		System.out.println(customerVO.getCustomerPassword());
+		sendMail.sendMail(customerVO.getCustomerEmail(), tempPassword);
+		int result = customerService.makeTemporaryPassword(customerVO); //만드는 게 아니라 생성된 임시비밀번호로 변경해줌
+		if(result==0)
+			System.out.println("오류 발생");
+		mv.setViewName("redirect:/main.do");
 		return mv;
 	}
 }

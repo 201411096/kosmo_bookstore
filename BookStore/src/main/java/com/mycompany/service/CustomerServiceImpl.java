@@ -25,4 +25,9 @@ public class CustomerServiceImpl implements CustomerService{
 	public int insertCustomer(CustomerVO vo) {
 		return customerDAO.insertCustomer(vo);
 	}
+	@Override
+	public int makeTemporaryPassword(CustomerVO vo) {
+		return customerDAO.makeTemporaryPassword(vo);
+	}
+	
 }
