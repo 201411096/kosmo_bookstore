@@ -44,6 +44,9 @@ public class BookServiceImpl implements BookService {
 	public int updateBookScore(ReviewVO reviewVO) {
 		return BookDAO.updateBookScore(reviewVO);
 	}
-
+	@Override
+	   public List<BookVO> selectRelatedBook(BookVO vo) {
+	      return BookDAO.selectRelatedBook(vo);
+	   }
 	
 }

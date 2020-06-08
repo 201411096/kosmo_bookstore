@@ -55,7 +55,9 @@ public class ProductController {
 		BookVO book = bookService.selectBook(vo);
 		mv.addObject("priceBeforeDiscount", book.getBookSaleprice() + 3000);
 		mv.addObject("info", book);
-		
+		// 관련 제품 세팅
+		List<BookVO> relatedBookList = bookService.selectRelatedBook(book);
+		mv.addObject("relatedBookList", relatedBookList);
 		//bookVO에 들어잇는 bookId값에 해당하는 리뷰들을 가져와서 modelandview에 입력 부분 시작
 		ReviewVO reviewVO = new ReviewVO();
 		reviewVO.setBookId(vo.getBookId());

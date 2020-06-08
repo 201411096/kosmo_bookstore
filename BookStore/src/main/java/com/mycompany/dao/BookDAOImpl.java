@@ -9,20 +9,21 @@ import org.springframework.stereotype.Repository;
 
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.ReviewVO;
-@Repository("bookDAO")
-public class BookDAOImpl implements BookDAO{
-   @Autowired
-   private SqlSessionTemplate mybatis;
 
-   @Override
-   public BookVO selectBook(BookVO vo) {
-      BookVO result = mybatis.selectOne("BookDAO.selectBook", vo);
-      return result;
-   }
+@Repository("bookDAO")
+public class BookDAOImpl implements BookDAO {
+	@Autowired
+	private SqlSessionTemplate mybatis;
+
+	@Override
+	public BookVO selectBook(BookVO vo) {
+		BookVO result = mybatis.selectOne("BookDAO.selectBook", vo);
+		return result;
+	}
 
 	@Override
 	public List<BookVO> searchListBook(Map<String, String> search) {
-		List<BookVO> list = mybatis.selectList("BookDAO.searchList", search); 
+		List<BookVO> list = mybatis.selectList("BookDAO.searchList", search);
 		return list;
 	}
 
@@ -45,6 +46,10 @@ public class BookDAOImpl implements BookDAO{
 	public int updateBookScore(ReviewVO reviewVO) {
 		return mybatis.update("BookDAO.updateBookScore", reviewVO);
 	}
-    
-	
+
+	@Override
+	public List<BookVO> selectRelatedBook(BookVO vo) {
+		return mybatis.selectList("BookDAO.selectRelatedBook", vo);
+	}
+
 }

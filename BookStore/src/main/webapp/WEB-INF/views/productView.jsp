@@ -62,33 +62,16 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="product-pic-zoom">
-                                <img class="product-big-img" src="resources/img/product-single/product-1.jpg" alt="">
+                                <img class="product-big-img" src="resources/custom/img/banner/${info.bookId }.jpg" alt="">
                                 <div class="zoom-icon">
                                     <i class="fa fa-search-plus"></i>
                                 </div>
-                            </div>
-                            <div class="product-thumbs">
-                                <div class="product-thumbs-track ps-slider owl-carousel">
-                                    <div class="pt active" data-imgbigurl="resources/img/product-single/product-1.jpg"><img
-                                            src="resources/img/product-single/product-1.jpg" alt=""></div>
-                                    <div class="pt" data-imgbigurl="resources/img/product-single/product-2.jpg"><img
-                                            src="resources/img/product-single/product-2.jpg" alt=""></div>
-                                    <div class="pt" data-imgbigurl="resources/img/product-single/product-3.jpg"><img
-                                            src="resources/img/product-single/product-3.jpg" alt=""></div>
-                                    <div class="pt" data-imgbigurl="resources/img/product-single/product-3.jpg"><img
-                                            src="resources/img/product-single/product-3.jpg" alt=""></div>
-                                </div>
-                            </div>
+                            </div>                            
                              <div class="filter-widget">
                                 <h4 class="fw-title">Tags</h4>
                               <div class="fw-tags">
-                                  <a href="#">Towel</a>
-                                  <a href="#">Shoes</a>
-                                  <a href="#">Coat</a>
-                                  <a href="#">Dresses</a>
-                                  <a href="#">Trousers</a>
-                                     <a href="#">Men's hats</a>
-                                  <a href="#">Backpack</a>
+                                  <a href="/BookStore/productList.do?searchWord=${info.writerName }">${info.writerName }</a>
+                                  <a href="/BookStore/productList.do?searchWord=${info.bookGenre }">${info.bookGenre }</a>                              
                                  </div>
                              </div>
                         </div>
@@ -96,7 +79,7 @@
                             <div class="product-details">
                                 <div class="pd-title">
                                     <h3>${info.bookName }</h3><hr/>
-                                 	<h6>${info.writerName } 지음 | ${info.bookPdate } 출간</h6>
+                                    <h6>${info.writerName } 지음 | ${info.bookPdate } 출간</h6>
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
                                 <div class="pd-rating">
@@ -111,30 +94,23 @@
                                      <p>${info.bookStory }</p>
                                     <h4> ${info.bookSaleprice }원 <span>${info.bookPrice }원</span></h4><hr/>
                                 </div>                              
-                       	<form action="/BookStore/addCartList.do">
+                          <form action="/BookStore/addCartList.do">
                                 <div class="quantity">
                                     <div class="pro-qty">
                                         <input type="text" value="1" name="buycartlistCnt">
                                     </div>
-                                    	<button type="submit" class="site-btn login-btn">장바구니</button>
+                                       <button type="submit" class="site-btn login-btn">장바구니</button>
                                         <!-- <a href="addList.do" class="primary-btn pd-cart">장바구니</a> -->
                                         <input name="bookId" type="hidden" value="${info.bookId }" />
                                 </div>
-                       	</form>
+                          </form>
                         
                                
                                 <ul class="pd-tags">
                                     <li><span>분야</span>: ${info.bookGenre }</li>
                                     <li><span>TAGS</span>: ${info.writerName }, ${info.bookGenre }</li>
                                 </ul>
-                                <div class="pd-share">
-                                    <div class="p-code">Sku : 00012</div>
-                                    <div class="pd-social">
-                                        <a href="#"><i class="ti-facebook"></i></a>
-                                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                                        <a href="#"><i class="ti-linkedin"></i></a>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -142,40 +118,77 @@
                         <div class="tab-item">
                             <ul class="nav" role="tablist">
                                 <li>
-                                    <a class="active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
+                                    <a class="active" data-toggle="tab" href="#tab-1" role="tab">Customer Reviews (02)</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
+                                    <a data-toggle="tab" href="#tab-2" role="tab">DESCRIPTION</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews (02)</a>
+                                    <a data-toggle="tab" href="#tab-3" role="tab">SPECIFICATIONS</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="tab-item-content">
                             <div class="tab-content">
+                                                  
                                 <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-                                    <div class="product-content">
-                                        <div class="row">
-                                            <div class="col-lg-7">
-                                                <h5>Introduction</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
-                                                <h5>Features</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
+                                    <div class="customer-review-option">
+<!--                                     리뷰출력 -->
+                                        <h4 id="">2 Comments</h4>
+                                        <div class="comment-option">
+                                        <div id="review-container">
+                                        <c:forEach items="${review}" var="review" >
+                                        <div class="co-item">
+                                                <div class="avatar-pic">
+                                                    <img src="resources/img/product-single/avatar-1.png" alt="">
+                                                </div>
+                                                <div class="avatar-text">
+<!--                                                     <div class="at-rating"> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star"></i> -->
+<!--                                                         <i class="fa fa-star-o"></i> -->
+<!--                                                     </div>                                                  -->
+                                                    <h5>${review.customerId} 
+                                                    <span>${review.buyreviewScore}</span>
+                                                    </h5>
+                                                    <div class="at-reply">${review.buyreviewContent}</div>
+                                                    <input type="hidden" class="reviewcustomerId" value="${review.customerId} ">
+                                                    <input type="hidden" class="buyreviewId" value="${review.buyreviewId} ">
+                                                    <input type="button" id="r-modify" class="site-btn" value="수정">
+                                                    &nbsp
+                                                    <input type="button" id="r-delete" class="site-btn" value="삭제">                                              
+                                                </div>
                                             </div>
-                                            <div class="col-lg-5">
-                                                <img src="resources/img/product-single/tab-desc.jpg" alt="">
-                                            </div>
+                                       </c:forEach>
+                                       </div>
+                                        <div class="leave-comment">
+<!--                                         리뷰입력 -->
+                                            <h4>Leave A Comment</h4>
+                                            
+                                            <form id="reviewForm" action="" class="comment-form">
+                                               <input type="hidden" id="bookIdInReviewForm" name="bookId" value="${info.bookId}">
+                                                <div class="row">                                             
+                        
+<!--                                                <input type="text" placeholder="buyReviewId시퀀스" name="buyreviewId"> -->
+    
+                                                    <div class="col-lg-8">
+                                                        <input type="text" placeholder="리뷰 점수 입력" id="buyreviewScore" name="buyreviewScore">
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <textarea placeholder="리뷰 내용 입력" id="buyreviewContent" name="buyreviewContent"></textarea>
+                                                        <button type="button" id="review-btn" class="site-btn">리뷰 작성</button>
+                                                        <button type="button" id="update-btn" class="site-btn">리뷰 수정</button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                            </div>
+                            
+                                        <div class="tab-pane fade" id="tab-2" role="tabpanel">
                                     <div class="specification-table">
                                         <table>
                                             <tr>
@@ -234,65 +247,34 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="tab-3" role="tabpanel">
-                                    <div class="customer-review-option">
-<!--                                     리뷰출력 -->
-                                        <h4>2 Comments</h4>
-                                        <div class="comment-option">
-                                        <div id="review-container">
-                                        <c:forEach items="${review}" var="review" >
-                                        <div class="co-item">
-                                                <div class="avatar-pic">
-                                                    <img src="resources/img/product-single/avatar-1.png" alt="">
-                                                </div>
-                                                <div class="avatar-text">
-<!--                                                     <div class="at-rating"> -->
-<!--                                                         <i class="fa fa-star"></i> -->
-<!--                                                         <i class="fa fa-star"></i> -->
-<!--                                                         <i class="fa fa-star"></i> -->
-<!--                                                         <i class="fa fa-star"></i> -->
-<!--                                                         <i class="fa fa-star-o"></i> -->
-<!--                                                     </div>                                                  -->
-                                                    <h5>${review.customerId} 
-                                                    <span>${review.buyreviewScore}</span>
-                                                    </h5>
-                                                    <div class="at-reply">${review.buyreviewContent}</div>
-                                                    <input type="hidden" class="reviewcustomerId" value="${review.customerId} ">
-                                                    <input type="hidden" class="buyreviewId" value="${review.buyreviewId} ">
-                                                    <input type="button" id="r-modify" class="site-btn" value="수정">
-                                                    &nbsp
-                                                    <input type="button" id="r-delete" class="site-btn" value="삭제">                                              
-                                                </div>
+                            
+                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                                    <div class="product-content">
+                                        <div class="row">
+                                            <div class="col-lg-7">
+                                                <h5>Introduction</h5>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
+                                                <h5>Features</h5>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
                                             </div>
-                                       </c:forEach>
-                                       </div>
-                                        <div class="leave-comment">
-<!--                                         리뷰입력 -->
-                                            <h4>Leave A Comment</h4>
-                                            
-                                            <form id="reviewForm" action="" class="comment-form">
-                                            	<input type="hidden" id="bookIdInReviewForm" name="bookId" value="${info.bookId}">
-                                                <div class="row">                                             
-                                                    <div class="col-lg-6">
-<!--                                                         <input type="text" placeholder="buyReviewId시퀀스" name="buyreviewId"> -->
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" placeholder="리뷰 점수 입력" id="buyreviewScore" name="buyreviewScore">
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <textarea placeholder="리뷰 내용 입력" id="buyreviewContent" name="buyreviewContent"></textarea>
-                                                        <button type="button" id="review-btn" class="site-btn">리뷰 작성</button>
-                                                        <button type="button" id="update-btn" class="site-btn">리뷰 수정</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            <div class="col-lg-5">
+                                                <img src="resources/img/product-single/tab-desc.jpg" alt="">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
-                </div>
+                </div><!-- tab div end -->
+                
+                
                 </div>
             </div>
         </div>
@@ -305,147 +287,41 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Related Products</h2>
+                        <h2>관련 작품 추천</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
+           <c:forEach items="${relatedBookList}" var="relatedBookList">
+           
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="resources/img/products/women-1.jpg" alt="">
-                            <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
+                            <img src="resources/custom/img/banner/${relatedBookList.bookId }.jpg" alt="">
                             <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                <li class="w-icon active"><a href="/BookStore/productView.do?bookId=${relatedBookList.bookId }"><i class="icon_bag_alt"></i></a></li>
+                                <li class="quick-view"><a href="BookStore/productView.do?bookId=${relatedBookList.bookId }">+ Quick View</a></li>
+                                <li class="w-icon"><a href="/BookStore/productView.do?bookId=${relatedBookList.bookId }"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
+                            <div class="catagory-name">${relatedBookList.bookGenre }</div>
+                            <a href="/BookStore/productView.do?bookId=${relatedBookList.bookId }">
+                                <h5>${relatedBookList.bookName }</h5>
+                                
                             </a>
                             <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
+                                ${relatedBookList.bookSaleprice }                      
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="resources/img/products/women-2.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
-                            <a href="#">
-                                <h5>Guangzhou sweater</h5>
-                            </a>
-                            <div class="product-price">
-                                $13.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="resources/img/products/women-3.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="resources/img/products/women-4.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Converse Shoes</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
+                
             </div>
         </div>
     </div>
     <!-- Related Products Section End -->
-
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
-        <div class="container">
-            <div class="logo-carousel owl-carousel">
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-1.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-2.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-3.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-4.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
     <jsp:include page="/footer.do"></jsp:include>
@@ -462,7 +338,7 @@
 <!--     <script src="js/jquery.slicknav.js"></script> -->
 <!--     <script src="js/owl.carousel.min.js"></script> -->
 <!--     <script src="js/main.js"></script> -->
-	<script src="resources/custom/js/custom_productView.js"></script>
+   <script src="resources/custom/js/custom_productView.js"></script>
 </body>
 
 </html>

@@ -13,4 +13,5 @@ public interface BookDAO {
    public List<BookVO> selectBestSeller();
    public int updateBookSocreByDeletePrevRecord(ReviewVO reviewVO);
    public int updateBookScore(ReviewVO reviewVO);
+   public List<BookVO> selectRelatedBook(BookVO vo);
 }
