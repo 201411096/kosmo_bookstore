@@ -93,6 +93,8 @@ public class CustomerController {
 	public ModelAndView moveToRegister(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/register");
+		if(session.getAttribute("customer")!=null)
+			mv.setViewName("redirect:/main.do");
 		return mv;
 	}
 	// 회원가입
