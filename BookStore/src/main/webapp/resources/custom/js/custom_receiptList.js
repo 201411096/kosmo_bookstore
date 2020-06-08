@@ -1,4 +1,4 @@
-var receiptListData = new Object(); // 왜 안되는지 모름
+var receiptListData = new Object(); // 왜 안되는지 몰랐던 부분이었는데 됨
 $(function(){
 	console.log("custom_receiptList.js 연결 확인");
 	reconstructionViewPage();
@@ -6,7 +6,7 @@ $(function(){
 
 function reconstructionViewPage(){ // 뷰 화면을 재구성
 	getReceiptList();
-	constructReceiptPart(receiptListData); // 왜 안되는지 모름
+	constructReceiptPart(receiptListData); // 왜 안되는지 몰랐던 부분이었는데 됨
 }
 function getReceiptList(){
 	$.ajax({
@@ -17,8 +17,8 @@ function getReceiptList(){
 		dataType : 'json',
 		success : function(resultData){
 			console.log(resultData);
-			receiptListData=resultData;  // 왜 안되는지 모름
-			constructReceiptPart(receiptListData); // 왜 안되는지 모름
+			receiptListData=resultData;  // 왜 안되는지 몰랐던 부분이었는데 됨
+			constructReceiptPart(receiptListData); // 왜 안되는지 몰랐던 부분이었는데 됨
 //			constructReceiptPart(resultData); // 예전 방식
 			
 		},
