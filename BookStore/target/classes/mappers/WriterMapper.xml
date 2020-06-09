@@ -30,6 +30,31 @@
 	ORDER BY WRITER_ID ASC
 	</select>
 	
+<!--    저자출력 : 저자명 + 저자명으로 검색 + 페이징 -->
+	<select id="selectWriterSearchByNameWithPaging" parameterType="hashmap" resultType="writer">
+	<![CDATA[
+	    select *
+	    from (
+			SELECT WRITER_ID, WRITER_NAME
+			FROM writer
+			where REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)')
+			ORDER BY WRITER_ID ASC
+		) where rownum>=#{startRow} and rownum<=#{endRow}
+	]]>
+	</select>
+	<!--    저자출력 : 저자명 + 저자명으로 검색 + 페이징 -->
+	<select id="selectWriterCntByNameWithPaging" parameterType="string" resultType="int">
+	<![CDATA[
+	    select count(*)
+	    from (
+			SELECT WRITER_ID, WRITER_NAME
+			FROM writer
+			where REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)')
+			ORDER BY WRITER_ID ASC
+		)
+	]]>
+	</select>
+	
 	<!-- 수정 -->
 	<update id="updateWriter" parameterType="writer" >
 		UPDATE writer

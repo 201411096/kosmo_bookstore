@@ -1,6 +1,7 @@
 package com.mycompany.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,18 @@ public class WriterDAOImpl implements WriterDAO{
 	@Override
 	public WriterVO selectWriterByWriterId(WriterVO vo) {
 		return mybatis.selectOne("WriterDAO.selectWriterByWriterId", vo);
+	}
+
+
+	@Override
+	public List<WriterVO> selectWriterSearchByNameWithPaging(Map map) {
+		return mybatis.selectList("WriterDAO.selectWriterSearchByNameWithPaging", map);
+	}
+
+
+	@Override
+	public int selectWriterCntByNameWithPaging(String searchWord) {
+		return mybatis.selectOne("WriterDAO.selectWriterCntByNameWithPaging", searchWord);
 	}
 	
 	

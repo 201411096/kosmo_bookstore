@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mycompany.domain.PaginationVO;
 import com.mycompany.domain.WriterVO;
 import com.mycompany.service.WriterServiceImpl;
 
@@ -68,6 +69,31 @@ public class WriterController {
 		writerService.insertWriter(writerVO);
 		mv.setViewName("/admin/admin_writer");
 		return mv;
+	}
+	//페이징처리
+	@RequestMapping(value="/admin/getWriterDataWithPaging.do", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map getWriterDataWithPaging(HttpSession session,  @RequestParam(defaultValue="1") int curPage, @RequestParam(value = "searchWord") String searchWord) {
+		Map result = new HashMap();		
+		//List<WriterVO> writerList =  writerService.selectWriterSearchByName(searchWord);
+		
+		int listCnt = writerService.selectWriterCntByNameWithPaging(searchWord);
+		
+		System.out.println("controller안에서 curPage 확인 : " + curPage);
+		PaginationVO paginationVO = new PaginationVO(listCnt, curPage);
+		Map searchMap = new HashMap();
+		searchMap.put("searchWord", searchWord);
+		searchMap.put("startRow", paginationVO.getStartIndex()+1);
+		searchMap.put("endRow", paginationVO.getStartIndex()+paginationVO.getPageSize());
+		List<WriterVO> writerList = writerService.selectWriterSearchByNameWithPaging(searchMap);
+		result.put("pagination", paginationVO);
+		result.put("writerList", writerList);
+		result.put("writerListSize", writerList.size());
+		System.out.println("controller안에서 writerList 확인 : " + writerList);
+		System.out.println("controller안에서 writerListSize 확인 : " + writerList.size());
+		System.out.println("startRow  확인 : " + paginationVO.getStartIndex()+1);
+		System.out.println("endRow  확인 : " + (paginationVO.getStartIndex()+paginationVO.getPageSize()));
+		return result;
 	}
 
 }

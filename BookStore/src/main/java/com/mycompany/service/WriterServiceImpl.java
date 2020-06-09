@@ -1,6 +1,7 @@
 package com.mycompany.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,18 @@ public class WriterServiceImpl implements WriterService{
 	@Override
 	public WriterVO selectWriterByWriterId(WriterVO vo) {
 		return writerDAO.selectWriterByWriterId(vo);
+	}
+
+
+	@Override
+	public List<WriterVO> selectWriterSearchByNameWithPaging(Map map) {
+		return writerDAO.selectWriterSearchByNameWithPaging(map);
+	}
+
+
+	@Override
+	public int selectWriterCntByNameWithPaging(String searchWord) {
+		return writerDAO.selectWriterCntByNameWithPaging(searchWord);
 	}
 	
 	

@@ -128,4 +128,12 @@ public class AdminController {
 		mv.setViewName("/admin/admin_writer_window");
 		return mv;
 	}
+	
+	// wrtier pagination 테스트
+	@RequestMapping("/admin/admin_writer_pagination.do")
+	public ModelAndView loadTestWriter() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/admin_writer_pagination");
+		return mv;
+	}
 }
