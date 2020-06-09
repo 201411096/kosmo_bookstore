@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 
@@ -18,5 +19,8 @@
 <a href="/BookStore/admin/dashboard.do">admin dash보드로 이동 </a><br>
 <a href="/BookStore/findPassword.do">비밀번호 찾기로 이동 </a>
 
+<script type="text/javascript">
+	
+</script>
 </body>
 </html>
