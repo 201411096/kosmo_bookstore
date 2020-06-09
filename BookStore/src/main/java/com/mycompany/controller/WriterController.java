@@ -47,14 +47,16 @@ public class WriterController {
 	public ModelAndView writerUpdate(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
 		writerService.updateWriter(writerVO);
-		mv.setViewName("/admin/admin_writer");
+		//mv.setViewName("/admin/admin_writer"); 페이징 처리하는 아랫줄로 대체
+		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
 	}
 	@RequestMapping(value="/admin/writerDelete.do")
 	public ModelAndView writerDelete(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
 		writerService.deleteWriter(writerVO);
-		mv.setViewName("/admin/admin_writer");
+//		mv.setViewName("/admin/admin_writer");
+		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
 	}
 	@RequestMapping(value="/admin/loadInsertWriter.do")
@@ -67,7 +69,8 @@ public class WriterController {
 	public ModelAndView writerInsert(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
 		writerService.insertWriter(writerVO);
-		mv.setViewName("/admin/admin_writer");
+//		mv.setViewName("/admin/admin_writer");
+		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
 	}
 	//페이징처리
@@ -75,7 +78,6 @@ public class WriterController {
 	@ResponseBody
 	public Map getWriterDataWithPaging(HttpSession session,  @RequestParam(defaultValue="1") int curPage, @RequestParam(value = "searchWord") String searchWord) {
 		Map result = new HashMap();		
-		//List<WriterVO> writerList =  writerService.selectWriterSearchByName(searchWord);
 		
 		int listCnt = writerService.selectWriterCntByNameWithPaging(searchWord);
 		

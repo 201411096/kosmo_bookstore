@@ -436,7 +436,8 @@ ALTER SEQUENCE SEQUENCE_NAME INCREMENT BY NUMBER;
 SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
 SELECT WRITER_ID_SEQ.NEXTVAL FROM DUAL;
 SELECT WRITER_ID_SEQ.CURRVAL FROM DUAL;
-ALTER SEQUENCE WRITER_ID_SEQ INCREMENT BY 1;
+insert into writer(WRITER_ID, WRITER_NAME) values(WRITER_ID_SEQ.nextval, '´õ¹Ìµ¥ÀÌÅÍ');
+ALTER SEQUENCE WRITER_ID_SEQ INCREMENT BY 11;
 ------------------------------6. sample------------------------------
 select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc;
 select b.* from (select * from book where book_genre = 'LITERATURE' order by book_score/book_scorecount desc) b where rownum=1;
@@ -494,6 +495,7 @@ on bo.book_id = bu.book_id
 inner join buylist bl
 on bu.buylist_id = bl.buylist_id;
 
+
 select sum(buyprice), buy_date
 from (
 select bu.buy_cnt*bo.book_saleprice as buyprice, to_char(bl.buy_date, 'YYMMDD') as buy_date
@@ -508,4 +510,49 @@ group by buy_date;
 		update CUSTOMER
 		SET CUSTOMER_PASSWORD = '2345'
 		WHERE CUSTOMER_EMAIL = 'korea5781@naver.com' and
-			  CUSTOMER_ID = 'bbb'
+			  CUSTOMER_ID = 'bbb';
+              
+	SELECT WRITER_ID, WRITER_NAME
+	FROM writer
+	where REGEXP_LIKE (WRITER_NAME, '(*)'|| '±è' ||'(*)')
+	ORDER BY WRITER_ID ASC;
+    
+    select *
+    from (
+    SELECT WRITER_ID, WRITER_NAME
+	FROM writer
+	where REGEXP_LIKE (WRITER_NAME, '(*)'|| '±è' ||'(*)')
+	ORDER BY WRITER_ID ASC
+            ) where rownum>=1 and rownum<=10;
+
+    select count(*)
+    from (
+    SELECT WRITER_ID, WRITER_NAME
+	FROM writer
+	where REGEXP_LIKE (WRITER_NAME, '(*)'|| '±è' ||'(*)')
+	ORDER BY WRITER_ID ASC
+            );    
+        select *
+	    from (
+			SELECT rownum as rnum, WRITER_ID, WRITER_NAME
+			FROM writer
+			where REGEXP_LIKE (WRITER_NAME, '(*)'||''||'(*)')
+			ORDER BY WRITER_ID ASC
+		) where rnum>=11 and rnum<=20;
+        
+        select writer_id, writer_name, rownum
+        from
+        (			SELECT WRITER_ID, WRITER_NAME
+			FROM writer
+			where REGEXP_LIKE (WRITER_NAME, '(*)'||''||'(*)')
+			ORDER BY WRITER_ID ASC );
+            
+        select writer_id, writer_name
+        from (select writer_id, writer_name, rownum
+        from
+        (			SELECT WRITER_ID, WRITER_NAME
+			FROM writer
+			where REGEXP_LIKE (WRITER_NAME, '(*)'||''||'(*)')
+			ORDER BY WRITER_ID ASC ) )
+        where rownum>=11 and rownum<=20;
+        
