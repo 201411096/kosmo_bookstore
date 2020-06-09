@@ -4,10 +4,15 @@ $(function(){
 	$(document).on("click",".btn-primary", selectBtnEvent);
 });
 
+//function selectBtnEvent(){
+//	console.log( $(this).parent().prev().prev().text() );
+//	console.log( $(this).parent().prev().text() );
+//	$(this).next().submit();
+//}
 function selectBtnEvent(){
 	console.log( $(this).parent().prev().prev().text() );
 	console.log( $(this).parent().prev().text() );
-	$(this).next().submit();
+	
 }
 
 function getWriterData(){

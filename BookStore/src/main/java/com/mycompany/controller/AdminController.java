@@ -120,4 +120,12 @@ public class AdminController {
 		mv.setViewName("/admin/admin_product");
 		return mv;
 	}
+	
+	// 검색 window창 테스트
+	@RequestMapping("/admin/admin_writer_window.do")
+	public ModelAndView loadAdminWindowWriter() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/admin_writer_window");
+		return mv;
+	}
 }

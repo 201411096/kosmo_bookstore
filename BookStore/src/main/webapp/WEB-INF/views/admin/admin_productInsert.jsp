@@ -174,6 +174,7 @@
     <script src="../resources/adminTemplate/assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../resources/adminTemplate/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../resources/adminTemplate/dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="../resources/custom/js/admin_productInsert.js"></script>
     
 </body>
 

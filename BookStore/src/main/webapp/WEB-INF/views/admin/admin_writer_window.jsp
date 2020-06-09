@@ -27,14 +27,6 @@
 </head>
 
 <body>
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
-        <div class="page-wrapper">
             <div class="container-fluid">
 				<div class="row">
 					<div class="col-12">
@@ -45,6 +37,7 @@
 				                  <input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="검색어를 입력하세요">
 				               </div>
 							</form>
+							<br>
 							<div class="table-responsive">
 								<table id="writerDataTable" class="table">
 									<thead>
@@ -61,30 +54,6 @@
 					</div>
 				</div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid 메인 부분 끝  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Nice admin. Designed and Developed by
-                <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../resources/adminTemplate/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../resources/adminTemplate/assets/libs/popper.js/dist/umd/popper.min.js"></script>
