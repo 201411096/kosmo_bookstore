@@ -17,6 +17,7 @@
 		<link href="../resources/adminTemplate/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
 		<link href="../resources/adminTemplate/dist/css/style.min.css" rel="stylesheet">
+		<link href="../resources/custom/css/admin_writer.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,7 +87,30 @@
             <!-- Container fluid 메인 부분 시작  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-				
+				<div class="row">
+					<div class="col-12">
+						<div class="card-body">
+							<form class="col-lg-12 col-md-12" action="#">
+				               <div>
+				                  <input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="검색어를 입력하세요">
+				               </div>
+							</form>
+							<br>
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">저자번호</th>
+											<th scope="col">저자이름</th>
+										</tr>
+									</thead>
+									<tbody id="writerTable">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid 메인 부분 끝  -->
@@ -129,6 +153,8 @@
     <script src="../resources/adminTemplate/assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../resources/adminTemplate/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../resources/adminTemplate/dist/js/pages/dashboards/dashboard1.js"></script>
+    
+    <script src="../resources/custom/js/admin_writer.js"></script>
 </body>
 
 </html>

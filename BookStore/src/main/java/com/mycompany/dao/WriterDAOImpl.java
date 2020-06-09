@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.mycompany.domain.WriterVO;
 
 @Repository("writerDAO")
-public class WriterDAOImpl {
+public class WriterDAOImpl implements WriterDAO{
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
@@ -21,7 +21,7 @@ public class WriterDAOImpl {
 	}
 
 
-	public List<WriterVO> selectWirter(WriterVO vo) {
+	public List<WriterVO> selectWriter(WriterVO vo) {
 		List<WriterVO> writer = mybatis.selectList("WriterDAO.selectWriter", vo);
 		return writer;
 	}
@@ -37,4 +37,12 @@ public class WriterDAOImpl {
 		int result = mybatis.delete("WriterDAO.deleteWriter", vo);
 		return result;
 	}
+
+
+	@Override
+	public List<WriterVO> selectWriterSearchByName(String searchWord) {
+		return mybatis.selectList("WriterDAO.selectWriterSearchByName", searchWord);
+	}
+	
+	
 }

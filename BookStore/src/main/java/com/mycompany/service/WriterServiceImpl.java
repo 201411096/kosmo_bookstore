@@ -9,7 +9,7 @@ import com.mycompany.dao.WriterDAOImpl;
 import com.mycompany.domain.WriterVO;
 
 @Service("writerService")
-public class WriterServiceImpl {
+public class WriterServiceImpl implements WriterService{
 	
 	@Autowired
 	private WriterDAOImpl writerDAO;
@@ -21,10 +21,8 @@ public class WriterServiceImpl {
 
 
 	public List<WriterVO> selectWriter(WriterVO vo) {
-		return writerDAO.selectWirter(vo);
-		
+		return writerDAO.selectWriter(vo);	
 	}
-
 
 	public int updateWriter(WriterVO vo) {
 		return writerDAO.updateWriter(vo);
@@ -34,6 +32,8 @@ public class WriterServiceImpl {
 		return writerDAO.deleteWriter(vo);
 	}
 
-
-
+	@Override
+	public List<WriterVO> selectWriterSearchByName(String searchWord) {
+		return writerDAO.selectWriterSearchByName(searchWord);
+	}
 }

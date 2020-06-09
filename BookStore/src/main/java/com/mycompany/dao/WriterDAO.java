@@ -11,4 +11,5 @@ public interface WriterDAO {
 	public List<WriterVO> selectWriter(WriterVO vo);
 	public int updateWriter(WriterVO vo);
 	public int deleteWriter(WriterVO vo);
+	public List<WriterVO> selectWriterSearchByName(String searchWord);
 }

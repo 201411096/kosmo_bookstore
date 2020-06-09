@@ -16,6 +16,13 @@
 	FROM writer
 	ORDER BY WRITER_ID ASC
 	</select>
+	<!--    저자출력 : 저자명 + 저자명으로 검색 -->
+	<select id="selectWriterSearchByName" parameterType="string" resultType="writer">
+	SELECT WRITER_ID, WRITER_NAME
+	FROM writer
+	where REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)')
+	ORDER BY WRITER_ID ASC
+	</select>
 	
 	<!-- 수정 -->
 	<update id="updateWriter" parameterType="writer" >
