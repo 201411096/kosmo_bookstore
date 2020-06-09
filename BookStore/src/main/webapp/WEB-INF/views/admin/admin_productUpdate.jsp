@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
     <meta charset="utf-8">
@@ -102,14 +103,20 @@
 								<div class="form-group">
 									<label> 제품 이름</label> <input type="text" class="form-control" name="bookName" value="${bookVO.bookName }">
 								</div>
-<%-- 								<fmt:parseDate value='${bookVO.bookPdate}' var='trading_day' pattern='yyyymmdd'/> --%>
-<%-- 								<fmt:formatDate var="fmtDate" value="${trading_day}" pattern="yyyy.mm.dd"/> --%>
 								<div class="form-group">
 									<label> 출간일</label> <input type="date" class="form-control" name="bookPdate" value="${bookVO.bookPdate }">
-								</div>
-																
+								</div>							
 								<div class="form-group">
-									<label> 장르</label> <input type="text" class="form-control" name="bookGenre" value="${bookVO.bookGenre }">
+									<label> 장르</label>  
+									<select class="custom-select col-12" id="inlineFormCustomSelect" name="bookGenre">
+                                        <option >Choose...</option>
+                                        <option value="ART" <c:if test="${bookVO.bookGenre eq 'ART' }">selected</c:if> > ART</option>
+                                        <option value="LITERATURE" <c:if test="${bookVO.bookGenre eq 'LITERATURE' }">selected</c:if> >LITERATURE</option>
+                                        <option value="ECONOMIC" <c:if test="${bookVO.bookGenre eq 'ECONOMIC' }">selected</c:if> >ECONOMIC</option>
+                                        <option value="HISTORY" <c:if test="${bookVO.bookGenre eq 'HISTORY' }">selected</c:if> >HISTORY</option>
+                                        <option value="SOCIAL" <c:if test="${bookVO.bookGenre eq 'SOCIAL' }">selected</c:if> >SOCIAL</option>
+                                        <option value="TECHNOLOGY" <c:if test="${bookVO.bookGenre eq 'TECHNOLOGY' }">selected</c:if> >TECHNOLOGY</option>
+                                    </select>
 								</div>
 								<div class="form-group">
 									<label> 상품 원가</label> <input type="text" class="form-control" name="bookPrice" value="${bookVO.bookPrice }">

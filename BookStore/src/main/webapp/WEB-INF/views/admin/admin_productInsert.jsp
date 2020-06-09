@@ -104,7 +104,16 @@
 									<label> 출간일</label> <input type="date" class="form-control" name="bookPdate" value="${bookVO.bookPdate }">
 								</div>
 								<div class="form-group">
-									<label> 장르</label> <input type="text" class="form-control" name="bookGenre" value="">
+									<label> 장르</label>  
+									<select class="custom-select col-12" id="inlineFormCustomSelect" name="bookGenre">
+                                        <option >Choose...</option>
+                                        <option value="ART"> ART</option>
+                                        <option value="LITERATURE">LITERATURE</option>
+                                        <option value="ECONOMIC">ECONOMIC</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="SOCIAL">SOCIAL</option>
+                                        <option value="TECHNOLOGY">TECHNOLOGY</option>
+                                    </select>
 								</div>
 								<div class="form-group">
 									<label> 상품 원가</label> <input type="text" class="form-control" name="bookPrice" value="">
