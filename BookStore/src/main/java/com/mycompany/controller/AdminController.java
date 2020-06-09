@@ -103,4 +103,21 @@ public class AdminController {
 		mv.setViewName("/admin/admin_product");
 		return mv;
 	}
+	@RequestMapping(value="/admin/loadProductUpdatePage.do")
+	public ModelAndView loadWriterUpdatePage(HttpSession session, int bookId) {
+		ModelAndView mv = new ModelAndView();
+		BookVO bookVO = new BookVO();
+		bookVO.setBookId(bookId);
+		bookVO = (BookVO)bookService.selectBook(bookVO);
+		mv.addObject("bookVO", bookVO);
+		mv.setViewName("/admin/admin_productUpdate");
+		return mv;
+	}
+	@RequestMapping(value="/admin/productUpdatePage.do")
+	public ModelAndView writerUpdate(HttpSession session, BookVO bookVO) {
+		ModelAndView mv = new ModelAndView();
+		adminService.updateProduct(bookVO);
+		mv.setViewName("/admin/admin_product");
+		return mv;
+	}
 }

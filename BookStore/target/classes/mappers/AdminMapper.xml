@@ -28,7 +28,8 @@
 
 	<!-- 상품수정 : 책번호/저자번호/상품명/출간일/장르/상품원가/상품정가/수량 -->
 	<update id="updateProduct" parameterType="book">
-		UPDATE
+		UPDATE book
+		SET
 		writer_id=#{writerId}, book_price=#{bookPrice},
 		book_name=#{bookName},
 		book_genre=#{bookGenre},
@@ -36,7 +37,6 @@
 		book_pdate=#{bookPdate},
 		BOOK_SALEPRICE=#{bookSaleprice},
 		BOOK_CNT=#{bookCnt}
-		SET book
 		WHERE(book_id=#{bookId})
 	</update>
 
