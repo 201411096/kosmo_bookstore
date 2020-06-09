@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +24,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 
 <body>
+	
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -100,9 +102,12 @@
 								<div class="form-group">
 									<label> 제품 이름</label> <input type="text" class="form-control" name="bookName" value="${bookVO.bookName }">
 								</div>
+<%-- 								<fmt:parseDate value='${bookVO.bookPdate}' var='trading_day' pattern='yyyymmdd'/> --%>
+<%-- 								<fmt:formatDate var="fmtDate" value="${trading_day}" pattern="yyyy.mm.dd"/> --%>
 								<div class="form-group">
-									<label> 출간일</label> <input type="text" class="form-control" name="bookPdate" value="${bookVO.bookPdate }">
+									<label> 출간일</label> <input type="date" class="form-control" name="bookPdate" value="${bookVO.bookPdate }">
 								</div>
+																
 								<div class="form-group">
 									<label> 장르</label> <input type="text" class="form-control" name="bookGenre" value="${bookVO.bookGenre }">
 								</div>

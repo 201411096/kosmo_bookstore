@@ -101,7 +101,7 @@
 									<label> 제품 이름</label> <input type="text" class="form-control" name="bookName" value="">
 								</div>
 								<div class="form-group">
-									<label> 출간일</label> <input type="text" class="form-control" name="bookPdate" value="">
+									<label> 출간일</label> <input type="date" class="form-control" name="bookPdate" value="${bookVO.bookPdate }">
 								</div>
 								<div class="form-group">
 									<label> 장르</label> <input type="text" class="form-control" name="bookGenre" value="">
