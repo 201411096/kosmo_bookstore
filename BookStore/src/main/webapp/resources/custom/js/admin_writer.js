@@ -44,8 +44,8 @@ function drawWriterTable(data){
 	var trSuffix = '</tr>';
 	var tdPrefix = '<td>';
 	var tdSuffix = '</td>';
-	var buttonUpdate = '<button class="btn btn-primary">UPDATE</button>';
-	var buttonDelete = '<button class="btn btn-warning">DELETE</button>';
+	var buttonUpdate = '<button class="btn btn-primary">수정</button>';
+	var buttonDelete = '<button class="btn btn-warning">삭제</button>';
 	var inputtypehiddenPrefix = '<input type="hidden" name="writerId" value="';
 	var inputtypehiddenSuffix = '">';
 	for(var i=0; i<data.writerListSize; i++){

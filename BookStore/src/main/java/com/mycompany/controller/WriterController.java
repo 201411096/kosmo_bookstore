@@ -120,8 +120,20 @@ public class WriterController {
 	@RequestMapping(value="/admin/writerDelete.do")
 	public ModelAndView writerDelete(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("writerController writerVO writer ID 확인" + writerVO.getWriterId());
 		writerService.deleteWriter(writerVO);
+		mv.setViewName("/admin/admin_writer");
+		return mv;
+	}
+	@RequestMapping(value="/admin/loadInsertWriter.do")
+	public ModelAndView writerInsertPage(HttpSession session, WriterVO writerVO) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/admin_writerInsert");
+		return mv;
+	}
+	@RequestMapping(value="/admin/insertWriter.do")
+	public ModelAndView writerInsert(HttpSession session, WriterVO writerVO) {
+		ModelAndView mv = new ModelAndView();
+		writerService.insertWriter(writerVO);
 		mv.setViewName("/admin/admin_writer");
 		return mv;
 	}
