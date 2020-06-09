@@ -35,11 +35,11 @@
 	<![CDATA[
 	    select *
 	    from (
-			SELECT WRITER_ID, WRITER_NAME
+			SELECT WRITER_ID, WRITER_NAME, ROWNUM AS RNUM
 			FROM writer
 			where REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)')
 			ORDER BY WRITER_ID ASC
-		) where rownum>=#{startRow} and rownum<=#{endRow}
+		) where RNUM>=#{startRow} and RNUM<=#{endRow}
 	]]>
 	</select>
 	<!--    저자출력 : 저자명 + 저자명으로 검색 + 페이징 -->
