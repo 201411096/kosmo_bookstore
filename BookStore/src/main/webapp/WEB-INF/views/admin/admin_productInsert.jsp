@@ -64,7 +64,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">writer</h4>
+                        <h4 class="page-title">book</h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
@@ -73,7 +73,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="#">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">writer</li>
+                                    <li class="breadcrumb-item active" aria-current="page">book</li>
                                 </ol>
                             </nav>
                         </div>
@@ -90,12 +90,33 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="card-body">
-							<form id="writerUpdate" action="/BookStore/admin/insertWriter.do">
+							<form id="writerUpdate" action="/BookStore/admin/insertProduct.do">
 								<div class="form-group">
-									<label> 저자 번호</label> <input type="text" class="form-control" name="writerId" value="" placeholder="-----" disabled>
+									<label> 제품 번호</label> <input type="text" class="form-control" name="bookId" value="" placeholder="-----" disabled>
 								</div>
 								<div class="form-group">
-									<label> 저자 이름</label> <input type="text" class="form-control" name="writerName" value="">
+									<label> 저자 번호</label> <input type="text" class="form-control" name="writerId" value="">
+								</div>
+								<div class="form-group">
+									<label> 제품 이름</label> <input type="text" class="form-control" name="bookName" value="">
+								</div>
+								<div class="form-group">
+									<label> 출간일</label> <input type="text" class="form-control" name="bookPdate" value="">
+								</div>
+								<div class="form-group">
+									<label> 장르</label> <input type="text" class="form-control" name="bookGenre" value="">
+								</div>
+								<div class="form-group">
+									<label> 상품 원가</label> <input type="text" class="form-control" name="bookPrice" value="">
+								</div>
+								<div class="form-group">
+									<label> 상품 정가</label> <input type="text" class="form-control" name="bookSaleprice" value="">
+								</div>
+								<div class="form-group">
+								<label> 도서 내용</label><textarea class="form-control" name="bookStory" rows="5"></textarea>
+								</div>
+								<div class="form-group">
+									<label> 수량 </label> <input type="text" class="form-control" name="bookCnt" value="">
 								</div>
 								<button class="btn btn-info">등록</button>
 							</form>

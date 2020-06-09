@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
 import com.mycompany.domain.WriterVO;
+import com.mycompany.service.AdminServiceImpl;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.WriterServiceImpl;
 
@@ -29,6 +30,8 @@ public class AdminController {
 	WriterServiceImpl writerService;
 	@Autowired
 	BookServiceImpl bookService;
+	@Autowired
+	AdminServiceImpl adminService;
 	
 	@RequestMapping("/admin/dashboard.do")
 	public ModelAndView moveToAdminDashboard(HttpSession session) {
@@ -77,5 +80,27 @@ public class AdminController {
 		result.put("bookList", bookList);
 		result.put("bookListSize", bookList.size());
 		return result;
+	}
+	@RequestMapping(value="/admin/loadInsertProduct.do")
+	public ModelAndView prodcutInsertPage(HttpSession session, BookVO bookVO) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/admin_productInsert");
+		return mv;
+	}
+	@RequestMapping(value="/admin/insertProduct.do")
+	public ModelAndView productInsert(HttpSession session, BookVO bookVO) {
+		ModelAndView mv = new ModelAndView();
+		
+		//제품 등록해야되는 부분
+		adminService.insertProduct(bookVO);
+		mv.setViewName("/admin/admin_product");
+		return mv;
+	}
+	@RequestMapping(value="/admin/productDelete.do")
+	public ModelAndView writerDelete(HttpSession session, BookVO bookVO) {
+		ModelAndView mv = new ModelAndView();
+		adminService.deleteProduct(bookVO);
+		mv.setViewName("/admin/admin_product");
+		return mv;
 	}
 }

@@ -98,7 +98,7 @@
 							</form>
 							<br>
 							<div id="productInfoButtonContainer">
-								<form action="#">
+								<form action="/BookStore/admin/loadInsertProduct.do">
 									<button type="submit" class="btn btn-info">제품등록</button>
 								</form>
 							</div>

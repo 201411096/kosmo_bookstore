@@ -9,9 +9,9 @@
 	<!-- 상품등록 : 도서번호/저자번호/도매가/도서명/장르/줄거리/출간일/소매가/수량 -->
 	<insert id="insertProduct" parameterType="book">
 		INSERT INTO book
-		(BOOK_ID,WRITER_ID,BOOK_PRICE,BOOK_NAME,BOOK_GENRE,BOOK_STORY,BOOK_PDATE,BOOK_SALEPRICE,BOOK_CNT)
+		(BOOK_ID,WRITER_ID,BOOK_PRICE,BOOK_NAME,BOOK_GENRE,BOOK_STORY,BOOK_PDATE,BOOK_SALEPRICE,BOOK_CNT , BOOK_SCORE, BOOK_SCORECOUNT )
 		VALUES
-		(book_id_seq.nextval,#{writerId},#{bookPrice},#{bookName},#{bookGenre},#{bookStory},#{bookPdate},#{bookSaleprice},#{bookCnt})
+		(book_id_seq.nextval,#{writerId},#{bookPrice},#{bookName},#{bookGenre},#{bookStory},#{bookPdate},#{bookSaleprice},#{bookCnt}, 0, 1)
 	</insert>
 
 	<!-- 상품출력 : 상품번호/상품명/장르/상품원가/상품정가/수량 -->
