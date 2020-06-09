@@ -97,11 +97,13 @@
 							</form>
 							<br>
 							<div class="table-responsive">
-								<table class="table">
+								<table id="writerDataTable" class="table">
 									<thead>
 										<tr>
 											<th scope="col">저자번호</th>
 											<th scope="col">저자이름</th>
+											<th scope="col">수정</th>
+											<th scope="col">삭제</th>
 										</tr>
 									</thead>
 									<tbody id="writerTable">

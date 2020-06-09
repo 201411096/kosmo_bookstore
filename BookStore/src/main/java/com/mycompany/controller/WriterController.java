@@ -93,13 +93,9 @@ public class WriterController {
 	@RequestMapping(value="/admin/getWriterData.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getWriterData(HttpSession session, @RequestParam(value = "searchWord") String searchWord) {
-		Map result = new HashMap();
-		
+		Map result = new HashMap();		
 		List<WriterVO> writerList =  writerService.selectWriterSearchByName(searchWord);
 		
-		for(int i=0; i<writerList.size(); i++) {
-			System.out.println(writerList.get(i).getWriterName());
-		}
 		result.put("writerList", writerList);
 		result.put("writerListSize", writerList.size());
 		return result;
