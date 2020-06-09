@@ -109,8 +109,9 @@
                               <a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a>
                               <a href="buyList.do" class="primary-btn checkout-btn">CHECK OUT</a>
                               <br>
-                              <a href="/BookStore/ajax_tendencyGraph.do" class="primary-btn view-card">TENDENCY GRAPH</a>
-                              <a href="/BookStore/receiptList.do" class="primary-btn checkout-btn">RECEIPT</a>
+<!--                               <a href="/BookStore/ajax_tendencyGraph.do" class="primary-btn view-card">TENDENCY GRAPH</a> -->
+<!--                               <a href="/BookStore/receiptList.do" class="primary-btn checkout-btn">RECEIPT</a> -->
+								<a href="/BookStore/receiptList.do" class="primary-btn view-card">RECEIPT</a>
                                  
                            </div>
                         </div></li>

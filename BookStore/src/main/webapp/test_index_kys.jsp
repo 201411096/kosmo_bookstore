@@ -15,7 +15,7 @@
 <a href="/BookStore/contact.do">지도 호출</a><br>
 <a href="/BookStore/ajax_tendencyGraph.do">ajax 그래프 페이지 호출</a><br>
 <a href="/BookStore/receiptList.do">영수증 목록 리스트 이동</a><br>
-<a href="/BookStore/admin/dashboard.do">admin dash보드로 이동 </a>
+<a href="/BookStore/admin/dashboard.do">admin dash보드로 이동 </a><br>
 <a href="/BookStore/findPassword.do">비밀번호 찾기로 이동 </a>
 </body>
 </html>
