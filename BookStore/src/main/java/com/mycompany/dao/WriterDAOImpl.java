@@ -43,6 +43,14 @@ public class WriterDAOImpl implements WriterDAO{
 	public List<WriterVO> selectWriterSearchByName(String searchWord) {
 		return mybatis.selectList("WriterDAO.selectWriterSearchByName", searchWord);
 	}
+
+
+	@Override
+	public WriterVO selectWriterByWriterId(WriterVO vo) {
+		return mybatis.selectOne("WriterDAO.selectWriterByWriterId", vo);
+	}
+	
+	
 	
 	
 }

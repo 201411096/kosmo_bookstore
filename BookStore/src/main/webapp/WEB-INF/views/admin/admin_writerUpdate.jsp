@@ -90,26 +90,15 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="card-body">
-							<form class="col-lg-12 col-md-12" action="#">
-				               <div>
-				                  <input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="검색어를 입력하세요">
-				               </div>
+							<form id="writerUpdate" action="/BookStore/admin/writerUpdatePage.do">
+								<div class="form-group">
+									<label> 저자 번호</label> <input type="text" class="form-control" name="writerId" value="${writerVO.writerId}" readonly>
+								</div>
+								<div class="form-group">
+									<label> 저자 이름</label> <input type="text" class="form-control" name="writerName" value="${writerVO.writerName}">
+								</div>
+								<button class="btn btn-primary">UPDATE</button>
 							</form>
-							<br>
-							<div class="table-responsive">
-								<table id="writerDataTable" class="table">
-									<thead>
-										<tr>
-											<th scope="col">저자번호</th>
-											<th scope="col">저자이름</th>
-											<th scope="col">수정</th>
-											<th scope="col">삭제</th>
-										</tr>
-									</thead>
-									<tbody id="writerTable">
-									</tbody>
-								</table>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -156,7 +145,6 @@
     <script src="../resources/adminTemplate/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../resources/adminTemplate/dist/js/pages/dashboards/dashboard1.js"></script>
     
-    <script src="../resources/custom/js/admin_writer.js"></script>
 </body>
 
 </html>

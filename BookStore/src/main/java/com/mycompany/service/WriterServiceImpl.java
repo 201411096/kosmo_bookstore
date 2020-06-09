@@ -36,4 +36,12 @@ public class WriterServiceImpl implements WriterService{
 	public List<WriterVO> selectWriterSearchByName(String searchWord) {
 		return writerDAO.selectWriterSearchByName(searchWord);
 	}
+
+
+	@Override
+	public WriterVO selectWriterByWriterId(WriterVO vo) {
+		return writerDAO.selectWriterByWriterId(vo);
+	}
+	
+	
 }

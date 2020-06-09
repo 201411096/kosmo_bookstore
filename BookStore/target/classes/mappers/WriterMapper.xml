@@ -10,6 +10,12 @@
 	VALUES(writer_id_seq.nextval, #{writerName})
 	</insert>
 	
+	<select id="selectWriterByWriterId" parameterType="writer" resultType="writer">
+	SELECT WRITER_ID, WRITER_NAME
+	FROM writer
+	WHERE WRITER_ID=#{writerId}
+	</select>
+	
 	<!--    저자출력 : 저자명 -->
 	<select id="selectWriter" parameterType="writer" resultType="writer">
 	SELECT WRITER_ID, WRITER_NAME

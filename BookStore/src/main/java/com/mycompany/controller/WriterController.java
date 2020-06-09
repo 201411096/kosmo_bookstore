@@ -105,9 +105,16 @@ public class WriterController {
 		ModelAndView mv = new ModelAndView();
 		WriterVO writerVO = new WriterVO();
 		writerVO.setWriterId(writerId);
-		writerVO = (WriterVO)writerService.selectWriter(writerVO);
+		writerVO = (WriterVO)writerService.selectWriterByWriterId(writerVO);
 		mv.addObject("writerVO", writerVO);
 		mv.setViewName("/admin/admin_writerUpdate");
+		return mv;
+	}
+	@RequestMapping(value="/admin/writerUpdatePage.do")
+	public ModelAndView writerUpdate(HttpSession session, WriterVO writerVO) {
+		ModelAndView mv = new ModelAndView();
+		writerService.updateWriter(writerVO);
+		mv.setViewName("/admin/admin_writer");
 		return mv;
 	}
 
