@@ -38,6 +38,7 @@ function getWriterData(){
 function drawWriterTable(data){
 	$('#writerTable').empty();
 	var formPrefix1 = '<form action="/BookStore/admin/loadWriterUpdatePage.do">';
+	var formPrefix2 = '<form action="/BookStore/admin/writerDelete.do">';
 	var formSuffix = '</form>';
 	var trPrefix = '<tr>';
 	var trSuffix = '</tr>';
@@ -56,7 +57,7 @@ function drawWriterTable(data){
 						  formPrefix1 + inputtypehiddenPrefix + data.writerList[i].writerId + inputtypehiddenSuffix + formSuffix +
 						  tdSuffix +
 						  tdPrefix + buttonDelete + 
-						  formPrefix1 + inputtypehiddenPrefix + data.writerList[i].writerId + inputtypehiddenSuffix + formSuffix +
+						  formPrefix2 + inputtypehiddenPrefix + data.writerList[i].writerId + inputtypehiddenSuffix + formSuffix +
 						  tdSuffix +
 						  trSuffix		  
 						  ;
