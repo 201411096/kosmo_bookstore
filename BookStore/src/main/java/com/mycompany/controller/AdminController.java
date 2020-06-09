@@ -38,4 +38,10 @@ public class AdminController {
 		mv.setViewName("/admin/topbar");
 		return mv;
 	}
+	@RequestMapping("/admin/writer.do")
+	public ModelAndView loadAdminWriter() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/admin_writer");
+		return mv;
+	}
 }
