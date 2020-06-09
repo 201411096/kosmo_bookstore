@@ -100,6 +100,15 @@ public class WriterController {
 		result.put("writerListSize", writerList.size());
 		return result;
 	}
-	
+	@RequestMapping(value="/admin/loadWriterUpdatePage.do")
+	public ModelAndView loadWriterUpdatePage(HttpSession session, int writerId) {
+		ModelAndView mv = new ModelAndView();
+		WriterVO writerVO = new WriterVO();
+		writerVO.setWriterId(writerId);
+		writerVO = (WriterVO)writerService.selectWriter(writerVO);
+		mv.addObject("writerVO", writerVO);
+		mv.setViewName("/admin/admin_writerUpdate");
+		return mv;
+	}
 
 }
