@@ -75,7 +75,7 @@
     <!-- Banner Section Begin -->
     <section class="banner spad">
     <div class="banner-section spad">
-        &nbsp;&nbsp;&nbsp;<h2 id="bannerTitle"><a href="#">화제의 책</a></h2>
+        &nbsp;&nbsp;&nbsp;<h2 id="bannerTitle"><a href="#">신간도서</a></h2>
         <div class="container-fluidBorder">
         <div class="container-fluid">
             <div class="row">
