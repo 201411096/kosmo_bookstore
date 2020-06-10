@@ -140,23 +140,21 @@ public class AdminController {
 	
 	@RequestMapping(value="/admin/getSalesDataWithOptions",  produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public Map getSalesDataWithOptions(HttpSession session, @RequestParam(defaultValue = "3") int option, @RequestParam(defaultValue = "10") int chartDataCnt) {
+	public Map getSalesDataWithOptions(HttpSession session, @RequestParam(defaultValue = "3") int option, @RequestParam(defaultValue = "100") int chartDataCnt) {
 		Map result = new HashMap();
 		Map searchMap = new HashMap();
 		searchMap.put("selectOption", Sales.getInstance().changeIntOptionToString(option)); //검색 옵션을 넣음(연도, 월별, 일별)
 		List<Map> salesList = adminService.selectSalesWithOptions(searchMap);
-		result.put("salesList", salesList);
-		result.put("salesListSize", salesList.size());
+		result.put("salesList", salesList); //사용하지 않음(테스트용)
+		result.put("salesListSize", salesList.size()); //사용하지 않음(테스트용)
 		
-		//salesList를 연도별로 가져왔으면 10개 월별로 가져왔으면 
 		List<Map> reducedSalesList = new ArrayList<Map>();
 		for(int i=0; i<chartDataCnt; i++) {
-			if(salesList.size()==chartDataCnt) {
-				break;
+			if(salesList.size()>i) { // 원하는 차트 데이터보다 데이터가 적을 경우 생기는 문제를 막음
+				reducedSalesList.add(salesList.get(salesList.size()-i-1)); // 원하는 데이터가 60개 (41~100), 가져온 데이터가 100개(1~100) 일때  (1~60)이 아닌 (41~100)을 가져오기 위해 처리
 			}	
-			reducedSalesList.add(salesList.get(i));
-		}
-		
+			
+		}		
 		result.put("reducedSalesList", reducedSalesList);
 		result.put("reducedSalesListSize", reducedSalesList.size());
 		return result;

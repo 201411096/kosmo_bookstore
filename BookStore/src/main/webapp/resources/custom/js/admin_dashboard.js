@@ -31,14 +31,15 @@ function makeAjaxChartData(resultData){
 	var lineChartData = new Array();
 	var mainColor = "rgba(75,192,192,1)";
 	var subColor = "rgba(75,192,192,0.4)";
+//	for(var i=0; i< resultData.salesListSize; i++){
+//	dataLabels.push(resultData.salesList[i].BUYDATE);
+//	lineChartData.push(resultData.salesList[i].BUYPRICE);
+//}
 	for(var i=0; i< resultData.reducedSalesListSize; i++){
 		dataLabels.push(resultData.reducedSalesList[i].BUYDATE);
 		lineChartData.push(resultData.reducedSalesList[i].BUYPRICE);
 	}
-//	for(var i=0; i< resultData.salesListSize; i++){
-//		dataLabels.push(resultData.salesList[i].BUYDATE);
-//		lineChartData.push(resultData.salesList[i].BUYPRICE);
-//	}
+
 	var chartData ={
 		      labels : dataLabels,
 		      datasets : [
