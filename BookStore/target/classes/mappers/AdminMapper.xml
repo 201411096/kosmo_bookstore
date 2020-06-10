@@ -98,6 +98,7 @@
 	)
 	group by
 	buy_date
+	order by buyDate desc
 	</select>
 
 </mapper>

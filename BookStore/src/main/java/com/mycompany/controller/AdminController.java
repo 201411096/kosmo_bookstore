@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
-import com.mycompany.domain.WriterVO;
 import com.mycompany.service.AdminServiceImpl;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.WriterServiceImpl;
@@ -140,13 +140,25 @@ public class AdminController {
 	
 	@RequestMapping(value="/admin/getSalesDataWithOptions",  produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public Map getSalesDataWithOptions(HttpSession session, @RequestParam(defaultValue = "5") int option) {
+	public Map getSalesDataWithOptions(HttpSession session, @RequestParam(defaultValue = "3") int option, @RequestParam(defaultValue = "10") int chartDataCnt) {
 		Map result = new HashMap();
 		Map searchMap = new HashMap();
 		searchMap.put("selectOption", Sales.getInstance().changeIntOptionToString(option)); //검색 옵션을 넣음(연도, 월별, 일별)
 		List<Map> salesList = adminService.selectSalesWithOptions(searchMap);
 		result.put("salesList", salesList);
 		result.put("salesListSize", salesList.size());
+		
+		//salesList를 연도별로 가져왔으면 10개 월별로 가져왔으면 
+		List<Map> reducedSalesList = new ArrayList<Map>();
+		for(int i=0; i<chartDataCnt; i++) {
+			if(salesList.size()==chartDataCnt) {
+				break;
+			}	
+			reducedSalesList.add(salesList.get(i));
+		}
+		
+		result.put("reducedSalesList", reducedSalesList);
+		result.put("reducedSalesListSize", reducedSalesList.size());
 		return result;
 	}
 }

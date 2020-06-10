@@ -1,12 +1,15 @@
 var chartData;
-var chartOptions = {responsive: false};
+var chartOptions = {
+						//responsive: false,
+						maintainAspectRatio : false //부모가 만든 크기 안에 꽉 차게 함(default 값: true)
+					};
 $(function(){
 	makeChartAjax();
 	setInterval(makeChartAjax, 5000);
 });
 function makeChartAjax(){
 	$('#myChartContainer').empty();
-	$('#myChartContainer').append('<canvas id="myChart" width="500" height="300"></canvas>');
+	$('#myChartContainer').append('<canvas id="myChart"></canvas>');
 	$.ajax({
 	      type:'post',
 	      async:true,
@@ -28,10 +31,14 @@ function makeAjaxChartData(resultData){
 	var lineChartData = new Array();
 	var mainColor = "rgba(75,192,192,1)";
 	var subColor = "rgba(75,192,192,0.4)";
-	for(var i=0; i< resultData.salesListSize; i++){
-		dataLabels.push(resultData.salesList[i].BUYDATE);
-		lineChartData.push(resultData.salesList[i].BUYPRICE);
+	for(var i=0; i< resultData.reducedSalesListSize; i++){
+		dataLabels.push(resultData.reducedSalesList[i].BUYDATE);
+		lineChartData.push(resultData.reducedSalesList[i].BUYPRICE);
 	}
+//	for(var i=0; i< resultData.salesListSize; i++){
+//		dataLabels.push(resultData.salesList[i].BUYDATE);
+//		lineChartData.push(resultData.salesList[i].BUYPRICE);
+//	}
 	var chartData ={
 		      labels : dataLabels,
 		      datasets : [
@@ -58,7 +65,6 @@ function makeAjaxChartData(resultData){
    return chartData;
 }
 function makeChart(chartData, chartOptions){
-	   //var ctx = document.getElementById('myChart');
 	   var ctx = document.getElementById('myChart').getContext('2d');
 	   var myChart = new Chart(ctx, {
 	      type : 'line',

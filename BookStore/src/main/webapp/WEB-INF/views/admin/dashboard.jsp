@@ -17,6 +17,7 @@
 		<link href="../resources/adminTemplate/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
 		<link href="../resources/adminTemplate/dist/css/style.min.css" rel="stylesheet">
+		<link href="../resources/custom/css/admin_dashboard.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -97,7 +98,7 @@
 <!--                                 <div class="sales ct-charts mt-3"></div> -->
 								<!--    차트 부분 시작 -->
 								<div id="myChartContainer">
-									<canvas id="myChart" width="600" height="600"></canvas>
+<!-- 									<canvas id="myChart" width="100%" height="600"></canvas> -->
 								</div>
 								<!--    차트 부분 끝 -->
 							</div>
