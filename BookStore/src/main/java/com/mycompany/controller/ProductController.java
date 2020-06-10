@@ -227,8 +227,8 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("customerInfo", logInState);
 		mv.addObject("cartList", list);
-		mv.setViewName("/test_buy_check");
-			
+//		mv.setViewName("/test_buy_check");
+		mv.setViewName("redirect:/main.do");
 		//현재 사용자의 장바구니를 비워주고 내부적으로 세션에 적용
 		CartList.getInstance().clearCurrentCustomerCartList(session, buyCartListService, customerService);		
 		return mv;
