@@ -100,8 +100,8 @@
 									<select class="custom-select col-3" id="chartShapeOption">
 										<option>차트 종류</option>
 										<option value="bar">막대</option>
-										<option value="line">선형</option>
-										<option selected value="pie">파이</option>
+										<option selected value="line">선형</option>
+										<option value="pie">파이</option>
 										<option value="doughnut">도넛</option>
 										<option value="polarArea">폴라</option>
 									</select> 
