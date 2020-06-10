@@ -60,15 +60,9 @@ public class CustomerController {
 		//로그인 입력값으로 확인
 		CustomerVO result = customerService.selectCustomer(vo);
 		ModelAndView mv = new ModelAndView();
-		//mv.setViewName("/test_login_check"); //테스트 화면 이동
 		mv.setViewName("redirect:/moveToLogin.do");
 		
 		if(result==null) {}
-//		else if(result.getCustomerFlag()==0) {
-//			session.setAttribute("customer", result); // 관리자 정보 세팅
-//			session.setAttribute("admin", "admin");
-//			mv.setViewName("/test_admin_check");
-//		}
 		else {
 			//고객 정보를 세팅
 			session.setAttribute("customer", result);
@@ -82,10 +76,7 @@ public class CustomerController {
 	@RequestMapping("logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("LoginController에서 logout.do 실행 확인");
 		session.invalidate();
-		
-		//mv.setViewName("/test_logout_check"); //테스트 화면 이동
 		mv.setViewName("redirect:/main.do");
 		return mv;
 	}
@@ -174,8 +165,7 @@ public class CustomerController {
 		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "리뷰 포함한 후의 모든 유저__5");
 		tendencyVO.setElementToPercent();
 		Tendency.getInstance().checkTendencyPointInConsole(tendencyVO, "모든 유저 %__6");
-		
-		
+				
 		result.put("totalTendency", tendencyVO);
 		
 		return result;

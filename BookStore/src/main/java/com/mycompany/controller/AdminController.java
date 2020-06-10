@@ -177,7 +177,6 @@ public class AdminController {
 			
 			Map result = new HashMap();
 			int listCnt = adminService.selectProductCntByNameWithPaging(searchWord);
-			System.out.println("admincontroller getProductDataWithPaging 확인");
 			PaginationVO paginationVO = new PaginationVO(listCnt, curPage);
 			Map searchMap = new HashMap();
 			searchMap.put("searchWord", searchWord);
