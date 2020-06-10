@@ -425,6 +425,7 @@
     <script src="../resources/adminTemplate/assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../resources/adminTemplate/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../resources/adminTemplate/dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../resources/custom/js/admin_dashboard.js"></script>
 </body>
 
