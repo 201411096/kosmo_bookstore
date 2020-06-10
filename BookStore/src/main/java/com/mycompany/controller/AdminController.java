@@ -165,7 +165,6 @@ public class AdminController {
 	   public Map getGenreSalesData() {
 	      Map result = new HashMap();
 	      List<Map> list = adminService.getGenreSalesData();
-	      System.out.println(list);
 	      result.put("GenreSalesList", list);
 	      result.put("GenreSalesListSize", list.size());
 	      return result;

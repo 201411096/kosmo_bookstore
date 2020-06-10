@@ -16,7 +16,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/dashboard.do" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
-                                <span class="hide-menu">Dashboard</span>
+                                <span class="hide-menu">매출현황</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -24,51 +24,51 @@
                         	<a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/admin_writer_pagination.do" aria-expanded="false">
 
                                 <i class="mdi mdi-account-network"></i>
-                                <span class="hide-menu">Writer</span>
+                                <span class="hide-menu">저자</span>
                             </a>
                         </li>
                          <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/product.do" aria-expanded="false">
                                 <i class="mdi mdi-arrange-bring-forward"></i>
-                                <span class="hide-menu">Product</span>
+                                <span class="hide-menu">제품</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/store.do" aria-expanded="false">
                                 <i class="mdi mdi-border-none"></i>
-                                <span class="hide-menu">Store</span>
+                                <span class="hide-menu">지점</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false">
-                                <i class="mdi mdi-face"></i>
-                                <span class="hide-menu">Icon</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="starter-kit.html" aria-expanded="false">
-                                <i class="mdi mdi-file"></i>
-                                <span class="hide-menu">Blank</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="error-404.html" aria-expanded="false">
-                                <i class="mdi mdi-alert-outline"></i>
-                                <span class="hide-menu">404</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/admin_writer_window.do" aria-expanded="false">
-                                <i class="mdi mdi-alert-outline"></i>
-                                <span class="hide-menu">test</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/admin_writer_pagination.do" aria-expanded="false">
-                                <i class="mdi mdi-alert-outline"></i>
-                                <span class="hide-menu">writertest</span>
-                            </a>
-                        </li>
+<!--                         <li class="sidebar-item"> -->
+<!--                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false"> -->
+<!--                                 <i class="mdi mdi-face"></i> -->
+<!--                                 <span class="hide-menu">Icon</span> -->
+<!--                             </a> -->
+<!--                         </li> -->
+<!--                         <li class="sidebar-item"> -->
+<!--                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="starter-kit.html" aria-expanded="false"> -->
+<!--                                 <i class="mdi mdi-file"></i> -->
+<!--                                 <span class="hide-menu">Blank</span> -->
+<!--                             </a> -->
+<!--                         </li> -->
+<!--                         <li class="sidebar-item"> -->
+<!--                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="error-404.html" aria-expanded="false"> -->
+<!--                                 <i class="mdi mdi-alert-outline"></i> -->
+<!--                                 <span class="hide-menu">404</span> -->
+<!--                             </a> -->
+<!--                         </li> -->
+<!--                         <li class="sidebar-item"> -->
+<!--                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/admin_writer_window.do" aria-expanded="false"> -->
+<!--                                 <i class="mdi mdi-alert-outline"></i> -->
+<!--                                 <span class="hide-menu">test</span> -->
+<!--                             </a> -->
+<!--                         </li> -->
+<!--                         <li class="sidebar-item"> -->
+<!--                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/admin_writer_pagination.do" aria-expanded="false"> -->
+<!--                                 <i class="mdi mdi-alert-outline"></i> -->
+<!--                                 <span class="hide-menu">writertest</span> -->
+<!--                             </a> -->
+<!--                         </li> -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

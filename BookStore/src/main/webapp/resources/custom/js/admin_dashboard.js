@@ -43,6 +43,8 @@ function makeAjaxChartData(resultData){
 	
 	if(chartType!=='line'){ // line타입이 아니면 그래프 색깔 생성
 		mainColor = mainColorGenerator(resultData.reducedSalesListSize);
+	}else if(chartType==='line'){
+		mainColor = "rgba(75,192,192,1)";
 	}
 	
 	for(var i=0; i< resultData.reducedSalesListSize; i++){
