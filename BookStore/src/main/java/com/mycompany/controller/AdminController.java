@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.domain.BookVO;
 import com.mycompany.domain.CustomerVO;
+import com.mycompany.domain.PaginationVO;
 import com.mycompany.service.AdminServiceImpl;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.WriterServiceImpl;
@@ -169,4 +170,23 @@ public class AdminController {
 	      result.put("GenreSalesListSize", list.size());
 	      return result;
 	   }
+		//페이징처리(어드민 상품관리)
+		@RequestMapping(value="/admin/getProductDataWithPaging.do", produces = "application/json; charset=utf-8")
+		@ResponseBody
+		public Map getProductDataWithPaging(HttpSession session,  @RequestParam(defaultValue="1") int curPage, @RequestParam(value = "searchWord") String searchWord) {
+			
+			Map result = new HashMap();
+			int listCnt = adminService.selectProductCntByNameWithPaging(searchWord);
+			System.out.println("admincontroller getProductDataWithPaging 확인");
+			PaginationVO paginationVO = new PaginationVO(listCnt, curPage);
+			Map searchMap = new HashMap();
+			searchMap.put("searchWord", searchWord);
+			searchMap.put("startRow", paginationVO.getStartIndex()+1);
+			searchMap.put("endRow", paginationVO.getStartIndex()+paginationVO.getPageSize());
+			List<BookVO> bookList = adminService.selectProductSearchByNameWithPaging(searchMap);
+			result.put("pagination", paginationVO);
+			result.put("bookList", bookList);
+			result.put("bookListSize", bookList.size());
+			return result;
+		}
 }

@@ -122,6 +122,7 @@
 									<tbody id="productTable">
 									</tbody>
 								</table>
+								<ul id="pagination-demo" class="pagination-sm"></ul>
 							</div>
 						</div>
 					</div>
@@ -129,6 +130,16 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid 메인 부분 끝  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Nice admin. Designed and Developed by
+                <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
@@ -160,6 +171,7 @@
     <script src="../resources/adminTemplate/dist/js/pages/dashboards/dashboard1.js"></script>
     
     <script src="../resources/custom/js/admin_product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
 </body>
 
 </html>

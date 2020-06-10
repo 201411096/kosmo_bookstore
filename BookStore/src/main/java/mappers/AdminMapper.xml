@@ -112,5 +112,32 @@
       group by book_genre
       order by book_genre
    </select>
+	<!-- 상품출력 : 상품명 + 상품명으로 검색 + 페이징 -->
+	<select id="selectProductSearchByNameWithPaging"
+		parameterType="hashmap" resultType="book">
+	<![CDATA[
+	SELECT *
+	FROM (SELECT BOOK_ID,WRITER_ID,BOOK_PRICE,BOOK_NAME,BOOK_GENRE,BOOK_STORY,BOOK_PDATE,BOOK_SALEPRICE,BOOK_CNT
+		, BOOK_SCORE, BOOK_SCORECOUNT, ROWNUM AS RNUM
+		FROM BOOK
+		WHERE REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)')
+			ORDER BY BOOK_ID ASC
+		)
+	WHERE RNUM>=#{startRow} and RNUM<=#{endRow}
+	]]>
+	</select>
 
+	<!-- 상품출력 : 상품명 + 상품명으로 검색 + 페이징 -->
+	<select id="selectProductCntByNameWithPaging"
+		parameterType="string" resultType="int">
+		<![CDATA[
+		SELECT count(*)
+		FROM (SELECT BOOK_ID,WRITER_ID,BOOK_PRICE,BOOK_NAME,BOOK_GENRE,BOOK_STORY,BOOK_PDATE,BOOK_SALEPRICE,BOOK_CNT
+		, BOOK_SCORE, BOOK_SCORECOUNT
+		FROM BOOK
+		WHERE REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)')
+		ORDER BY BOOK_ID ASC
+		)
+		]]>
+	</select>
 </mapper>

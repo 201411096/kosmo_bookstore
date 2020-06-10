@@ -1,3 +1,47 @@
+//페이징처리
+var curPage;
+var productData_total_page;
+var defaultOpts = {
+        totalPages: 20,
+        onPageClick: function (event, page) {
+            $('#page-content').text('Page ' + page);
+            curPage=page;
+            console.log('curPage확인 :' + curPage);
+            getProductDataInPaging();
+        }
+    };
+$(function(){
+	getProductData();
+	$('#listSearch').on('keyup', getProductData);
+//	$('#pagination-demo').on('click', getWriterDataInPaging);
+	$(document).on("click",".btn-primary", updateBtnEvent);
+	$(document).on("click",".btn-warning", deleteBtnEvent);
+});
+
+function getProductDataInPaging(){
+	$.ajax({
+		type : 'post',
+		async:true,
+		url : '/BookStore/admin/getProductDataWithPaging.do',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+		data : {"searchWord" : $('#listSearch').val(),
+				"curPage" : curPage,
+				},
+		dataType : 'json',
+		success : function(resultData){
+			drawProductTable(resultData);
+			console.log(resultData);
+			console.log("ajax 안에서 curPage 확인 : " + curPage);
+		},
+		error:function(request,status,error){
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+		
+	});
+}
+
+
+
 $(function(){
 	getProductData();
 	$('#listSearch').on('keyup', getProductData);
@@ -21,12 +65,19 @@ function getProductData(){
 	$.ajax({
 		type : 'post',
 		async:true,
-		url : '/BookStore/admin/getProductData.do',
+		url : '/BookStore/admin/getProductDataWithPaging.do',
 		contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 		data : {"searchWord" : $('#listSearch').val()},
 		dataType : 'json',
 		success : function(resultData){
 			drawProductTable(resultData);
+            var totalPages = resultData.pagination.pageCnt;
+            var currentPage = $('#pagination-demo').twbsPagination('getCurrentPage');
+            $('#pagination-demo').twbsPagination('destroy');
+            $('#pagination-demo').twbsPagination($.extend({}, defaultOpts, {
+                startPage: currentPage,
+                totalPages: totalPages
+            }));
 		},
 		error:function(request,status,error){
 			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
