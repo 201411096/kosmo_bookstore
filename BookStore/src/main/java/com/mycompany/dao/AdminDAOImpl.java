@@ -43,5 +43,9 @@ public class AdminDAOImpl implements AdminDAO{
 		return mybatis.selectList("AdminDAO.selectSalesWithOptions", searchMap);
 	}
 	
+	@Override
+	   public List<Map> getGenreSalesData() {
+	      return mybatis.selectList("AdminDAO.getGenreSalesData");
+	   }
 	
 }

@@ -158,4 +158,16 @@ public class AdminController {
 		result.put("reducedSalesListSize", reducedSalesList.size());
 		return result;
 	}
+	
+	//장르별 매출 - PieChart 구현
+	   @RequestMapping("/admin/getGenreSalesData.do")
+	   @ResponseBody
+	   public Map getGenreSalesData() {
+	      Map result = new HashMap();
+	      List<Map> list = adminService.getGenreSalesData();
+	      System.out.println(list);
+	      result.put("GenreSalesList", list);
+	      result.put("GenreSalesListSize", list.size());
+	      return result;
+	   }
 }

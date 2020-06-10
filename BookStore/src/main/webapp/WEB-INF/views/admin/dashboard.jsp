@@ -126,11 +126,16 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title m-b-5">Referral Earnings</h5>
-                                <h3 class="font-light">$769.08</h3>
-                                <div class="m-t-20 text-center">
-                                    <div id="earnings"></div>
-                                </div>
+                                <h5 class="card-title m-b-5">장르별 누적 매출 차트</h5>
+<!--                                 파이 차트(장르) 시작 -->
+                                <div id="myPieChartContainer">
+
+								</div>
+<!--                                 파이 차트(장르) 끝 -->
+<!--                                 <h3 class="font-light">$769.08</h3> -->
+<!--                                 <div class="m-t-20 text-center"> -->
+<!--                                     <div id="earnings"></div> -->
+<!--                                 </div> -->
                             </div>
                         </div>
                         <div class="card">

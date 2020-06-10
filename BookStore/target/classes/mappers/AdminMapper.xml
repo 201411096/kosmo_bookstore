@@ -101,4 +101,16 @@
 	order by buyDate desc
 	</select>
 
+   <!-- 장르별 매출 -->
+   <select id="getGenreSalesData" resultType="map">
+      select book_genre, sum(buy_price) as buy_price
+      from    (
+            select bo.book_genre as book_genre,  NVL((bo.book_saleprice*bu.buy_cnt), 0) as buy_price 
+            from buy bu inner join book bo
+            on bu.book_id = bo.book_id
+            )
+      group by book_genre
+      order by book_genre
+   </select>
+
 </mapper>

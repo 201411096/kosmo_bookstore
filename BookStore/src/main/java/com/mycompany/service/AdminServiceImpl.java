@@ -37,4 +37,8 @@ public class AdminServiceImpl implements AdminService{
 	public List<Map> selectSalesWithOptions(Map searchMap) {
 		return adminDAO.selectSalesWithOptions(searchMap);
 	}
+	@Override
+	   public List<Map> getGenreSalesData() {
+	      return adminDAO.getGenreSalesData();
+	   }
 }

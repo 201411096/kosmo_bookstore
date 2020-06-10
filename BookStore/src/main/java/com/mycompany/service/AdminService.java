@@ -13,4 +13,5 @@ public interface AdminService {
 	public int updateProduct(BookVO bookvo);
 	public int deleteProduct(BookVO bookvo);
 	public List<Map> selectSalesWithOptions(Map searchMap);
+	public List<Map> getGenreSalesData();
 }
