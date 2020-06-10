@@ -636,3 +636,44 @@ SELECT b.BOOK_ID AS BOOK_ID, b.WRITER_ID AS WRITER_ID, b.BOOK_PRICE AS BOOK_PRIC
    ON b.WRITER_ID = w.WRITER_ID
    WHERE REGEXP_LIKE (BOOK_NAME, '(*)'||'이'||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||'이'||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||'이'||'(*)')
    order by b.BOOK_SCORE/b.BOOK_SCORECOUNT desc;
+   
+   --필터링 쿼리
+select *
+from book bo
+inner join buy bu
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id
+inner join writer w
+on w.writer_id = bo.writer_id
+where to_char(buy_date, 'yymmdd') = to_char(sysdate, 'yymmdd') and book_genre = 'ECONOMIC' and book_cnt <=100; --오늘 구매가 있었는지
+
+select *
+from 
+(
+select rownum as rnum, bo.book_id as book_id, w.writer_name as writer_name, bo.book_price as book_price, bo.book_name as book_name, bo.book_genre as book_genre, bo.book_story as book_story, bo.book_saleprice as book_saleprice, bo.book_pdate as book_pdate, bo.book_cnt as book_cnt, bo.BOOK_SCORE AS BOOK_SCORE, bo.BOOK_SCORECOUNT AS BOOK_SCORECOUNT, bo.BOOK_SCORE/bo.BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
+from book bo
+inner join buy bu
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id
+inner join writer w
+on w.writer_id = bo.writer_id
+where to_char(buy_date, 'yymmdd') = to_char(sysdate, 'yymmdd') and book_genre = 'ECONOMIC' and book_cnt <=100
+)
+where rnum >= 2 and rnum<=3;
+
+select count(*)
+from 
+(
+select rownum as rnum, bo.book_id as book_id, w.writer_name as writer_name, bo.book_price as book_price, bo.book_name as book_name, bo.book_genre as book_genre, bo.book_story as book_story, bo.book_saleprice as book_saleprice, bo.book_pdate as book_pdate, bo.book_cnt as book_cnt, bo.BOOK_SCORE AS BOOK_SCORE, bo.BOOK_SCORECOUNT AS BOOK_SCORECOUNT, bo.BOOK_SCORE/bo.BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
+from book bo
+inner join buy bu
+on bo.book_id = bu.book_id
+inner join buylist bl
+on bu.buylist_id = bl.buylist_id
+inner join writer w
+on w.writer_id = bo.writer_id
+where to_char(buy_date, 'yymmdd') = to_char(sysdate, 'yymmdd') and book_genre = 'ECONOMIC' and book_cnt <=100
+)
+where rnum >= 1 and rnum<=3;

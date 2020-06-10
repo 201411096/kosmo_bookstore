@@ -55,4 +55,18 @@ public class AdminDAOImpl implements AdminDAO {
 		return mybatis.selectOne("AdminDAO.selectProductCntByNameWithPaging", searchWord);
 
 	}
+
+	@Override
+	public int selectProductListCountWithFiltering(Map map) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("AdminDAO.selectProductListCountWithFiltering", map);
+	}
+
+	@Override
+	public List<BookVO> selectProductListWithFiltering(Map map) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("AdminDAO.selectProductListWithFiltering", map);
+	}
+	
+	
 }

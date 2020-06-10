@@ -188,4 +188,44 @@ public class AdminController {
 			result.put("bookListSize", bookList.size());
 			return result;
 		}
+		
+		// 페이징, 필터링
+		@RequestMapping(value="/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
+		@ResponseBody
+		public Map selectProductListWithFiltering(HttpSession session, @RequestParam(defaultValue="1") int curPage,  @RequestParam(defaultValue="100") int bookCnt, @RequestParam(defaultValue="ECONOMIC") String bookGenre) {
+			Map result = new HashMap();
+			
+			
+			
+			Map searchMap1 = new HashMap();
+			Map searchMap2 = new HashMap();
+			
+			if(!bookGenre.equals("default")) {
+				searchMap1.put("bookGenre", bookGenre);
+				searchMap2.put("bookGenre", bookGenre);
+			}
+			searchMap1.put("bookCnt", bookCnt);
+			int listCnt = adminService.selectProductListCountWithFiltering(searchMap1);
+			
+			PaginationVO paginationVO = new PaginationVO(listCnt, curPage);
+			
+			searchMap2.put("bookCnt", bookCnt);
+			searchMap2.put("startRow", paginationVO.getStartIndex()+1);
+			searchMap2.put("endRow", paginationVO.getStartIndex()+paginationVO.getPageSize());
+			
+
+			
+			List<BookVO> bookList = adminService.selectProductListWithFiltering(searchMap2);
+			result.put("pagination", paginationVO);
+			result.put("bookList", bookList);
+			result.put("bookListSize", bookList.size());
+			
+			
+			System.out.println("admin controller안에서 lintcnt 확인 : " + listCnt);
+			System.out.println("admin controller안에서 bookListSize 확인 : " + bookList.size());
+			System.out.println("admin controller안에서 startRow  확인 : " + paginationVO.getStartIndex()+1);
+			System.out.println("admin controller안에서 endRow  확인 : " + (paginationVO.getStartIndex()+paginationVO.getPageSize()));
+			
+			return result;
+		}
 }

@@ -81,7 +81,6 @@ public class WriterController {
 		
 		int listCnt = writerService.selectWriterCntByNameWithPaging(searchWord);
 		
-		System.out.println("controller안에서 curPage 확인 : " + curPage);
 		PaginationVO paginationVO = new PaginationVO(listCnt, curPage);
 		Map searchMap = new HashMap();
 		searchMap.put("searchWord", searchWord);
@@ -91,10 +90,7 @@ public class WriterController {
 		result.put("pagination", paginationVO);
 		result.put("writerList", writerList);
 		result.put("writerListSize", writerList.size());
-		System.out.println("controller안에서 writerList 확인 : " + writerList);
-		System.out.println("controller안에서 writerListSize 확인 : " + writerList.size());
-		System.out.println("startRow  확인 : " + paginationVO.getStartIndex()+1);
-		System.out.println("endRow  확인 : " + (paginationVO.getStartIndex()+paginationVO.getPageSize()));
+		
 		return result;
 	}
 

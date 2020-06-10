@@ -15,4 +15,7 @@ public interface AdminDAO {
 	public List<Map> getGenreSalesData();
 	public int selectProductCntByNameWithPaging(String searchWord);
 	public List<BookVO> selectProductSearchByNameWithPaging(Map map);
+	
+	public int selectProductListCountWithFiltering(Map map);
+	public List<BookVO> selectProductListWithFiltering(Map map);
 }

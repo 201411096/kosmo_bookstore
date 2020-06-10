@@ -51,4 +51,16 @@ public class AdminServiceImpl implements AdminService {
 		return adminDAO.selectProductCntByNameWithPaging(searchWord);
 
 	}
+
+	@Override
+	public int selectProductListCountWithFiltering(Map map) {
+		return adminDAO.selectProductListCountWithFiltering(map);
+	}
+
+	@Override
+	public List<BookVO> selectProductListWithFiltering(Map map) {
+		return adminDAO.selectProductListWithFiltering(map);
+	}
+	
+	
 }
