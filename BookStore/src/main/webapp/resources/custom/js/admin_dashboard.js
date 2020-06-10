@@ -3,9 +3,12 @@ var chartOptions = {
 						//responsive: false,
 						maintainAspectRatio : false //부모가 만든 크기 안에 꽉 차게 함(default 값: true)
 					};
+var chartType = 'line';
 $(function(){
 	makeChartAjax();
-	setInterval(makeChartAjax, 5000);
+	setInterval(makeChartAjax, 10000);
+	$('#termOption').on('change', makeChartAjax);
+	$('#chartDataCntOption').on('change', makeChartAjax);
 });
 function makeChartAjax(){
 	$('#myChartContainer').empty();
@@ -21,6 +24,7 @@ function makeChartAjax(){
 	      },
 	      dataType : 'json',
 	      success : function(resultData){
+	    	  chartType = $(chartShapeOption).val();
 	    	  chartData= makeAjaxChartData(resultData);
 	    	  makeChart(chartData, chartOptions);
 	    	  
@@ -72,7 +76,8 @@ function makeAjaxChartData(resultData){
 function makeChart(chartData, chartOptions){
 	   var ctx = document.getElementById('myChart').getContext('2d');
 	   var myChart = new Chart(ctx, {
-	      type : 'line',
+	      //type : 'bar',
+		   type : chartType,
 	      data : chartData,
 	      options : chartOptions
 	   });

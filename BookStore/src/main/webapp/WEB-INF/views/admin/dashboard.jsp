@@ -96,7 +96,14 @@
                             <div class="card-body">
                                 <h4 class="card-title">매출 요약</h4>
 								<div class="form-group">
-									<label>차트 옵션 </label> 
+									<label>차트 옵션 </label>
+									<select class="custom-select col-3" id="chartShapeOption">
+										<option>차트 종류</option>
+										<option value="bar">막대</option>
+										<option value="line">선형</option>
+										<option selected value="pie">파이</option>
+										<option value="doughnut">도넛</option>
+									</select> 
 									<select class="custom-select col-3" id="termOption">
 										<option>기간 설정</option>
 										<option value="0">연도별</option>
