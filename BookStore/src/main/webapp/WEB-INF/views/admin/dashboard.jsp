@@ -94,11 +94,22 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Sales Ratio</h4>
-<!--                                 <div class="sales ct-charts mt-3"></div> -->
+                                <h4 class="card-title">매출 요약</h4>
+								<div class="form-group">
+									<label>차트 옵션 </label> 
+									<select class="custom-select col-3" id="termOption">
+										<option>기간 설정</option>
+										<option value="0">연도별</option>
+										<option value="1">월별</option>
+										<option selected value="2">일별</option>
+										<option value="3">시단위</option>
+										<option value="4">분단위</option>
+										<option value="5">초단위</option>
+									</select>
+                                    <input id="chartDataCntOption" type="number" class="form-control col-3" value="10">									
+								</div>
 								<!--    차트 부분 시작 -->
 								<div id="myChartContainer">
-<!-- 									<canvas id="myChart" width="100%" height="600"></canvas> -->
 								</div>
 								<!--    차트 부분 끝 -->
 							</div>

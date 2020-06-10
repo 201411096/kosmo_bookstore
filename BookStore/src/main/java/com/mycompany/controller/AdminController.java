@@ -153,7 +153,6 @@ public class AdminController {
 			if(salesList.size()>i) { // 원하는 차트 데이터보다 데이터가 적을 경우 생기는 문제를 막음
 				reducedSalesList.add(salesList.get(salesList.size()-i-1)); // 원하는 데이터가 60개 (41~100), 가져온 데이터가 100개(1~100) 일때  (1~60)이 아닌 (41~100)을 가져오기 위해 처리
 			}	
-			
 		}		
 		result.put("reducedSalesList", reducedSalesList);
 		result.put("reducedSalesListSize", reducedSalesList.size());

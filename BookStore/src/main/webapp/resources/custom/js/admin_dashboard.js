@@ -15,6 +15,10 @@ function makeChartAjax(){
 	      async:true,
 	      url:"/BookStore/admin/getSalesDataWithOptions.do",
 	      contentType : 'application/x-www-form-urlencoded;charset=UTF-8', //넘어가는 데이터를 인코딩하기 위함
+	      data :{
+	    	  		"option" : $('#termOption').val(),
+	    	  		"chartDataCnt" : $('#chartDataCntOption').val()
+	      },
 	      dataType : 'json',
 	      success : function(resultData){
 	    	  chartData= makeAjaxChartData(resultData);
