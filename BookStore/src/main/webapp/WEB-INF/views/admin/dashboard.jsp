@@ -103,6 +103,7 @@
 										<option value="line">선형</option>
 										<option selected value="pie">파이</option>
 										<option value="doughnut">도넛</option>
+										<option value="polarArea">폴라</option>
 									</select> 
 									<select class="custom-select col-3" id="termOption">
 										<option>기간 설정</option>
