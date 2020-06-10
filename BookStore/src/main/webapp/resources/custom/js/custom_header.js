@@ -30,7 +30,7 @@ function reConstructLoginPart(resultData){
 		$('.header-top .container .ht-right').append('<a href="/BookStore/logout.do" class="login-panel"><i class="fa fa-user"></i>Logout</a>');
 		if(resultData.customerVO.customerFlag===0){
 //			$('.header-top .container .ht-right').append('&nbsp<a href="/BookStore/admin/dashboard.do" class="login-panel">관리화면</a>');
-			$('.header-top .container .ht-right').append('&nbsp<a href="/BookStore/admin/dashboard.do" class="login-panel">관리화면</a>');
+			$('.header-top .container .ht-right').append('&nbsp<a href="/BookStore/admin/dashboard.do" class="login-panel">관리화면&nbsp&nbsp&nbsp&nbsp&nbsp</a>');
 		}	
 	}
 }
