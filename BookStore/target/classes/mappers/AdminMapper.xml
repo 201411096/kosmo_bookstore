@@ -83,5 +83,21 @@
 		group by
 		buy_date;
 	</select>
+	<select id="selectSalesWithOptions" parameterType="hashmap" resultType="map">
+	select sum(buyprice) AS buyPrice, buy_date as buyDate 
+	from (
+		select
+		bu.buy_cnt*bo.book_saleprice as buyprice, to_char(bl.buy_date,
+		#{selectOption})
+		as buy_date
+		from buy bu
+		inner join book bo
+		on bo.book_id = bu.book_id
+		inner join buylist bl
+		on bu.buylist_id = bl.buylist_id
+	)
+	group by
+	buy_date
+	</select>
 
 </mapper>

@@ -33,5 +33,8 @@ public class AdminServiceImpl implements AdminService{
 		return adminDAO.deleteProduct(bookvo);
 	}
 
-
+	@Override
+	public List<Map> selectSalesWithOptions(Map searchMap) {
+		return adminDAO.selectSalesWithOptions(searchMap);
+	}
 }

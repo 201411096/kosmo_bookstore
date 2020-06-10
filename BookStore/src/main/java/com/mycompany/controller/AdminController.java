@@ -21,6 +21,7 @@ import com.mycompany.domain.WriterVO;
 import com.mycompany.service.AdminServiceImpl;
 import com.mycompany.service.BookServiceImpl;
 import com.mycompany.service.WriterServiceImpl;
+import com.mycompany.util.Sales;
 
 @Controller
 public class AdminController {
@@ -135,5 +136,17 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
+	}
+	
+	@RequestMapping(value="/admin/getSalesDataWithOptions",  produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map getSalesDataWithOptions(HttpSession session, @RequestParam(defaultValue = "5") int option) {
+		Map result = new HashMap();
+		Map searchMap = new HashMap();
+		searchMap.put("selectOption", Sales.getInstance().changeIntOptionToString(option)); //검색 옵션을 넣음(연도, 월별, 일별)
+		List<Map> salesList = adminService.selectSalesWithOptions(searchMap);
+		result.put("salesList", salesList);
+		result.put("salesListSize", salesList.size());
+		return result;
 	}
 }

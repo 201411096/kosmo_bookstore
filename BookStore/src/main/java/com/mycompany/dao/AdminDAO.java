@@ -11,5 +11,5 @@ public interface AdminDAO {
 	public List<BookVO> selectProduct(BookVO bookvo);
 	public int updateProduct(BookVO bookvo);
 	public int deleteProduct(BookVO bookvo);
-
+	public List<Map> selectSalesWithOptions(Map searchMap);
 }

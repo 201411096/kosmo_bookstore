@@ -94,8 +94,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Sales Ratio</h4>
-                                <div class="sales ct-charts mt-3"></div>
-                            </div>
+<!--                                 <div class="sales ct-charts mt-3"></div> -->
+								<!--    차트 부분 시작 -->
+								<div id="myChartContainer">
+									<canvas id="myChart" width="600" height="600"></canvas>
+								</div>
+								<!--    차트 부분 끝 -->
+							</div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -420,6 +425,7 @@
     <script src="../resources/adminTemplate/assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="../resources/adminTemplate/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../resources/adminTemplate/dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="../resources/custom/js/admin_dashboard.js"></script>
 </body>
 
 </html>
