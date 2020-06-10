@@ -7,5 +7,39 @@
    SELECT *
    FROM STORE
    </select>
+	<!--    지점 입력 -->
+	<insert id="insertStore" parameterType="store">
+	INSERT INTO store (STORE_ID, STORE_NAME, STORE_ADDR, STORE_TEL, STORE_POINT) 
+	VALUES(store_id_seq.nextval, #{storeName}, #{storeAddr}, #{storeTel}, #{storePoint})
+	</insert>
+	
+	<!-- id 조건으로 출력 -->
+	<select id="selecrStoreByStoreId" parameterType="store" resultType="store">
+	SELECT STORE_ID, STORE_NAME, STORE_ADDR, STORE_TEL,STORE_POINT
+	FROM store
+	WHERE store_id=#{storeId}
+	</select>
+	
+	<!-- 지점 출력 : 지점명 + 지점명으로 검색 -->
+	<select id="selectStoreSearchByName" parameterType="string" resultType="store">
+	SELECT STORE_ID, STORE_NAME, STORE_ADDR, STORE_TEL, STORE_POINT
+	FROM store
+	WHERE REGEXP_LIKE (STORE_NAME, '(*)'||#{searchWord}||'(*)')
+	ORDER BY STORE_ID ASC
+	</select>
+	
+	<!-- 	수정 -->
+	<update id="updateStore" parameterType="store">
+	UPDATE store
+	SET store_name = #{storeName},STORE_ADDR = #{storeAddr},STORE_TEL = #{storeTel}, STORE_POINT=#{storePoint}
+	WHERE store_id = #{storeId}
+	</update>
+	
+	<!-- 	삭제 -->
+	<delete id="deleteStore" parameterType="store">
+	DELETE
+	FROM STORE
+	WHERE store_id = #{storeId}
+	</delete>
    
 </mapper>

@@ -13,9 +13,40 @@ public class StoreServiceImpl implements StoreService{
 	
 	@Autowired
 	StoreDAOImpl storeDAO;
+	
 	@Override
-	public List<StoreVO> selectStore() {
-		return storeDAO.selectStore();
+	public List<StoreVO> selectStoreSearchByName(String searchWord) {
+		return storeDAO.selectStoreSearchByName(searchWord);
 	}
+	
+	@Override
+	public int insertStore(StoreVO storevo) {
+		return storeDAO.insertStore(storevo);
+	}
+	
+	@Override
+	public int deleteStore(StoreVO storevo) {
+		return storeDAO.deleteStore(storevo);
+		
+	}
+
+	@Override
+	public StoreVO selectStoreByStoreId(StoreVO storevo) {
+		return storeDAO.selectStoreByStoreId(storevo);
+	}
+	
+	@Override
+	public int updateStore(StoreVO storevo) {
+		return storeDAO.updateStore(storevo);
+		
+	}
+
+	public List<StoreVO> selectStore(StoreVO storevo) {
+		return storeDAO.selectStore(storevo);
+		
+	}
+
+	
+	
 
 }

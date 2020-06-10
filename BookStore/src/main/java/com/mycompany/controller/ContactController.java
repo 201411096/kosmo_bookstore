@@ -24,14 +24,10 @@ public class ContactController {
 	@RequestMapping("/contact_map.do")
 	public ModelAndView contactMap() {
 		ModelAndView mv = new ModelAndView();
-		List<StoreVO> list = storeService.selectStore();
+		//List<StoreVO> list = storeService.selectStore();
+		List<StoreVO> list = storeService.selectStoreSearchByName("");
 		StoreVO storeVO = new StoreVO();
-//		for(int i=0; i<list.size(); i++) {
-//			storeVO.setStoreId(list.get(i).getStoreId());
-//			storeVO.setStoreAddr(list.get(i).getStoreAddr());
-//			storeVO.setStoreName(list.get(i).getStoreName());
-//			storeVO.setStorePoint(list.get(i).getStorePoint());
-//		}
+		
 		mv.addObject("storeList", list);
 		mv.addObject("storeListSize", list.size());
 		mv.setViewName("/contact_map");

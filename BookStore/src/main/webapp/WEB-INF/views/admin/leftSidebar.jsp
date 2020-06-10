@@ -34,9 +34,9 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/BookStore/admin/store.do" aria-expanded="false">
                                 <i class="mdi mdi-border-none"></i>
-                                <span class="hide-menu">Table</span>
+                                <span class="hide-menu">Store</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
