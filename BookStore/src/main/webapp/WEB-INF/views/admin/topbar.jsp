@@ -23,19 +23,13 @@
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="../resources/adminTemplate/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <img src="" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo icon -->
-                                <img src="../resources/adminTemplate/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <img src="/BookStore/resources/custom/img/banner/adminLogo.png" alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
-                            <span class="logo-text">
-                                <!-- dark Logo text -->
-                                <img src="../resources/adminTemplate/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                                <!-- Light Logo text -->
-                                <img src="../resources/adminTemplate/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                            </span>
-                        </a>
+                            
                     </div>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -85,15 +79,15 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
 <!--                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="/BookStore/main.do" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-<!-- 								메인화면으로 -->
+<!--                         메인화면으로 -->
 <!--                             </a> -->
 <!--                             <div class="dropdown-menu dropdown-menu-right user-dd animated"> -->
 <!--                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a> -->
 <!--                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a> -->
 <!--                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a> -->
 <!--                             </div> -->
-							<a class="text-muted" href="/BookStore/main.do">
-								메인화면으로
+                     <a class="text-muted" href="/BookStore/main.do">
+                        메인화면으로
                             </a>
                         </li>
                     </ul>
