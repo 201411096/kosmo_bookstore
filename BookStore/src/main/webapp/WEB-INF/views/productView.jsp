@@ -43,9 +43,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop.html">Shop</a>
-                        <span>Detail</span>
+                        <a href="/BookStore/main.do"><i class="fa fa-home"></i> 홈</a>
+                        <a href="/BookStore/productList.do?searchWord=">도서보기</a>
+                        <span>상세페이지</span>
                     </div>
                 </div>
             </div>
@@ -118,13 +118,13 @@
                         <div class="tab-item">
                             <ul class="nav" role="tablist">
                                 <li>
-                                    <a class="active" data-toggle="tab" href="#tab-1" role="tab">Customer Reviews (02)</a>
+                                    <a class="active" data-toggle="tab" href="#tab-1" role="tab">고객 리뷰</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-2" role="tab">DESCRIPTION</a>
+                                    <a data-toggle="tab" href="#tab-2" role="tab">세부 내용</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-3" role="tab">SPECIFICATIONS</a>
+                                    <a data-toggle="tab" href="#tab-3" role="tab">작품 설명</a>
                                 </li>
                             </ul>
                         </div>
@@ -134,7 +134,7 @@
                                 <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
                                     <div class="customer-review-option">
 <!--                                     리뷰출력 -->
-                                        <h4 id="">2 Comments</h4>
+                                        <h4 id="">리뷰 내용</h4>
                                         <div class="comment-option">
                                         <div id="review-container">
                                         <c:forEach items="${review}" var="review" >
@@ -165,7 +165,7 @@
                                        </div>
                                         <div class="leave-comment">
 <!--                                         리뷰입력 -->
-                                            <h4>Leave A Comment</h4>
+                                            <h4>리뷰 작성</h4>
                                             
                                             <form id="reviewForm" action="" class="comment-form">
                                                <input type="hidden" id="bookIdInReviewForm" name="bookId" value="${info.bookId}">

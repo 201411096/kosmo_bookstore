@@ -102,16 +102,16 @@
                               </table>
                            </div>
                            <div class="select-total">
-                              <span>total:</span>
+                              <span>총 금액:</span>
                               <h5><span class="cartListTotalPrice">${sessionScope.cartListTotalPrice }</span></h5>
                            </div>
                            <div class="select-button">
-                              <a href="moveToCartList.do" class="primary-btn view-card">VIEW CART</a>
-                              <a href="buyList.do" class="primary-btn checkout-btn">CHECK OUT</a>
+                              <a href="moveToCartList.do" class="primary-btn view-card">장바구니 보기</a>
+                              <a href="buyList.do" class="primary-btn checkout-btn">결제</a>
                               <br>
 <!--                               <a href="/BookStore/ajax_tendencyGraph.do" class="primary-btn view-card">TENDENCY GRAPH</a> -->
 <!--                               <a href="/BookStore/receiptList.do" class="primary-btn checkout-btn">RECEIPT</a> -->
-								<a href="/BookStore/receiptList.do" class="primary-btn view-card">RECEIPT</a>
+								<a href="/BookStore/receiptList.do" class="primary-btn view-card">구매내역</a>
                                  
                            </div>
                         </div></li>

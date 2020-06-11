@@ -37,7 +37,7 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="breadcrumb-text">
-                  <a href="#"><i class="fa fa-home"></i> Home</a> <span>Shop</span>
+                  <a href="/BookStore/main.do"><i class="fa fa-home"></i> 홈</a> <span>도서보기</span>
                </div>
             </div>
          </div>

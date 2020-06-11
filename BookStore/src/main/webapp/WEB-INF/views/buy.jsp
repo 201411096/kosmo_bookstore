@@ -37,21 +37,6 @@
 	<jsp:include page="/header.do"></jsp:include>
     <!-- Header End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text product-more">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop.html">Shop</a>
-                        <span>Check Out</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Section Begin -->
 
     <!-- Shopping Cart Section Begin -->
     <section class="checkout-section spad">
@@ -59,26 +44,26 @@
             <form action="/BookStore/addBuyList.do" class="checkout-form">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4>Biiling Details</h4>
+                        <h4>구매 세부사항</h4>
                         <div class="row">
                             
                             <div class="col-lg-12">
-                                <label for="name">Name<span>*</span></label>
+                                <label for="name">성함<span>*</span></label>
                                 <input type="text" id="name" name="customerName" required='required' title='이름을 입력하세요' value="${customerInfo.customerName }" autocomplete='off'>
                             </div>    
                             <div class="col-lg-12">
-                                <label for="postCode">Postcode</label>
+                                <label for="postCode">우변번호</label>
                                 <input type="text" id="postCode" name="postCode" required='required'>
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
                             </div>                       
                             <div class="col-lg-12">
-                                <label for="addr">Address<span>*</span></label>
+                                <label for="addr">주소<span>*</span></label>
                                 <input type="text" id="addr" class="street-first" name="addr">
-                                <label for="detailAddr">Detail Address<span>*</span></label>
+                                <label for="detailAddr">상세 주소<span>*</span></label>
                                 <input type="text" id="detailAddr" name="detailAddr" required='required'>
                             </div>                            
                             <div class="col-lg-6">
-                                <label for="phone">Phone<span>*</span></label>
+                                <label for="phone">전화번호<span>*</span></label>
                                 <input type="text" id="phone" name="customerTel" title="전화번호를 입력하세요" required='required' value="${customerInfo.customerTel }">
                             </div>
                           
@@ -86,34 +71,34 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="place-order">
-                            <h4>Your Order</h4>
+                            <h4>주문내역</h4>
                             <div class="order-total">
                                 <ul class="order-table">
-                                    <li>Product <span>Total</span></li>
+                                    <li>제품 <span>합계</span></li>
                                     <c:forEach items="${cartList }" var="cartList">
                                     <li class="fw-normal">${cartList.bookName} x ${cartList.buycartlistCnt } <span>${cartList.bookTotalPrice}</span></li>
                                     </c:forEach>                                  
-                                    <li class="fw-normal">Subtotal <span>${subTotal }</span></li>
-                                    <li class="total-price">Total <span>${subTotal }</span></li>
+                                   
+                                    <li class="total-price">총 금액 <span>${subTotal }</span></li>
                                 </ul>
                                 <div class="payment-check">
                                     <div class="pc-item">
                                         <label for="pc-check">
-                                            Cheque Payment
+                                           	신용카드
                                             <input type="checkbox" id="pc-check">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
                                     <div class="pc-item">
                                         <label for="pc-paypal">
-                                            Paypal
+                                         	무통장 입금
                                             <input type="checkbox" id="pc-paypal">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="order-btn">
-                                    <button type="submit" class="site-btn place-btn">Place Order</button>
+                                    <button type="submit" class="site-btn place-btn">최종 구매</button>
                                 </div>
                             </div>
                         </div>
@@ -124,39 +109,7 @@
     </section>
     <!-- Shopping Cart Section End -->
 
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
-        <div class="container">
-            <div class="logo-carousel owl-carousel">mv.addObject("subTotal", subTotal);
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-1.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-2.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-3.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-4.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="resources/img/logo-carousel/logo-5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Partner Logo Section End -->
+    
 
 
     <!-- Footer Section Begin -->

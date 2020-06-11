@@ -45,8 +45,10 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-text product-more">
-						<a href="./home.html"><i class="fa fa-home"></i> Home</a> <a
-							href="./shop.html">Shop</a> <span>Shopping Cart</span>
+						<a href="/BookStore/main.do"><i class="fa fa-home"></i> 홈</a> <a
+							href="/BookStore/productList.do?searchWord=">도서보기</a> 	<a
+							 href="/BookStore/productView.do?bookId=${prevProduct.bookId}">상세페이지</a>				
+							<span>장바구니</span>
 					</div>
 				</div>
 			</div>
@@ -64,11 +66,11 @@
 							<table>
 								<thead>
 									<tr>
-										<th>Image</th>
-										<th class="p-name">Product Name</th>
-										<th>Price</th>
-										<th>Quantity</th>
-										<th>Total</th>
+										<th>이미지</th>
+										<th class="p-name">상품명</th>
+										<th>가격</th>
+										<th>수량</th>
+										<th>합계</th>
 										<th><i class="ti-close"></i></th>
 									</tr>
 								</thead>
@@ -78,7 +80,8 @@
 									<c:forEach items="${cartList }" var="cartList">
 										<tr id="${cartList.bookId }">
 											<td class="cart-pic first-row"><img
-												src="resources/img/cart-page/product-${cartList.bookId}.jpg"
+												src="resources/custom/img/banner/${cartList.bookId}.jpg"
+												
 												alt=""></td>
 											<td class="cart-title first-row">
 												<h5>${cartList.bookName}</h5>
@@ -102,25 +105,18 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="cart-buttons">
-								<a href="#" class="primary-btn continue-shop">Continue shopping</a>
-								<a id="updateCartTag" href="#" class="primary-btn up-cart">Update cart</a>
-							</div>
-							<div class="discount-coupon">
-								<h6>Discount Codes</h6>
-								<form action="#" class="coupon-form">
-									<input type="text" placeholder="Enter your codes">
-									<button type="submit" class="site-btn coupon-btn">Apply</button>
-								</form>
-							</div>
+								<a href="/BookStore/productList.do?searchWord=" class="primary-btn continue-shop">다른 도서 보러가기</a>
+								<a id="updateCartTag" href="#" class="primary-btn up-cart">장바구니 최신화</a>
+							</div>							
 						</div>
 						<div class="col-lg-4 offset-lg-4">
 							<div class="proceed-checkout">
 								<ul>
-									<li class="subtotal" id="subTotal">Subtotal <span>${cartListTotalPrice}</span></li>
-									<li class="cart-total" id="cartTotal">Total <span>${cartListTotalPrice}</span></li>
+									<li class="cart-total" id="cartTotal">총 금액 <span>${cartListTotalPrice}</span></li>
 								</ul>
 <!-- 								<a href="/BookStore/sendList.do" class="proceed-btn">PROCEED TO CHECK OUT</a> -->
-									<a id="proceedBtn" href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+									<a id="proceedBtn" href="#" class="proceed-btn">결제</a>
+									<input type="hidden" value="${prevProduct.bookId}" name="bookId">
 							</div>
 						</div>
 					</div>
@@ -129,40 +125,6 @@
 		</div>
 	</section>
 	<!-- Shopping Cart Section End -->
-
-	<!-- Partner Logo Section Begin -->
-	<div class="partner-logo">
-		<div class="container">
-			<div class="logo-carousel owl-carousel">
-				<div class="logo-item">
-					<div class="tablecell-inner">
-						<img src="resources/img/logo-carousel/logo-1.png" alt="">
-					</div>
-				</div>
-				<div class="logo-item">
-					<div class="tablecell-inner">
-						<img src="resources/img/logo-carousel/logo-2.png" alt="">
-					</div>
-				</div>
-				<div class="logo-item">
-					<div class="tablecell-inner">
-						<img src="resources/img/logo-carousel/logo-3.png" alt="">
-					</div>
-				</div>
-				<div class="logo-item">
-					<div class="tablecell-inner">
-						<img src="resources/img/logo-carousel/logo-4.png" alt="">
-					</div>
-				</div>
-				<div class="logo-item">
-					<div class="tablecell-inner">
-						<img src="resources/img/logo-carousel/logo-5.png" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Partner Logo Section End -->
 
 	<!-- Footer Section Begin -->
 	<jsp:include page="/footer.do"></jsp:include>

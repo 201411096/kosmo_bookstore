@@ -43,9 +43,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop.html">Shop</a>
-                        <span>Shopping Cart</span>
+                        <a href="/BookStore/main.do"><i class="fa fa-home"></i> 홈</a>
+                        <a href="/BookStore/receiptList.do">구매내역 리스트</a>
+                        <span>구매내역</span>
                     </div>
                 </div>
             </div>

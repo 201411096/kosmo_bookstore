@@ -157,4 +157,7 @@ figure.snip1384.hover i {
 .pi-text{
 	min-height: 145px;
 }
+#mainTitle, #mainTitle2{
+	font-family: 'Nanum Myeongjo', serif;
+}
 

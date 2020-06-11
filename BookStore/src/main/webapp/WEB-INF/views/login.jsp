@@ -33,7 +33,7 @@
     </div>
     
     <!-- Header Section Begin -->
-   <jsp:include page="/header.do"></jsp:include>
+	<jsp:include page="/header.do"></jsp:include>
     <!-- Header End -->
     
     <!-- Register Section Begin -->

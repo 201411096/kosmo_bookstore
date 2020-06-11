@@ -14,7 +14,8 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet"> 
+	
     <!-- Css Styles -->
     <link rel="stylesheet" href="resources/custom/css/main.css" type="text/css">
     
@@ -44,9 +45,6 @@
                             <a href="/BookStore/productList.do?searchWord=" class="primary-btn">도서보기</a>
                         </div>
                     </div>
-                    <div class="off-card">
-                        <h2>인기 <span>절정</span></h2>
-                    </div>
                 </div>
             </div>
             <div class="single-hero-items set-bg" data-setbg="resources/custom/img/hero/hero-new7.png">
@@ -57,9 +55,9 @@
                             <span> </span>
                              </div>
                         <div class="col-lg-5">
-                            <span>하루순삭~</span>
-                            <h1 id=mainTitle2>히히히 책 재밋당</h1>
-                            <p>코로나인데 집이 쵝5G~</p>
+                            <span>독서의 시작</span>
+                            <h1 id=mainTitle2>오늘도 수고했어</h1>
+                            <p>퇴근 후 책 읽기</p>
                             
                         </div>
                     
@@ -109,7 +107,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 offset-lg-1">
-                    <div class="product-large set-bg" data-setbg="resources/img/products/women-large.jpg">
+                    <div class="product-large set-bg" data-setbg="resources/custom/img/banner/bestSellerPic.jpg">
                         <h2>베스트 셀러</h2>
                         <a href="/BookStore/bestSellerProductList.do">더 보기</a>
                     </div>

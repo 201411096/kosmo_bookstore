@@ -155,6 +155,7 @@ public class ProductController {
 				cartListTotalPrice += bookTotalPrice;
 				list.get(i).setBookTotalPrice(bookTotalPrice);
 			}
+			mv.addObject("prevProduct", vo);
 			mv.addObject("cartList", list);
 			mv.addObject("cartListTotalPrice", cartListTotalPrice);
 			mv.setViewName("/shopping-cart");
