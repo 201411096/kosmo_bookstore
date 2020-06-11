@@ -167,11 +167,16 @@
 									<label>&nbsp 검색 옵션 &nbsp </label>
 									<select class="custom-select col-3" id="bookSortOption">
 										<option selected value="default">정렬 종류</option>
-										<option value="book_id">bookId</option>
-										<option value="writer_id">writerId</option>
-										<option value="writer_name">writerName</option>
-										<option value="book_cnt">bookCnt</option>
-										<option value="book_genre">bookGenre</option>
+										<option value="book_id">책번호</option>
+										<option value="book_name">책제목</option>
+										<option value="writer_id">저자번호</option>
+										<option value="writer_name">저자이름</option>
+										<option value="book_cnt">재고개수</option>
+										<option value="book_genre">장르</option>
+										<option value="book_pdate">출간일</option>
+										<option value="book_price">원가</option>
+										<option value="book_saleprice">정가</option>
+										<option value="BOOK_SCOREDIVIDEBYCOUNT">평점</option>
 									</select>
 									<select class="custom-select col-3" id="bookSortSequenceOption">
 										<option selected value="ASC">오름차순</option>
@@ -199,6 +204,7 @@
 											<th scope="col">책번호</th>
 											<th scope="col">저자번호</th>
 											<th scope="col">상품명</th>
+											<th scope="col">저자이름</th>
 											<th scope="col">출간일</th>
 											<th scope="col">장르</th>
 											<th scope="col">상품원가</th>

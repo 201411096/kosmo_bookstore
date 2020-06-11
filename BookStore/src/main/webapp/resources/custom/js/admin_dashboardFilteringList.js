@@ -100,6 +100,7 @@ function drawProductTable(data){
 						  tdPrefix + data.bookList[i].bookId + tdSuffix +
 						  tdPrefix + data.bookList[i].writerId + tdSuffix +
 						  tdPrefix + data.bookList[i].bookName + tdSuffix +
+						  tdPrefix + data.bookList[i].writerName + tdSuffix +
 						  tdPrefix + data.bookList[i].bookPdate + tdSuffix +
 						  tdPrefix + data.bookList[i].bookGenre + tdSuffix +
 						  tdPrefix + data.bookList[i].bookPrice + tdSuffix +
