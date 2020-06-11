@@ -192,7 +192,7 @@ public class AdminController {
 		// 페이징, 필터링
 		@RequestMapping(value="/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
 		@ResponseBody
-		public Map selectProductListWithFiltering(HttpSession session, @RequestParam(defaultValue = "default") String bookSortOption, @RequestParam(defaultValue = "default") String bookSortSequenceOption, @RequestParam String searchWord, @RequestParam(defaultValue="1") int curPage,  @RequestParam(defaultValue="100") int bookCnt, @RequestParam(defaultValue="default") String bookGenre) {
+		public Map selectProductListWithFiltering(HttpSession session, @RequestParam(defaultValue = "default") String bookSortOption, @RequestParam(defaultValue = "default") String bookSortSequenceOption, @RequestParam(defaultValue="1") int curPage,  @RequestParam(defaultValue="100") int bookCnt, @RequestParam(defaultValue="default") String bookGenre) {
 			Map result = new HashMap();
 									
 			Map searchMap1 = new HashMap();
@@ -208,8 +208,8 @@ public class AdminController {
 				//searchMap1.put("bookSortOption", bookSortOption); //정렬 부분이기때문에 갯수를 세는데에도 사용할 필요가 없음
 				searchMap2.put("bookSortOption", bookSortOption);
 			}
-			searchMap1.put("searchWord", searchWord);
-			searchMap2.put("searchWord", searchWord);
+//			searchMap1.put("searchWord", searchWord);
+//			searchMap2.put("searchWord", searchWord);
 			searchMap1.put("bookCnt", bookCnt);
 			searchMap2.put("bookCnt", bookCnt);
 			int listCnt = adminService.selectProductListCountWithFiltering(searchMap1);

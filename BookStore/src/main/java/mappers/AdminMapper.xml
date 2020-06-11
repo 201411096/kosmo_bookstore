@@ -159,9 +159,9 @@
 					<if test = "bookGenre != null">  
 					and book_genre = #{bookGenre}
 					</if>
-					<if test = "searchWord != null">  
-					and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
-					</if>
+<!-- 					<if test = "searchWord != null">   -->
+<!-- 					and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)') -->
+<!-- 					</if> -->
 					<if test="bookSortOption != null">
 					order by ${bookSortOption} ${bookSortSequenceOption}
 					</if>
@@ -186,9 +186,9 @@
 			<if test = "bookGenre != null">  
 			and book_genre = #{bookGenre}
 			</if>
-			<if test = "searchWord != null">  
-			and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
-			</if>
+<!-- 			<if test = "searchWord != null">   -->
+<!-- 			and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)') -->
+<!-- 			</if> -->
 		)
 	
 	</select>

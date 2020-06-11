@@ -12,7 +12,7 @@ var defaultOpts = {
     };
 $(function(){
 	getProductData();
-	$('#listSearch').on('keyup', getProductData);
+//	$('#listSearch').on('keyup', getProductData);
 	$('#bookGenreOption').on('change', getProductData);
 	$('#bookCntSpan').text($('#bookCnt').val()); // 슬라이더 옆에 있는 숫자
 	$('#bookCnt').on('change', bookSliderEvtHandler); // 슬라이더 변경시 숫자 바뀌고 테이블 데이터도 바뀜
@@ -31,7 +31,7 @@ function getProductDataInPaging(){
 		url : '/BookStore/admin/selectProductListWithFiltering.do',
 		contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 		data : {
-				"searchWord" : $('#listSearch').val(),
+//				"searchWord" : $('#listSearch').val(),
 				"curPage" : curPage,
 				"bookGenre" : $('#bookGenreOption').val(),
 				"bookCnt" : $('#bookCnt').val(),
@@ -58,7 +58,7 @@ function getProductData(){
 		contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 		dataType : 'json',
 		data : {
-				"searchWord" : $('#listSearch').val(),
+//				"searchWord" : $('#listSearch').val(),
 				"bookGenre" : $('#bookGenreOption').val(),
 				"bookCnt" : $('#bookCnt').val(),
 				"bookSortOption" : $('#bookSortOption').val(),
