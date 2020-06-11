@@ -146,28 +146,30 @@
 		select *
 		from 
 		(
-			select rownum as rnum, bo.writer_id as writer_id, bo.book_id as book_id, w.writer_name as writer_name, bo.book_price as book_price, bo.book_name as book_name, bo.book_genre as book_genre, bo.book_story as book_story, bo.book_saleprice as book_saleprice, bo.book_pdate as book_pdate, bo.book_cnt as book_cnt, bo.BOOK_SCORE AS BOOK_SCORE, bo.BOOK_SCORECOUNT AS BOOK_SCORECOUNT, bo.BOOK_SCORE/bo.BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
-			from book bo
-			inner join writer w
-			on w.writer_id = bo.writer_id
-			<![CDATA[
-			where  book_cnt <=#{bookCnt}
-			]]>	
-			<if test = "bookGenre != null">  
-			and book_genre = #{bookGenre}
-			</if>
-			<if test = "searchWord != null">  
-			and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
-			</if>
-			<if test="bookSortOption != null">
-			order by ${bookSortOption} ${bookSortSequenceOption}
-			</if>
+			select rownum as rnum, writer_id, book_id, writer_name, book_price, book_name, book_genre, book_story, book_saleprice, book_pdate, book_cnt, BOOK_SCORE, BOOK_SCORECOUNT, BOOK_SCORE/BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
+			from 
+			(
+				select bo.writer_id as writer_id, bo.book_id as book_id, w.writer_name as writer_name, bo.book_price as book_price, bo.book_name as book_name, bo.book_genre as book_genre, bo.book_story as book_story, bo.book_saleprice as book_saleprice, bo.book_pdate as book_pdate, bo.book_cnt as book_cnt, bo.BOOK_SCORE AS BOOK_SCORE, bo.BOOK_SCORECOUNT AS BOOK_SCORECOUNT, bo.BOOK_SCORE/bo.BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
+					from book bo
+					inner join writer w
+					on w.writer_id = bo.writer_id
+					<![CDATA[
+					where  book_cnt <=#{bookCnt}
+					]]>	
+					<if test = "bookGenre != null">  
+					and book_genre = #{bookGenre}
+					</if>
+					<if test = "searchWord != null">  
+					and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
+					</if>
+					<if test="bookSortOption != null">
+					order by ${bookSortOption} ${bookSortSequenceOption}
+					</if>
+			)
 		)
 		<![CDATA[
 		where rnum>=#{startRow} and rnum<=#{endRow}
-		]]>
-	
-	
+		]]>	
 	</select>
 	<select id="selectProductListCountWithFiltering" parameterType="map" resultType="int">
 	
