@@ -150,18 +150,34 @@
                             <div class="card-body">
                                 <h4 class="card-title">재고 관리</h4>
                             </div>
-							<div class="slidecontainer">
-								<input type="range" min="1" max="100" value="50" class="slider"
-									id="myRange">
+                            <div class="form-group">
+									<label>&nbsp 차트 옵션 &nbsp </label>
+									<select class="custom-select col-3" id="bookGenreOption">
+										<option selected value="default">장르 종류</option>
+										<option value="ART">ART</option>
+										<option value="SOCIAL">SOCIAL</option>
+										<option value="ECONOMIC">ECONOMIC</option>
+										<option value="TECHNOLOGY">TECHNOLOGY</option>
+										<option value="LITERATURE">LITERATURE</option>
+										<option value="HISTORY">HISTORY</option>
+									</select> 
+                            </div>
+							<div class="form-group">
+							<label>&nbsp 재고 개수</label> 
+								<div class="d-flex justify-content-center my-4 w-50">
+								
+									<div class="w-75">
+										<input type="range" class="custom-range" id="bookCnt" min="0" max="200">
+									</div>
+									<span id="bookCntSpan" class="font-weight-bold text-primary ml-2 valueSpan2"></span>
+								</div>
 							</div>
-							<div class="slidecontainer">
-								<input type="range" min="1" max="100" value="50" class="slider"
-									id="myRange">
-							</div>
-							<div class="slidecontainer">
-								<input type="range" min="1" max="100" value="50" class="slider"
-									id="myRange">
-							</div>							
+							<form class="col-lg-10 col-md-12" action="#">
+				               <div>
+				                  <input class="form-control" name="searchWord" id="listSearch" type="text" placeholder="검색어를 입력하세요">
+				               </div>
+							</form>
+							<br>						
 							<div class="table-responsive">
 								<table id="productDataTable" class="table">
 									<thead>

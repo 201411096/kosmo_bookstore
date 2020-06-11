@@ -148,22 +148,16 @@
 		(
 			select rownum as rnum, bo.writer_id as writer_id, bo.book_id as book_id, w.writer_name as writer_name, bo.book_price as book_price, bo.book_name as book_name, bo.book_genre as book_genre, bo.book_story as book_story, bo.book_saleprice as book_saleprice, bo.book_pdate as book_pdate, bo.book_cnt as book_cnt, bo.BOOK_SCORE AS BOOK_SCORE, bo.BOOK_SCORECOUNT AS BOOK_SCORECOUNT, bo.BOOK_SCORE/bo.BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
 			from book bo
-			<if test = "dateTermSizeOption != null and dataTermOption != null and buyType!= null">
-			inner join buy bu
-			on bo.book_id = bu.book_id
-			inner join buylist bl
-			on bu.buylist_id = bl.buylist_id
-			</if>
 			inner join writer w
 			on w.writer_id = bo.writer_id
 			<![CDATA[
 			where  book_cnt <=#{bookCnt}
 			]]>	
-			<if test = "dateTermSizeOption != null and dataTermOption != null and buyType!= null">
-			and to_char(#{buyDate}, #{dateTermSizeOption}) = to_char(sysdate-#{dateTermOption}, #{dateTermSizeOption})
-			</if>
 			<if test = "bookGenre != null">  
 			and book_genre = #{bookGenre}
+			</if>
+			<if test = "searchWord != null">  
+			and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
 			</if>
 		)
 		<![CDATA[
@@ -178,22 +172,16 @@
 		(
 			select rownum as rnum, bo.writer_id as writer_id, bo.book_id as book_id, w.writer_name as writer_name, bo.book_price as book_price, bo.book_name as book_name, bo.book_genre as book_genre, bo.book_story as book_story, bo.book_saleprice as book_saleprice, bo.book_pdate as book_pdate, bo.book_cnt as book_cnt, bo.BOOK_SCORE AS BOOK_SCORE, bo.BOOK_SCORECOUNT AS BOOK_SCORECOUNT, bo.BOOK_SCORE/bo.BOOK_SCORECOUNT AS BOOK_SCOREDIVIDEBYCOUNT
 			from book bo
-			<if test = "dateTermSizeOption != null and dataTermOption != null  and buyType!= null">
-			inner join buy bu
-			on bo.book_id = bu.book_id
-			inner join buylist bl
-			on bu.buylist_id = bl.buylist_id
-			</if>
 			inner join writer w
 			on w.writer_id = bo.writer_id
 			<![CDATA[		
 			where  book_cnt <=#{bookCnt}
 			]]>	
-			<if test = "dateTermSizeOption != null and dataTermOption != null  and buyType!= null">
-			and to_char(#{buyDate}, #{dateTermSizeOption}) = to_char(sysdate-#{dateTermOption}, #{dateTermSizeOption})
-			</if>
 			<if test = "bookGenre != null">  
 			and book_genre = #{bookGenre}
+			</if>
+			<if test = "searchWord != null">  
+			and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
 			</if>
 		)
 	
