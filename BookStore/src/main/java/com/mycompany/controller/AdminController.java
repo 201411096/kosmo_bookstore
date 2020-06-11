@@ -192,11 +192,9 @@ public class AdminController {
 		// 페이징, 필터링
 		@RequestMapping(value="/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
 		@ResponseBody
-		public Map selectProductListWithFiltering(HttpSession session, @RequestParam(defaultValue="1") int curPage,  @RequestParam(defaultValue="100") int bookCnt, @RequestParam(defaultValue="ECONOMIC") String bookGenre) {
+		public Map selectProductListWithFiltering(HttpSession session, @RequestParam(defaultValue="1") int curPage,  @RequestParam(defaultValue="100") int bookCnt, @RequestParam(defaultValue="default") String bookGenre) {
 			Map result = new HashMap();
-			
-			
-			
+									
 			Map searchMap1 = new HashMap();
 			Map searchMap2 = new HashMap();
 			
