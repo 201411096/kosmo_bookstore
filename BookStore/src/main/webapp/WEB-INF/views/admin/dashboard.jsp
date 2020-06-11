@@ -114,7 +114,7 @@
 										<option value="4">분단위</option>
 										<option value="5">초단위</option>
 									</select>
-                                    <input id="chartDataCntOption" type="number" class="form-control col-3" value="10">									
+                                    <input id="chartDataCntOption" type="number" class="form-control col-3" value="30">									
 								</div>
 								<!--    차트 부분 시작 -->
 								<div id="myChartContainer">
