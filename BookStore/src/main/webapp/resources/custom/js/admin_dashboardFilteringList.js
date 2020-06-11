@@ -16,13 +16,14 @@ $(function(){
 	$('#bookGenreOption').on('change', getProductData);
 	$('#bookCntSpan').text($('#bookCnt').val()); // 슬라이더 옆에 있는 숫자
 	$('#bookCnt').on('change', bookSliderEvtHandler); // 슬라이더 변경시 숫자 바뀌고 테이블 데이터도 바뀜
+	$('#bookSortSequenceOption').on('change', getProductData);
+	$('#bookSortOption').on('change', getProductData);
 });
 
 function bookSliderEvtHandler(){
 	$('#bookCntSpan').text($('#bookCnt').val()); // 슬라이더 옆에 있는 숫자
 	getProductData();
 }
-
 function getProductDataInPaging(){
 	$.ajax({
 		type : 'post',
@@ -34,6 +35,8 @@ function getProductDataInPaging(){
 				"curPage" : curPage,
 				"bookGenre" : $('#bookGenreOption').val(),
 				"bookCnt" : $('#bookCnt').val(),
+				"bookSortOption" : $('#bookSortOption').val(),
+				"bookSortSequenceOption" : $('#bookSortSequenceOption').val(),
 				},
 		dataType : 'json',
 		success : function(resultData){
@@ -58,6 +61,8 @@ function getProductData(){
 				"searchWord" : $('#listSearch').val(),
 				"bookGenre" : $('#bookGenreOption').val(),
 				"bookCnt" : $('#bookCnt').val(),
+				"bookSortOption" : $('#bookSortOption').val(),
+				"bookSortSequenceOption" : $('#bookSortSequenceOption').val(),				
 			},
 		success : function(resultData){
 			drawProductTable(resultData);

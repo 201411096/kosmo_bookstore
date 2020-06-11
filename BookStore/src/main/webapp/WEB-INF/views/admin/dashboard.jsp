@@ -163,9 +163,23 @@
 									</select> 
                             </div>
 							<div class="form-group">
+							<div class="form-group">
+									<label>&nbsp 검색 옵션 &nbsp </label>
+									<select class="custom-select col-3" id="bookSortOption">
+										<option selected value="default">정렬 종류</option>
+										<option value="book_id">bookId</option>
+										<option value="writer_id">writerId</option>
+										<option value="writer_name">writerName</option>
+										<option value="book_cnt">bookCnt</option>
+										<option value="book_genre">bookGenre</option>
+									</select>
+									<select class="custom-select col-3" id="bookSortSequenceOption">
+										<option selected value="ASC">오름차순</option>
+										<option value="DESC">내림차순</option>
+									</select>  
+                            </div>
 							<label>&nbsp 재고 개수</label> 
-								<div class="d-flex justify-content-center my-4 w-50">
-								
+								<div class="d-flex justify-content-center my-4 w-50">								
 									<div class="w-75">
 										<input type="range" class="custom-range" id="bookCnt" min="0" max="200">
 									</div>

@@ -159,10 +159,14 @@
 			<if test = "searchWord != null">  
 			and REGEXP_LIKE (BOOK_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (WRITER_NAME, '(*)'||#{searchWord}||'(*)') OR REGEXP_LIKE (BOOK_GENRE, '(*)'||#{searchWord}||'(*)')
 			</if>
+			<if test="bookSortOption != null">
+			order by ${bookSortOption} ${bookSortSequenceOption}
+			</if>
 		)
 		<![CDATA[
 		where rnum>=#{startRow} and rnum<=#{endRow}
-		]]>	
+		]]>
+	
 	
 	</select>
 	<select id="selectProductListCountWithFiltering" parameterType="map" resultType="int">
