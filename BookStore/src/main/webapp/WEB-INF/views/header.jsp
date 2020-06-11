@@ -58,10 +58,10 @@
          <div class="inner-header">
             <div class="row">
                <div class="col-lg-2 col-md-2">
-                  <div class="logo">
-                     <a href="./index.html"> <img src="img/logo.png" alt="">
+                  <span class="logo">
+                     <a href="/BookStore/main.do"> <img src="/BookStore/resources/custom/img/banner/logo5.png" alt="">
                      </a>
-                  </div>
+                  </span>
                </div>
                <!-- -------------------- search section start 검색 부분 시작 -------------------- -->
                <form class="col-lg-7 col-md-7" action="/BookStore/productList.do">
@@ -111,7 +111,7 @@
                               <br>
 <!--                               <a href="/BookStore/ajax_tendencyGraph.do" class="primary-btn view-card">TENDENCY GRAPH</a> -->
 <!--                               <a href="/BookStore/receiptList.do" class="primary-btn checkout-btn">RECEIPT</a> -->
-								<a href="/BookStore/receiptList.do" class="primary-btn view-card">구매내역</a>
+                        <a href="/BookStore/receiptList.do" class="primary-btn view-card">구매내역</a>
                                  
                            </div>
                         </div></li>
