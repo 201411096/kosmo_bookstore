@@ -6,10 +6,13 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.mycompany.domain.CustomerVO;
 
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -26,8 +29,18 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		String time1 = format2.format(time);
 
 		String requesturl = request.getRequestURI();
-
-		String log = "[접속시간]" + time1 + "[접속ip]=" + ip + "[요청url]" + requesturl + "\n";
+		
+		HttpSession session = request.getSession();
+		CustomerVO customerVO = null;
+		String log = null;
+		if(session.getAttribute("customer")!=null ) {
+			customerVO = (CustomerVO)session.getAttribute("customer");
+			log = "[접속시간]" + time1 + "[접속ip]=" + ip + "[요청url]" + requesturl + "userId" + customerVO.getCustomerId() + "\n";
+		}else {
+			log = "[접속시간]" + time1 + "[접속ip]=" + ip + "[요청url]" + requesturl + "\n";
+		}
+		
+		
 
 		System.out.println(log);
 		String filePath = "d:\\Temp\\testlog.txt";
