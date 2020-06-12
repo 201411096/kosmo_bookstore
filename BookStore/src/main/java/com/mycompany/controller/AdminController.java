@@ -215,6 +215,8 @@ public class AdminController {
 	 * 		ㄴ 몇개의 data를 가져올 지(chartDataCnt) , data를 어느 단위로 볼지(option -> 년단위, 월단위, 일단위, 시간단위, 분단위, 초단위)를 jsp에서 가져옴
 	 * 		ㄴ 숫자로 받아온 옵션(0~5) 를 {"YY", "YY/MM", "YY/MM/DD", "YY/MM/DD/HH24", "YY/MM/DD/HH24:MI", "YY/MM/DD/HH24:MI:SS"}로 변환함
 	 * 		ㄴ 구매리스트를 원하는 범위단위(option)로 가져온 후 원하는 데이터만큼의 개수(chartDataCnt)를 넘겨줌
+	 * 		ㄴ 위의 option과 chartDataCnt에 해당하는 데이터들을 가장 가까운 날짜부터 가져오되 오늘 날짜와 가장 멀리 떨어진 날짜부터 순서대로 정렬
+	 * 사용하는 mapper : AdminMapper.xml -> selectSalesWithOptions
 	 */
 	@RequestMapping(value = "/admin/getSalesDataWithOptions", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -231,7 +233,12 @@ public class AdminController {
 		return result;
 	}
 
-	// 장르별 매출 - PieChart 구현
+	/* 
+	 * 함수 이름 : getGenreSalesData
+	 * 주요 기능 : 관리자 페이지의 장르별 매출 pie차트 data를 구성함
+	 * 함수 내용
+	 * 		ㄴ 장르별 매출 총합을 piechartData로 구성하여 넘겨줌
+	 */
 	@RequestMapping("/admin/getGenreSalesData.do")
 	@ResponseBody
 	public Map getGenreSalesData() {
@@ -242,7 +249,13 @@ public class AdminController {
 		return result;
 	}
 
-	// 페이징처리(어드민 상품관리)
+	/* 
+	 * 함수 이름 : getProductDataWithPaging
+	 * 주요 기능 : 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 목록을 넘겨줌
+	 * 함수 내용
+	 * 		ㄴ 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 도서 목록을 넘겨줌
+	 * 		ㄴ 페이징을 돕는 PaginationVO 사용 
+	 */
 	@RequestMapping(value = "/admin/getProductDataWithPaging.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getProductDataWithPaging(HttpSession session, @RequestParam(defaultValue = "1") int curPage,
@@ -262,7 +275,13 @@ public class AdminController {
 		return result;
 	}
 
-	// 페이징, 필터링
+	/* 
+	 * 함수 이름 : selectProductListWithFiltering
+	 * 주요 기능 : 현재 페이지와 재고 개수, 정렬옵션, 정렬순서옵션을 받아와서 도서 목록을 정렬
+	 * 함수 내용
+	 * 		ㄴ 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 도서 목록을 넘겨줌
+	 * 		ㄴ 페이징을 돕는 PaginationVO 사용 
+	 */
 	@RequestMapping(value = "/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map selectProductListWithFiltering(HttpSession session,
