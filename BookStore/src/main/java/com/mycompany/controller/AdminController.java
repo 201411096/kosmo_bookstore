@@ -214,7 +214,7 @@ public class AdminController {
 	 * 함수 내용
 	 * 		ㄴ 몇개의 data를 가져올 지(chartDataCnt) , data를 어느 단위로 볼지(option -> 년단위, 월단위, 일단위, 시간단위, 분단위, 초단위)를 jsp에서 가져옴
 	 * 		ㄴ 숫자로 받아온 옵션(0~5) 를 {"YY", "YY/MM", "YY/MM/DD", "YY/MM/DD/HH24", "YY/MM/DD/HH24:MI", "YY/MM/DD/HH24:MI:SS"}로 변환함
-	 * 		ㄴ 
+	 * 		ㄴ 구매리스트를 원하는 범위단위(option)로 가져온 후 원하는 데이터만큼의 개수(chartDataCnt)를 넘겨줌
 	 */
 	@RequestMapping(value = "/admin/getSalesDataWithOptions", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -230,9 +230,7 @@ public class AdminController {
 		List<Map> reducedSalesList = new ArrayList<Map>();
 		for (int i = 0; i < chartDataCnt; i++) {
 			if (salesList.size() > i) { // 원하는 차트 데이터보다 데이터가 적을 경우 생기는 문제를 막음
-				reducedSalesList.add(salesList.get(salesList.size() - i - 1)); // 원하는 데이터가 60개 (41~100), 가져온 데이터가
-																				// 100개(1~100) 일때 (1~60)이 아닌 (41~100)을
-																				// 가져오기 위해 처리
+				reducedSalesList.add(salesList.get(salesList.size() - i - 1)); 
 			}
 		}
 		result.put("reducedSalesList", reducedSalesList);

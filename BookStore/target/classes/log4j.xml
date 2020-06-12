@@ -5,7 +5,6 @@
    <!-- Daily file out -->
      <appender name="download" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="file" value="d:/temp/logflie.log"/>
-<!--         <param name="file" value="/BookStore/WEB-INF/logs/spring.log"/> -->
         <param name="Append" value="true"/>
         <param name="dataPattern" value=".yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
