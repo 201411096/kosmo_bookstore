@@ -35,7 +35,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		String log = null;
 		if(session.getAttribute("customer")!=null ) {
 			customerVO = (CustomerVO)session.getAttribute("customer");
-			log = "[접속시간]" + time1 + "[접속ip]=" + ip + "[요청url]" + requesturl + "userId" + customerVO.getCustomerId() + "\n";
+			log = "[접속시간]" + time1 + "[접속ip]=" + ip + "[요청url]" + requesturl + "[userId]" + customerVO.getCustomerId() + "\n";
 		}else {
 			log = "[접속시간]" + time1 + "[접속ip]=" + ip + "[요청url]" + requesturl + "\n";
 		}
@@ -43,7 +43,8 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		
 
 		System.out.println(log);
-		String filePath = "d:\\Temp\\testlog.txt";
+		//String filePath = "d:\\Temp\\testlog.txt";
+		String filePath = "e:\\Temp\\testlog.txt";
 		FileWriter fileWriter = new FileWriter(filePath, true);
 
 		fileWriter.write(log);
