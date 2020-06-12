@@ -26,7 +26,7 @@ import com.mycompany.util.Sales;
 
 @Controller
 public class AdminController {
-	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	@Autowired
 	WriterServiceImpl writerService;
