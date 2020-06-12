@@ -228,18 +228,6 @@ public class AdminController {
 		result.put("reducedSalesList", salesList); // 사용하지 않음(테스트용)
 		result.put("reducedSalesListSize", salesList.size()); // 사용하지 않음(테스트용)
 
-		//0613 이전 시작
-//		result.put("salesList", salesList); // 사용하지 않음(테스트용)
-//		result.put("salesListSize", salesList.size()); // 사용하지 않음(테스트용)
-//		List<Map> reducedSalesList = new ArrayList<Map>();
-//		for (int i = 0; i < chartDataCnt; i++) {
-//			if (salesList.size() > i) { // 원하는 차트 데이터보다 데이터가 적을 경우 생기는 문제를 막음
-//				reducedSalesList.add(salesList.get(i)); 
-//			}
-//		}
-//		result.put("reducedSalesList", reducedSalesList);
-//		result.put("reducedSalesListSize", reducedSalesList.size());
-		//0613 이전 끝
 		return result;
 	}
 
