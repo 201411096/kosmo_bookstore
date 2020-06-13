@@ -1,5 +1,7 @@
-var chartData;
-var chartOptions;
+//사용하지 않는 js 파일 -> custom_ajax_tendencyGraph.js로 대체됨
+
+var chartData; //차트에 들어갈 데이터
+var chartOptions;	// 차트에 들어갈 옵션
 $(function(){
 	//console.log("custom_tendencyGraph.js 파일 연결 확인");
 	//sampleChartFunc();

@@ -1,3 +1,5 @@
+//사용하지 않는 js파일 => admin_writer_pagination.js 파일로 대체됨
+//같은이유로 admin_writer.jsp 파일도 사용하지 않음
 $(function(){
 	getWriterData();
 	$('#listSearch').on('keyup', getWriterData);

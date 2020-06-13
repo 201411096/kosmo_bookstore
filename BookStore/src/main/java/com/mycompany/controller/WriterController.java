@@ -111,7 +111,8 @@ public class WriterController {
 	 * 함수 이름 : getWriterDataWithPaging
 	 * 주요 기능 : 저자 정보를 검색후 그 결과에 맞춰서 페이징 처리를 한 후에 반환
 	 * 함수 내용 : 저자 정보 반환
-	 * 		ㄴ 검색 결과에 따른 동적 페이징 처리		 
+	 * 		ㄴ 검색 결과에 따른 동적 페이징 처리	
+	 * 참고사항 : PaginationVO	 
 	 */
 	@RequestMapping(value="/admin/getWriterDataWithPaging.do", produces = "application/json; charset=utf-8")
 	@ResponseBody

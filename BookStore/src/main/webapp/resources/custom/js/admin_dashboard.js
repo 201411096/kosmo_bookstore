@@ -7,12 +7,14 @@ var chartType = 'line';
 var mainColor = "rgba(75,192,192,1)"; // generator 사용전
 var subColor = "rgba(75,192,192,0.4)"; // generator 사용전
 $(function(){
-	makeChartAjax();
-	setInterval(makeChartAjax, 10000);
-	$('#termOption').on('change', makeChartAjax);
-	$('#chartDataCntOption').on('change', makeChartAjax);
-	$('#chartShapeOption').on('change', makeChartAjax);
+	makeChartAjax();											//화면을 로딩하자마자 차트를 구성함
+	setInterval(makeChartAjax, 10000);							//10초마다 차트를 다시 그림(그 과정에서 데이터도 새로 갱신됨)
+	$('#termOption').on('change', makeChartAjax);				//termOption(차트간 데이터 단위(ex)연,월,일,시,분,초단위가 변경될때마다 차트가 다시 그려짐)
+	$('#chartDataCntOption').on('change', makeChartAjax);		//chartDataCntOption(차트에 표현되는 데이터의 개수)가 변경될때마다 차트가 다시그려짐
+	$('#chartShapeOption').on('change', makeChartAjax);			//chartShapeOption(차트의 모양옵션)이 변경될때마다 차트가 다시그려짐
 });
+//차트를 그려주는 함수
+//차트의 데이터를 받는 과정을 포함함
 function makeChartAjax(){
 	$('#myChartContainer').empty();
 	$('#myChartContainer').append('<canvas id="myChart"></canvas>');
@@ -37,6 +39,7 @@ function makeChartAjax(){
 	      }
 	   });
 }
+//ajax에서 받아온 json 데이터를 가공하여 차트의 데이터를 만들어주는 과정
 function makeAjaxChartData(resultData){
 	var dataLabels = new Array();
 	var lineChartData = new Array();
@@ -77,6 +80,7 @@ function makeAjaxChartData(resultData){
 		   };
    return chartData;
 }
+//makeChartAjax에서 내부적으로 불리는 함수 : chart.js에서 제공하는 기본함수
 function makeChart(chartData, chartOptions){
 	   var ctx = document.getElementById('myChart').getContext('2d');
 	   var myChart = new Chart(ctx, {
@@ -86,6 +90,9 @@ function makeChart(chartData, chartOptions){
 	      options : chartOptions
 	   });
 }
+//차트의 색깔을 구성해주는 함수
+//	ㄴ 차트의 데이터 개수만큼 색깔을 만들어서 반환함
+//	ㄴ makeAjaxChartData에서 내부적으로 불림
 function mainColorGenerator(size){
 	var resultColor;
 	var rRanNum =  Math.floor(Math.random()*255);

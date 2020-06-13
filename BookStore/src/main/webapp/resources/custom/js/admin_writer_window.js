@@ -1,3 +1,5 @@
+//사용하지 않는 js 파일 -> 시간이 부족해서 구현하지 못한 부분, admin_writer_window.jsp 파일도 마찬가지 이유로 사용하지 않음
+
 $(function(){
 	getWriterData();
 	$('#listSearch').on('keyup', getWriterData);
