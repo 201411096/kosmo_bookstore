@@ -30,6 +30,21 @@ public class BuyListController {
 	BuyServiceImpl buyService;
 	@Autowired
 	ReviewServiceImpl reviewService;
+	
+	/* 
+	 * 함수 이름 : getReceiptList
+	 * 주요 기능 : 영수증 목록을 반환
+	 * 함수 내용
+	 * 		ㄴ 사용자의 정보를 세션에서 가져와서 현재 로그인한 사용자의 영수증 목록을 끌어옴
+	 * 		ㄴ 영수증 번호와 구매날짜를 담음 (receiptList, receiptListSize)
+	 * 		ㄴ 영수증의 개수만큼 해당 영수증에 해당하는 구매내역들을 불러옴
+	 * 			ㄴ 해당 영수증에 해당하는 구매내역들의 총합( totalPriceList )과 구매내역의 크기가 2이상이라면 영수증 이름을 수정해서 담아줌 (productListNameInReceiptList)
+	 * 				ㄴ 1개일 경우 ( 오래된 비밀 )
+	 * 				ㄴ 3개일 경우 ( 오래된 비밀 외 3종)
+	 * 사용하는 Mapper : BuyListMapper.xml -> getBuyListByCustomerId
+	 * 				  BuyMapper.xml -> selectAllBuyByBuyListId
+	 * 반환되는 위치 : custom_receiptList.js
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/getReceiptList",  produces = "application/json; charset=utf-8")
 	public Map getReceiptList(HttpSession session) {
@@ -41,11 +56,9 @@ public class BuyListController {
 		if (receiptList.size() > 0) {
 			productListNameInReceiptList = new String[receiptList.size()];
 			totalPriceList = new int[receiptList.size()];
-			result.put("receiptList", receiptList); // 구매번호와 구매날짜를 보내줌
-			for (int i = 0; i < receiptList.size(); i++) { // 구매 물품의 종류와 구매가격 총합을 구할 부분
+			result.put("receiptList", receiptList); // 영수증번호와 구매날짜를 보내줌
+			for (int i = 0; i < receiptList.size(); i++) { // 영수증의 개수만큼 해당 영수증에 해당하는 구매내역들을 불러옴( 구매 물품의 종류와 구매가격 총합을 구할 부분 )
 				List<Map> productListInReceipt =  buyService.selectAllBuyByBuyListId(receiptList.get(i).getBuylistId());
-				System.out.println("productListInReceipt확인 " + productListInReceipt);
-				System.out.println("productListInReceipt size확인 " + productListInReceipt.size());
 				int totalPrice=0;
 				for(int j=0; j<productListInReceipt.size(); j++) {
 					totalPrice += Integer.parseInt(String.valueOf(productListInReceipt.get(j).get("BOOKSALEPRICE"))) * Integer.parseInt(String.valueOf(productListInReceipt.get(j).get("BUYCNT")))  ;
@@ -60,15 +73,20 @@ public class BuyListController {
 			result.put("receiptListSize", receiptList.size());
 			result.put("productListNameInReceiptList", productListNameInReceiptList);
 			result.put("totalPriceList", totalPriceList);
-			System.out.println("receiptListSize 확인 : " + receiptList.size());
-			for(int i=0; i<productListNameInReceiptList.length; i++)
-				System.out.println("productListNameInReceiptList 확인 " + productListNameInReceiptList[i]);
-			for(int i=0; i<totalPriceList.length; i++)
-				System.out.println("totalPriceList : " + totalPriceList[i]);
-
 		}
 		return result;
 	}
+	
+	/* 
+	 * 함수 이름 : getReceipt
+	 * 주요 기능 : 영수증 하나에 속해있는 구매내역을 반환
+	 * 함수 내용 : buyListId를 넘겨받아 해당 영수증에 해당하는 구매내역을 반환
+	 * 		ㄴ buyListId에 해당하는 구매내역을 가져옴
+	 * 		ㄴ 사용자의 리뷰내역을 가져와서 구매한 내역에 해당하는 도서에 리뷰를 달았는지 달지 않았는지 체크해서 같이 보냄 (writeReviewFlagArray)
+	 * 사용하는 Mapper : BuyMapper.xml -> selectAllBuyByBuyListId
+	 * 				  ReviewMapper.xml -> selectReviewByCustomerId
+	 * 반환되는 위치 : custom_receipt.js
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/getReceipt",  produces = "application/json; charset=utf-8")
 	public Map getReceipt(HttpSession session, @RequestParam("buylistId") String buylistId) {

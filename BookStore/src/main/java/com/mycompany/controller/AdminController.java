@@ -217,6 +217,7 @@ public class AdminController {
 	 * 		ㄴ 구매리스트를 원하는 범위단위(option)로 가져온 후 원하는 데이터만큼의 개수(chartDataCnt)를 넘겨줌
 	 * 		ㄴ 위의 option과 chartDataCnt에 해당하는 데이터들을 가장 가까운 날짜부터 가져오되 오늘 날짜와 가장 멀리 떨어진 날짜부터 순서대로 정렬
 	 * 사용하는 mapper : AdminMapper.xml -> selectSalesWithOptions
+	 * 반환되는 위치 : admin_dashboard.js
 	 */
 	@RequestMapping(value = "/admin/getSalesDataWithOptions", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -238,6 +239,7 @@ public class AdminController {
 	 * 주요 기능 : 관리자 페이지의 장르별 매출 pie차트 data를 구성함
 	 * 함수 내용
 	 * 		ㄴ 장르별 매출 총합을 piechartData로 구성하여 넘겨줌
+	 * 반환되는 위치 : admin_pieChart.js
 	 */
 	@RequestMapping("/admin/getGenreSalesData.do")
 	@ResponseBody
@@ -254,7 +256,8 @@ public class AdminController {
 	 * 주요 기능 : 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 목록을 넘겨줌
 	 * 함수 내용
 	 * 		ㄴ 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 도서 목록을 넘겨줌
-	 * 		ㄴ 페이징을 돕는 PaginationVO 사용 
+	 * 		ㄴ 페이징을 돕는 PaginationVO 사용
+	 * 반환되는 위치 : admin_getProductDataWithPaging.js 
 	 */
 	@RequestMapping(value = "/admin/getProductDataWithPaging.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -284,6 +287,7 @@ public class AdminController {
 	 * 		ㄴ searchMap1에서 startRow와 endRow가 추가된 searchMap2로 필터링, 정렬된 데이터들을 가져와서 jsp페이지로 보내줌
 	 * 사용한 Mapper : AdminMapper -> selectProductListCountWithFiltering -> bookGenre, bookCnt를 받아서 해당하는 데이터의 개수를 뽑아옴		
 	 * 			   : AdminMapper -> selectProductListWithFiltering -> bookGenre, bookCnt, bookSortSequenceOption, bookSortOption, startRow, endRow를 받아서 해당하는 데이터를 받아옴
+	 * 반환되는 위치 : admin_dashboardFilteringList.js
 	 */
 	@RequestMapping(value = "/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
