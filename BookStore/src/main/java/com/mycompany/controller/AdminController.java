@@ -280,7 +280,7 @@ public class AdminController {
 	 * 주요 기능 : 현재 페이지와 재고 개수, 정렬옵션, 정렬순서옵션을 받아와서 도서 목록을 정렬
 	 * 함수 내용
 	 * 		ㄴ 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 도서 목록을 넘겨줌
-	 * 		ㄴ 페이징을 돕는 PaginationVO 사용 
+	 * 		ㄴ 필터링 결과 생기는 검색량에 따른 동적 페이지 구성
 	 */
 	@RequestMapping(value = "/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
