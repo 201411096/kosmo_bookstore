@@ -345,6 +345,12 @@ public class ProductController {
 		CartList.getInstance().clearCurrentCustomerCartList(session, buyCartListService, customerService);		
 		return mv;
 	}
+	/* 
+	 * 함수 이름 : reloadCartlist
+	 * 주요 기능 : 헤더 부분의 아이콘을 눌렀을 경우 나오는 장바구니 목록 갱신
+	 * 함수 내용 : 	--
+	 * 반환하는 위치 : custom_header.js
+	 */	
 	@RequestMapping(value = "/reloadCartlist.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map reloadCartlist(HttpSession session) {
@@ -362,7 +368,11 @@ public class ProductController {
 		}
 		return result;
 	}
-	
+	/* 
+	 * 함수 이름 : showBestSellerProductList
+	 * 주요 기능 : 베스트셀러 더 보기 클릭 후 리스트 구성
+	 * 함수 내용 : 	--
+	 */
 	// 베스트셀러 더 보기 클릭 후 리스트 구성
     @RequestMapping("/bestSellerProductList.do")
     public ModelAndView showBestSellerProductList() {
