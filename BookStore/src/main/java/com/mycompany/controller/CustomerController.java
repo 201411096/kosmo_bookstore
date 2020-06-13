@@ -254,6 +254,11 @@ public class CustomerController {
 		
 		return result;
 	}
+	/* ----- 어디서 사용하는지 모름 -----
+	 * 함수 이름 : getLoginCustomerId
+	 * 주요 기능 : 로그인한 사용자의 Id를 받아옴
+	 * 함수 내용 : --
+	 */
 	@RequestMapping(value = "/getLoginCustomerId.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getLoginCustomerId(HttpSession session) {
@@ -262,6 +267,12 @@ public class CustomerController {
 		result.put("customerId", customerVO.getCustomerId());
 		return result;
 	}
+	/* 
+	 * 함수 이름 : getLoginCustomerId
+	 * 주요 기능 : 로그인한 사용자의 Id를 받아옴
+	 * 함수 내용 : 리뷰 아이디와 사용자의 정보를 받아서 해당하는 리뷰 정보를 넘겨줌
+	 * 부르는 곳 : custom_productView.js
+	 */
 	@RequestMapping(value = "/getLoginCustomerIdAndReview.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getLoginCustomerIdAndReview(HttpSession session, @RequestParam(value = "reviewId") String reviewId) {
