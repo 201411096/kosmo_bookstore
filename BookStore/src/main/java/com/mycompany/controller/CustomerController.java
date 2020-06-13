@@ -47,6 +47,12 @@ public class CustomerController {
 	ReviewServiceImpl reviewService;	
 	@Autowired
 	BookServiceImpl bookService;
+	
+	/* 
+	 * 함수 이름 : moveToLogin
+	 * 주요 기능 : 로그인화면으로 이동
+	 * 함수 내용 : --
+	 */
 	@RequestMapping("/moveToLogin.do")
 	public ModelAndView moveToLogin(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -55,7 +61,18 @@ public class CustomerController {
 			mv.setViewName("redirect:/main.do");
 		return mv;
 	}
-	
+	/* 
+	 * 함수 이름 : login
+	 * 주요 기능 : 로그인, 사용자의 장바구니를 세션에 담음
+	 * 함수 내용 : 입력한 정보를 확인
+	 * 		ㄴ  해당 사용자의 장바구니를 세션에 담음
+	 * 			ㄴ 장바구니의 총합 계산해서 담음 (cartListTotalPrice)
+	 * 			ㄴ 장바구니의 목록의 개수를 담음 (cartListNumber) (=> A책 2권, B책 3권, C책 1권일 경우 6이 아닌 3을 담음)
+	 * 			ㄴ 장바구니 목록을 담음(cartList)
+	 * 사용하는 Mapper : CustomerMapper -> selectCustomer
+	 * 				  CustomerMapper -> getCartList
+	 * 참고사항 : mycompany.util.CartList
+	 */	
 	@RequestMapping("/login.do")
 	public ModelAndView login(CustomerVO vo, HttpSession session) {
 		//로그인 입력값으로 확인
@@ -74,6 +91,11 @@ public class CustomerController {
 		}
 		return mv;
 	}
+	/* 
+	 * 함수 이름 : logout
+	 * 주요 기능 : 로그아웃
+	 * 함수 내용 : --
+	 */
 	@RequestMapping("logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -81,7 +103,11 @@ public class CustomerController {
 		mv.setViewName("redirect:/main.do");
 		return mv;
 	}
-	//회원가입 페이지로 이동
+	/* 
+	 * 함수 이름 : moveToRegister
+	 * 주요 기능 : 회원가입 화면으로 이동
+	 * 함수 내용 : 로그인 되어 있는 상태라면 메인화면으로 이동, 그게 아니라면 회원가입화면으로 이동
+	 */
 	@RequestMapping("/moveToRegister.do")
 	public ModelAndView moveToRegister(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -90,7 +116,15 @@ public class CustomerController {
 			mv.setViewName("redirect:/main.do");
 		return mv;
 	}
-	// 회원가입
+	/* 
+	 * 함수 이름 : register
+	 * 주요 기능 : 회원가입
+	 * 함수 내용 : 사용자가 입력한 정보에 따라 회원가입
+	 * 			ㄴ 회원가입 성공시 로그인도 같이함
+	 * 			ㄴ 회원가입 성공시 사용자의 선호 장르 정보를 기록하는 부분도 같이 생성
+	 * 사용하는 Mapper : CustomerMapper.xml -> insertCustomer
+	 * 				  TendencyMapper.xml -> insertTendency
+	 */
 	@RequestMapping("/register.do")
 	public String register(CustomerVO vo, HttpSession session) {
 		int result = customerService.insertCustomer(vo);
@@ -101,12 +135,24 @@ public class CustomerController {
 		}
 		return "redirect:/registerCon.do";
 	}	
-	// 회원가입 확인 페이지로 이동(정보 불러오기)
+	/* 
+	 * 함수 이름 : joinCon
+	 * 주요 기능 : 회원가입 확인 페이지로 이동
+	 */
 	@RequestMapping("/registerCon.do")
 	public String joinCon(CustomerVO vo, Model model) {
 		return "registerCon";
 	}
-	//성향 그래프를 그리는 함수(ajax 없는 부분에서 사용했었음)
+	/* ----------- 사용하지 않음 ----------
+	 * 함수 이름 : moveToTendencyGraph
+	 * 주요 기능 : 선호장르 그래프 페이지로 이동함
+	 * 함수 내용 : 사용자의 선호장르 그래프 페이지로 이동
+	 * 		ㄴ 사용자의 선호장르 데이터를 가져옴
+	 * 		ㄴ 모든 사용자의 선호장르 데이터를 가져옴
+	 * 사용한 Mapper : TendencyMapper.xml -> selectTendency		(사용자의 선호장르 데이터를 가져옴)
+	 * 				 TendencyMapper.xml -> selectAllTendency	(모든 사용자의 선호장르 데이터를 가져옴) 
+	 * 참고사항 : myCompany.util.Tendency
+	 */
 	@RequestMapping("/moveToTendencyGraph.do")
 	public ModelAndView moveToTendencyGraph(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -115,6 +161,11 @@ public class CustomerController {
 		mv.setViewName("tendencyGraph");
 		return mv;
 	}
+	/* 
+	 * 함수 이름 : moveToAjaxTendencyGraph
+	 * 주요 기능 : 선호장르 ajax 그래프 페이지로 이동함
+	 * 함수 내용 : 사용자의 로그인 상태를 확인한 후 ajaxTendencyGraph 페이지로 이동함
+	 */
 	@RequestMapping("/ajax_tendencyGraph.do")
 	public ModelAndView moveToAjaxTendencyGraph(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -127,8 +178,40 @@ public class CustomerController {
 		mv.setViewName("ajax_tendencyGraph");
 		return mv;
 	}
-	
-	//성향 그래프를 그리면서 가장 많이 읽은 장르의 책과 가장 적게 읽은 장르의 책을 추천하는 함수
+	/* 
+	 * 함수 이름 : drawAjaxTendencyGraph
+	 * 주요 기능 : 선호장르 그래프를 그리고 가장 선호하는 장르와 가장 선호하지 않는 장르의 책 중에서 일정 평점이상의 책들을 하나씩 추천
+	 * 함수 순서 : 
+	 * 		ㄴ 사용자의 선호장르 데이터를 가져옴
+	 * 		ㄴ 사용자가 작성한 모든 리뷰의 점수들만큼 해당 장르들의 데이터에 반영함 (db를 건드리지 않음)
+	 * 		ㄴ 사용자의 선호장르 데이터를 %로 변환
+	 * 		ㄴ %로 변환한 선호장르 데이터를 반환 ( "tendency" )
+	 * 		ㄴ 사용자의 선호장르 데이터를 기반으로 가장 선호하는 장르를 받아옴 (데이터의 점수가 동일할 경우 해당 장르들 중 랜덤으로 반환)
+	 * 		ㄴ 선호 장르에 해당하면서 평점이 3.0이상인 책들을 모두 가져옴
+	 * 		ㄴ 선호 장르 책 리스트 중 한 권을 반환 ( "bookInMaxPrefferedGenre" )
+	 * 		ㄴ 비선호 장르의 책도 위의 방법으로 반환 ( "bookInMinPrefferedGenre" )
+	 * 		ㄴ 모든 사용자의 선호장르 데이터를 가져옴
+	 * 		ㄴ 모든 사용자의 선호장르 데이터도 사용자의 선호장르 데이터를 처리한 방법과 같이 처리 후 반환 ( "totalTendency" )
+	 * 사용한 Mapper : TendencyMapper.xml -> selectTendency		(사용자의 선호장르 데이터를 가져옴)
+	 * 				 TendencyMapper.xml -> selectAllTendency	(모든 사용자의 선호장르 데이터를 가져옴)
+	 * 				 TendencyMapper.xml -> selectAllByGenreWithScore (해당 장르에 해당하는 평점 3이상의 도서 목록을 가져옴)
+	 * 				 ReviewMapper.xml -> selectReviewListByCustomerId	(사용자의 모든 리뷰 정보를 가져옴)
+	 * 				 ReviewMapper.xml -> selectReviewList		(모든 사용자의 모든 리뷰 정보를 가져옴)
+	 * 참고사항 : myCompany.util.Tendency
+	 * 				ㄴ addReviewPointToCustomerTendency
+	 * 					ㄴ 사용자의 선호 장르를 기록한 데이터에 사용자가 작성해둔 리뷰들의 점수들도 반형
+	 * 				ㄴ addReviewPointToAllUsersTendency
+	 * 					ㄴ 모든 사용자의 선호 장르를 기록한 데이터에 모든 사용자가 작성해둔 리뷰들의 점수들도 반형
+	 * 		   myCompany.domain.TendencyVO
+	 * 			ㄴ 가장 선호하는 장르와 가장 선호하지 않는 장르를 구하는 함수, 해당 데이터들을 %로 변환해주는 함수 포함
+	 * 				ㄴ getMaxPrefferedGenreConsiderWithSameScore
+	 * 					ㄴ 선호장르에 대한 데이터 점수가 동일할 경우 랜덤으로 반환
+	 * 				ㄴ getMinPrefferedGenreConsiderWithSameScore
+	 * 					ㄴ 선호장르에 대한 데이터 점수가 동일할 경우 랜덤으로 반환
+	 * 				ㄴ setElementToPercent
+	 * 					ㄴ 선호장르 점수에 대한 데이터를 %로 반환해줌
+	 * 반환하는 위치 : custom_ajax_tendencyGraph.js
+	 */	
 	@RequestMapping(value = "/ajaxTendencyGraph.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map drawAjaxTendencyGraph(HttpSession session) {
@@ -191,7 +274,12 @@ public class CustomerController {
 		}
 		return result;
 	}
-	
+	/* 
+	 * ----- 어디서 사용한지 모름 -----
+	 * 함수 이름 : getCustomerVO
+	 * 주요 기능 : session에 담긴 사용자 정보를 가져옴
+	 * 함수 내용 : --
+	 */
 	@RequestMapping(value = "/getLoginCustomerVO.do",  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getCustomerVO(HttpSession session) {
@@ -205,7 +293,17 @@ public class CustomerController {
 		
 		return result;
 	}
-	
+	/* 
+	 * 함수 이름 : sendMailForFindPassword
+	 * 주요 기능 : 임시비밀번호를 만들어서 사용자 email로 전송함
+	 * 함수 내용 : 사용자의 정보를 받아서 영문자+숫자로 이루어진 10자리 문자열을 메일로 발송하고 비밀번호를 해당 임시비밀번호로 설정
+	 * 		ㄴ 사용자의 정보(아이디와 이메일)을 받아옴
+	 * 		ㄴ 영문자+숫자조합으로 10자리 임시비밀번호를 생성
+	 * 		ㄴ 사용자의 비밀번호를 임시비밀번호로 수정한 후 사용자가 회원가입시 입력해두었던 이메일로 임시비밀번호 전송
+	 * 사용하는 Mapper : CustomerMapper.xml -> makeTemporaryPassword
+	 * 참고사항 : 메일 전송시 d드라이브에 보내는 사람의 메일 주소와 메일비밀번호가 담긴 text파일이 필요("d:/abc.txt", 첫번째 줄에 메일 주소, 두번째 줄에 passowrd)
+	 * 			ㄴ 소스 위치 : com.mycompany.util.SendMail.java
+	 */
 	@RequestMapping("/sendMailForFindPassword.do")
 	public ModelAndView sendMailForFindPassword(HttpSession session, CustomerVO customerVO) {
 		ModelAndView mv = new ModelAndView();

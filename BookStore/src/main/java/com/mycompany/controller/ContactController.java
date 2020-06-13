@@ -17,12 +17,24 @@ public class ContactController {
 	private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
 	@Autowired
 	StoreServiceImpl storeService;
+	
+	/* 
+	 * 함수 이름 : selectStore
+	 * 주요 기능 : 오시는 길 페이지로 이동
+	 * 함수 내용 : --
+	 */
 	@RequestMapping("/contact.do")
 	public ModelAndView selectStore() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/contact");
 		return mv;
 	}
+	/* 
+	 * 함수 이름 : contactMap
+	 * 주요 기능 : 오시는 길 페이지로 db에 있는 지점 정보를 보내줌
+	 * 함수 내용 : --
+	 * 반환되는 위치 : custom_map.js
+	 */
 	@RequestMapping("/contact_map.do")
 	public ModelAndView contactMap() {
 		ModelAndView mv = new ModelAndView();
