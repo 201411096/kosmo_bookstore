@@ -25,7 +25,12 @@ public class WriterController {
 	@Autowired
 	WriterServiceImpl writerService;
 	
-	//0609 이후 추가--------------------
+	/* ----- 이제 사용하지 않음 => 페이징 처리가 되는 버전 사용 -----
+	 * 함수 이름 : getWriterData
+	 * 주요 기능 : 저자의 정보를 가져옴
+	 * 함수 내용 : 
+	 * 반환 위치 : admin_writer.js				 
+	 */
 	@RequestMapping(value="/admin/getWriterData.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getWriterData(HttpSession session, @RequestParam(value = "searchWord") String searchWord) {
@@ -36,6 +41,12 @@ public class WriterController {
 		result.put("writerListSize", writerList.size());
 		return result;
 	}
+	/*
+	 * 함수 이름 : loadWriterUpdatePage
+	 * 주요 기능 : 저자의 정보 수정 페이지를 불러옴
+	 * 함수 내용 : 해당 저자의 정보를 불러와서 수정 페이지에 입려시켜둠
+	 * 반환 위치 : admin_writerUpdate.jsp			 
+	 */
 	@RequestMapping(value="/admin/loadWriterUpdatePage.do")
 	public ModelAndView loadWriterUpdatePage(HttpSession session, int writerId) {
 		ModelAndView mv = new ModelAndView();
@@ -46,6 +57,11 @@ public class WriterController {
 		mv.setViewName("/admin/admin_writerUpdate");
 		return mv;
 	}
+	/*
+	 * 함수 이름 : writerUpdate
+	 * 주요 기능 : 저자의 정보를 수정함
+	 * 함수 내용 : --			 
+	 */
 	@RequestMapping(value="/admin/writerUpdatePage.do")
 	public ModelAndView writerUpdate(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
@@ -54,6 +70,11 @@ public class WriterController {
 		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
 	}
+	/*
+	 * 함수 이름 : writerDelete
+	 * 주요 기능 : 저자의 정보를 삭제함
+	 * 함수 내용 : --			 
+	 */
 	@RequestMapping(value="/admin/writerDelete.do")
 	public ModelAndView writerDelete(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
@@ -62,12 +83,22 @@ public class WriterController {
 		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
 	}
+	/*
+	 * 함수 이름 : writerInsertPage
+	 * 주요 기능 : 저자 정보 입력 페이지를 불러옴
+	 * 함수 내용 : --			 
+	 */
 	@RequestMapping(value="/admin/loadInsertWriter.do")
 	public ModelAndView writerInsertPage(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/admin/admin_writerInsert");
 		return mv;
 	}
+	/*
+	 * 함수 이름 : writerInsert
+	 * 주요 기능 : 저자 정보를 입력함
+	 * 함수 내용 : --			 
+	 */
 	@RequestMapping(value="/admin/insertWriter.do")
 	public ModelAndView writerInsert(HttpSession session, WriterVO writerVO) {
 		ModelAndView mv = new ModelAndView();
@@ -76,7 +107,12 @@ public class WriterController {
 		mv.setViewName("/admin/admin_writer_pagination");
 		return mv;
 	}
-	//페이징처리
+	/*
+	 * 함수 이름 : getWriterDataWithPaging
+	 * 주요 기능 : 저자 정보를 검색후 그 결과에 맞춰서 페이징 처리를 한 후에 반환
+	 * 함수 내용 : 저자 정보 반환
+	 * 		ㄴ 검색 결과에 따른 동적 페이징 처리		 
+	 */
 	@RequestMapping(value="/admin/getWriterDataWithPaging.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map getWriterDataWithPaging(HttpSession session,  @RequestParam(defaultValue="1") int curPage, @RequestParam(value = "searchWord") String searchWord) {
