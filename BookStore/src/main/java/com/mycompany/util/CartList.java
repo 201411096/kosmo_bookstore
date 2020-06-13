@@ -84,7 +84,7 @@ public class CartList {
 			map.put(st.nextToken(), values); //bookId와 cnt를 map에 넣음
 		}
 		for(int i=0; i<list.size(); i++) {
-			map.containsKey(Integer.toString(list.get(i).getBookId()));
+			map.containsKey(Integer.toString(list.get(i).getBookId())); // 왜 붙어있는지 모름
 			if(map.containsKey(Integer.toString(list.get(i).getBookId()))==false || map.get(Integer.toString(list.get(i).getBookId())).equals("0")) { //해당 bookId가 없거나 개수가 0개라면 삭제된 것 혹은 삭제해야할 것임
 				CustomerVO logInState = (CustomerVO) session.getAttribute("customer");
 				BuyCartListVO vo = new BuyCartListVO();
