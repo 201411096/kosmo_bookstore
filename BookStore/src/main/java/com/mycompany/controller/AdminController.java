@@ -277,10 +277,13 @@ public class AdminController {
 
 	/* 
 	 * 함수 이름 : selectProductListWithFiltering
-	 * 주요 기능 : 현재 페이지와 재고 개수, 정렬옵션, 정렬순서옵션을 받아와서 도서 목록을 정렬
+	 * 주요 기능 : 도서 목록을 정렬, 필터링
 	 * 함수 내용
-	 * 		ㄴ 검색어와 현재 페이지를 입력받아 현재 페이지에 해당하는 도서 목록을 넘겨줌
-	 * 		ㄴ 필터링 결과 생기는 검색량에 따른 동적 페이지 구성
+	 * 		ㄴ 현재 페이지와 재고 개수, 정렬옵션, 정렬순서옵션을 받아와서 해당하는 데이터의 개수를 구함 -> searchMap1을 이용한 listCnt(데이터의 개수)를 구함
+	 * 		ㄴ listCnt(데이터의 개수)와 현재 페이지를 paginationVO를 이용해서 현재페이지(curPage)에 해당하는 startRow, endRow를 구함
+	 * 		ㄴ searchMap1에서 startRow와 endRow가 추가된 searchMap2로 필터링, 정렬된 데이터들을 가져와서 jsp페이지로 보내줌
+	 * 사용한 Mapper : AdminMapper -> selectProductListCountWithFiltering -> bookGenre, bookCnt를 받아서 해당하는 데이터의 개수를 뽑아옴		
+	 * 			   : AdminMapper -> selectProductListWithFiltering -> bookGenre, bookCnt, bookSortSequenceOption, bookSortOption, startRow, endRow를 받아서 해당하는 데이터를 받아옴
 	 */
 	@RequestMapping(value = "/admin/selectProductListWithFiltering.do", produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -299,15 +302,9 @@ public class AdminController {
 			searchMap2.put("bookGenre", bookGenre);
 		}
 		if (!bookSortOption.equals("default")) {
-			// searchMap1.put("bookSortSequenceOption", bookSortSequenceOption); //정렬
-			// 부분이기때문에 갯수를 세는데에도 사용할 필요가 없음
 			searchMap2.put("bookSortSequenceOption", bookSortSequenceOption);
-			// searchMap1.put("bookSortOption", bookSortOption); //정렬 부분이기때문에 갯수를 세는데에도 사용할
-			// 필요가 없음
 			searchMap2.put("bookSortOption", bookSortOption);
 		}
-//			searchMap1.put("searchWord", searchWord);
-//			searchMap2.put("searchWord", searchWord);
 		searchMap1.put("bookCnt", bookCnt);
 		searchMap2.put("bookCnt", bookCnt);
 		int listCnt = adminService.selectProductListCountWithFiltering(searchMap1);
@@ -321,12 +318,6 @@ public class AdminController {
 		result.put("pagination", paginationVO);
 		result.put("bookList", bookList);
 		result.put("bookListSize", bookList.size());
-
-		System.out.println("admin controller안에서 lintcnt 확인 : " + listCnt);
-		System.out.println("admin controller안에서 bookListSize 확인 : " + bookList.size());
-		System.out.println("admin controller안에서 startRow  확인 : " + paginationVO.getStartIndex() + 1);
-		System.out.println(
-				"admin controller안에서 endRow  확인 : " + (paginationVO.getStartIndex() + paginationVO.getPageSize()));
 
 		return result;
 	}
