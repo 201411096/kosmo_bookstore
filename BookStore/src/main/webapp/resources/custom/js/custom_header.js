@@ -1,3 +1,22 @@
+/*
+함수
+	ㄴ getCustomerVOAndSetCustomerVO : 사용자의 정보를 받아옴
+		ㄴ 내부적으로 reConstructLoginPart를 부름
+	ㄴ reConstructLoginPart : 로그아웃 상태시에는 로그인버튼, 로그인 상태시에는 로그아웃버튼, 관리자인 경우 관리화면으로 이동 버튼을 구성하는 함수
+	ㄴ reloadCartList : 화면 우측 상단에 있는 장바구니를 갱신하는 함수
+		ㄴ 내부적으로 makeCartList를 부름
+	ㄴ makeCartList : db에서 가져온 데이터를 html로 구성하는 함수
+		ㄴ 내부적으로 로그인 상태인 경우에 makeCartListForm를 부름으로서 화면을 구성해줌
+		ㄴ 로그인 상태가 아니라면 그냥 비워둠
+	ㄴ makeCartListForm : db에서 가져온 데이터를 html로 구성하는 함수
+	ㄴ listSearchKeyUpEvent : 검색창 키업이벤트 발생시 검색어에 해당하는 도서 목록을 가져오는 함수
+	ㄴ makeSearhResultBox : listSearchKeyUpEvent에서 받아온 데이터들을 검색 목록을 구성해주는 함수
+실행부분
+	ㄴ listSearchKeyUpEvent 연결
+	ㄴ reloadCartList를 2초마다 부름
+	ㄴ 최초에 화면 로딩시 getCustomerVOAndSetCustomerVO를 실행
+	ㄴ 2초마다 getCustomerVOAndSetCustomerVO 실행
+*/
 $(function(){
 	$('#listSearch').on('keyup', listSearchKeyUpEvent);
 	setInterval(reloadCartList, 2000);
