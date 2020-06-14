@@ -38,8 +38,8 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		
 
 		System.out.println(log);
-		//String filePath = "d:\\Temp\\testlog.txt";
-		String filePath = "e:\\Temp\\testlog.txt";
+		String filePath = "d:\\Temp\\testlog.txt";
+		//String filePath = "e:\\Temp\\testlog.txt";
 		FileWriter fileWriter = new FileWriter(filePath, true);
 
 		fileWriter.write(log);
