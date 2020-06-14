@@ -1,3 +1,25 @@
+/*
+변수
+	ㄴ chartData : 차트에 사용되는 데이터
+	ㄴ chartOption : 차트 생성시 사용되는 옵션
+	ㄴ maxBook : 가장 선호하는 장르의 책 정보를 담을 변수
+	ㄴ minBook : 가장 선호하지 않는 장르의 책 정보를 담을 변수	
+함수
+	ㄴ makeChartAjax : 사용자의 선호 장르 그래프를 그린 후 가장 선호하는 장르의 책과 가장 선호하지 않는 장르의 책을 시각화하는 함수
+	ㄴ makeAjaxChartData : 그래프를 그리는데 필요한 데이터를 가공하는함수
+	ㄴ makeChart : 그래프를 실질적으로 그리는 함수
+	ㄴ makeCustomerArray : makeChartAjax에서 받아온 데이터 중 로그인 한 사용자의 데이터를 가공하는 함수
+	ㄴ makeTotalArray : makeChartAjax에서 받아온 데이터 중 전체 사용자의 데이터를 가공하는 함수
+	ㄴ bookInMaxPrefferedGenre : makeChartAjax에서 받아온 데이터 중 로그인 한 사용자의 가장 선호하는 장르의 책 데이터를 가공하는 함수
+	ㄴ bookInMinPrefferedGenre : makeChartAjax에서 받아온 데이터 중 로그인 한 사용자의 가장 선호하지 않는 장르의 책  데이터를 가공하는 함수
+	ㄴ makeRecommendMaxList : 가장 선호하는 장르의 책을 html요소로 시각화
+	ㄴ makeRecommendMinList : 가장 선호하지 않는 장르의 책을 html요소로 시각화
+	ㄴ recommendMaxTitle : 가장 선호하는 장르의 책제목부분을 html요소로 시각화
+	ㄴ recommendMinTitle : 가장 선호하지 않는 장르의 책제목부분을 html요소로 시각화
+실행부분
+	ㄴ 최초 화면 로딩시 makeChartAjax로 화면 구성
+	ㄴ 5초마다 makeChartAjax로 화면 구성
+*/
 var chartData;
 var chartOptions;
 var maxBook; // 가장 선호하는 장르 // 사용법 : maxBook.bookId, maxBook.bookName
