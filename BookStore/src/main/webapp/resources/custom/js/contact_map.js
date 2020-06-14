@@ -1,4 +1,4 @@
-
+// jsp에 hidden값으로 작성해둔 데이터들을 가져와서 지도에 표시
   var locations = new Array();
   var storeName = $('.storeName');
   var storeAddr = $('.storeAddr');

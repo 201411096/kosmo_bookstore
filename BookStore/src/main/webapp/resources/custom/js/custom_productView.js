@@ -1,3 +1,12 @@
+/*
+함수
+	ㄴ reviewBtnHandler : 리뷰 작성 버튼을 눌렀을 떄
+	ㄴ updateBtnHandler : 리뷰 작성 옆에 있는 수정 버튼을 눌렀을 떄
+	ㄴ deleteHandler : 리뷰 삭제 버튼을 눌렀을 떄
+	ㄴ getContentBtnHandler : 리뷰 삭제 옆에 있는 수정 버튼을 눌렀을 때
+		ㄴ 해당 리뷰의 정보를 리뷰 입력창으로 끌어옴
+	ㄴ makeReviewList : 리뷰부분을 전부 지우고 다시 구성해주는 함수
+*/
 $(function(){
 	$('#review-btn').on('click', reviewBtnHandler);
 	$('#update-btn').on('click', updateBtnHandler);

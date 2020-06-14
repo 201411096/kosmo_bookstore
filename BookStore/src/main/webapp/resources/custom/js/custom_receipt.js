@@ -1,3 +1,5 @@
+//영수증의 구매 내역 화면을 구성해줌
+
 $(function(){
 	console.log("custom_receip.js 연결 확인");
 	reconstructionViewPage();

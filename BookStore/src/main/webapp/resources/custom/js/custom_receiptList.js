@@ -1,3 +1,5 @@
+//영수증 목록 화면을 구성해줌
+
 var receiptListData = new Object(); // 왜 안되는지 몰랐던 부분이었는데 됨
 $(function(){
 	console.log("custom_receiptList.js 연결 확인");
