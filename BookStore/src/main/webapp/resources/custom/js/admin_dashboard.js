@@ -9,6 +9,13 @@
 	ㄴ makeChartAjax : 차트를 그리는데 필요한 옵션들을 받아서 controller로 넘기고 해당 옵션들에 해당하는 데이터들을 받아서 차트를 그림
 	ㄴ makeAjaxChartData : makeChartAjax에서 받아온 데이터들을 차트데이터로 사용할 수 있게 가공
 	ㄴ mainColorGenerator : 선형그래프가 아닐경우 makeAjaxChartData에서 사용되며 차트를 구성할 색들을 생성해서 mainColor에 담아줌
+	
+실행부분
+	ㄴ 화면 로딩 후 바로 데이터를 가져와서 차트를 그림
+	ㄴ 10초마다 차트를 다시 그림
+	ㄴ 차트 데이터 기간 옵션(연, 월, 일...)이 변경될때마다 차트를 다시 그림
+	ㄴ 차트에 사용할 데이터 개수 옵션이 변경될때마다 차트를 다시 그림
+	ㄴ 차트 모양 옵션이 변경될떄마다 차트를 다시 그림
 */
 
 var chartData;

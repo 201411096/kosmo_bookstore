@@ -1,3 +1,16 @@
+/*
+변수
+	ㄴ chartPieData : 차트에 사용되는 데이터
+	ㄴ chartPieOptions : 차트 생성시 사용되는 옵션
+	
+함수
+	ㄴ makeChartPieAjax : 차트를 그리는데 필요한 옵션들을 받아서 controller로 넘기고 해당 옵션들에 해당하는 데이터들을 받아서 차트를 그림
+	ㄴ makeAjaxChartPieData : makeChartAjax에서 받아온 데이터들을 차트데이터로 사용할 수 있게 가공
+	
+실행부분
+	ㄴ 화면 로딩 후 바로 데이터를 가져와서 차트를 그림
+	ㄴ 10초마다 차트를 다시 그림
+*/
 var chartPieData;
 var chartPieOptions = {
                   maintainAspectRatio : false // 부모가 만든 크기 안에 꽉 차게 함(default 값: true)
