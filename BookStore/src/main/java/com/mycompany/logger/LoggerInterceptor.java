@@ -17,11 +17,6 @@ import com.mycompany.domain.CustomerVO;
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-//		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
-//				.getRequest();
-//		String ip = req.getHeader("X-FORWARDED-FOR"); //X-Forwarded-For (XFF) 헤더는 HTTP 프록시나 로드 밸런서를 통해 웹 서버에 접속하는 클라이언트의 원 IP 주소를 식별하는 표준 헤더
-//		// ip를 가져옴
-//		ip = req.getRemoteAddr();
 		String ip = request.getHeader("X-FORWARDED-FOR");
 		if(ip==null)
 			ip = request.getRemoteAddr();
