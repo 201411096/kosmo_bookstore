@@ -1,3 +1,16 @@
+/*
+변수
+	ㄴ chartData : 차트에 사용되는 데이터
+	ㄴ chartOption : 차트 생성시 사용되는 옵션
+	ㄴ chartType : 차트를 어떤 모양으로 생성할지
+	ㄴ mainColor : 차트를 구성하는 색
+	
+함수
+	ㄴ makeChartAjax : 차트를 그리는데 필요한 옵션들을 받아서 controller로 넘기고 해당 옵션들에 해당하는 데이터들을 받아서 차트를 그림
+	ㄴ makeAjaxChartData : makeChartAjax에서 받아온 데이터들을 차트데이터로 사용할 수 있게 가공
+	ㄴ mainColorGenerator : 선형그래프가 아닐경우 makeAjaxChartData에서 사용되며 차트를 구성할 색들을 생성해서 mainColor에 담아줌
+*/
+
 var chartData;
 var chartOptions = {
 						//responsive: false,
