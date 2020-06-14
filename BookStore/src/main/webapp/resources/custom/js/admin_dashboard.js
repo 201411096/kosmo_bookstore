@@ -85,8 +85,6 @@ function makeAjaxChartData(resultData){
 		            backgroundColor : mainColor, //subColor
 		            borderColor : mainColor,
 		            borderCapStyle : 'butt',
-//		            borderDash : {},
-//		            borderDashOffset : 0.0,
 		            borderJoinStyle : 'miter',
 		            pointBorderColor : mainColor,
 		            pointBackgroundColor : '#fff',

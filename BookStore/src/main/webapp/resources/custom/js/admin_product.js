@@ -22,7 +22,6 @@
 */
 //페이징처리
 var curPage;
-//var productData_total_page;		//사용하지 않은 듯
 var defaultOpts = {										//페이징 처리 함수에서 불리는 옵션
         totalPages: 20,
         onPageClick: function (event, page) {
@@ -35,7 +34,6 @@ var defaultOpts = {										//페이징 처리 함수에서 불리는 옵션
 $(function(){
 	getProductData();
 	$('#listSearch').on('keyup', getProductData);
-//	$('#pagination-demo').on('click', getWriterDataInPaging);
 	$(document).on("click",".btn-primary", updateBtnEvent);
 	$(document).on("click",".btn-warning", deleteBtnEvent);
 });
@@ -62,15 +60,6 @@ function getProductDataInPaging(){
 		
 	});
 }
-
-
-//이거 두개 있었는데 왜 정상적으로 됬는지 모름
-//$(function(){
-//	getProductData();
-//	$('#listSearch').on('keyup', getProductData);
-//	$(document).on("click",".btn-primary", updateBtnEvent);
-//	$(document).on("click",".btn-warning", deleteBtnEvent);
-//});
 
 function updateBtnEvent(){
 	console.log( $(this).parent().prev().prev().text() );
